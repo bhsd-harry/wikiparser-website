@@ -1,0 +1,25 @@
+<noinclude>
+<languages />
+</noinclude>{{#ifeq:|
+|{{{1|{{FULLPAGENAME}}}}}
+|{{#invoke:String|sub|{{{1|{{FULLPAGENAME}}}}}
+  |1
+  |{{#expr:{{#invoke:String|len|{{{1|{{FULLPAGENAME}}}}}}}-{{#invoke:String|len|{{pagelang|{{{1|{{FULLPAGENAME}}}}}}}}}-1}}
+  }}
+}}<noinclude>
+{{Documentation|content=
+{{Lua|Module:String}}
+
+<translate>
+== Examples == <!--T:1-->
+</translate>
+* {{tlx|translatable}}
+{{translatable}}
+* {{tlx|translatable|2=<translate><!--T:2--> Page name</translate>}}
+{{translatable|1=<translate><!--T:3--> Page name</translate>}}
+* {{tlx|translatable|2=<translate><!--T:4--> Page name</translate>/{{PAGELANGUAGE}} }}
+{{translatable|1=<translate><!--T:5--> Page name</translate>/{{PAGELANGUAGE}} }}
+}}
+
+[[Category:Internationalization templates{{#translation:}}]]
+</noinclude>

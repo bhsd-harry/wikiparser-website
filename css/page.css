@@ -1,0 +1,405 @@
+html, body, main, article, div, select, pre, ol, li, ul, dl, dt, dd,
+p, hr, h1, h2, h3, h4, h5, h6, a, center, img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+:root {
+	font-size: 14px;
+	font-family: sans-serif;
+	--border-color-base: #a2a9b1;
+	--background-color-neutral: #eaecf0;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #f0f0f0;
+	line-height: 1.2;
+}
+main {
+	display: flex;
+	width: 90vw;
+	max-width: 1200px;
+	margin: 3rem 0;
+	background-color: #fff;
+	box-shadow: 0 0 .5rem rgb(0, 0, 0, .1);
+	border-radius: .5rem;
+}
+article {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 1rem 2rem;
+	line-height: 1.57;
+}
+p {
+	margin: .5em 0 1em;
+}
+hr {
+	height: 1px;
+	background-color: #a2a9b1;
+	margin: .2em 0;
+}
+h1, h2 {
+	margin: 1em 0 .25em;
+	font-family: serif;
+	line-height: 1.38;
+	border-bottom: 1px solid #a2a9b1;
+}
+h1 {
+	font-size: 1.8em;
+}
+h2 {
+	font-size: 1.5em;
+}
+h3, h4, h5, h6 {
+	margin-top: .3em;
+	line-height: 1.6;
+	font-weight: bold;
+}
+h3 {
+	font-size: 1.2em;
+}
+h4, h5, h6 {
+	font-size: 100%;
+}
+a {
+	overflow-wrap: break-word;
+	text-decoration: none;
+	color: #0645ad;
+}
+a.new {
+	color: #ba0000;
+}
+a.external, a.extiw {
+	color: #36b;
+}
+a.external {
+	background: url("/wikiparser-node/assets/external-link.svg") center right/12px no-repeat;
+	padding-right: 1em;
+}
+a.external.free {
+	word-break: break-all;
+}
+a.mw-selflink {
+	color: inherit;
+	font-weight: bold;
+	cursor: inherit;
+}
+a:hover, a:focus {
+	text-decoration: underline;
+}
+a.mw-selflink:hover {
+	text-decoration: inherit;
+}
+a:active {
+	color: #faa700;
+}
+a.mw-selflink:active {
+	color: inherit;
+}
+ul {
+	margin: .3em 0 0 1.6em;
+}
+ol {
+	margin: .3em 0 0 3.2em;
+	list-style-image: none;
+}
+li {
+	margin-bottom: .1em;
+}
+ul > li, ol > li {
+	min-height: 1em;
+}
+li:empty, li:-moz-only-whitespace,
+p:empty, p:-moz-only-whitespace {
+	display: none;
+}
+.redirectText {
+	font-size: 140%;
+	list-style: none;
+	margin: 0;
+}
+.redirectText > li {
+	padding-left: 47px;
+	background: url("/wikiparser-node/assets/redirect-ltr.svg") bottom left no-repeat;
+	margin: 0;
+}
+dl {
+	margin: .2em 0 .5em;
+}
+dt {
+	font-weight: bold;
+	margin-bottom: .1em;
+}
+dd {
+	margin: 0 0 .1em 1.6em;
+}
+q {
+	quotes: '"' '"' "'" "'";
+}
+code {
+	border-radius: 2px;
+	padding: 1px 4px;
+}
+pre {
+	padding: 1em;
+	white-space: pre-wrap;
+	overflow: hidden;
+	overflow-wrap: break-word;
+}
+code, pre {
+	background: #f8f9fa;
+	color: #000;
+	border: 1px solid #eaecf0;
+}
+sub, sup {
+	font-size: 80%;
+	line-height: 1;
+}
+blockquote {
+	padding: 8px 32px;
+	margin: 1em 0;
+}
+.error {
+	font-size: larger;
+	color: #d73333;
+}
+p + ul, p + ol, p + table, p + dl, p + blockquote {
+	margin-top: -.5em;
+}
+.wikitable {
+	background-color: #f8f9fa;
+	color: #202122;
+	margin: 1em 0;
+	border: 1px solid #a2a9b1;
+	border-collapse: collapse;
+}
+.wikitable > * > tr > th {
+	background-color: #eaecf0;
+	color: #202122;
+	text-align: center;
+}
+.wikitable > * > tr > th, .wikitable > * > tr > td {
+	border: 1px solid #a2a9b1;
+	padding: .2em .4em;
+}
+img {
+	vertical-align: middle;
+	max-width: 100%;
+	background: url("/wikiparser-node/assets/bad-image.svg") center/contain no-repeat;
+}
+.mw-image-border .mw-file-element {
+	border: 1px solid #eaecf0;
+}
+.mw-valign-middle .mw-file-element {
+	vertical-align: middle;
+}
+.mw-valign-baseline .mw-file-element {
+	vertical-align: baseline;
+}
+.mw-valign-sub .mw-file-element {
+	vertical-align: sub;
+}
+.mw-valign-super .mw-file-element {
+	vertical-align: super;
+}
+.mw-valign-top .mw-file-element {
+	vertical-align: top;
+}
+.mw-valign-text-top .mw-file-element {
+	vertical-align: text-top;
+}
+.mw-valign-bottom .mw-file-element {
+	vertical-align: bottom;
+}
+.mw-valign-text-bottom .mw-file-element {
+	vertical-align: text-bottom;
+}
+figure[typeof~="mw:File/Thumb"],
+figure[typeof~="mw:File/Frame"] {
+	margin: .5em 0 1.3em 1.4em;
+	clear: right;
+	float: right;
+	min-width: 100px;
+	border: 1px solid #c8ccd1;
+	border-bottom: 0;
+	background-color: #f8f9fa;
+	display: table;
+	text-align: center;
+	border-collapse: collapse;
+	line-height: 0;
+}
+figure.mw-halign-left {
+	clear: left;
+	float: left;
+}
+figure[typeof~="mw:File"].mw-halign-left,
+figure[typeof~="mw:File/Frameless"].mw-halign-left {
+	margin: 0 .5em .5em 0;
+}
+figure[typeof~="mw:File/Thumb"].mw-halign-left,
+figure[typeof~="mw:File/Frame"].mw-halign-left {
+	margin: .5em 1.4em 1.3em 0;
+}
+figure.mw-halign-right {
+	clear: right;
+	float: right;
+}
+figure[typeof~="mw:File"].mw-halign-right,
+figure[typeof~="mw:File/Frameless"].mw-halign-right {
+	margin: 0 0 .5em .5em;
+}
+figure[typeof~="mw:File/Thumb"].mw-halign-right,
+figure[typeof~="mw:File/Frame"].mw-halign-right {
+	margin: .5em 0 1.3em 1.4em;
+}
+figure.mw-halign-center {
+	margin: 0 auto;
+	clear: none;
+	float: none;
+}
+figure[typeof~="mw:File"].mw-halign-center,
+figure[typeof~="mw:File/Frameless"].mw-halign-center {
+	display: table;
+	border-collapse: collapse;
+}
+figure[typeof~="mw:File/Thumb"].mw-halign-center,
+figure[typeof~="mw:File/Frame"].mw-halign-center {
+	margin-bottom: .5em;
+}
+figure.mw-halign-none {
+	clear: none;
+	float: none;
+}
+figure[typeof~="mw:File/Thumb"].mw-halign-none,
+figure[typeof~="mw:File/Frame"].mw-halign-none {
+	margin: 0 0 .5em;
+}
+figure[typeof~="mw:File/Thumb"] > .mw-file-description {
+	display: block;
+	position: relative;
+}
+figure[typeof~="mw:File/Thumb"] > :not(figcaption) .mw-file-element,
+figure[typeof~="mw:File/Frame"] > :not(figcaption) .mw-file-element {
+	border: 1px solid #c8ccd1;
+	background: #f8f9fa;
+	margin: 3px;
+}
+figure[typeof~="mw:File"] > figcaption,
+figure[typeof~="mw:File/Frameless"] > figcaption {
+	display: none;
+}
+figure[typeof~="mw:File/Thumb"] > figcaption,
+figure[typeof~="mw:File/Frame"] > figcaption {
+	text-align: left;
+	border: 1px solid #c8ccd1;
+	border-top: 0;
+	background-color: #f8f9fa;
+	font-size: 88.4%;
+	display: table-caption;
+	caption-side: bottom;
+	line-height: 1.4em;
+	overflow-wrap: anywhere;
+	padding: 0 6px 6px;
+}
+.toc {
+	display: table;
+	padding: 7px;
+	background-color: #f8f9fa;
+	border: 1px solid #a2a9b1;
+	font-size: 95%;
+}
+.toctitle {
+	text-align: center;
+}
+.toc h2 {
+	display: inline;
+	border: 0;
+	font-size: 100%;
+	font-weight: bold;
+}
+.toctogglespan {
+	font-size: 94%;
+}
+.toctogglespan::before {
+	content: " [";
+}
+.toctogglespan::after {
+	content: "]";
+}
+.toctogglelabel::after {
+	content: "隐藏";
+}
+.toc ul {
+	list-style: none;
+	margin: .3em 0;
+}
+.tocnumber {
+	padding-right: .5em;
+	color: #202122;
+}
+.tocnumber, .toctext {
+	display: table-cell;
+}
+ul.gallery {
+	margin: 2px;
+	padding: 2px;
+	display: block;
+}
+.galleryfilename-truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.galleryfilename {
+	display: block;
+}
+li.gallerycaption {
+	font-weight: bold;
+	text-align: center;
+	display: block;
+	overflow-wrap: break-word;
+}
+li.gallerybox {
+	vertical-align: top;
+	display: inline-block;
+}
+div.gallerytext {
+	overflow: hidden;
+	font-size: 94%;
+	padding: 9px 4px 17px;
+	overflow-wrap: break-word;
+}
+li.gallerybox div.thumb {
+	background-color: #f8f9fa;
+	border: 1px solid #c8ccd1;
+	text-align: center;
+	margin: 2px;
+}
+ul.mw-gallery-nolines li.gallerybox div.thumb {
+	background-color: transparent;
+	border: 0;
+}
+.mw-gallery-traditional .gallerybox > .thumb > * {
+	vertical-align: middle;
+	display: inline-block;
+}
+li.gallerybox div.thumb img {
+	display: block;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 720px) {
+	main {
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+	}
+	article {
+		padding: 1rem;
+	}
+}
