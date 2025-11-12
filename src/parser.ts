@@ -4,6 +4,11 @@ import esbuild from 'esbuild';
 import Parser from 'wikiparser-node';
 import type {Title, Token, LinkToken as LinkTokenBase} from 'wikiparser-node';
 
+declare global {
+	interface RegExpConstructor {
+		escape(str: string): string;
+	}
+}
 declare abstract class PrivateToken extends LinkTokenBase { // eslint-disable-line @typescript-eslint/no-unused-vars
 	toHtmlInternal(): string;
 }
@@ -113,7 +118,6 @@ LinkToken.prototype.toHtmlInternal = function(): string {
 // @ts-expect-error private method
 const {FileToken}: {FileToken: typeof PrivateToken} = Parser.require('./src/link/file');
 const {toHtmlInternal} = FileToken.prototype, // eslint-disable-line @typescript-eslint/unbound-method
-	// @ts-expect-error RegExp.escape
 	re = new RegExp(` (href|src)="${RegExp.escape(articlePath)}`, 'gu');
 FileToken.prototype.toHtmlInternal = function(): string {
 	return toHtmlInternal.call(this).replace(re, ' $1="/wikiparser-website/');
