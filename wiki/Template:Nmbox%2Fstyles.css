@@ -1,21 +1,3 @@
-/* Template:Flatlist/styles.css */
-.hlist ul {
-	margin: 0;
-	padding: 0;
-}
-.hlist li {
-	margin: 0;
-	display: inline;
-}
-.hlist li::after {
-	content: " · ";
-	font-weight: bold;
-}
-.hlist li:last-child::after {
-	content: none;
-}
-
-/* Template:Nmbox/styles.css */
 .nmbox {
 	background: #f8f9fa;
 	border: 1px solid #a2a9b1;
@@ -50,21 +32,4 @@
 		border-top: none;
 		display: table-cell;
 	}
-}
-
-/* Template:PD Help Page/styles.css */
-.template-pd-help-page {
-	color: #101418;
-	border: solid 1px #a2a9b1;
-	padding: .5em;
-	margin: .5em 0;
-	background-color: #fff;
-	font-size: 95%;
-	vertical-align: middle;
-	width: 100%;
-	box-sizing: border-box;
-}
-.template-pd-help-page .icon-cell {
-	padding: 0 1em;
-	width: 30px;
 }

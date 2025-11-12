@@ -8,7 +8,44 @@ Parser.templateDir = path.resolve('wiki');
 Parser.getConfig();
 Object.assign(Parser.config, {articlePath: '/wikiparser-website/$1'});
 
-const render = (page: string, title: string, root: Token, special?: boolean): void => {
+const templatestyles = new WeakMap<Token, Set<string>>();
+Parser.setHook('templatestyles', token => {
+	const src = token.getAttr('src');
+	if (!src || src === true) {
+		return '<strong class="error">TemplateStyles\' <code>src</code> attribute must not be empty.</strong>';
+	}
+	const page = Parser.normalizeTitle(src, 10),
+		{valid, title} = page;
+	if (!valid) {
+		return '<strong class="error">Invalid title for TemplateStyles\' <code>src</code> attribute.</strong>';
+	}
+	const contentmodel = Parser.callParserFunction('contentmodel', 'canonical', title);
+	if (contentmodel !== 'sanitized-css') {
+		return `<strong class="error">Page [[:${
+			title
+		}]] must have content model "sanitized-css" for TemplateStyles (current model is "${contentmodel}").</strong>`;
+	}
+	const root = token.getRootNode();
+	if (!templatestyles.has(root)) {
+		templatestyles.set(root, new Set());
+	}
+	const styles = templatestyles.get(root)!;
+	if (styles.has(src)) {
+		return '';
+	}
+	styles.add(src);
+	try {
+		const css = fs.readFileSync(
+			path.join('wiki', title.replaceAll('/', '%2F')),
+			'utf8',
+		);
+		return `<style>${css}</style>`;
+	} catch {
+		return `<strong class="error">Page [[:${title}]] has no content.</strong>`;
+	}
+});
+
+const render = (page: string, title: string, root: Token): void => {
 	const content = ((): string => {
 			try {
 				return root.toHtml();
@@ -31,7 +68,6 @@ const render = (page: string, title: string, root: Token, special?: boolean): vo
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width">
 	<link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
 	<link rel="stylesheet" href="./css/page.css">
-	${special ? '' : '<link rel="stylesheet" href="./css/templatestyles.css">'}
 </head>
 <body>
 	<main>
@@ -76,4 +112,4 @@ allPages.sort((a, b) => a.localeCompare(b));
 const wiki = `<div class="mw-allpages-body">
 ${allPages.map(s => `*[[:${s}]]`).join('\n')}
 </div>`;
-render('index', 'Special:All pages', Parser.parse(wiki), true);
+render('index', 'Special:All pages', Parser.parse(wiki));

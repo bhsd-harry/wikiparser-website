@@ -9,7 +9,7 @@
 	},
 	"scripts": {
 		"lint:ts": "eslint --cache .",
-		"lint:css": "stylelint css/*.css",
+		"lint:css": "stylelint '**/*.css'",
 		"lint:md": "markdownlint-cli2 '**/*.md'",
 		"lint": "npm run lint:ts && npm run lint:css",
 		"build:core": "tsc",
