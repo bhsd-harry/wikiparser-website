@@ -392,6 +392,17 @@ li.gallerybox div.thumb img {
 	display: block;
 	margin: 0 auto;
 }
+.mw-allpages-body {
+	columns: 22em 3;
+	break-inside: avoid-column;
+	-webkit-column-break-inside: avoid;
+}
+.mw-allpages-body > ul {
+	margin-top: 0;
+}
+.mw-allpages-body li {
+	break-inside: avoid;
+}
 
 @media screen and (max-width: 720px) {
 	main {

@@ -8,8 +8,44 @@ Parser.templateDir = path.resolve('wiki');
 Parser.getConfig();
 Object.assign(Parser.config, {articlePath: '/wikiparser-website/$1'});
 
+const render = (page: string, title: string, root: Token, special?: boolean): void => {
+	const content = ((): string => {
+			try {
+				return root.toHtml();
+			} catch (e) {
+				if (e instanceof Error) {
+					const {message} = e;
+					e.message = `${page}: ${message}`;
+					console.error(e);
+					return `<strong class="error">Error rendering page: ${message}</strong>`;
+				}
+				throw e;
+			}
+		})(),
+		/* eslint-disable @stylistic/max-len */
+		html = `<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+	<title>${title}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width">
+	<link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
+	<link rel="stylesheet" href="./css/page.css">
+	${special ? '' : '<link rel="stylesheet" href="./css/templatestyles.css">'}
+</head>
+<body>
+	<main>
+		<article>${content}</article>
+	</main>
+</body>
+</html>`;
+	/* eslint-enable @stylistic/max-len */
+	fs.writeFileSync(`${page}.html`, html);
+};
+
 // @ts-expect-error private method
 Parser.info(`Using wiki directory: ${Parser.templateDir}`);
+const allPages: string[] = [];
 for (const file of fs.readdirSync(Parser.templateDir)) {
 	if (!file.endsWith('.wiki') || /^(?:Template|MediaWiki):/u.test(file)) {
 		continue;
@@ -25,41 +61,19 @@ for (const file of fs.readdirSync(Parser.templateDir)) {
 				: 'under the [https://creativecommons.org/licenses/by-sa/4.0/ Creative Commons Attribution/Share-Alike License (CC BY-SA)]'
 		}.</div>
 ${fs.readFileSync(path.join('wiki', file), 'utf8')}`,
+		/* eslint-enable @stylistic/max-len */
 		root = Parser.parse(wiki);
 	root.pageName = page;
 	root.addEventListener('expand', (_, {token}: {token: Token}) => {
 		// eslint-disable-next-line @typescript-eslint/no-base-to-string
 		fs.writeFileSync(path.join('expanded', file), String(token));
 	});
-	const content = ((): string => {
-			try {
-				return root.toHtml();
-			} catch (e) {
-				if (e instanceof Error) {
-					const {message} = e;
-					e.message = `${page}: ${message}`;
-					console.error(e);
-					return `<strong class="error">Error rendering page: ${message}</strong>`;
-				}
-				throw e;
-			}
-		})(),
-		html = `<!DOCTYPE html>
-<html dir="ltr" lang="en-US">
-<head>
-	<title>${title}</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width">
-	<link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
-	<link rel="stylesheet" href="./css/page.css">
-	<link rel="stylesheet" href="./css/templatestyles.css">
-</head>
-<body>
-	<main>
-		<article>${content}</article>
-	</main>
-</body>
-</html>`;
-	/* eslint-enable @stylistic/max-len */
-	fs.writeFileSync(`${page}.html`, html);
+	render(page, title, root);
+	allPages.push(title);
 }
+
+allPages.sort((a, b) => a.localeCompare(b));
+const wiki = `<div class="mw-allpages-body">
+${allPages.map(s => `*[[:${s}]]`).join('\n')}
+</div>`;
+render('index', 'Special:All pages', Parser.parse(wiki), true);
