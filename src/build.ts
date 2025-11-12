@@ -1,51 +1,17 @@
 import fs from 'fs';
 import path from 'path';
-import Parser from 'wikiparser-node';
+import Parser from './parser';
 import type {Token} from 'wikiparser-node';
 
-Parser.config = 'mediawikiwiki';
-Parser.templateDir = path.resolve('wiki');
-Parser.getConfig();
-Object.assign(Parser.config, {articlePath: '/wikiparser-website/$1'});
-
-const templatestyles = new WeakMap<Token, Set<string>>();
-Parser.setHook('templatestyles', token => {
-	const src = token.getAttr('src');
-	if (!src || src === true) {
-		return '<strong class="error">TemplateStyles\' <code>src</code> attribute must not be empty.</strong>';
-	}
-	const page = Parser.normalizeTitle(src, 10),
-		{valid, title} = page;
-	if (!valid) {
-		return '<strong class="error">Invalid title for TemplateStyles\' <code>src</code> attribute.</strong>';
-	}
-	const contentmodel = Parser.callParserFunction('contentmodel', 'canonical', title);
-	if (contentmodel !== 'sanitized-css') {
-		return `<strong class="error">Page [[:${
-			title
-		}]] must have content model "sanitized-css" for TemplateStyles (current model is "${contentmodel}").</strong>`;
-	}
-	const root = token.getRootNode();
-	if (!templatestyles.has(root)) {
-		templatestyles.set(root, new Set());
-	}
-	const styles = templatestyles.get(root)!;
-	if (styles.has(src)) {
-		return '';
-	}
-	styles.add(src);
-	try {
-		const css = fs.readFileSync(
-			path.join('wiki', title.replaceAll('/', '%2F')),
-			'utf8',
-		);
-		return `<style>${css}</style>`;
-	} catch {
-		return `<strong class="error">Page [[:${title}]] has no content.</strong>`;
-	}
-});
-
+/**
+ * Render a page to an HTML file.
+ * @param page file name without extension
+ * @param title normalized page title
+ * @param root root token
+ */
 const render = (page: string, title: string, root: Token): void => {
+	const label = `${page} rendered in`;
+	console.time(label);
 	const content = ((): string => {
 			try {
 				return root.toHtml();
@@ -77,12 +43,12 @@ const render = (page: string, title: string, root: Token): void => {
 </html>`;
 	/* eslint-enable @stylistic/max-len */
 	fs.writeFileSync(`${page}.html`, html);
+	console.timeEnd(label);
 };
 
-// @ts-expect-error private method
-Parser.info(`Using wiki directory: ${Parser.templateDir}`);
+// Render regular pages
 const allPages: string[] = [];
-for (const file of fs.readdirSync(Parser.templateDir)) {
+for (const file of fs.readdirSync(Parser.templateDir!)) {
 	if (!file.endsWith('.wiki') || /^(?:Template|MediaWiki):/u.test(file)) {
 		continue;
 	}
@@ -108,6 +74,7 @@ ${fs.readFileSync(path.join('wiki', file), 'utf8')}`,
 	allPages.push(title);
 }
 
+// Render Special:AllPages
 allPages.sort((a, b) => a.localeCompare(b));
 const wiki = `<div class="mw-allpages-body">
 ${allPages.map(s => `*[[:${s}]]`).join('\n')}

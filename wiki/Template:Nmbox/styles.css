@@ -1,6 +1,7 @@
 .nmbox {
+	/* clear: both; */
 	background: #f8f9fa;
-	border: 1px solid #a2a9b1;
+	border: 1px solid var(--border-color-base, #a2a9b1);
 	box-sizing: border-box;
 	margin: 2px 0;
 	padding: 0;
@@ -20,13 +21,13 @@
 	padding-right: 1em;
 }
 .nmbox-text {
-	border-top: 1px solid #a2a9b1;
+	border-top: 1px solid var(--border-color-base, #a2a9b1);
 	padding: 4px .5em;
 }
 @media screen and (min-width: 768px) {
 	.nmbox-header {
 		display: table-cell;
-		border-right: 1px solid #a2a9b1;
+		border-right: 1px solid var(--border-color-base, #a2a9b1);
 	}
 	.nmbox-text {
 		border-top: none;

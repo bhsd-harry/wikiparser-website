@@ -1,0 +1,52 @@
+.note {
+	background-position: left 7px top 50%;
+	padding: .5em .5em .5em 40px;
+	margin: .5em 0;
+	overflow: hidden;
+	background-color: #f8f9fa;
+	color: #333;
+	background-repeat: no-repeat;
+	border: 1px solid #ddd;
+}
+.note-inline {
+	display: inline-block;
+	vertical-align: middle;
+}
+.note-info {
+	background-color: #eaf3ff;
+	color: #333;
+	/* [[File:OOjs_UI_icon_information-progressive.svg]] */
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/ec/OOjs_UI_icon_information-progressive.svg);
+	background-size: 25px;
+	border-color: #a3caff;
+	padding-left: 40px;
+	min-height: 25px;
+}
+.note-reminder {
+	background-color: #fff9ea;
+	color: #333;
+	/* [[File:OOjs_UI_icon_lightbulb-yellow.svg]] */
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a8/OOjs_UI_icon_lightbulb-yellow.svg);
+	background-size: 25px;
+	border-color: #fc3;
+	min-height: 25px;
+}
+.note-warn {
+	background-color: #fff9ea;
+	color: #333;
+	/* [[File:OOjs_UI_icon_alert-warning.svg]] */
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/3b/OOjs_UI_icon_alert-warning.svg);
+	background-size: 25px;
+	border-color: #fc3;
+	min-height: 25px;
+}
+
+.note-error {
+	background-color: #fee7e6;
+	color: #333;
+	/* [[File:OOjs_UI_icon_notice-destructive.svg]] */
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/bf/OOjs_UI_icon_notice-destructive.svg);
+	background-size: 25px;
+	border-color: #c33;
+	min-height: 25px;
+}

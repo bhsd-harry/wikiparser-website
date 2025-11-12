@@ -1,0 +1,307 @@
+<noinclude>
+{{PD Help Page}}
+</noinclude><includeonly>
+{{Navbar|Help:Special pages/list|text={{{this list|This list:}}}|style=float:{{dir|{{PAGELANGUAGE}}|left|right}}}}
+</includeonly>
+This list only includes special pages provided by MediaWiki core itself. Special pages provided by extensions are documented on the extension page.
+
+=== By role ===
+==== General information ====
+* [[Special:AllMessages]]: This lists and allows editing of all system messages used on MediaWiki.
+* [[Special:NamespaceInfo]]: {{int:namespaceinfo-summary}}
+* [[Special:SpecialPages]]: A list of popular tools and functions for managing and navigating the wiki.
+* [[Special:Statistics]]: Displays site statistics such as the number of content pages, edits, users, etc.
+* [[Special:Version]]: Shows the version of the software and details about installed extensions, skins, etc.
+
+==== Lists of pages ====
+* [[Special:AllPages]]: Lists all MediaWiki pages in a specified namespace from a given starting point. A user can specify a starting point as a parameter, like [[Special:AllPages/T]] (for pages in the main namespace starting with "T"), or [[Special:AllPages/Template:]] (for pages in the Template namespace starting from the beginning). The listing order follows alphabetical order.
+* [[Special:Categories]]: This shows an alphabetical list of categories and the number of pages in each.
+* [[Special:ListFiles]]: This lists uploaded images and files, sortable by size or date.
+** [[Special:ListFiles/Example]]: Lists files that have been uploaded by [[User:Example]].
+* [[Special:ListRedirects]]: This lists all redirect pages.
+* [[Special:PagesWithProp]]: This lists the pages that make use of a certain page property. 
+* [[Special:PrefixIndex]]: This lists all pages in a specified namespace that start with a given prefix. It's useful for finding subpages. For example, [[Special:PrefixIndex/User:Example]].
+* [[Special:ProtectedPages]]: This lists pages that are protected from editing.
+* [[Special:ProtectedTitles]]: This lists titles that are protected from being created.
+
+==== Special Tools ====
+* [[Special:ApiHelp]]: This provides help documentation for the MediaWiki API.
+* [[Special:ApiSandbox]]: An interactive interface to test MediaWiki API requests.
+* [[Special:ComparePages]]: This compares the differences between two pages.
+* [[Special:Diff]]: This displays the differences between two revisions of a page. For example, [[Special:Diff/6469269]] shows the changes between version 6469269 and the previous version of the same page. [[Special:Diff/6469269/6473798]] compares version 6469269 in [[Help:Table caption]] with version 6473798 in [[Help:Self link]]. This can also compare two versions of the same page.
+* [[Special:Export]]: This export pages as an XML file containing wikitext and metadata.
+* [[Special:MIMESearch]]: This searches for files by media type.
+* [[Special:MovePage]]: To rename/move a page to a new title.
+* [[Special:Random]]: This redirects you to a random page in the main namespace. A parameter can be passed to specify other namespaces, such as [[Special:Random/Talk]].
+* [[Special:RandomInCategory]]: This redirects you to a randomly selected page within a particular category in any namespace.
+* [[Special:RandomRedirect]]: This redirects you to a random page.
+* [[Special:RandomRootpage]]: This redirects you to a random root page, excluding sub-pages.
+* [[Special:Search]]: This enables you to search pages MediaWiki.
+* [[Special:Upload]]: To upload a file to the wiki.
+* [[Special:WhatLinksHere]]: This lists all pages (including transclusions and redirects) that link to a given page. A parameter can be passed to it. For example, [[Special:WhatLinksHere/Main Page]].
+
+==== Latest changes made ====
+* [[Special:Log]]: A combined display of various public logs. The log type, user, and page can be specified. Supported parameters are "block", "delete", "protect", and "upload". For example, [[Special:Log/block]] displays the entire block log.
+* [[Special:NewFiles]]: A gallery of recently added files.
+* [[Special:NewPages]]: This displays new pages with creation date, time, size, creator, and first edit summary.
+* [[Special:RecentChanges]]: This lists the recent edits in the project. Changes to pages watched appear bold.
+* [[Special:RecentChangesLinked]]: This lists recent changes in pages linked from a selected page or category. Changes to pages watched appear bold. A parameter can be passed to it. For example, [[Special:RecentChangesLinked/Help:Links]].
+* [[Special:Tags]]: A list of tags that edits can be marked with.
+
+==== Users ====
+* [[Special:ActiveUsers]]: This lists users who have been active in the last 30 days.
+* [[Special:BlockList]]: This lists all blocked IP addresses and usernames.
+* [[Special:Contributions]]: This displays contributions from a specific user or all new users. A parameter can be passed to it. For example, [[Special:Contributions/Example]].
+* [[Special:EmailUser]]: This allows you to email another user.
+* [[Special:ListGroupRights]]: This displays the rights assigned to different user groups.
+* [[Special:ListUsers]]: This lists all registered users, filterable by group and other criteria.
+
+==== Personal ====
+* [[Special:ChangeEmail]]: To change or remove your email address.
+* [[Special:ChangeCredentials]]:  To change your password.
+* [[Special:ConfirmEmail]]: To confirm your email address or see the date the email was confirmed.
+* [[Special:Contributions]]: To view the contributions of all user's.
+** [[Special:MyContributions]]: To view your contributions.
+* [[:Special:CreateAccount]]: To create a new account
+* [[Special:EditWatchlist]] and [[:Special:EditWatchlist/raw]]: To edit your watchlist.
+* [[Special:MyPage]]: This links to your user page.
+* [[Special:MyTalk]]: This links to your talk page.
+* [[Special:MyUploads]]: To view a list of files you have uploaded.
+* [[Special:Notifications]]: To access your notifications page.
+* [[Special:Preferences]]: To view and modify your settings.
+* [[:Special:ResetTokens]]: To reset your token.
+* [[Special:UserLogin]]: A login page to MediaWiki.
+* [[Special:UserLogout]]: A logout page of your account.
+* [[Special:Watchlist]]: To see recent changes to the pages you are watching.
+
+==== Maintenance ====
+* [[Special:BrokenRedirects]]: This lists redirects that lead to non-existent pages.
+* [[Special:DoubleRedirects]]: This lists redirects that point to another redirect.
+* [[Special:FileDuplicateSearch]]: Checks for duplicate files.
+* [[Special:ListDuplicatedFiles]]: This lists all duplicated files on Wikipedia.
+* [[Special:LongPages]]: This lists pages in the main namespace by size in decreasing order.
+* [[Special:MostLinkedFiles]]: This lists files that are linked from the most pages.
+* [[Special:ShortPages]]: This lists pages in the main namespace by size in increasing order.
+* [[Special:UncategorizedFiles]]: This lists files without category tags.
+* [[Special:UncategorizedPages]]: This lists pages without category tags (note: updates may not be immediate).
+* [[Special:UncategorizedTemplates]]: This lists templates without category tags.
+* [[Special:UnusedCategories]]: This lists unused categories.
+* [[Special:UnusedFiles]]: This lists files that are not used.
+* [[Special:UnusedTemplates]]: This lists templates that are not transcluded.
+* [[Special:WantedCategories]]: This lists categories with members but no category page.
+* [[Special:WantedFiles]]: This lists missing image files and other files.
+* [[Special:WithoutInterwiki]]: This lists pages without links to other languages.
+* [[Special:AncientPages]]: This displays a list of old pages, sorted based on the oldest first.
+* [[Special:DeadendPages]]: This lists pages that do not have any outgoing links to other pages within the wiki.
+* [[Special:FewestRevisions]]: This lists pages with few revisions
+* [[Special:LonelyPages]]: This lists pages with no links to them.
+* [[Special:MostCategories]]: This lists pages with a large number of categories.
+* [[Special:MostLinkedCategories]]: This lists the categories with the highest number of pages.
+* [[Special:MostLinkedPages]]: This lists pages with the most incoming links from other pages.
+* [[Special:MostRevisions]]: This lists pages with the highest number of edits. It's updated monthly, on the 11th and 25th of every month.
+* [[Special:MostTranscludedPages]] or [[Special:MostLinkedTemplates]]: This lists the templates that are transcluded the most pages, excluding transclusions via a redirect. 
+* [[Special:UncategorizedCategories]]: This lists all category pages that do not have a parent category or are not part of a larger category hierarchy. It's updated monthly, on the 19th of every month.
+* [[Special:WantedPages]]: This lists non-existent pages that have been linked from other pages, indicating needed content. 
+* [[Special:WantedTemplates]]: This lists non-existent templates that have been used on other pages, indicating missing templates that need to be created. It's updated monthly, on the 20th of every month.
+
+==== Miscellaneous ====
+* [[Special:Badtitle]]: The error message shown when attempting to access a page with an invalid title or with an incorrectly linked interwiki prefix.
+* [[Special:BlankPage]]: This displays a blank page.
+* [[Special:BookSources]]: This enables you to search for book sources by ISBN.
+* [[Special:ExpandTemplates]]: This expands wikitext by recursively expanding templates, parser functions, and variables.
+* [[Special:FilePath]]: This returns the complete path for a file.
+* [[Special:LinkSearch]]: This allows you to search for external links.
+* [[Special:Permalink/Oldid]]: This links to a specific version of a wiki page.
+* [[Special:Random]]: This redirects you to a random page.
+* [[Special:Redirect]]: This redirects you by file, user, page, or revision ID.
+
+==== Restricted ====
+The below pages are accessible only to users with a particular privilege level.
+
+* [[Special:Block]]: It's used by administrators to block or unblock users, IP addresses, and IP addresses ranges.
+* [[Special:DeletedContributions]]: It's viewable by administrators to see deleted contributions.
+* [[Special:Import]]: It's used by administrators and importers to import pages.
+* [[Special:LockDB]] and [[:Special:UnlockDB]]: It's used by developers to toggle the database between read/write and read-only modes.
+* [[Special:Undelete]]: It's used by administrators to undelete pages.
+* [[Special:UnwatchedPages]]: This shows unwatched pages, available to administrators.
+* [[Special:UserRights]]: This displays user rights and allows administrators to assign and remove user access rights.
+
+=== By alphabetical order ===
+==== A ====
+* [[Special:AbuseLog]]: This displays a log of all edits triggered by the abuse filters.
+* [[Special:ActiveUsers]]: This lists all users who have been active recently.
+* [[Special:AllMessages]]: This displays all system messages used by the wiki.
+* [[Special:AllMyUploads]]: This lists all files uploaded by you.
+* [[Special:AllPages]]: This lists all pages in the wiki.
+* [[Special:AncientPages]]: This lists pages that have not been edited for a long time.
+* [[Special:ApiHelp]]: Provides help and documentation for the MediaWiki API.
+* [[Special:ApiSandbox]]: Allows you to test and interact with the MediaWiki API.
+* [[Special:AutoblockList]]: This displays a list of active autoblocks on the wiki.
+
+==== B ====
+* [[Special:BlankPage]]: This displays a blank page.
+* [[Special:Block]]: Blocks a user from editing.
+* [[Special:BlockList]]: This lists all blocked users.
+* [[Special:BookSources]]: This finds book sources using a 10-13-digit ISBN.
+* [[Special:BotPasswords]]: Creates passwords for bots.
+* [[Special:BrokenRedirects]]: This lists broken redirects.
+* [[Special:BrokenLinks]]: This redirects to [[Special:WantedPages]], showing wanted pages.
+
+==== C ====
+* [[Special:Categories]]: This displays all categories on the wiki.
+* [[Special:ChangeContentModel]]: This allows template editors and administrators to change the content model of a page.
+* [[Special:ChangeCredentials]]: This facilitates changing credentials, typically passwords.
+* [[Special:ChangeEmail]]: This enables changing or removing email addresses associated with an account.
+* [[Special:ChangePassword]]: This provides functionality for changing passwords.
+* [[Special:ComparePages]]: Compares the differences between two pages.
+* [[Special:ConfirmEmail]]: Confirms the email address associated with an account.
+* [[Special:Contribs]]: This redirects to [[Special:Contributions]], listing a user's contributions.
+* [[Special:Contributions]]: This lists the contributions made by a user.
+* [[Special:CreateAccount]]: This allows users to create new accounts.
+
+==== D ====
+* [[Special:DeadendPages]]: This lists pages without outgoing links, known as dead-end pages.
+* [[Special:DeletedContributions]]: This displays contributions made by deleted users.
+* [[Special:Diff]]: This shows the difference between two versions of a MediaWiki page.
+* [[Special:DoubleRedirects]]: This lists pages that redirect to other redirect pages, known as double redirects.
+
+==== E ====
+* [[Special:Edit]] and [[Special:EditPage]]: This redirects to ?action=edit, allowing you to edit a page.
+* [[Special:EditTags]]: Manages edit tags.
+* [[Special:EditWatchlist]]: Edits your watchlist.
+* [[Special:EmailUser]]: Allows you send an email to a user.
+* [[Special:ExpandTemplates]]: This expands templates.
+* [[Special:Export]]: Exports pages.
+
+==== F ====
+* [[Special:FewestRevisions]]: This lists pages with the fewest revisions.
+* [[Special:FileDuplicateSearch]]: Searches for duplicate files.
+* [[Special:FilePath]]: This redirects to a file.
+* [[Special:FileList]]: This redirects to [[Special:ListFiles]], displaying a list of files.
+
+==== G ====
+
+* [[Special:GoToInterwiki]]: Allows you to navigate to another project using a valid project prefix.
+
+==== H ====
+* [[Special:History]]: Alias for [[Special:PageHistory]]
+
+==== I ====
+* [[Special:Import]]: Allows administrators, importers, and transwiki importers to import pages.
+* [[Special:Info]]: This redirects to [[Special:PageInfo]].
+* [[Special:InvalidateEmail]]: Invalidates an email address. Parameter required.
+
+==== L ====
+* [[Special:LinkAccounts]]: Allows users to link accounts.
+* [[Special:LinkSearch]]: This conducts an external link search.
+* [[Special:ListAdmins]]: This redirects to [[Special:ListUsers/sysop]], listing administrators.
+* [[Special:ListBots]]: This redirects to [[Special:ListUsers/bot]], listing bots.
+* [[Special:ListDuplicatedFiles]]: This lists files with duplicates.
+* [[Special:ListGrants]]: This displays grants.
+* [[Special:ListGroupRights]]: This lists user group rights.
+* [[Special:ListRedirects]]: This is a list of redirects.
+* [[Special:ListUsers]]: This lists all users.
+* [[Special:LockDB]]: Locks the database, disabling write access.
+* [[Special:Log]]: This displays all public logs.
+* [[Special:LonelyPages]]: This lists orphaned pages.
+* [[Special:LongPages]]: This lists long pages.
+* [[Special:Login]]: This redirects to [[Special:UserLogin]], initiating the login process.
+* [[Special:Logout]]: This redirects to [[Special:UserLogout]], initiating the logout process.
+
+==== M ====
+* [[Special:MediaStatistics]]: This displays statistics about uploaded file types.
+* [[Special:MergeHistory]]: Merges page histories.
+* [[Special:MIMESearch]]: Conducts a MIME search.
+* [[Special:MostCategories]]: This lists pages with the most categories.
+* [[Special:MostInterwikis]]: This lists pages with the most interwikis.
+* [[Special:MostLinkedCategories]]: This lists the most linked-to categories.
+* [[Special:MostLinkedFiles]]: This lists the most linked-to files.
+* [[Special:MostLinkedPages]]: This lists the most linked-to pages.
+* [[Special:MostRevisions]]: This lists pages with the most revisions.
+* [[Special:MostTranscludedPages]]: This lists the most transcluded pages.
+* [[Special:MovePage]]: Allows moving a page. Example: [[Special:MovePage/Main page]].
+* [[Special:MyContributions]]: This redirects to [[Special:Contributions]], listing the current user's contributions.
+* [[Special:MyLanguage]]: This redirects to the page named after the slash in the user's interface language. Example: [[Special:MyLanguage/Example]].
+* [[Special:MyPage]]: This redirects to your user page.
+* [[Special:MyTalk]]: This redirects to the talk page of the active user.
+* [[Special:MyUploads]]: This lists uploads of the active user.
+
+==== N ====
+* [[Special:NamespaceInfo]]: {{int:namespaceinfo-summary}}
+* [[Special:NewFiles]]: Shows a gallery of new files.
+* [[Special:NewPages]]: This lists new pages.
+* [[Special:Nuke]]: Performs a mass deletion of pages.
+
+==== O ====
+* [[Special:OrphanedPages]]: Alias for [[Special:LonelyPages]]
+
+==== P ====
+* [[Special:PageHistory]]: Redirects to ?action=history, which displays the history of a specific page. For example, [[Special:History/Example]] shows the history of the page named "Example".
+* [[Special:PageInfo]]: Provides information for a page.
+* [[Special:PasswordReset]]: Allows users to reset their password.
+* [[Special:PermanentLink]]: Provides a link to a specific version of a wiki page.
+* [[Special:Preferences]]: Accesses user preferences.
+* [[Special:PrefixIndex]]: This lists all pages with a given prefix.
+* [[Special:ProtectedPages]]: This lists protected pages.
+* [[Special:ProtectedTitles]]: This lists protected titles.
+* [[Special:Purge]]: Refreshes a page.
+
+==== Q ====
+
+==== R ====
+* [[Special:Random]]: This redirects to a random page.
+* [[Special:RandomInCategory]]: This redirects to a random page in a specified category.
+* [[Special:RandomRedirect]]: This redirects to a random redirect page.
+* [[Special:RandomRootpage]]: This redirects to a random root page.
+* [[Special:RecentChanges]]: This displays recent changes.
+* [[Special:RecentChangesLinked]]: This displays related changes.
+* [[Special:Redirect]]: This redirects by file, user, page, revision, or log ID.
+* [[Special:RemoveCredentials]]: Removes credentials.
+* [[Special:RenameUser]]: Locally renames a user. Available only to stewards and used extremely rarely.
+* [[Special:ResetTokens]]: Resets tokens allowing access to certain private data associated with your account.
+* [[Special:RevisionDelete]]: This is used to delete revisions.
+* [[Special:RunJobs]]: This initiates the running of jobs.
+
+==== S ====
+* [[Special:Search]]: Initiates a search.
+* [[Special:ShortPages]]: This lists short pages.
+* [[Special:SpecialPages]]: This lists special pages.
+* [[Special:Statistics]]: This displays statistics.
+
+==== T ====
+* [[Special:Tags]]: This displays tags that the software may mark an edit or logged action with, and their meanings.
+* [[Special:TrackingCategories]]: This lists tracking categories automatically populated by the MediaWiki software.
+
+==== U ====
+* [[Special:Unblock]]: Unblocks a user.
+* [[Special:UncategorizedCategories]]: This lists uncategorized categories.
+* [[Special:UncategorizedFiles]]: This lists uncategorized files.
+* [[Special:UncategorizedPages]]: This lists uncategorized pages.
+* [[Special:UncategorizedTemplates]]: This lists uncategorized templates.
+* [[Special:UnconnectedPages]]: This lists pages not connected to data items.
+* [[Special:Undelete]]: Searches deleted pages and allows viewing and restoring of deleted pages.
+* [[Special:UnlinkAccounts]]: Unlinks accounts.
+* [[Special:UnlockDB]]: Opposite of LockDB, unlocks the database, enabling write access.
+* [[Special:UnusedCategories]]: This lists unused categories.
+* [[Special:UnusedFiles]]: This lists unused files.
+* [[Special:UnusedTemplates]]: This lists unused templates.
+* [[Special:Upload]]: Uploads a file.
+* [[Special:Uploads]]: This redirects to [[Special:ListFiles]], listing uploaded files.
+* [[Special:UploadStash]]: This displays files that are uploaded or in the process of uploading (upload stash).
+* [[Special:UserLogin]]: Initiates the login process.
+* [[Special:UserLogout]]: Initiates the logout process.
+* [[Special:UserRights]]: Manages user groups.
+* [[Special:UserGroupRights]]: This redirects to [[Special:ListGroupRights]].
+* [[Special:UserList]]: This redirects to [[Special:ListUsers]], listing users.
+
+==== V ====
+* [[Special:Version]]: This displays the version of MediaWiki in use, installed extensions, authors, and other relevant information.
+
+==== W ====
+* [[Special:WantedCategories]]: This lists the most red-linked categories.
+* [[Special:WantedFiles]]: This lists the most red-linked images.
+* [[Special:WantedPages]]: This lists the most red-linked articles.
+* [[Special:WantedTemplates]]: This lists the most red-linked templates.
+* [[Special:Watchlist]]: This displays the watchlist.
+* [[Special:WhatLinksHere]]: Shows what pages link to the current page.
+* [[Special:WithoutInterwiki]]: This lists pages without language links.

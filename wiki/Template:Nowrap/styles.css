@@ -1,0 +1,5 @@
+.nowrap,
+.nowrap a::before,
+.nowrap .selflink::before {
+	white-space: nowrap;
+}

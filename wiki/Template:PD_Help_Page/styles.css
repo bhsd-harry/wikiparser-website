@@ -1,0 +1,25 @@
+/* {{PD Help Page}} */
+/**
+ * Note: When you edit this page, you agree to release your contribution
+ * under the https://creativecommons.org/publicdomain/zero/1.0/ license.
+ *
+ * See [[Special:MyLanguage/Project:PD help]] for more info.
+ *
+ * @license CC0-1.0
+ */
+.template-pd-help-page {
+	color: var(--color-emphasized, #101418);
+	border: solid 1px var(--border-color-base, #a2a9b1);
+	padding: .5em;
+	margin: .5em 0;
+	background-color: var(--background-color-base, #fff);
+	font-size: 95%;
+	vertical-align: middle;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.template-pd-help-page .icon-cell {
+	padding: 0 1em;
+	width: 30px;
+}

@@ -5,7 +5,7 @@
   |<b>
 }}<!---->[[:{{{1}}}|{{#if:{{{2|}}}
 |{{{2}}}
-|{{{2|{{#ifexist:<!--if the source page, PAGELANGUAGE returns en-->
+|{{{2|{{#ifexist:Translations:{{#if:{{NAMESPACE:{{{1}}}}}|{{NAMESPACE:{{{1}}}}}:}}{{PAGENAME:{{{1}}}}}/Page display title/{{PAGELANGUAGE}}<!--if the source page, PAGELANGUAGE returns en-->
   |{{#ifexpr:{{#if:{{{nsp|}}}|1|0}} and {{NAMESPACENUMBER:{{{1}}}}}!=0
     |{{#ifeq:{{PAGELANGUAGE}}|en
       |{{PAGENAME:{{{1}}}}}

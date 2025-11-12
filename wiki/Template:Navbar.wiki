@@ -1,0 +1,112 @@
+<noinclude>
+<languages/>
+</noinclude><templatestyles src="Module:Navbar/styles.css"/><span class="noprint plainlinks navbar" style="{{{style|}}}"><small><!--
+
+-->{{#if:{{{mini|}}}{{{plain|}}}|<!--nothing-->|<!--else:
+--><span style="{{{fontstyle|}}}">{{#if:{{{text|}}}|{{{text}}}|<translate><!--T:1--> This box:</translate>}} </span>}}<!--
+
+-->{{#if:{{{brackets|}}}|<span style="{{{fontstyle|}}}">&#91;</span>}}<!--
+
+--><span style="white-space:nowrap;word-spacing:-.12em;"><!--
+-->[[{{transclude|{{{1}}}}}|<span style="{{{fontstyle|}}}" title="<translate nowrap><!--T:2--> View this template</translate>"><!--
+-->{{#if:{{{mini|}}}|<translate><!--T:3--> v</translate>|<translate><!--T:4--> view</translate>}}</span>]]<!--
+
+--><span style="{{{fontstyle|}}}">&#32;<b>&middot;</b>&#32;</span><!--
+-->[{{fullurl:{{<noinclude><nowiki/></noinclude>TALKPAGENAME:{{transclude|{{{1}}}}}}}}} <span style="{{{fontstyle|}}}" title="<translate nowrap><!--T:9--> Discuss this template</translate>"><!--
+-->{{#if:{{{mini|}}}|<translate><!--T:5--> d</translate>|<translate><!--T:6--> talk</translate>}}</span>]<!--
+
+-->{{#if:{{{noedit|}}}|<!--nothing-->|<!--else:
+--><span style="{{{fontstyle|}}}">&#32;<b>&middot;</b>&#32;</span><!--
+-->[{{fullurl:{{transclude|{{{1}}}}}|action=edit}} <span style="{{{fontstyle|}}}" title="<translate nowrap><!--T:10--> Edit this template</translate>"><!--
+-->{{#if:{{{mini|}}}|<translate><!--T:7--> e</translate>|<translate><!--T:8--> edit</translate>}}</span>]}}<!--
+--></span><!--
+
+-->{{#if:{{{brackets|}}}|<span style="{{{fontstyle|}}}">&#93;</span>}}<!--
+
+--></small></span><noinclude>
+{{Documentation|content=
+{{Uses TemplateStyles|Module:Navbar/styles.css}}
+<translate>
+== Usage == <!--T:11-->
+
+=== General === <!--T:12-->
+
+<!--T:13-->
+When one of the following examples is placed inside a given [[<tvar name=1>Special:MyLanguage/Help:Templates</tvar>|template]], it adds navbar navigational functionality:
+</translate>
+
+: {{tlx|Navbar|Navbar|mini{{=}}1}}
+: {{tlx|Navbar|Navbar|plain{{=}}1}}
+: {{tlx|Navbar|Navbar|fontstyle{{=}}color:green}}
+
+<translate><!--T:14--> The <tvar name=1><code><nowiki>{{subst:PAGENAME}}</nowiki></code></tvar> will be substituted with the template's name when parsed by the servers.</translate>
+<translate><!--T:15--> For example, <tvar name=1>{{tlx|Navbar|navbar/doc}}</tvar> gives:</translate>
+
+{{Navbar|navbar/doc}}
+
+<translate>
+=== Font-size === <!--T:16-->
+</translate>
+<translate><!--T:17--> Font-size is <tvar name=1><code>88%</code></tvar> when used in a navbar, and <tvar name=2><code>100%</code></tvar> when nested in a navbox.</translate>
+<translate><!--T:18--> In the navbar, the weight is "<tvar name=1><code>normal</code></tvar>"; when nested in navbox, it takes on the outer setting.</translate>
+<translate><!--T:19--> The middot is bold.</translate>
+
+<translate>
+== Examples == <!--T:20-->
+
+=== Required parameters === <!--T:21-->
+</translate>
+* {{tlx|Navbar|''<translate><!--T:22--> template name</translate>''}} — <translate><!--T:23--> the template name is required.</translate>
+
+<translate>
+=== Optional parameters === <!--T:24-->
+</translate>
+{{(}}{{!}} class="wikitable"
+! <translate><!--T:25--> Options</translate>
+! <translate><!--T:26--> Parameters</translate>
+! <translate><!--T:27--> Produces...</translate>
+{{!}}-
+{{!}} <translate><!--T:28--> Basic</translate>
+{{!}} {{tlx|Navbar|2=''<translate><!--T:29--> template name</translate>''}}
+{{!}} {{navbar|navbar/doc}}
+{{!}}-
+{{!}} <translate><!--T:30--> Different text</translate>
+{{!}} {{tlx|Navbar|2=''<translate><!--T:31--> template name</translate>''|3=text{{=}}<translate><!--T:32--> This template:</translate>}}
+{{!}} {{navbar|navbar/doc|text=<translate><!--T:33--> This template:</translate>}}
+{{!}}-
+{{!}} <translate><!--T:34--> Without "This box:" text</translate>
+{{!}} {{tlx|Navbar|2=''<translate><!--T:35--> template name</translate>''|3=plain{{=}}1}}
+{{!}} {{navbar|navbar/doc|plain=1}}
+{{!}}-
+{{!}} <translate><!--T:36--> Short version</translate>
+{{!}} {{tlx|Navbar|2=''<translate><!--T:37--> template name</translate>''|3=mini{{=}}1}}
+{{!}} {{navbar|navbar/doc|mini=1}}
+{{!}}-
+{{!}} <translate><!--T:38--> With a color option</translate>
+{{!}} {{tlx|Navbar|2=''<translate><!--T:39--> template name</translate>''|3=fontstyle{{=}}color:green}}
+{{!}} {{navbar|navbar/doc|fontstyle=color:green}}
+{{!}}-
+{{!}} <translate><!--T:40--> With brackets</translate>
+{{!}} {{tlx|Navbar|2=''<translate><!--T:41--> template name</translate>''|3=brackets{{=}}1}}
+{{!}} {{navbar|navbar/doc|brackets=1}}
+{{!}}-
+{{!}} <translate><!--T:45--> Custom namespace</translate>
+{{!}} {{tlx|Navbar|2=''<translate><!--T:46--> namespaced template name</translate>''|3=plain{{=}}1|4=brackets{{=}}1}}
+{{!}} {{navbar|User:Example|plain=1|brackets=1}}
+{{!}}{{)}}
+
+== TemplateData ==
+{{Navbar/doc}}
+
+<translate>
+== Notes == <!--T:42-->
+</translate>
+<translate><!--T:43--> Navbar is contained within a <tvar name=1>{{tag|div}}</tvar> in order to accommodate a horizontal unnumbered list.</translate>
+<translate><!--T:44--> This means it cannot be placed inside a <tvar name=1>{{tag|span}}</tvar> or other inline element, because Tidy will 'fix' situations where it finds block elements inside inline elements.</translate>
+
+<!--- PLEASE ADD METADATA TO THE <includeonly> SECTION HERE --->
+<includeonly>
+[[Category:Formatting templates{{#translation:}}]]
+</includeonly>
+}}
+</noinclude>
