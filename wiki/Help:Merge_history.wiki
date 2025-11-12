@@ -1,0 +1,76 @@
+<languages/>
+{{PD Help Page}}
+{{Special page}}
+
+<translate>
+<!--T:1-->
+'''Merge history''' (added in [[<tvar name=version>Release notes/1.12</tvar>|MW 1.12]]) is a {{<tvar name=special-pages>ll|Help:Special pages</tvar>|special page}} that makes it possible to automatically merge the history of two pages.
+
+<!--T:2-->
+This feature is accessible for users with the <tvar name=right><code>mergehistory</code></tvar> {{<tvar name=user-rights>ll|Manual:User rights</tvar>|user right}} at <tvar name=page>[[Special:MergeHistory]]</tvar>. Users in the {{<tvar name=sysops>ll|Help:Sysops and permissions</tvar>|sysop}} user group have this right assigned to them by default.
+
+<!--T:3-->
+Pages merged through this special page are logged in a "[[<tvar name=merge>Special:Log/merge</tvar>|merge log]]".
+
+== Benefits == <!--T:5-->
+
+<!--T:6-->
+* It does not create a new revision of the source page.</translate>
+<translate>
+<!--T:7-->
+* It does not lead to licensing violation, which would have resulted from cutting and pasting.</translate>
+<translate>
+<!--T:8-->
+* The history of a page is not split among different pages.
+
+== Usage == <!--T:9-->
+</translate>
+{| 
+| <translate><!--T:10--> Go to <tvar name=1>[[Special:MergeHistory]]</tvar>.</translate>
+<translate><!--T:11--> Enter the titles of the source page and the destination page in the input fields provided.</translate> <translate><!--T:12--> The source page is the page whose revision you want to merge into another page while the destination page is the page that the revision will be merged into.</translate>
+
+<translate><!--T:13--> Click on "<tvar name=1>{{int:Mergehistory-go}}</tvar>".</translate>
+| [[File:Special merge history.png|thumb|500px]]
+|-
+| colspan=2 | <hr/>
+|-
+| <translate><!--T:14--> You will be shown a list of revisions from the source page which can be merged into the destination page.</translate> <translate><!--T:15--> These are revisions starting from latest version of the source page which is older than the oldest version of the target page.</translate> <translate><!--T:16--> It is not possible to merge later revisions of the source page into the destination page.</translate>
+<translate><!--T:17--> Click on the radio button next to a revision to select it.</translate>
+<translate><!--T:18--> Click on "<tvar name=1>{{int:Mergehistory-submit}}</tvar>".</translate> <translate><!--T:19--> This will merge the selected revision and all before it.</translate>
+<translate><!--T:30--> If the radio button is not selected and all revisions of the source page are older than the oldest version of the target page, then all revisions of the source page will be merged.</translate>
+| [[File:Choose merge history.png|thumb|500px]]
+|-
+| colspan=2 | <hr/>
+|-
+| <translate><!--T:20--> If the merge was successful, you should see a page similar to this.</translate>
+{{Note|1=<translate><!--T:21--> If all the revisions of the source page are merged into the destination page, a redirect to the destination page will be created in the source page.</translate>}}
+| [[File:Submit merge history.png|thumb|500px]]
+|}
+
+<translate>
+== Special cases == <!--T:22-->
+</translate>
+<translate><!--T:23--> If the destination page started as a redirect to the source page, it will cause an overlap in revisions hence preventing a full <tvar name=1>MergeHistory</tvar>.</translate>
+<translate><!--T:24--> To fix this:</translate>
+
+<translate>
+<!--T:25-->
+* Delete the destination page.</translate>
+<translate>
+<!--T:26-->
+* Restore all but previously deleted and the redirect revisions.</translate>
+<translate>
+<!--T:27-->
+* It is now possible for a <tvar name=1>MergeHistory</tvar> to occur.
+
+== Undoing a merge == <!--T:28-->
+
+<!--T:29-->
+Go to <tvar name=1>[[Special:Log/merge]]</tvar> then click "<tvar name=2>{{int:revertmerge}}</tvar>".
+
+== See also == <!--T:4-->
+</translate>
+* {{ll|Manual:Merging histories}}
+* {{ll|API:Mergehistory}}
+
+[[Category:Help{{#translation:}}|{{PAGENAME}}]]

@@ -8,6 +8,10 @@ declare abstract class PrivateToken extends LinkTokenBase { // eslint-disable-li
 	toHtmlInternal(): string;
 }
 
+/**
+ * Get the file path for a given page.
+ * @param title page title
+ */
 const getFile = (title: string | Title): string => {
 	const isTitle = typeof title !== 'string';
 	return path.join('wiki', (isTitle ? title.title : title) + (isTitle ? '.wiki' : ''));
@@ -90,9 +94,9 @@ const {LinkToken}: {LinkToken: typeof PrivateToken} = Parser.require('./src/link
 const LinkBaseToken: typeof PrivateToken = Object.getPrototypeOf(LinkToken);
 LinkToken.prototype.toHtmlInternal = function(): string {
 	let html = LinkBaseToken.prototype.toHtmlInternal.call(this);
-	const root = ` href="${articlePath}`;
-	if (html.includes(root)) {
-		html = html.replace(root, ' href="/wikiparser-website/');
+	const abs = ` href="${articlePath}`;
+	if (html.includes(abs)) {
+		html = html.replace(abs, ' href="/wikiparser-website/');
 	}
 	if (this.selfLink || fs.existsSync(getFile(this.link))) {
 		return html;
@@ -103,6 +107,16 @@ LinkToken.prototype.toHtmlInternal = function(): string {
 			? m.replace(' class="', ' class="new ')
 			: `${m} class="new"`,
 	);
+};
+
+// Render local images
+// @ts-expect-error private method
+const {FileToken}: {FileToken: typeof PrivateToken} = Parser.require('./src/link/file');
+const {toHtmlInternal} = FileToken.prototype, // eslint-disable-line @typescript-eslint/unbound-method
+	// @ts-expect-error RegExp.escape
+	re = new RegExp(` (href|src)="${RegExp.escape(articlePath)}`, 'gu');
+FileToken.prototype.toHtmlInternal = function(): string {
+	return toHtmlInternal.call(this).replace(re, ' $1="/wikiparser-website/');
 };
 
 export default Parser;

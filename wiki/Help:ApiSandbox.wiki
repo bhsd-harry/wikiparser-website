@@ -1,0 +1,26 @@
+<languages/>
+{{PD Help Page|imported=yes}}
+{{Special page}}
+[[File:2015-03-16_ApiSandbox_screenshot.png|thumb]]
+<translate><!--T:1--> '''ApiSandbox''' lets developers experiment with the {{<tvar name=1>ll|API:Main page</tvar>|MediaWiki API}} in a browser form.</translate>
+<translate><!--T:6--> It was inspired by a <tvar name=1>{{ll|Google Summer of Code}}</tvar> proposal by <tvar name=2>[[User:Salil|Salil P. A.]]</tvar>.</translate>
+
+<translate>
+== Usage == <!--T:2-->
+</translate>
+<translate><!--T:3--> On a wiki with ApiSandbox installed, go to <tvar name=1><code>Special:ApiSandbox</code></tvar>.</translate>
+<translate><!--T:7--> Choose action, format and other parameters.</translate>
+<translate><!--T:8--> The sandbox displays interactive help for every request parameter.</translate>
+<translate><!--T:9--> Then click the "<tvar name=1>{{int:apisandbox-submit}}</tvar>" button.</translate>
+<translate><!--T:10--> ApiSandbox makes the request to <tvar name=1><code>api.php</code></tvar> on your behalf and displays the result below in the format you chose.</translate>
+<translate><!--T:11--> You can copy the request URL (and POST data, if needed) for reuse.</translate>
+
+<translate>
+<!--T:4-->
+You can preload ApiSandbox form parameters by putting the query string to <tvar name=3><code>api.php</code></tvar> in the URL fragment, for example the query <tvar name=1><code>/w/api.php?action=languagesearch&search=Maratih&typos=1</code></tvar> becomes <tvar name=2>[{{fullurl:Special:ApiSandbox}}#action=languagesearch&format=json&search=Maratih&typos=1 Special:ApiSandbox#action=languagesearch&format=json&search=Maratih&typos=1]</tvar>.
+
+<!--T:5-->
+Note that, despite it being called a sandbox, any write requests performed with this extension ''will'' modify the wiki.
+</translate>
+
+[[Category:Help{{#translation:}}]]
