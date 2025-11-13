@@ -1,0 +1,92 @@
+.mw-version {
+	border: 1px solid #72777d;
+	font-size: 80%;
+	line-height: 1.2;
+	border-collapse: collapse;
+}
+.mw-version-ltr {
+	/* @noflip */
+	float: right;
+	/* @noflip */
+	margin: 0 0 .5em .5em;
+	/* @noflip */
+	text-align: right;
+}
+.mw-version-rtl {
+	/* @noflip */
+	float: left;
+	/* @noflip */
+	margin: 0 .5em .5em 0;
+	/* @noflip */
+	text-align: left;
+}
+.mw-version td {
+	padding: .1em .3em;
+}
+.mw-version-versionbox {
+	border: 5px solid #00af89;
+	text-align: center;
+}
+.mw-version-versionnumber {
+	font-weight: bold;
+	font-size: 180%;
+}
+.mw-version-version .mw-version-versionbox {
+	border-color: #c8ccd1;
+}
+.mw-version.mw-version-version2 .mw-version-versionbox {
+	border-top-color: #c8ccd1;
+	border-right-color: #c8ccd1;
+	border-left-color: #c8ccd1;
+}
+
+/* Future/alpha releases: purple
+ *
+ * If a feature is added in a future/alpha version, use purple instead of green.
+ * This reminds devs that a feature might be experimental or too new.
+ */
+.mw-version-version-future .mw-version-versionbox {
+	border-color: #5f5f99;
+}
+.mw-version.mw-version-version2-future .mw-version-versionbox {
+	border-top-color: #5f5f99;
+	border-right-color: #5f5f99;
+	border-left-color: #5f5f99;
+}
+
+/* Stable/LTS releases: green */
+.mw-version-version-stable .mw-version-versionbox,
+.mw-version.mw-version.mw-version-and-later .mw-version-versionbox {
+	border-color: #00af89;
+}
+.mw-version.mw-version-version2-stable .mw-version-versionbox,
+/* Keep features removed in a future/alpha version as green. (Ignore oddball feaures added and removed within alpha, keep those purple). */
+.mw-version:not(mw-version-version-future).mw-version-version2-future .mw-version-versionbox {
+	border-top-color: #00af89;
+	border-right-color: #00af89;
+	border-left-color: #00af89;
+}
+
+/* Legacy releases: orange */
+.mw-version-version-legacy .mw-version-versionbox {
+	border-color: #f97f26;
+}
+.mw-version.mw-version-version2-legacy .mw-version-versionbox {
+	border-top-color: #f97f26;
+	border-right-color: #f97f26;
+	border-left-color: #f97f26;
+}
+
+/* Unsupported EOL releases: red */
+.mw-version-version-unsupported .mw-version-versionbox {
+	border-color: #bf3c2c;
+}
+.mw-version.mw-version-version2-unsupported .mw-version-versionbox {
+	border-top-color: #bf3c2c;
+	border-right-color: #bf3c2c;
+	border-left-color: #bf3c2c;
+}
+
+.mw-version-version-alpha .mw-version-versionbox {
+	border-style: dotted;
+}

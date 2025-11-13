@@ -1,0 +1,80 @@
+<noinclude>
+<languages/>
+</noinclude>{{Navbox
+ | name = Help
+ | title = {{ll|Help:Contents|2=<translate><!--T:1--> Help</translate>}}
+ | image = [[File:OOjs UI icon info-progressive.svg|30px|link=|alt=]]
+ | bodyclass = hlist
+
+ | group1 = <translate><!--T:2--> Reading</translate>
+ | list1 = 
+* {{ll|Help:Navigation|nsp=0}}
+* {{ll|Help:Searching|nsp=0}}
+* {{ll|Help:Tracking changes|2=<translate><!--T:3--> Tracking</translate>}}
+* {{ll|Help:Watchlist|nsp=0}}
+
+| group2 = <translate><!--T:4--> Editing</translate>
+| list2 = 
+* {{ll|Help:Editing pages|2=<translate><!--T:5--> Basic</translate>}}
+* {{ll|Help:Starting a new page|2=<translate><!--T:6--> New page</translate>}}
+* {{ll|Help:Formatting|nsp=0}}
+* {{ll|Help:Links|nsp=0}}
+* {{ll|Help:User page|2=<translate><!--T:7--> User pages</translate>}}
+* {{ll|Help:Talk pages|2=<translate><!--T:8--> Talks</translate>}}
+* {{ll|Help:Signatures|nsp=0}}
+
+| group3 = <translate><!--T:9--> Advanced</translate>
+| list3 = 
+* {{ll|Help:Images|2=<translate><!--T:10--> Images</translate>}}
+* {{ll|Help:Tables|2=<translate><!--T:11--> Tables</translate>}}
+* {{ll|Help:Categories|nsp=0}}
+* {{ll|Help:Subpages|nsp=0}}
+* {{ll|Help:Managing files|2=<translate><!--T:12--> Files</translate>}}
+* {{ll|Help:Moving a page|2=<translate><!--T:13--> Moving</translate>}}
+* {{ll|Help:Redirects|nsp=0}}
+* {{ll|Help:Protected pages|nsp=0}}
+* {{ll|Help:Templates|nsp=0}}
+* {{ll|Help:Magic words|nsp=0}}
+* {{ll|Help:Namespaces|nsp=0}}
+* {{ll|Help:Special pages|nsp=0}}
+* {{ll|Help:External searches|nsp=0}}
+* {{ll|Help:Bots|nsp=0}}
+
+| group4 = <translate><!--T:14--> Personal</translate>
+| list4 =
+* {{ll|Help:Preferences|nsp=0}}
+* {{ll|Help:Skins|nsp=0}}
+
+| group5 = <translate><!--T:15--> Admin</translate>
+| list5 = 
+* {{ll|Help:Sysops and permissions|2=<translate><!--T:16--> Permissions</translate>}}
+* {{ll|Help:Protecting and unprotecting pages|2=<translate><!--T:17--> Protecting</translate>}}
+* {{ll|Help:Deletion and undeletion|2=<translate><!--T:18--> Deleting</translate>}}
+* {{ll|Help:Patrolled edits|nsp=0}}
+* {{ll|Help:Blocking users|2=<translate><!--T:19--> Blocking</translate>}}
+* {{ll|Help:Range blocks|2=<translate><!--T:20--> Range IP blocks</translate>}}
+* {{ll|Help:User rights and groups|nsp=0}}
+}}<noinclude>
+{{documentation|content=
+
+<translate>
+<!--T:21-->
+To create a new help page, enter its title here:
+</translate>
+
+<inputbox>
+type        = create
+preload     = Template:Help/preload
+width       = 40
+placeholder = <translate nowrap><!--T:22--> Enter new help page title here</translate>
+prefix      = Help:
+buttonlabel = {{int|Create}}
+break       = no
+</inputbox>
+
+<translate>
+== Usage == <!--T:23-->
+</translate>
+}}
+[[Category:Navigation templates{{#translation:}}|{{PAGENAME}}]]
+</noinclude>

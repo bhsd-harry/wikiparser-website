@@ -1,7 +1,12 @@
 import fs from 'fs';
 import path from 'path';
+import {profile} from '@bhsd/nodejs';
 import Parser from './parser';
 import type {Token} from 'wikiparser-node';
+
+let [,, ...args] = process.argv;
+const hasArg = args.length > 0;
+args = hasArg ? args.map(file => path.basename(file)) : fs.readdirSync(Parser.templateDir!);
 
 /**
  * Render a page to an HTML file.
@@ -46,37 +51,43 @@ const render = (page: string, title: string, root: Token): void => {
 	console.timeEnd(label);
 };
 
-// Render regular pages
 const allPages: string[] = [];
-for (const file of fs.readdirSync(Parser.templateDir!)) {
-	if (!file.endsWith('.wiki') || /^(?:Template|MediaWiki):/u.test(file)) {
-		continue;
-	}
-	const page = file.slice(0, -5),
-		title = page.replaceAll('_', ' '),
-		/* eslint-disable @stylistic/max-len */
-		wiki = `<div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the [https://www.mediawiki.org/wiki/${
-			page
-		} ${title}] article at [https://www.mediawiki.org/ MediaWiki.org] ${
-			title.startsWith('Help:')
-				? 'as Public Domain ([https://creativecommons.org/publicdomain/zero/1.0/ CC0])'
-				: 'under the [https://creativecommons.org/licenses/by-sa/4.0/ Creative Commons Attribution/Share-Alike License (CC BY-SA)]'
-		}.</div>
+(async () => {
+	await profile(() => {
+		// Render regular pages
+		for (const file of args) {
+			if (!file.endsWith('.wiki') || /^(?:Template|MediaWiki):/u.test(file)) {
+				continue;
+			}
+			const page = file.slice(0, -5),
+				title = page.replaceAll('_', ' '),
+				/* eslint-disable @stylistic/max-len */
+				wiki = `<div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the [https://www.mediawiki.org/wiki/${
+					page
+				} ${title}] article at [https://www.mediawiki.org/ MediaWiki.org] ${
+					title.startsWith('Help:')
+						? 'as Public Domain ([https://creativecommons.org/publicdomain/zero/1.0/ CC0])'
+						: 'under the [https://creativecommons.org/licenses/by-sa/4.0/ Creative Commons Attribution/Share-Alike License (CC BY-SA)]'
+				}.</div>
 ${fs.readFileSync(path.join('wiki', file), 'utf8')}`,
-		/* eslint-enable @stylistic/max-len */
-		root = Parser.parse(wiki);
-	root.pageName = page;
-	root.addEventListener('expand', (_, {token}: {token: Token}) => {
-		// eslint-disable-next-line @typescript-eslint/no-base-to-string
-		fs.writeFileSync(path.join('expanded', file), String(token));
-	});
-	render(page, title, root);
-	allPages.push(title);
-}
+				/* eslint-enable @stylistic/max-len */
+				root = Parser.parse(wiki);
+			root.pageName = page;
+			root.addEventListener('expand', (_, {token}: {token: Token}) => {
+				// eslint-disable-next-line @typescript-eslint/no-base-to-string
+				fs.writeFileSync(path.join('expanded', file), String(token));
+			});
+			render(page, title, root);
+			allPages.push(title);
+		}
 
-// Render Special:AllPages
-allPages.sort((a, b) => a.localeCompare(b));
-const wiki = `<div class="mw-allpages-body">
+		if (!hasArg) {
+			// Render Special:AllPages
+			allPages.sort((a, b) => a.localeCompare(b));
+			const wiki = `<div class="mw-allpages-body">
 ${allPages.map(s => `*[[:${s}]]`).join('\n')}
 </div>`;
-render('index', 'Special:All pages', Parser.parse(wiki));
+			render('index', 'Special:All pages', Parser.parse(wiki));
+		}
+	}, 'log');
+})();

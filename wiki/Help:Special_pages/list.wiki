@@ -8,7 +8,7 @@ This list only includes special pages provided by MediaWiki core itself. Special
 === By role ===
 ==== General information ====
 * [[Special:AllMessages]]: This lists and allows editing of all system messages used on MediaWiki.
-* [[Special:NamespaceInfo]]: {{int:namespaceinfo-summary}}
+* [[Special:NamespaceInfo]]: {{int|namespaceinfo-summary}}
 * [[Special:SpecialPages]]: A list of popular tools and functions for managing and navigating the wiki.
 * [[Special:Statistics]]: Displays site statistics such as the number of content pages, edits, users, etc.
 * [[Special:Version]]: Shows the version of the software and details about installed extensions, skins, etc.
@@ -227,7 +227,7 @@ The below pages are accessible only to users with a particular privilege level.
 * [[Special:MyUploads]]: This lists uploads of the active user.
 
 ==== N ====
-* [[Special:NamespaceInfo]]: {{int:namespaceinfo-summary}}
+* [[Special:NamespaceInfo]]: {{int|namespaceinfo-summary}}
 * [[Special:NewFiles]]: Shows a gallery of new files.
 * [[Special:NewPages]]: This lists new pages.
 * [[Special:Nuke]]: Performs a mass deletion of pages.

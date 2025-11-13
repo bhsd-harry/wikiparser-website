@@ -1,0 +1,182 @@
+<languages/>
+{{PD Help Page|imported=yes}}
+{{Special page}}
+
+[[File:Screenshot Expand templates Βικιβιβλία.png|250px|thumb|alt=Screenshot of MediaWiki for translation purposes.|<translate><!--T:49--> Screenshot of MediaWiki for translation purposes.</translate>]]
+<translate>
+<!--T:1-->
+<tvar name=1>'''ExpandTemplates'''</tvar> allows for recursive expansion of templates, parser functions and variables.
+</translate>
+
+<translate><!--T:2--> The page <tvar name=1>[[Special:ExpandTemplates]]</tvar> has two input boxes, one to enter wikitext, and another one to enter a pagename.</translate>
+<translate><!--T:3--> It produces in the "Result" window the expanded wikitext, i.e., templates, parser functions and variables are expanded recursively; variables depending on pagename are expanded based on the supplied pagename.</translate>
+<translate><!--T:4--> This is an intermediate result before a page is rendered after saving or pressing "Preview" (or the resulting wikitext is submitted to other processing), helpful in understanding and debugging wikitext expansion.</translate>
+<translate><!--T:5--> It does not support [[<tvar name=1>Manual:Substitution</tvar>|substitution]] (a separate expansion process [<nowiki/>[[<tvar name=2>Pre-save transforms</tvar>|pre-save transformation]]] is carried out after entering wikitext in an edit window and pressing "Show preview" or "Save", but before regular parsing; the resulting wikitext can be inspected in an arbitrary edit window by pressing "Show changes", or by saving a test page and reopening the edit window).</translate>
+<translate><!--T:48--> If you need to use substitution, use the parse API instead of the ExpandTemplates API and enable pre-save transformations [to do this, set <tvar name=1><code>pst</code></tvar> to <tvar name=2><syntaxhighlight lang="json" inline>true</syntaxhighlight></tvar>].</translate>
+
+<translate><!--T:6--> In addition there is a preview area.</translate>
+<translate><!--T:7--> However, this shows the rendered result of expanding the expanded wikitext again (<tvar name=phab>{{task|T30616}}</tvar>).</translate>
+<translate><!--T:8--> Although the result is usually the same as after single expansion, it can be different if the first expansion produces braces.</translate>
+
+<translate><!--T:9--> The magic word <tvar name=1>'!'</tvar> provides a way to allow <tvar name=2>"|"</tvar> in a parameter value of a template or parser function, in particular for use in table syntax.</translate>
+<translate><!--T:10--> This template can be used with ExpandTemplates to perform partial expansion/substitution.</translate>
+
+<translate>
+<!--T:11-->
+The table, using <tvar name=1>{{timw|2x}}</tvar>, shows that a call with a parameter separator <tvar name=3>"|"</tvar> in the form <tvar name=2><nowiki>{{!}}</nowiki></tvar> prevents ordinary expansion; the last column shows the preview area (with the result of double expansion).
+
+== Usage == <!--T:12-->
+</translate>
+{| class="wikitable"
+|-
+! <translate><!--T:27--> original wikitext</translate>
+! <translate><!--T:28--> expanded wikitext</translate>
+! <translate><!--T:29--> rendering</translate>
+! <translate><!--T:30--> preview produced by ExpandTemplates</translate>
+|-
+| <code><nowiki>{{2x|[[MediaWiki]] }}</nowiki></code>
+| <code><nowiki>[[MediaWiki]] [[MediaWiki]] </nowiki></code>
+| {{2x|[[MediaWiki]] }}
+| {{2x|[[MediaWiki]] }}
+|-
+| <code><nowiki>{{2x{{!}}[[MediaWiki]] }}</nowiki></code>
+| <code><nowiki>{{2x|[[MediaWiki]] }}</nowiki></code>
+<td>{{2x{{!}}[[MediaWiki]] }}</td> <!-- use TD tag for correct rendering -->
+<td>{{2x|[[MediaWiki]] }}</td>
+|-
+| <code><nowiki>{{2x{{!{{!}}}}[[MediaWiki]] }}</nowiki></code>
+| <code><nowiki>{{2x{{!|}}[[MediaWiki]] }}</nowiki></code>
+<td>{{2x{{!{{!}}}}[[MediaWiki]] }}</td>
+<td>{{2x{{!|}}[[MediaWiki]] }}</td>
+|}
+
+<translate>
+===Remove comments=== <!--T:14-->
+</translate>
+<translate><!--T:20--> The "Remove comments" option selects whether comments are removed, not just in the final result but throughout the expansion process.</translate>
+<translate><!--T:21--> This affects the result of parser functions: a comment in the expression of <tvar name=1>#expr</tvar> or <tvar name=2>#ifexpr</tvar> gives an error message unless "Remove comments" is on, and comments affect <tvar name=3>#if</tvar> and <tvar name=4>ifeq</tvar>.</translate>
+
+<translate>
+<!--T:22-->
+Example:
+</translate>
+
+<pre>
+{{#expr:<!--p-->3}}
+
+{{#ifeq:<!--p-->3|3|1|0}}
+
+{{#if:<!--p-->|1|0}}
+</pre>
+
+<translate>
+<!--T:23-->
+Normal expansion, and ExpandTemplates with "Remove comments" on:
+</translate>
+
+{{#expr:<!--p-->3}}
+
+{{#ifeq:<!--p-->3|3|1|0}}
+
+{{#if:<!--p-->|1|0}}
+
+<translate>
+<!--T:24-->
+Full substitution, and ExpandTemplates with "Remove comments" off:
+</translate>
+
+<strong class="error"><span class="Pfunc_expr_unexpected_operator">Expression error: Unexpected &lt; operator</span></strong>
+
+0
+
+1
+
+<translate>
+===XML parse tree=== <!--T:15-->
+</translate>
+<translate><!--T:25--> Optionally the XML parse tree (the [[w:Document Object Model|XML DOM]] representation of the wikitext, also called document tree or DOM tree) is shown (see also <tvar name=1>{{ll|Manual:Preprocessor_DOM.php}}</tvar>).</translate>
+<translate><!--T:26--> For example:</translate>
+
+<pre>a [[b|c]]
+{{CURRENTYEAR}}
+{{{{{a}}}}}
+{{#ifeq:2|3|a|b}}
+{{#switch:a|a=3|b=4|a=5}}
+{{a|b|c=d[[e|f]]g|h}}
+{{{a|b}}}
+{{#tag:nowiki|a=b}}
+{{#tag:nowiki|aeb}}</pre>
+
+<translate><!--T:31--> gives</translate>
+
+<syntaxhighlight lang="html">
+<root>a [[b|c]]
+<template lineStart="1"><title>CURRENTYEAR</title></template>
+<template lineStart="1"><title><tplarg><title>a</title></tplarg></title></template>
+<template lineStart="1"><title>#ifeq:2</title><part><name index="1"/><value>3</value></part><part><name index="2"/><value>a</value></part><part><name index="3"/><value>b</value></part></template>
+<template lineStart="1"><title>#switch:a</title><part><name>a</name>=<value>3</value></part><part><name>b</name>=<value>4</value></part><part><name>a</name>=<value>5</value></part></template>
+<template lineStart="1"><title>a</title><part><name index="1"/><value>b</value></part><part><name>c</name>=<value>d[[e|f]]g</value></part><part><name index="2"/><value>h</value></part></template>
+<tplarg lineStart="1"><title>a</title><part><name index="1"/><value>b</value></part></tplarg></root>
+<template lineStart="1"><title>#tag:nowiki</title><part><name>a</name>=<value>b</value></part></template>
+<template lineStart="1"><title>#tag:nowiki</title><part><name index="1"/><value>aeb</value></part></template>
+</syntaxhighlight>
+
+<translate><!--T:32--> Thus:</translate>
+*<translate><!--T:33--> The result shows a stage in processing before actual evaluation.</translate> <translate><!--T:34--> Thus even names of variables, parser functions, and templates have not been determined.</translate> <translate><!--T:35--> Also, the colon and <tvar name=1>"#"</tvar> are not detected yet, so no distinction is made between variables, parser functions, and templates, let alone that there would be distinction between existing and non-existing variables, parser functions, and templates.</translate> <translate><!--T:36--> Therefore:</translate>
+**<translate><!--T:37--> Distinction is made between parameter items with and without <tvar name=1>"="</tvar>, even though for some items of some parser functions it is treated as plain text after all.</translate>
+**<translate><!--T:38--> "<tvar name=1>|a=b|a=c</tvar>" is not reduced yet to "<tvar name=2>|a=c</tvar>" because the fact that the left sides are equal is only known after their evaluation, and also because this reduction depends on the evaluation of ''title''.</translate> <translate><!--T:39--> For example, for titles of the form <tvar name=1><code>#switch:</code>..</tvar>, "<tvar name=2>|a=b|a=c</tvar>" is equivalent to "<tvar name=3>|a=b</tvar>" after all.</translate>
+*<translate><!--T:40--> A pair of double rectangular brackets shields "<tvar name=1>|</tvar>" from being interpreted as a parameter separator, but links are not shown separately in the tree.</translate>
+
+<translate>
+===Input text in URL=== <!--T:16-->
+</translate>
+<translate><!--T:41--> The wikitext serving as input can also be put in the URL, e.g., using [[<tvar name=1>Help:URL#URLs_in_external_links</tvar>|urlencode]], <tvar name=2><code><nowiki>{{fullurl:special:ExpandTemplates|wpInput={{urlencode:{{texpr{{!}}abc}}}}}}</nowiki></code></tvar> gives <tvar name=3>{{fullurl:special:ExpandTemplates|wpInput={{urlencode:{{texpr{{!}}abc}}}}}}</tvar>.</translate>
+<translate><!--T:42--> <tvar name=1>{{cnw|{|{!}|}|}}</tvar>, using <tvar name=2>[[Help:Extension:ParserFunctions#Escaping_pipe_characters_in_tables|&lcub;&lcub;!&rcub;&rcub;]]</tvar>, prevents the template <tvar name=3>texpr</tvar> from expanding in the URL, and also prevents <tvar name=4>"|"</tvar> from being interpreted as a separator of the parameter of urlencode from a dummy second parameter.</translate>
+<translate><!--T:43--> It can also be used in a template call without parameters, albeit that in the input box of ExpandTemplates this becomes a template with unnamed parameter <tvar name=1>{{{1}}}</tvar> being the empty string instead of undefined; e.g. <tvar name=2><code><nowiki>{{fullurl:special:ExpandTemplates|wpInput={{tc{{!}}}}}}</nowiki></code></tvar>.</translate>
+<translate><!--T:44--> This does not work for variables and parser functions, use percent codes for one pair of braces instead (see wikitext); for the ParserFunctions prefix <tvar name=1>"#"</tvar> use <tvar name=2>%23</tvar>:</translate>
+
+{{canonicalurl:special:ExpandTemplates|wpInput={{((}}CURRENTTIME{{))}}}}.
+
+{{canonicalurl:special:ExpandTemplates|wpInput={{((}}%23expr:2*3{{))}}}}.
+<translate>
+====Example==== <!--T:17-->
+
+=====Query parameters===== <!--T:18-->
+</translate>
+* wpContextTitle=pagetitle
+* wpGenerateRawHtml=true
+* wpGenerateXml=true
+* wpInput=
+* wpRemoveComments=true
+* wpRemoveNowiki=true
+URL:
+*{{canonicalurl:special:ExpandTemplates|wpInput=a&wpRemoveComments=true&wpRemoveNowiki=true&wpGenerateXml=true&wpContextTitle=pagetitle&wpGenerateRawHtml=true}}
+
+<translate>
+== Customizing == <!--T:19-->
+</translate>
+;<translate><!--T:45--> Adjusting the box width</translate>
+<translate><!--T:46--> By default the width of the input and result box is only 11 characters.</translate>
+<translate><!--T:47--> You may want to change this to full width by adding something like the following to your CSS:</translate>
+
+<syntaxhighlight lang=css>
+textarea {
+    border: 1px solid #2f6fab;
+    color: Black;
+    background-color: white;
+    width: 100%;
+    padding: 0.1em;
+    overflow: auto;
+}
+</syntaxhighlight>
+
+<translate>
+== See also == <!--T:13-->
+</translate>
+* [[m:MediaWiki:Expand templates intro|Introduction into ExpandTemplates]]
+* [[API:expandtemplates|API:expandtemplates]]
+
+{{Special_page}}
+
+[[Category:Special Pages{{#translation:}}]]
+[[Category:Help{{#translation:}}]]

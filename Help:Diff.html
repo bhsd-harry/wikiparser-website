@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+	<title>Help:Diff</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width">
+	<link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
+	<link rel="stylesheet" href="./css/page.css">
+</head>
+<body>
+	<main>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://www.mediawiki.org/wiki/Help:Diff">Help:Diff</a> article at <a rel="nofollow" class="external" href="https://www.mediawiki.org/">MediaWiki.org</a> as Public Domain (<a rel="nofollow" class="external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>).</div>
+<p><style>.diff{border:0;border-spacing:4px;margin:0;width:100%;table-layout:fixed}.diff td{padding:.33em .5em}.diff td.diff-marker{padding:.25em;text-align:right;font-weight:700;font-size:1.25em;line-height:1.2}.diff td.diff-marker:before{content:attr(data-marker)}.diff td div{overflow-wrap:break-word}.diff col.diff-marker{width:2%}.diff .diff-content{width:48%}.diff-title{vertical-align:top}.diff-notice,.diff-multi,.diff-otitle,.diff-ntitle{text-align:center}.diff-lineno{font-weight:700;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.mw-diff-inline-added ins,.mw-diff-inline-changed ins,.mw-diff-inline-moved ins,.mw-diff-inline-deleted ins,.mw-diff-inline-added del,.mw-diff-inline-changed del,.mw-diff-inline-moved del,.mw-diff-inline-deleted del{display:inline-block;text-decoration:none}.mw-diff-inline-added ins,.mw-diff-inline-changed ins,.mw-diff-inline-moved ins{background:#a3d3ff}.mw-diff-inline-deleted del,.mw-diff-inline-changed del,.mw-diff-inline-moved del{background:#ffe49c}.mw-diff-table-prefix{display:flex;justify-content:flex-end;align-items:center;margin:1em 0}.mw-diff-table-prefix .mw-diff-inline-legend{margin-right:auto}.mw-diff-table-prefix .mw-diff-inline-legend .mw-diff-inline-legend-ins,.mw-diff-table-prefix .mw-diff-inline-legend .mw-diff-inline-legend-del{display:inline-block;padding:4px 6px}.mw-diff-table-prefix .mw-diff-inline-legend .mw-diff-inline-legend-ins{background:#a3d3ff}.mw-diff-table-prefix .mw-diff-inline-legend .mw-diff-inline-legend-del{background:#ffe49c}.diff-addedline,.diff-deletedline,.diff-context{font-size:13px;tab-size:4;line-height:1.6;vertical-align:top;white-space:pre-wrap;white-space:break-spaces;border-style:solid;border-width:1px 1px 1px 4px;border-radius:.33em}.diff-editfont-monospace .diff-addedline,.diff-editfont-monospace .diff-deletedline,.diff-editfont-monospace .diff-context{font-family:monospace}.diff-editfont-sans-serif .diff-addedline,.diff-editfont-sans-serif .diff-deletedline,.diff-editfont-sans-serif .diff-context{font-family:sans-serif}.diff-editfont-serif .diff-addedline,.diff-editfont-serif .diff-deletedline,.diff-editfont-serif .diff-context{font-family:serif}.diff-context{background:#f8f9fa;border-color:#eaecf0;color:#202122}.diff-addedline{border-color:#a3d3ff}.diff-deletedline{border-color:#ffe49c}.diffchange{font-weight:700;text-decoration:none}.diff-addedline .diffchange,.diff-deletedline .diffchange{border-radius:.33em;padding:.25em 0}.diff-addedline .diffchange{background:#d8ecff}.diff-deletedline .diffchange{background:#feeec8}.diff-currentversion-title,.diff{direction:ltr;unicode-bidi:embed}.diff-contentalign-right td{direction:rtl;unicode-bidi:embed}.diff-contentalign-left td{direction:ltr;unicode-bidi:embed}.diff-multi,.diff-otitle,.diff-ntitle,.diff-lineno{direction:ltr!important;unicode-bidi:embed}.mw-diff-slot-header{text-align:center}.mw-diff-slot-error{text-align:center;color:#d33}.mw-diff-movedpara-left,.mw-diff-movedpara-right,.mw-diff-movedpara-left:visited,.mw-diff-movedpara-right:visited,.mw-diff-movedpara-left:active,.mw-diff-movedpara-right:active{display:block;color:transparent;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.mw-diff-movedpara-left:hover,.mw-diff-movedpara-right:hover{text-decoration:none;color:transparent}.mw-diff-movedpara-left:after,.mw-diff-movedpara-right:after{display:block;color:#202122;margin-top:-1.25em}.mw-diff-movedpara-left:after,.rtl .mw-diff-movedpara-right:after{content:"\21aa"}.mw-diff-movedpara-right:after,.rtl .mw-diff-movedpara-left:after{content:"\21a9"}#mw-inlinediff-header #mw-diff-otitle1,#mw-inlinediff-header #mw-diff-otitle2,#mw-inlinediff-header #mw-diff-otitle3,#mw-inlinediff-header #mw-diff-otitle5{display:none}.diff[data-selected-side=deleted] .diff-side-added,.diff[data-selected-side=added] .diff-side-deleted{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:text}.mw-diff-inline-toggle-layout{max-width:10em;margin-left:1em}.mw-diff-inline-toggle-layout .oo-ui-fieldLayout.oo-ui-fieldLayout-align-left.oo-ui-labelElement>.oo-ui-fieldLayout-body>.oo-ui-fieldLayout-header{width:75%;margin-right:0}.mw-diff-inline-toggle-layout .oo-ui-fieldLayout.oo-ui-fieldLayout-align-left>.oo-ui-fieldLayout-body>.oo-ui-fieldLayout-field{width:25%;text-align:right}</style>
+</p>
+<style>.template-pd-help-page{color:var(--color-emphasized, #101418);border:solid 1px var(--border-color-base, #a2a9b1);padding:.5em;margin:.5em 0;background-color:var(--background-color-base, #fff);font-size:95%;vertical-align:middle;width:100%;box-sizing:border-box}.template-pd-help-page .icon-cell{padding:0 1em;width:30px}</style><table class="template-pd-help-page"><tr>
+<td class="icon-cell"><span><span><img alt="PD" src="/wikiparser-website/File%3APD-icon.svg" decoding="async" class="mw-file-element" width="30"></span></span></td>
+<td><b>Note:</b> When you edit this page, you agree to release your contribution under the <a rel="nofollow" class="external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>. See <a href="/wikiparser-website/Project%3APD_help" title="Project:PD help">Public Domain Help Pages</a> for more info. 
+</td>
+<td class="icon-cell"><span><span><img alt="PD" src="/wikiparser-website/File%3APD-icon.svg" decoding="async" class="mw-file-element" width="30"></span></span></td>
+</tr></table>
+<p><style>.nmbox{background:#f8f9fa;border:1px solid var(--border-color-base, #a2a9b1);box-sizing:border-box;margin:2px 0;padding:0}.nmbox *{box-sizing:border-box}.nmbox-header{background:#eaecf0;padding:4px .5em;font-weight:700;text-align:center;white-space:nowrap}.nmbox .mbox-image{display:inline-block;padding-right:1em}.nmbox-text{border-top:1px solid var(--border-color-base, #a2a9b1);padding:4px .5em}@media screen and (min-width:768px){.nmbox-header{display:table-cell;border-right:1px solid var(--border-color-base, #a2a9b1)}.nmbox-text{border-top:none;display:table-cell}}</style>
+</p>
+<div class="nmbox noprint mw-content-ltr"><div class="nmbox-header"><div class="nmbox-image mbox-image"><span><span><img src="/wikiparser-website/File%3ACodex_icon_specialPages_color-progressive.svg" decoding="async" class="mw-file-element" width="20"></span></span></div><a href="/wikiparser-website/Help%3ASpecial_pages" title="Help:Special pages">Special pages – Help</a><span style="display:none"><a href="/wikiparser-website/Help%3ASpecial_pages" title="Help:Special pages"> </a></span>
+</div>
+<div class="nmbox-text mbox-text"><div style="margin-bottom:4px;"><style>.hlist dl,.hlist ol,.hlist ul{margin:0;padding:0}.hlist dd,.hlist dt,.hlist li{margin:0;display:inline}.hlist dl dl,.hlist dl ol,.hlist dl ul,.hlist ol dl,.hlist ol ol,.hlist ol ul,.hlist ul dl,.hlist ul ol,.hlist ul ul{display:inline}.hlist .mw-empty-li,.hlist .mw-empty-elt{display:none}.hlist dt:after{content:": "}.hlist dd:after,.hlist li:after{content:" \b7  ";font-weight:700}.hlist dd:last-child:after,.hlist dt:last-child:after,.hlist li:last-child:after{content:none}.hlist dd dd:first-child:before,.hlist dd dt:first-child:before,.hlist dd li:first-child:before,.hlist dt dd:first-child:before,.hlist dt dt:first-child:before,.hlist dt li:first-child:before,.hlist li dd:first-child:before,.hlist li dt:first-child:before,.hlist li li:first-child:before{content:" (";font-weight:400}.hlist dd dd:last-child:after,.hlist dd dt:last-child:after,.hlist dd li:last-child:after,.hlist dt dd:last-child:after,.hlist dt dt:last-child:after,.hlist dt li:last-child:after,.hlist li dd:last-child:after,.hlist li dt:last-child:after,.hlist li li:last-child:after{content:")";font-weight:400}.hlist ol{counter-reset:listitem}.hlist ol>li{counter-increment:listitem}.hlist ol>li:before{content:" " counter(listitem) "\a0"}.hlist dd ol>li:first-child:before,.hlist dt ol>li:first-child:before,.hlist li ol>li:first-child:before{content:" (" counter(listitem) "\a0"}</style><div class="hlist">
+<ul><li><a href="/wikiparser-website/Help%3AAll_pages" title="Help:All pages">All pages</a><span style="display:none"><a href="/wikiparser-website/Help%3AAll_pages" title="Help:All pages"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3AApiSandbox" title="Help:ApiSandbox">ApiSandbox</a><span style="display:none"><a href="/wikiparser-website/Help%3AApiSandbox" title="Help:ApiSandbox"> </a></span></li>
+<li><b><a  class="mw-selflink">Diff</a></b><span style="display:none"><a  class="mw-selflink"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3AExpandTemplates" title="Help:ExpandTemplates">ExpandTemplates</a><span style="display:none"><a href="/wikiparser-website/Help%3AExpandTemplates" title="Help:ExpandTemplates"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3AMerge_history" title="Help:Merge history">Merge history</a><span style="display:none"><a href="/wikiparser-website/Help%3AMerge_history" title="Help:Merge history"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3ANew_files" title="Help:New files" class="new">New files</a><span style="display:none"><a href="/wikiparser-website/Help%3ANew_files" title="Help:New files" class="new"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3ANew_pages" title="Help:New pages" class="new">New pages</a><span style="display:none"><a href="/wikiparser-website/Help%3ANew_pages" title="Help:New pages" class="new"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3APermanentLink" title="Help:PermanentLink" class="new">PermanentLink</a><span style="display:none"><a href="/wikiparser-website/Help%3APermanentLink" title="Help:PermanentLink" class="new"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3APreferences" title="Help:Preferences" class="new">Preferences</a><span style="display:none"><a href="/wikiparser-website/Help%3APreferences" title="Help:Preferences" class="new"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3ARandom_page" title="Help:Random page" class="new">Random page</a><span style="display:none"><a href="/wikiparser-website/Help%3ARandom_page" title="Help:Random page" class="new"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3ARandom_root_page" title="Help:Random root page" class="new">Random root page</a><span style="display:none"><a href="/wikiparser-website/Help%3ARandom_root_page" title="Help:Random root page" class="new"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3ARecent_changes" title="Help:Recent changes" class="new">Recent changes</a><span style="display:none"><a href="/wikiparser-website/Help%3ARecent_changes" title="Help:Recent changes" class="new"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3AUndelete" title="Help:Undelete" class="new">Undelete</a><span style="display:none"><a href="/wikiparser-website/Help%3AUndelete" title="Help:Undelete" class="new"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3AWatchlist" title="Help:Watchlist" class="new">Watchlist</a><span style="display:none"><a href="/wikiparser-website/Help%3AWatchlist" title="Help:Watchlist" class="new"> </a></span></li>
+<li><a href="/wikiparser-website/Help%3AWhat_links_here" title="Help:What links here" class="new">What links here</a><span style="display:none"><a href="/wikiparser-website/Help%3AWhat_links_here" title="Help:What links here" class="new"> </a></span></li></ul>
+</div></div></div>
+</div>
+<p>A <b><a href="/wikiparser-website/W%3ADiff" title="W:Diff" class="new">diff</a></b> (short for difference) displays the changes between two revisions of a page.
+Diffs are a fundamental component of navigation and content moderation on MediaWiki wikis.
+</p><p>The platforms in the wiki ecosystem have several versions of a diff depending on which device and installation of MediaWiki is being used.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="When_and_why_to_use_a_diff?">When and why to use a diff?</h2></div>
+<p>The main reason to use a diff is to review a specific change to a page made by yourself or someone else.
+There are many possible reasons to do this:
+</p>
+<ul><li>To help find instances of vandalism</li>
+<li>To determine when a section, sentence, or word was added or removed</li>
+<li>To determine which editor made a given change</li>
+<li>As a starting point to further actions as the diff contains <a href="/wikiparser-website/Help%3AEditing_pages" title="Help:Editing pages" class="new">edit</a>, <a href="/wikiparser-website/Manual%3AReverts#Undo" title="Manual:Reverts" class="new">undo</a>, and other actions as well as links to the editor's user and talk pages.</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="How_to_navigate_to_view_a_diff?">How to navigate to view a diff?</h2></div>
+<p>The most common way to view a diff is through the "<a href="/wikiparser-website/Help%3AHistory" title="Help:History" class="new">Revision history</a>".
+This is accessible via the "View history" tab.
+From there, you can use "prev" to view diffs of single revisions, or use the radio buttons and the "Compare selected revisions" button to view diffs across multiple revisions.
+</p><p>Most <a href="/wikiparser-website/Help%3ASpecial_pages" title="Help:Special pages">special pages</a> that list changes will usually include links to diffs, such as:
+</p>
+<ul><li><a href="/wikiparser-website/Special%3ARecentChanges" title="Special:RecentChanges" class="new">Special:RecentChanges</a></li>
+<li><a href="/wikiparser-website/Special%3AWatchlist" title="Special:Watchlist" class="new">Special:Watchlist</a></li>
+<li><a href="/wikiparser-website/Special%3AContributions" title="Special:Contributions" class="new">Special:Contributions</a></li>
+<li><a href="/wikiparser-website/Special%3ARelatedchanges" title="Special:Relatedchanges" class="new">Special:Relatedchanges</a></li></ul>
+<p>Another way to view a diff is with the <a href="/wikiparser-website/Special%3ADiff" title="Special:Diff" class="new">Special:Diff</a> page.
+To use this, you must know the IDs of the revisions you want to compare.
+Revision IDs can be retrieved by looking at the <code>diff=123</code> portion of a diff URL, where <code>123</code> is the diff ID.
+Additionally, you can use the value of the <code>oldid</code> parameter to get the diff of that revision against the previous one.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Components_to_a_diff">Components to a diff</h2></div>
+<p>Below is a visual representation of the important components of a diff page which you will see when viewing the difference between two versions.
+</p>
+<figure class="mw-halign-none" typeof="mw:File/Thumb"><a href="/wikiparser-website/File%3ADiff-components.svg" class="mw-file-description"><img src="/wikiparser-website/File%3ADiff-components.svg" decoding="async" class="mw-file-element" width="600"></a><figcaption>Components of a diff</figcaption></figure>
+<p><br>
+This interactive example shows the top of the diff page (some of the links are dummy links).
+The older revision is shown on the left, the newer revision on the right.
+</p>
+<blockquote style="border:1px solid; padding:1em;">
+<table class="diff diff-contentalign-left diff-editfont-monospace" border="0" style="border-spacing:4px; table-layout:fixed; width:98%">
+<tbody><tr style="height:1px">
+<td style="width:2%">
+</td>
+<td style="width:48%">
+</td>
+<td style="width:2%">
+</td>
+<td style="width:48%">
+</td></tr>
+<tr class="diff-title">
+<td colspan="2" class="diff-otitle diff-side-deleted"><div class="mw-diff-otitle1"><strong><a href="/wikiparser-website/Help%3APage_history" title="Help:Page history" class="new">Revision as of 22:32, 3 August 2003</a> (<a href="/wikiparser-website/Help%3AEditing" title="Help:Editing" class="new">edit</a>)</strong></div>
+<div class="mw-diff-otitle2"><a href="/wikiparser-website/User%3ATim_Starling" title="User:Tim Starling" class="new">Tim Starling</a> (<a href="/wikiparser-website/User_talk%3ATim_Starling" title="User talk:Tim Starling" class="new">talk</a>  |  <a href="/wikiparser-website/Help%3AUser_contributions" title="Help:User contributions" class="new">contribs</a>)</div>
+<div class="mw-diff-otitle3"><span class="comment">(<a href="/wikiparser-website/Help%3AEdit_summary" title="Help:Edit summary" class="new">Edit summaries</a> in diffs are great)</span></div>
+<div class="mw-diff-otitle4"><a href="/wikiparser-website/Help%3APage_history" title="Help:Page history" class="new">← Older edit</a></div>
+</td>
+<td colspan="2" class="diff-otitle diff-side-added"><div class="mw-diff-otitle1"><strong><a href="/wikiparser-website/Help%3APage_history" title="Help:Page history" class="new">Revision as of 00:10, 18 August 2003</a> (<a href="/wikiparser-website/Help%3AEditing" title="Help:Editing" class="new">edit</a>) (<a href="/wikiparser-website/Manual%3AReverts" title="Manual:Reverts" class="new">undo</a>) (<a href="/wikiparser-website/Extension%3AThanks" title="Extension:Thanks" class="new">thank</a>)</strong></div>
+<div class="mw-diff-otitle2"><a href="/wikiparser-website/User%3AAngela" title="User:Angela" class="new">Angela</a> (<a href="/wikiparser-website/User_talk%3AAngela" title="User talk:Angela" class="new">talk</a> )&nbsp;&nbsp;&nbsp;&nbsp;<span class="mw-rollback-link"><a href="/wikiparser-website/Manual%3ARollback" title="Manual:Rollback" class="new">rollback 1 edit</a></span></div>
+<div class="mw-diff-otitle3"><abbr class="minoredit" title="This is a minor edit">m</abbr> <span class="comment">(correction, + <a href="/wikiparser-website/MediaWiki_User's_Guide" title="MediaWiki User's Guide" class="new">MediaWiki User's Guide</a>)</span></div>
+<div class="mw-diff-otitle4">&nbsp;</div>
+</td></tr>
+<tr>
+<td colspan="2" class="diff-lineno">Line 8:
+</td>
+<td colspan="2" class="diff-lineno">Line 8:
+</td></tr>
+<tr>
+<td class="diff-marker">&#160;
+</td>
+<td class="diff-context diff-side-deleted">For sysops and those with the rollback flag, a revert button is shown allowing them to revert from the new version to the old one.
+</td>
+<td class="diff-marker">&#160;
+</td>
+<td class="diff-context diff-side-deleted">For sysops and those with the rollback flag, a revert button is shown allowing them to revert from the new version to the old one.
+</td></tr>
+<tr>
+<td class="diff-marker">−
+</td>
+<td class="diff-deletedline diff-side-deleted">This is only shown when viewing the diff between the <del style="color: black" class="diffchange diffchange-inline">current</del> version and the one <del style="color: black" class="diffchange diffchange-inline">immediately preceding it</del>.
+</td>
+<td class="diff-marker">+
+</td>
+<td class="diff-addedline diff-side-added">This is only shown when viewing the diff between the <ins style="color: black" class="diffchange diffchange-inline">recent</ins> version<ins style="color: black" class="diffchange diffchange-inline">&nbsp;of a page</ins> and<ins style="color:black" class="diffchange diffchange-inline">&nbsp;the last version by an author other than</ins> the one <ins style="color: black" class="diffchange diffchange-inline">of the most current version</ins>.
+</td></tr>
+<tr>
+<td class="diff-marker">&#160; 
+</td>
+<td class="diff-context diff-side-deleted">This example shows the top of the diff page, with the links described above.
+</td>
+<td class="diff-marker">&#160; 
+</td>
+<td class="diff-context diff-side-deleted">This example shows the top of the diff page, with the links described above.
+</td></tr>
+<tr>
+<td colspan="2" class="diff-lineno">Line 25:
+</td>
+<td colspan="2" class="diff-lineno">Line 25:
+</td></tr>
+<tr>
+<td class="diff-marker">&#160; 
+</td>
+<td class="diff-context diff-side-deleted">&lt;/table&gt;
+</td>
+<td class="diff-marker">&#160; 
+</td>
+<td class="diff-context diff-side-deleted">&lt;/table&gt;
+</td></tr>
+<tr>
+<td colspan="2">
+</td>
+<td class="diff-marker">+
+</td>
+<td class="diff-addedline diff-side-added">[[MediaWiki User's Guide]]
+</td></tr>
+<tr>
+<td colspan="2">
+</td>
+<td class="diff-marker">+
+</td>
+<td class="diff-addedline diff-side-added">
+</td></tr></tbody></table>
+</blockquote>
+<div class="mw-heading mw-heading3"><h3 id="Unchanged_Text">Unchanged Text</h3></div>
+<p>Unchanged text is dark grey on light grey (only parts before and after changed text are shown).
+</p>
+<table class="diff diff-contentalign-left diff-editfont-monospace" style="border-collapse:separate">
+<tbody><tr>
+<caption>Colour key</caption>
+<th align="center" width="200">Previous diff
+</th>
+<th align="center" width="200">Newer diff
+</th></tr>
+<tr>
+<td class="diff-context diff-side-deleted">Unchanged
+</td>
+<td class="diff-context diff-side-added">Unchanged
+</td></tr></tbody></table>
+<p><br>
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Moved_text">Moved text</h3></div>
+<p>Identical text that has moved from one place to another is usually represented as added and removed text.
+On MediaWiki installations using <a href="/wikiparser-website/Wikidiff2" title="Wikidiff2" class="new">Wikidiff2</a><span style="display:none"><a href="/wikiparser-website/Wikidiff2" title="Wikidiff2" class="new"> </a></span>, there may be an arrow icon more clearly indicating where the moved text went to.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Added_text">Added text</h3></div>
+<p>Lines containing added text have a plus icon (<b>+</b>) before them.
+The added words and characters are highlighted and in bold.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Removed_text">Removed text</h3></div>
+<p>Lines containing removed text have a minus icon (<b>−</b>) before them.
+The removed words and characters are highlighted and in bold.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Replaced_text">Replaced text</h3></div>
+<p>We can see what has been replaced with new content when there's a + icon and a − icon next to the phrase where the change happened.
+</p><p>Paragraphs which have changed are black on white, with an orange border on the old revision side and a blue border on the new version side.
+</p><p>Inserted and removed text is highlighted with the border color and in bold.
+Where whole paragraphs have been removed or inserted, no highlighting or bolding is applied and the other side is blank.
+</p>
+<table class="diff diff-contentalign-left diff-editfont-monospace" style="border-collapse:separate">
+<tbody><tr>
+<caption>Colour key</caption>
+<th align="center" width="200">Old revision
+</th>
+<th align="center" width="200">New revision
+</th></tr>
+<tr>
+<td class="diff-deletedline diff-side-deleted">Paragraph changed
+</td>
+<td class="diff-addedline diff-side-added">Paragraph changed
+</td></tr></tbody></table>
+<table class="diff diff-contentalign-left diff-editfont-monospace" style="border-collapse:separate">
+<tbody><tr>
+<caption>Colour key</caption>
+<th align="center" width="200">Old revision
+</th>
+<th align="center" width="200">New revision
+</th></tr>
+<tr>
+<td class="diff-deletedline diff-side-deleted">Paragraph removed
+</td>
+<td class="diff-empty diff-side-delete">&nbsp;
+</td></tr>
+<tr>
+<td class="diff-empty diff-side-added">&nbsp;
+</td>
+<td class="diff-addedline diff-side-added">Paragraph added
+</td></tr></tbody></table>
+<table class="diff diff-contentalign-left diff-editfont-monospace" style="border-collapse:separate">
+<tbody><tr>
+<caption>Colour key</caption>
+<th align="center" width="200">Old revision
+</th>
+<th align="center" width="200">New revision
+</th></tr>
+<tr>
+<td class="diff-deletedline diff-side-deleted"><del class="diffchange diffchange-inline" style="color:black">Removed characters</del>
+</td>
+<td class="diff-addedline diff-side-added"><ins class="diffchange diffchange-inline" style="color:black">Added characters</ins>
+</td></tr></tbody></table>
+<div class="mw-heading mw-heading2"><h2 id="Linking_to_a_diff">Linking to a diff</h2></div>
+<p>Diffs can be linked to by copying the URL while viewing the diff — this URL has two parameters, <code>diff</code> and <code>oldid</code>.
+</p><p>Linking to a diff from outside a wiki can be done by using the full URL, for example:
+</p>
+<ul><li><code>https://mediawiki.org/w/index.php?diff=1242287</code></li></ul>
+<p>The diff <a href="/wikiparser-website/Help%3ASpecial_pages" title="Help:Special pages">special page</a> at <a href="/wikiparser-website/Special%3ADiff" title="Special:Diff" class="new">Special:Diff</a> makes it easier to create shorter URLs which redirect to diffs.
+</p><p>From within a wiki, these links can take the following forms:
+</p>
+<ul><li><code>[[Special:Diff/1242287]]</code> → <a href="/wikiparser-website/Special%3ADiff%2F1242287" title="Special:Diff/1242287" class="new">Special:Diff/1242287</a> – Shows the diff to the previous revision of the same page.</li>
+<li><code>[[Special:Diff/1242287/prev]]</code> → <a href="/wikiparser-website/Special%3ADiff%2F1242287%2Fprev" title="Special:Diff/1242287/prev" class="new">Special:Diff/1242287/prev</a> – Shows the diff to the previous revision of the same page.</li>
+<li><code>[[Special:Diff/1242287/next]]</code> → <a href="/wikiparser-website/Special%3ADiff%2F1242287%2Fnext" title="Special:Diff/1242287/next" class="new">Special:Diff/1242287/next</a> – Shows the diff to the next revision of the same page.</li>
+<li><code>[[Special:Diff/1242287/cur]]</code> → <a href="/wikiparser-website/Special%3ADiff%2F1242287%2Fcur" title="Special:Diff/1242287/cur" class="new">Special:Diff/1242287/cur</a> – Shows the diff to the current revision of the same page.</li>
+<li><code>[[Special:Diff/1242286/1242287]]</code> → <a href="/wikiparser-website/Special%3ADiff%2F1242286%2F1242287" title="Special:Diff/1242286/1242287" class="new">Special:Diff/1242286/1242287</a> – Shows the diff between the specified revisions of the same page which may also be reversed, e.g. <code>[[Special:Diff/1242287/1242286]]</code> → <a href="/wikiparser-website/Special%3ADiff%2F1242287%2F1242286" title="Special:Diff/1242287/1242286" class="new">Special:Diff/1242287/1242286</a>, though one should avoid this.</li></ul>
+<p>These links may be used in the <a href="/wikiparser-website/Help%3AEdit_summary" title="Help:Edit summary" class="new">edit summary</a> as well as being adapted like any other internal links, e.g. <code>[[Special:Diff/1242286/1242287|see this diff]]</code> → <a href="/wikiparser-website/Special%3ADiff%2F1242286%2F1242287" title="Special:Diff/1242286/1242287" class="new">see this diff</a>.
+</p><p>For example, the full URL <code>[https://mediawiki.org/w/index.php?diff=1242287 1242287]</code> could also be written as <code>[[Special:Diff/1242287|1242287]]</code>.
+</p><p>By default, the later revision of the page is displayed in full below the diff — this can be turned off via a <a href="/wikiparser-website/Help%3APreferences" title="Help:Preferences" class="new">preference</a> ("Don't show page content below diffs") or by setting <code>diffonly=1</code> in the URL.
+Links to diffs without the page text can be created:
+</p>
+<ul><li><code>{{canonicalurl:Special:Diff/1242287|diffonly=1}}</code> → <a rel="nofollow" class="external free" href="https://bhsd-harry.github.io/wikiparser-website/Special%3ADiff%2F1242287?diffonly=1">https://bhsd-harry.github.io/wikiparser-website/Special%3ADiff%2F1242287?diffonly=1</a></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="Inline_diffs">Inline diffs</h2></div>
+<p><style>.mw-version{border:1px solid #72777d;font-size:80%;line-height:1.2;border-collapse:collapse}.mw-version-ltr{float:right;margin:0 0 .5em .5em;text-align:right}.mw-version-rtl{float:left;margin:0 .5em .5em 0;text-align:left}.mw-version td{padding:.1em .3em}.mw-version-versionbox{border:5px solid #00af89;text-align:center}.mw-version-versionnumber{font-weight:700;font-size:180%}.mw-version-version .mw-version-versionbox{border-color:#c8ccd1}.mw-version.mw-version-version2 .mw-version-versionbox{border-top-color:#c8ccd1;border-right-color:#c8ccd1;border-left-color:#c8ccd1}.mw-version-version-future .mw-version-versionbox{border-color:#5f5f99}.mw-version.mw-version-version2-future .mw-version-versionbox{border-top-color:#5f5f99;border-right-color:#5f5f99;border-left-color:#5f5f99}.mw-version-version-stable .mw-version-versionbox,.mw-version.mw-version.mw-version-and-later .mw-version-versionbox{border-color:#00af89}.mw-version.mw-version-version2-stable .mw-version-versionbox,.mw-version:not(mw-version-version-future).mw-version-version2-future .mw-version-versionbox{border-top-color:#00af89;border-right-color:#00af89;border-left-color:#00af89}.mw-version-version-legacy .mw-version-versionbox{border-color:#f97f26}.mw-version.mw-version-version2-legacy .mw-version-versionbox{border-top-color:#f97f26;border-right-color:#f97f26;border-left-color:#f97f26}.mw-version-version-unsupported .mw-version-versionbox{border-color:#bf3c2c}.mw-version.mw-version-version2-unsupported .mw-version-versionbox{border-top-color:#bf3c2c;border-right-color:#bf3c2c;border-left-color:#bf3c2c}.mw-version-version-alpha .mw-version-versionbox{border-style:dotted}</style>
+</p>
+<table class="mw-version mw-version-ltr mw-version-version mw-version-version-unsupported mw-version-and-later"><tr>
+<td>MediaWiki version:</td>
+<td class="mw-version-versionbox" title="The latest stable version is 1.44"><div class="mw-version-versionnumber"><small>&ge;</small> 1.35</div></td>
+</tr></table>
+<p>Since MediaWiki 1.35, an inline diff (also known as a <a href="/wikiparser-website/W%3Aunified_diff" title="W:unified diff" class="new">unified diff</a>) is available.
+As of 2022 this is only available with the <a href="/wikiparser-website/Wikidiff2" title="Wikidiff2" class="new">wikidiff2</a><span style="display:none"><a href="/wikiparser-website/Wikidiff2" title="Wikidiff2" class="new"> </a></span> engine.
+Inline diffs can be accessed by passing the <code>diff-type=inline</code> parameter in the URL (<a rel="nofollow" class="external" href="https://www.mediawiki.org/w/index.php?diff=1242287&diffmode=source&diff-type=inline">example</a>).
+</p><p><br>
+</p>
+<table class="mw-version mw-version-ltr mw-version-version mw-version-version-unsupported mw-version-and-later"><tr>
+<td>MediaWiki version:</td>
+<td class="mw-version-versionbox" title="The latest stable version is 1.44"><div class="mw-version-versionnumber"><small>&ge;</small> 1.41</div></td>
+</tr></table>
+<p>As of MediaWiki 1.41, a toggle was added to diff pages that allows users to switch between inline and two-column in the user interface (<a href="/wikiparser-website/Phab%3AT336716" title="Phab:T336716" class="new">T336716</a>).
+</p>
+<blockquote style="border:1px solid; padding:1em;">
+<div class="mw-diff-table-prefix" dir="ltr" lang="en">
+<div style="color: black" class="mw-diff-inline-legend"><span class="mw-diff-inline-legend-ins">Content added</span> <span class="mw-diff-inline-legend-del">Content deleted</span></div>
+</div>
+<table class="diff diff-contentalign-left diff-editfont-monospace" border="0" style="border-spacing:4px; table-layout:fixed; width:98%">
+<tbody><tr style="height:1px">
+<td style="width:2%">
+</td>
+<td style="width:48%">
+</td>
+<td style="width:2%">
+</td>
+<td style="width:48%">
+</td></tr>
+<tr class="diff-title">
+<td colspan="2" class="diff-otitle diff-side-deleted"><div class="mw-diff-otitle1"><strong><a href="/wikiparser-website/Help%3APage_history" title="Help:Page history" class="new">Revision as of 22:32, 3 August 2003</a> (<a href="/wikiparser-website/Help%3AEditing" title="Help:Editing" class="new">edit</a>)</strong></div>
+<div class="mw-diff-otitle2"><a href="/wikiparser-website/User%3ATim_Starling" title="User:Tim Starling" class="new">Tim Starling</a> (<a href="/wikiparser-website/User_talk%3ATim_Starling" title="User talk:Tim Starling" class="new">talk</a>  |  <a href="/wikiparser-website/Help%3AUser_contributions" title="Help:User contributions" class="new">contribs</a>)</div>
+<div class="mw-diff-otitle3"><span class="comment">(<a href="/wikiparser-website/Help%3AEdit_summary" title="Help:Edit summary" class="new">Edit summaries</a> in diffs are great)</span></div>
+<div class="mw-diff-otitle4"><a href="/wikiparser-website/Help%3APage_history" title="Help:Page history" class="new">← Older edit</a></div>
+</td>
+<td colspan="2" class="diff-otitle diff-side-added"><div class="mw-diff-otitle1"><strong><a href="/wikiparser-website/Help%3APage_history" title="Help:Page history" class="new">Revision as of 00:10, 18 August 2003</a> (<a href="/wikiparser-website/Help%3AEditing" title="Help:Editing" class="new">edit</a>) (<a href="/wikiparser-website/Manual%3AReverts" title="Manual:Reverts" class="new">undo</a>) (<a href="/wikiparser-website/Extension%3AThanks" title="Extension:Thanks" class="new">thank</a>)</strong></div>
+<div class="mw-diff-otitle2"><a href="/wikiparser-website/User%3AAngela" title="User:Angela" class="new">Angela</a> (<a href="/wikiparser-website/User_talk%3AAngela" title="User talk:Angela" class="new">talk</a> )&nbsp;&nbsp;&nbsp;&nbsp;<span class="mw-rollback-link"><a href="/wikiparser-website/Manual%3ARollback" title="Manual:Rollback" class="new">rollback 1 edit</a></span></div>
+<div class="mw-diff-otitle3"><abbr class="minoredit" title="This is a minor edit">m</abbr> <span class="comment">(correction, + <a href="/wikiparser-website/MediaWiki_User's_Guide" title="MediaWiki User's Guide" class="new">MediaWiki User's Guide</a>)</span></div>
+<div class="mw-diff-otitle4">&nbsp;</div>
+</td></tr></tbody></table>
+<div class="mw-diff-inline-moved mw-diff-inline-moved-destination mw-diff-inline-moved-upwards">
+<p>For sysops and those with the rollback flag, a revert button is shown allowing them to revert from the new version to the old one.
+</p><p>This is only shown when viewing the diff between the <del style="color:black" class="mw-diff-inline-moved">current</del> version and the one <ins style="color: black">of a page and the last version by an author other than the one of the most current version.</ins>.
+This example shows the top of the diff page, with the links described above.
+</p><p>&lt;/table&gt;
+</p><p><ins style="color: black">
+[[MediaWiki User's Guide]]
+</ins>
+</p>
+<div><ins style="color: black; font-family: 'Menlo','Consolas','Liberation Mono','Fira Code','Courier New',monospace; font-size: 87.5%;" title="Content added">↲ newline</ins></div>
+</div>
+</blockquote>
+<p>The following changes were introduced for inline diff:
+</p>
+<ul><li>Legends and tooltips that explain the blue and yellow highlights. (<a href="/wikiparser-website/Phab%3AT324759" title="Phab:T324759" class="new">T324759</a>)</li>
+<li>Annotation that represent when one or more lines are added or deleted. (<a href="/wikiparser-website/Phab%3AT330247" title="Phab:T330247" class="new">T330247</a>)</li></ul>
+<div class="mw-heading mw-heading2"><h2 id="How_to_report_bugs?">How to report bugs?</h2></div>
+<p>Bugs should be <a href="/wikiparser-website/How_to_report_a_bug" title="How to report a bug" class="new">reported on Phabricator</a> under the <span style="background: #dee7f8; border: 1px solid #cfdbe3; color: #464c5c; font-size: 85%; padding: 1px 4px; border-radius: 3px; line-height: 20px; white-space: nowrap; font-weight: normal; font-size: 95%;"><a href="/wikiparser-website/Phab%3Atag%2Fmediawiki-page-diffs%2F" title="Phab:tag/mediawiki-page-diffs/" class="new"><span style="color:#464c5c;">#MediaWiki-Page-diffs</span></a></span> tag.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="User_Preferences">User Preferences</h2></div>
+<p>The following user <a href="/wikiparser-website/Help%3APreferences" title="Help:Preferences" class="new">preferences</a> are available in the "Diffs" section of the "Appearance" preferences tab:
+</p>
+<dl><dt>Don't show page content below diffs</dt>
+<dd>Toggle the display of the page text below the diff. This text is the later of the two revisions of the page.</dd>
+<dt>Don't show diff after performing a rollback</dt>
+<dd>Whether to show the diff of the rolled back revision after a rollback.</dd></dl>
+<p>Some extensions also add their own preferences related to diffs.
+One such extension is <a href="/wikiparser-website/Extension%3ARevisionSlider" title="Extension:RevisionSlider" class="new">Extension:RevisionSlider</a><span style="display:none"><a href="/wikiparser-website/Extension%3ARevisionSlider" title="Extension:RevisionSlider" class="new"> </a></span>, which can be disabled in preferences using the "Don't show the revision slider" preference in that section.
+</p><p><br>
+</p>
+<div class="mw-heading mw-heading2"><h2 id="See_also">See also</h2></div>
+<ul><li><a href="/wikiparser-website/Help%3AHistory" title="Help:History" class="new">Help:History</a><span style="display:none"><a href="/wikiparser-website/Help%3AHistory" title="Help:History" class="new"> </a></span> — Navigating and understanding page history.</li>
+<li><a href="/wikiparser-website/Visual_diffs" title="Visual diffs" class="new">Visual diffs</a><span style="display:none"><a href="/wikiparser-website/Visual_diffs" title="Visual diffs" class="new"> </a></span> — Diffs in the VisualEditor and VisualDiff extensions.</li></ul>
+<p><a href="//bhsd-harry.github.io/wikiparser-website/Template%3ANavbox?action=edit&redlink=1" class="new" title="Template:Navbox (page does not exist)">Template:Navbox</a>
+</p></article>
+	</main>
+</body>
+</html>

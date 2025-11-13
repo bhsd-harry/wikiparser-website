@@ -1,0 +1,3 @@
+{{MW version|version=1.41|comment={{{1|}}}|gerrit change={{{gerrit change|}}}}}<noinclude>
+[[Category:MediaWiki version templates| 41]]
+</noinclude>

@@ -1,0 +1,316 @@
+<templatestyles src="Help:Diff/styles.css" />
+<languages/>
+{{PD Help Page}}
+{{Special page}}
+<translate><!--T:2--> A '''[[w:Diff|diff]]''' (short for difference) displays the changes between two revisions of a page.</translate>
+<translate><!--T:3--> Diffs are a fundamental component of navigation and content moderation on MediaWiki wikis.</translate>
+
+<translate>
+<!--T:4-->
+The platforms in the wiki ecosystem have several versions of a diff depending on which device and installation of MediaWiki is being used.
+
+== When and why to use a diff? == <!--T:16-->
+</translate>
+<translate><!--T:17--> The main reason to use a diff is to review a specific change to a page made by yourself or someone else.</translate>
+<translate><!--T:87--> There are many possible reasons to do this:</translate>
+
+* <translate><!--T:18--> To help find instances of vandalism</translate>
+* <translate><!--T:19--> To determine when a section, sentence, or word was added or removed</translate>
+* <translate><!--T:20--> To determine which editor made a given change</translate>
+* <translate><!--T:21--> As a starting point to further actions as the diff contains <tvar name=1>[[Help:Editing pages|{{int|editold}}]]</tvar>, <tvar name=2>[[Manual:Reverts#Undo|{{int|editundo}}]]</tvar>, and other actions as well as links to the editor's user and talk pages.</translate>
+
+<translate>
+== How to navigate to view a diff? == <!--T:22-->
+</translate>
+
+<translate><!--T:23--> The most common way to view a diff is through the "[[<tvar name=1>Help:History</tvar>|Revision history]]".</translate>
+<translate><!--T:24--> This is accessible via the "<tvar name=1>{{int|skin-view-history}}</tvar>" tab.</translate>
+<translate><!--T:25--> From there, you can use "<tvar name=1>{{int|last}}</tvar>" to view diffs of single revisions, or use the radio buttons and the "<tvar name=2>{{int|compareselectedversions}}</tvar>" button to view diffs across multiple revisions.</translate>
+
+<translate>
+<!--T:26-->
+Most [[<tvar name=1>Help:Special pages</tvar>|special pages]] that list changes will usually include links to diffs, such as:
+</translate>
+
+* [[Special:RecentChanges]]
+* [[Special:Watchlist]]
+* [[Special:Contributions]]
+* [[Special:Relatedchanges]]
+
+<translate><!--T:27--> Another way to view a diff is with the <tvar name=1>[[Special:Diff]]</tvar> page.</translate>
+<translate><!--T:28--> To use this, you must know the IDs of the revisions you want to compare.</translate>
+<translate><!--T:29--> Revision IDs can be retrieved by looking at the <tvar name=1><code>diff=123</code></tvar> portion of a diff URL, where <tvar name=2><code>123</code></tvar> is the diff ID.</translate>
+<translate><!--T:30--> Additionally, you can use the value of the <tvar name=1><code>oldid</code></tvar> parameter to get the diff of that revision against the previous one.</translate>
+
+<translate>
+== Components to a diff == <!--T:31-->
+
+<!--T:32-->
+Below is a visual representation of the important components of a diff page which you will see when viewing the difference between two versions.
+</translate>
+
+[[File:Diff-components.svg|thumb|<translate><!--T:33--> Components of a diff</translate>|none|600px]]
+
+
+<translate><!--T:6--> This interactive example shows the top of the diff page (some of the links are dummy links).</translate>
+<translate><!--T:7--> The older revision is shown on the left, the newer revision on the right.</translate>
+
+<blockquote style="border:1px solid; padding:1em;">
+{| class="diff diff-contentalign-{{dir|{{pagelang2}}|right|left}} diff-editfont-monospace" border="0" style="border-spacing:4px; table-layout:fixed; width:98%"
+|- style="height:1px" <!-- dummy row for column widths -->
+| style="width:2%" |
+| style="width:48%" |
+| style="width:2%" |
+| style="width:48%" |
+|- class="diff-title"
+| colspan="2" class="diff-otitle diff-side-deleted" | <div class="mw-diff-otitle1"><strong>[[Help:Page history|{{int:revisionasof|22:32, 3 {{int|august}} 2003}}]] {{int:parentheses|[[Help:Editing|{{int|editold}}]]}}</strong></div>
+<div class="mw-diff-otitle2">[[User:Tim Starling|Tim Starling]] {{int:parentheses|[[User talk:Tim Starling|{{int|talkpagelinktext}}]] {{int|pipe-separator}} [[Help:User contributions|{{int|contribslink}}]]}}</div>
+<div class="mw-diff-otitle3"><span class="comment">{{int:parentheses|[[Help:Edit summary|Edit summaries]] in diffs are great}}</span></div>
+<div class="mw-diff-otitle4">[[Help:Page history|{{int|previousdiff}}]]</div>
+| colspan="2" class="diff-otitle diff-side-added" |<div class="mw-diff-otitle1"><strong>[[Help:Page history|{{int:revisionasof|00:10, 18 {{int|august}} 2003}}]] {{int:parentheses|[[Help:Editing|{{int|editold}}]]}} {{int:parentheses|[[Manual:Reverts|{{int|editundo}}]]}} {{int:parentheses|[[Extension:Thanks|{{int|thanks-thank}}]]}}</strong></div>
+<div class="mw-diff-otitle2">[[User:Angela|Angela]] {{int:parentheses|[[User_talk:Angela|{{int|talkpagelinktext}}]] | [[Help:User contributions|{{int|contribslink}}]]}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="mw-rollback-link">[[Manual:Rollback|{{int:rollbacklinkcount|1}}]]</span></div>
+<div class="mw-diff-otitle3"><abbr class="minoredit" title="{{int|recentchanges-label-minor}}">{{int|minoreditletter}}</abbr> <span class="comment">{{int:parentheses|correction, + [[MediaWiki User's Guide]]}}</span></div>
+<div class="mw-diff-otitle4">&nbsp;</div>
+|-
+| colspan="2" class="diff-lineno" | {{int:lineno|{{formatnum:8}}}}
+| colspan="2" class="diff-lineno" | {{int:lineno|{{formatnum:8}}}}
+|-
+| class="diff-marker" | &#160;
+| class="diff-context diff-side-deleted" | For sysops and those with the rollback flag, a revert button is shown allowing them to revert from the new version to the old one.
+| class="diff-marker" | &#160;
+| class="diff-context diff-side-deleted" | For sysops and those with the rollback flag, a revert button is shown allowing them to revert from the new version to the old one.
+|-
+| class="diff-marker" | −
+| class="diff-deletedline diff-side-deleted" | This is only shown when viewing the diff between the <del style="color: black" class="diffchange diffchange-inline">current</del> version and the one <del style="color: black" class="diffchange diffchange-inline">immediately preceding it</del>.
+| class="diff-marker" | +
+| class="diff-addedline diff-side-added" | This is only shown when viewing the diff between the <ins style="color: black" class="diffchange diffchange-inline">recent</ins> version<ins style="color: black" class="diffchange diffchange-inline">&nbsp;of a page</ins> and<ins style="color:black" class="diffchange diffchange-inline">&nbsp;the last version by an author other than</ins> the one <ins style="color: black" class="diffchange diffchange-inline">of the most current version</ins>.
+|-
+| class="diff-marker" | &#160; 
+| class="diff-context diff-side-deleted" | This example shows the top of the diff page, with the links described above.
+| class="diff-marker" | &#160; 
+| class="diff-context diff-side-deleted" | This example shows the top of the diff page, with the links described above.
+|-
+| colspan="2" class="diff-lineno" | {{int:lineno|{{formatnum:25}}}}
+| colspan="2" class="diff-lineno" | {{int:lineno|{{formatnum:25}}}}
+|-
+| class="diff-marker" | &#160; 
+| class="diff-context diff-side-deleted" | <nowiki></table></nowiki>
+| class="diff-marker" | &#160; 
+| class="diff-context diff-side-deleted" | <nowiki></table></nowiki>
+|-
+|colspan="2" | 
+| class="diff-marker" | +
+| class="diff-addedline diff-side-added" | <nowiki>[[MediaWiki User's Guide]]</nowiki>
+|-
+|colspan="2" | 
+| class="diff-marker" | +
+| class="diff-addedline diff-side-added" | 
+|}
+</blockquote>
+
+<translate>
+=== Unchanged Text === <!--T:93-->
+
+<!--T:34-->
+Unchanged text is dark grey on light grey (only parts before and after changed text are shown).
+</translate>
+
+{| class="diff diff-contentalign-{{dir|{{pagelang2}}|right|left}} diff-editfont-monospace" style="border-collapse:separate"
+|+ <translate><!--T:35--> Colour key</translate>
+! align="center" width="200" | <translate><!--T:94--> Previous diff</translate>
+! align="center" width="200" | <translate><!--T:95--> Newer diff</translate>
+|-
+| class="diff-context diff-side-deleted" | <translate><!--T:38--> Unchanged</translate>
+| class="diff-context diff-side-added" | <translate><!--T:39--> Unchanged</translate>
+|}
+
+<translate>
+
+=== Moved text === <!--T:40-->
+</translate>
+<translate><!--T:41--> Identical text that has moved from one place to another is usually represented as added and removed text.</translate>
+<translate><!--T:42--> On MediaWiki installations using <tvar name=1>{{ll|Wikidiff2}}</tvar>, there may be an arrow icon more clearly indicating where the moved text went to.</translate>
+
+<translate>
+=== Added text === <!--T:43-->
+</translate>
+<translate><!--T:44--> Lines containing added text have a plus icon (<tvar name=1>'''+'''</tvar>) before them.</translate>
+<translate><!--T:45--> The added words and characters are highlighted and in bold.</translate>
+
+<translate>
+=== Removed text === <!--T:46-->
+</translate>
+<translate><!--T:47--> Lines containing removed text have a minus icon (<tvar name=1>'''−'''</tvar>) before them.</translate>
+<translate><!--T:48--> The removed words and characters are highlighted and in bold.</translate>
+
+<translate>
+=== Replaced text === <!--T:49-->
+
+<!--T:50-->
+We can see what has been replaced with new content when there's a <tvar name=1>+</tvar> icon and a <tvar name=2>−</tvar> icon next to the phrase where the change happened.
+
+<!--T:51-->
+Paragraphs which have changed are black on white, with an orange border on the old revision side and a blue border on the new version side.
+</translate>
+
+<translate><!--T:52--> Inserted and removed text is highlighted with the border color and in bold.</translate>
+<translate><!--T:53--> Where whole paragraphs have been removed or inserted, no highlighting or bolding is applied and the other side is blank.</translate>
+
+{| class="diff diff-contentalign-{{dir|{{pagelang2}}|right|left}} diff-editfont-monospace" style="border-collapse:separate"
+|+<translate><!--T:54--> Colour key</translate>
+! align="center" width="200"|<translate><!--T:55--> Old revision</translate>
+! align="center" width="200"|<translate><!--T:56--> New revision</translate>
+|-
+| class="diff-deletedline diff-side-deleted" | <translate><!--T:57--> Paragraph changed</translate>
+| class="diff-addedline diff-side-added" | <translate><!--T:58--> Paragraph changed</translate>
+|}
+
+{| class="diff diff-contentalign-{{dir|{{pagelang2}}|right|left}} diff-editfont-monospace" style="border-collapse:separate"
+|+<translate><!--T:59--> Colour key</translate>
+! align="center" width="200"|<translate><!--T:60--> Old revision</translate>
+! align="center" width="200"|<translate><!--T:61--> New revision</translate>
+|-
+| class="diff-deletedline diff-side-deleted" | <translate><!--T:62--> Paragraph removed</translate>
+| class="diff-empty diff-side-delete" | &nbsp;
+|-
+| class="diff-empty diff-side-added" | &nbsp;
+| class="diff-addedline diff-side-added" | <translate><!--T:89--> Paragraph added</translate>
+|}
+
+{| class="diff diff-contentalign-{{dir|{{pagelang2}}|right|left}} diff-editfont-monospace" style="border-collapse:separate"
+|+<translate><!--T:63--> Colour key</translate>
+! align="center" width="200"|<translate><!--T:64--> Old revision</translate>
+! align="center" width="200"|<translate><!--T:65--> New revision</translate>
+|-
+| class="diff-deletedline diff-side-deleted" | <del class="diffchange diffchange-inline" style="color:black"><translate><!--T:90--> Removed characters</translate></del>
+| class="diff-addedline diff-side-added" | <ins class="diffchange diffchange-inline" style="color:black"><translate><!--T:91--> Added characters</translate></ins>
+|}
+
+<translate>
+== Linking to a diff == <!--T:66-->
+
+<!--T:67-->
+Diffs can be linked to by copying the URL while viewing the diff — this URL has two parameters, <tvar name=1><code>diff</code></tvar> and <tvar name=2><code>oldid</code></tvar>.
+
+<!--T:8-->
+Linking to a diff from outside a wiki can be done by using the full URL, for example:
+</translate>
+
+* <code><nowiki>https://mediawiki.org/w/index.php?diff=1242287</nowiki></code>
+
+<translate>
+<!--T:68-->
+The diff [[<tvar name=1>Help:Special pages</tvar>|special page]] at <tvar name=2>[[Special:Diff]]</tvar> makes it easier to create shorter URLs which redirect to diffs.
+
+<!--T:9-->
+From within a wiki, these links can take the following forms:
+</translate>
+
+* <code><nowiki>[[Special:Diff/1242287]]</nowiki></code> → [[Special:Diff/1242287]] – <translate><!--T:10--> Shows the diff to the previous revision of the same page.</translate>
+* <code><nowiki>[[Special:Diff/1242287/prev]]</nowiki></code> → [[Special:Diff/1242287/prev]] – <translate><!--T:11--> Shows the diff to the previous revision of the same page.</translate>
+* <code><nowiki>[[Special:Diff/1242287/next]]</nowiki></code> → [[Special:Diff/1242287/next]] – <translate><!--T:12--> Shows the diff to the next revision of the same page.</translate>
+* <code><nowiki>[[Special:Diff/1242287/cur]]</nowiki></code> → [[Special:Diff/1242287/cur]] – <translate><!--T:13--> Shows the diff to the current revision of the same page.</translate>
+* <code><nowiki>[[Special:Diff/1242286/1242287]]</nowiki></code> → [[Special:Diff/1242286/1242287]] – <translate><!--T:14--> Shows the diff between the specified revisions of the same page which may also be reversed, e.g. <tvar name=1><code><nowiki>[[Special:Diff/1242287/1242286]]</nowiki></code> → [[Special:Diff/1242287/1242286]]</tvar>, though one should avoid this.</translate>
+
+<translate>
+<!--T:15-->
+These links may be used in the [[<tvar name=1>Help:Edit summary</tvar>|edit summary]] as well as being adapted like any other internal links, e.g. {{<tvar name=2>tmpl|0=<code><nowiki>[[</nowiki>Special:Diff/1242286/1242287{{!}}$1<nowiki>]]</nowiki></code> → [[Special:Diff/1242286/1242287|$1]]</tvar>|see this diff}}.
+
+<!--T:69-->
+For example, the full URL <tvar name=1><code><nowiki>[https://mediawiki.org/w/index.php?diff=1242287 1242287]</nowiki></code></tvar> could also be written as <tvar name=2><code><nowiki>[[Special:Diff/1242287|1242287]]</nowiki></code></tvar>.
+</translate>
+
+<translate><!--T:70--> By default, the later revision of the page is displayed in full below the diff — this can be turned off via a [[<tvar name=1>Help:Preferences</tvar>|preference]] ("<tvar name=2>{{int|tog-diffonly}}</tvar>") or by setting <tvar name=3><code>diffonly=1</code></tvar> in the URL.</translate>
+<translate><!--T:71--> Links to diffs without the page text can be created:</translate>
+
+* <code><nowiki>{{canonicalurl:Special:Diff/1242287|diffonly=1}}</nowiki></code> → {{canonicalurl:Special:Diff/1242287|diffonly=1}}
+
+<translate>
+== Inline diffs == <!--T:72-->
+</translate>
+{{MW 1.35|and later}}
+<translate><!--T:73--> Since MediaWiki 1.35, an inline diff (also known as a [[w:unified diff|unified diff]]) is available.</translate>
+<translate><!--T:74--> As of 2022 this is only available with the <tvar name=1>{{ll|wikidiff2}}</tvar> engine.</translate>
+<translate><!--T:75--> Inline diffs can be accessed by passing the <tvar name=1><code>diff-type=inline</code></tvar> parameter in the URL ([<tvar name=url>https://www.mediawiki.org/w/index.php?diff=1242287&diffmode=source&diff-type=inline</tvar> example]).</translate>
+
+{{MW 1.41|and later}}
+<translate>
+<!--T:97-->
+As of MediaWiki 1.41, a toggle was added to diff pages that allows users to switch between inline and two-column in the user interface (<tvar name=1>[[phab:T336716|T336716]]</tvar>).
+</translate>
+
+<blockquote style="border:1px solid; padding:1em;">
+
+<!--render inline diff legend -->
+<div class="mw-diff-table-prefix" dir="ltr" lang="en">
+<div style="color: black" class="mw-diff-inline-legend"><span class="mw-diff-inline-legend-ins">Content added</span> <span class="mw-diff-inline-legend-del">Content deleted</span></div>
+</div>
+
+{| class="diff diff-contentalign-{{dir|{{pagelang2}}|right|left}} diff-editfont-monospace" border="0" style="border-spacing:4px; table-layout:fixed; width:98%"
+|- style="height:1px" <!-- dummy row for column widths -->
+| style="width:2%" |
+| style="width:48%" |
+| style="width:2%" |
+| style="width:48%" |
+|- class="diff-title"
+| colspan="2" class="diff-otitle diff-side-deleted" | <div class="mw-diff-otitle1"><strong>[[Help:Page history|{{int:revisionasof|22:32, 3 {{int|august}} 2003}}]] {{int:parentheses|[[Help:Editing|{{int|editold}}]]}}</strong></div>
+<div class="mw-diff-otitle2">[[User:Tim Starling|Tim Starling]] {{int:parentheses|[[User talk:Tim Starling|{{int|talkpagelinktext}}]] {{int|pipe-separator}} [[Help:User contributions|{{int|contribslink}}]]}}</div>
+<div class="mw-diff-otitle3"><span class="comment">{{int:parentheses|[[Help:Edit summary|Edit summaries]] in diffs are great}}</span></div>
+<div class="mw-diff-otitle4">[[Help:Page history|{{int|previousdiff}}]]</div>
+| colspan="2" class="diff-otitle diff-side-added" |<div class="mw-diff-otitle1"><strong>[[Help:Page history|{{int:revisionasof|00:10, 18 {{int|august}} 2003}}]] {{int:parentheses|[[Help:Editing|{{int|editold}}]]}} {{int:parentheses|[[Manual:Reverts|{{int|editundo}}]]}} {{int:parentheses|[[Extension:Thanks|{{int|thanks-thank}}]]}}</strong></div>
+<div class="mw-diff-otitle2">[[User:Angela|Angela]] {{int:parentheses|[[User_talk:Angela|{{int|talkpagelinktext}}]] | [[Help:User contributions|{{int|contribslink}}]]}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="mw-rollback-link">[[Manual:Rollback|{{int:rollbacklinkcount|1}}]]</span></div>
+<div class="mw-diff-otitle3"><abbr class="minoredit" title="{{int|recentchanges-label-minor}}">{{int|minoreditletter}}</abbr> <span class="comment">{{int:parentheses|correction, + [[MediaWiki User's Guide]]}}</span></div>
+<div class="mw-diff-otitle4">&nbsp;</div>
+|}
+
+<div class="mw-diff-inline-moved mw-diff-inline-moved-destination mw-diff-inline-moved-upwards">
+For sysops and those with the rollback flag, a revert button is shown allowing them to revert from the new version to the old one.
+
+This is only shown when viewing the diff between the <del style="color:black" class="mw-diff-inline-moved">current</del> version and the one <ins style="color: black">of a page and the last version by an author other than the one of the most current version.</ins>.
+This example shows the top of the diff page, with the links described above.
+
+<nowiki></table></nowiki>
+
+<ins style="color: black">
+<nowiki>[[MediaWiki User's Guide]]</nowiki>
+</ins>
+<div><ins style="color: black; font-family: 'Menlo','Consolas','Liberation Mono','Fira Code','Courier New',monospace;
+    font-size: 87.5%;" title="Content added">↲ newline</ins></div>
+</div>
+</blockquote>
+
+<translate>
+<!--T:98-->
+The following changes were introduced for inline diff:
+</translate>
+
+* <translate><!--T:99--> Legends and tooltips that explain the blue and yellow highlights.</translate> ([[phab:T324759|T324759]])
+* <translate><!--T:100--> Annotation that represent when one or more lines are added or deleted.</translate> ([[phab:T330247|T330247]])
+
+<translate>
+== How to report bugs? == <!--T:77-->
+
+<!--T:78-->
+Bugs should be [[<tvar name=1>How to report a bug</tvar>|reported on Phabricator]] under the <tvar name=2>{{phabricator inline tag|MediaWiki-Page-diffs}}</tvar> tag.
+
+== User Preferences == <!--T:79-->
+
+<!--T:80-->
+The following user [[<tvar name=1>Help:Preferences</tvar>|preferences]] are available in the "<tvar name=2>{{int|prefs-diffs}}</tvar>" section of the "<tvar name=3>{{int|prefs-rendering}}</tvar>" preferences tab:
+</translate>
+<section begin="prefs" />
+; {{int|tog-diffonly}}
+: <translate><!--T:81--> Toggle the display of the page text below the diff.</translate> <translate><!--T:88--> This text is the later of the two revisions of the page.</translate>
+; {{int|tog-norollbackdiff}}
+: <translate><!--T:82--> Whether to show the diff of the rolled back revision after a rollback.</translate>
+
+<translate><!--T:83--> Some extensions also add their own preferences related to diffs.</translate>
+<translate><!--T:96--> One such extension is <tvar name=1>{{ll|Extension:RevisionSlider}}</tvar>, which can be disabled in preferences using the "<tvar name=2>{{int|revisionslider-preference-disable}}</tvar>" preference in that section.</translate>
+<section end="prefs" />
+
+<translate>
+== See also == <!--T:84-->
+</translate>
+* {{ll|Help:History}} — <translate><!--T:85--> Navigating and understanding page history.</translate>
+* {{ll|Visual diffs}} — <translate><!--T:86--> Diffs in the VisualEditor and VisualDiff extensions.</translate>
+{{Help}}

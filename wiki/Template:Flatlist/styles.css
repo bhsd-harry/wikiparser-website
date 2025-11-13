@@ -74,7 +74,7 @@ We remove .inline since it's not used here.
 }
 
 /* Put ordinals in front of ordered list items */
-.hlist ol { /* stylelint-disable-line no-descending-specificity */
+.hlist ol {
 	counter-reset: listitem;
 }
 
@@ -82,7 +82,7 @@ We remove .inline since it's not used here.
 	counter-increment: listitem;
 }
 
-.hlist ol > li::before { /* stylelint-disable-line no-descending-specificity */
+.hlist ol > li::before {
 	content: " " counter(listitem) "\a0";
 }
 

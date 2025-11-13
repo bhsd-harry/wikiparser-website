@@ -11,7 +11,7 @@
 <translate><!--T:3--> On a wiki with ApiSandbox installed, go to <tvar name=1><code>Special:ApiSandbox</code></tvar>.</translate>
 <translate><!--T:7--> Choose action, format and other parameters.</translate>
 <translate><!--T:8--> The sandbox displays interactive help for every request parameter.</translate>
-<translate><!--T:9--> Then click the "<tvar name=1>{{int:apisandbox-submit}}</tvar>" button.</translate>
+<translate><!--T:9--> Then click the "<tvar name=1>{{int|apisandbox-submit}}</tvar>" button.</translate>
 <translate><!--T:10--> ApiSandbox makes the request to <tvar name=1><code>api.php</code></tvar> on your behalf and displays the result below in the format you chose.</translate>
 <translate><!--T:11--> You can copy the request URL (and POST data, if needed) for reuse.</translate>
 

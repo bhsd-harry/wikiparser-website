@@ -22,12 +22,20 @@ const getFile = (title: string | Title): string => {
 	return path.join('wiki', (isTitle ? title.title : title) + (isTitle ? '.wiki' : ''));
 };
 
+const dict = {'<': '&lt;', '>': '&gt;', '&': '&amp;', '\n': '&#10;'};
+
+/**
+ * Escape HTML special characters.
+ * @param s string to escape
+ */
+const escapeHTML = (s: string): string => s.replace(/[<>&\n]/gu, m => dict[m as keyof typeof dict]);
+
 // Configure the parser for MediaWiki.org
 Parser.config = 'mediawikiwiki';
 
 // Set custom article path
 Parser.getConfig();
-const articlePath = 'https://bhsd-harry.github.io/wikiparser-website/';
+const articlePath = '//bhsd-harry.github.io/wikiparser-website/';
 Object.assign(Parser.config, {articlePath});
 
 // Set wiki template directory
@@ -35,7 +43,7 @@ Parser.templateDir = path.resolve('wiki');
 // @ts-expect-error private method
 Parser.info(`Using wiki directory: ${Parser.templateDir}`);
 
-// Hook to render TemplateStyles
+// Hook to render <templatestyles>
 const templatestyles = new WeakMap<Token, Set<string>>();
 Parser.setHook('templatestyles', token => {
 	const src = token.getAttr('src');
@@ -43,11 +51,15 @@ Parser.setHook('templatestyles', token => {
 		return '<strong class="error">TemplateStyles\' <code>src</code> attribute must not be empty.</strong>';
 	}
 	const page = Parser.normalizeTitle(src, 10),
-		{valid, title} = page;
+		{valid, title, ns} = page;
 	if (!valid) {
 		return '<strong class="error">Invalid title for TemplateStyles\' <code>src</code> attribute.</strong>';
 	}
-	const contentmodel = Parser.callParserFunction('contentmodel', 'canonical', title);
+	const contentmodel = Parser.callParserFunction(
+		'contentmodel',
+		'canonical',
+		(ns === 10 ? '' : 'Template:') + title,
+	);
 	if (contentmodel !== 'sanitized-css') {
 		return `<strong class="error">Page [[:${
 			title
@@ -74,6 +86,19 @@ Parser.setHook('templatestyles', token => {
 	}
 });
 
+// Hook to render <syntaxhighlight>
+Parser.setHook('syntaxhighlight', token => {
+	if (token.selfClosing) {
+		return '';
+	}
+	const lang = token.getAttr('lang'),
+		attr = `class="mw-highlight${lang && lang !== true ? ` mw-highlight-lang-${lang.toLowerCase()}` : ''}"`,
+		innerText = escapeHTML(token.innerText!.trim());
+	return token.getAttr('inline')
+		? `<code ${attr}>${innerText}</code>`
+		: `<div ${attr}><pre>${innerText}</pre></div>`;
+});
+
 // Hook to render `{{#ifexist:}}`
 Parser.setFunctionHook('ifexist', token => {
 	const page = token.getValue(1)!,
@@ -85,10 +110,30 @@ Parser.setFunctionHook('ifexist', token => {
 	return fs.existsSync(getFile(Parser.normalizeTitle(page))) ? token.getValue(2) ?? '' : no;
 });
 
+// Hook to render `{{formatnum:}}`
+Parser.setFunctionHook('formatnum', token => {
+	const value = token.getValue(1)!,
+		num = Number(value);
+	return !value || Number.isNaN(num) ? value : num.toLocaleString();
+});
+
 // Hook to render `{{#invoke:}}`
-Parser.setFunctionHook('invoke', token => {
+Parser.setFunctionHook('invoke', (token, context) => {
 	if (token.module === 'Module:String' && token.function === 'rep') {
 		return (token.getValue(1) ?? '').repeat(Number(token.getValue(2) ?? 0));
+	} else if (token.module === 'Module:Tmpl' && token.function === 'renderTmpl') {
+		const {args} = token.getFrame(context).parent!;
+		let output = args[0] ?? '';
+		if (/\$\d/u.test(output)) {
+			for (const [key, value] of Object.entries(args)) {
+				const num = Number(key);
+				if (num === 0 || !Number.isInteger(num)) {
+					continue;
+				}
+				output = output.replace(new RegExp(String.raw`\$${num}(?!\d)`, 'gu'), value);
+			}
+		}
+		return output;
 	}
 	return '';
 });

@@ -1,0 +1,29 @@
+<noinclude>
+<languages />
+</noinclude><includeonly>{{#if: {{{1|}}}
+|{{#ifeq:{{padleft:|1|{{uc:{{{1}}}}}}}|T
+  |[[phabricator:{{uc:{{{1}}}}}|{{uc:{{{1}}}}}]]
+  |[[phabricator:T{{uc:{{{1}}}}}|T{{uc:{{{1}}}}}]]
+  }}
+|<span class="error"><translate><!--T:2--> Phabricator task number not specified</translate></span>
+}}</includeonly><noinclude>
+{{Documentation|content=
+
+<translate>
+== Usage == <!--T:3-->
+</translate>
+
+<pre>{{phab|T1234}}</pre>
+{{phab|T1234}}
+
+{{Phabricator/doc}}
+
+<translate>
+== See also == <!--T:4-->
+</translate>
+* {{ll|Template:Tracked}} - <translate><!--T:5--> right-floating box for specific tasks</translate>
+* {{ll|Template:Ptag}} - <translate><!--T:7--> page-top indicators for overall #projects and #tags</translate>
+* {{ll|Template:Phabricator inline tag}} - <translate><!--T:8--> similar to <tvar name=1>Ptag2</tvar> but displays the link inline</translate>
+}}
+
+[[Category:External link templates{{#translation:}}|{{PAGENAME}}]]

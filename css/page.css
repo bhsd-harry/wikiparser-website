@@ -146,15 +146,19 @@ code {
 	padding: 1px 4px;
 }
 pre {
+	line-height: 1.3;
 	padding: 1em;
 	white-space: pre-wrap;
 	overflow: hidden;
 	overflow-wrap: break-word;
 }
 code, pre {
-	background: #f8f9fa;
-	color: #000;
-	border: 1px solid #eaecf0;
+	background-color: #f8f9fa;
+	color: #101418;
+	border: 1px solid #dadde3;
+}
+code, pre, tt, kbd, samp {
+	font-family: monospace;
 }
 sub, sup {
 	font-size: 80%;
@@ -402,6 +406,10 @@ li.gallerybox div.thumb img {
 }
 .mw-allpages-body li {
 	break-inside: avoid;
+}
+.mw-highlight {
+	unicode-bidi: embed;
+	background: #f8f8f8;
 }
 
 @media screen and (max-width: 720px) {

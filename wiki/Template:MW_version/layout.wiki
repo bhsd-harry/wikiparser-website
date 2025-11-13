@@ -1,0 +1,34 @@
+<noinclude>
+<languages/>
+</noinclude><templatestyles src="MW version/styles.css" />
+<table class="mw-version mw-version-{{dir|{{PAGELANGUAGE}}}}
+{{#if:{{{version|}}}|mw-version-version mw-version-version-{{MW version/status|{{{version}}} }} }}
+{{#if:{{{version2|}}}|mw-version-version2 mw-version-version2-{{MW version/status|{{{version2}}} }} }}
+{{#ifeq:{{MW version/status|{{{version}}} }}|future
+|
+|{{#switch: {{{comment|}}}|and after|and later|+=mw-version-and-later}}
+}}"><tr>
+{{#if: {{{compact|}}} ||<td>{{{msg-mw-version}}}</td>}}
+<td class="mw-version-versionbox" title="{{#switch: {{{comment|}}}
+ |and after|and later|+=
+  {{{msg-latest-tooltip}}}
+ |#default=
+  {{#switch:{{MW version/status|{{#if:{{{version2|}}}|{{{version2}}}|{{{version|X.XX}}}}}}}
+  |unsupported= <translate nowrap><!--T:1--> MediaWiki <tvar name=1>{{#if:{{{version2|}}}|{{{version2}}}|{{#if:{{{version|}}}|{{{version}}}|X.XX}}}}</tvar> is an unsupported version</translate>
+  |legacy=      <translate nowrap><!--T:2--> MediaWiki <tvar name=1>{{#if:{{{version2|}}}|{{{version2}}}|{{#if:{{{version|}}}|{{{version}}}|X.XX}}}}</tvar> is a legacy version</translate>
+  |stable=      <translate nowrap><!--T:3--> MediaWiki <tvar name=1>{{#if:{{{version2|}}}|{{{version2}}}|{{#if:{{{version|}}}|{{{version}}}|X.XX}}}}</tvar> is a stable version</translate>
+  |future=      <translate nowrap><!--T:4--> MediaWiki <tvar name=1>{{#if:{{{version2|}}}|{{{version2}}}|{{#if:{{{version|}}}|{{{version}}}|X.XX}}}}</tvar> is a future version</translate>
+  |unknown=     <translate nowrap><!--T:5--> MediaWiki <tvar name=1>{{#if:{{{version2|}}}|{{{version2}}}|{{#if:{{{version|}}}|{{{version}}}|X.XX}}}}</tvar> is an unknown version</translate>
+  }}
+}}"><div class="mw-version-versionnumber">{{#switch: {{{comment|}}}
+ |and before|and earlier|-=<small><translate><!--T:6--> &le;</translate></small>
+ |and after|and later|+=<small><translate><!--T:7--> &ge;</translate></small>
+}} {{#if: {{{version|}}} | {{{version}}} | X.X }}{{#if: {{{version2|}}} | &#32;&ndash; {{{version2}}} }}</div>{{#if: {{{r|}}} |
+<small>{{Rev|{{{r}}}}}</small>}}{{#if: {{{gerrit change|}}} |
+<small>{{Gerrit search|{{{gerrit change}}}}}</small>}}</td>
+{{#switch: {{{comment|}}}
+|and before|and after|and earlier|and later|-|+|=
+|#default=<nowiki /><div style="display: none;">[[Template:MW version/list1]]</div>
+<td>{{{comment}}}</td>
+}}
+</tr></table>

@@ -16,7 +16,7 @@
 }
 
 .navbar li {
-	word-spacing: -.125em; /* stylelint-disable-line number-max-precision */
+	word-spacing: -.125em;
 }
 
 /* Navbar styling when nested in navbox */

@@ -1,0 +1,32 @@
+<includeonly><span style="background: #dee7f8; border: 1px solid #cfdbe3; color: #464c5c; font-size: 85%; padding: 1px 4px; border-radius: 3px; line-height: 20px; white-space: nowrap; font-weight: normal; font-size: 95%;">[[phab:tag/{{lc:{{{1}}}}}/|<span style=color:#464c5c;>#{{{1}}}</span>]]</span></includeonly><noinclude>
+{{documentation|content=
+
+This page creates an inline badge similar to <nowiki>{{ptag2}}</nowiki> with the name "phabricator-project" and the specified project name (first parameter). Unlike {{tl|ptag2}}, which appears as a separate paragraph, this template shows the tag inside the paragraph.
+
+Example "Foo" used on this page.
+:<nowiki>Please report Visual Editor bugs using the tag {{Phabricator inline tag|VisualEditor}}.</nowiki>
+Please report Visual Editor bugs using the tag {{Phabricator inline tag|VisualEditor}}.
+
+== See also ==
+
+* [[Template:Ptag]]
+* [[Template:Ptag2]]
+* [[Template:Tracked]] - right-floating box for specific tasks
+* [[Template:Phabricator]] - similar to <code><nowiki>[[</nowiki>phab:T''nnn'']]</code>
+
+[[Category:External link templates{{#translation:}}]]
+<templatedata>
+{
+	"params": {
+		"1": {
+			"label": "Tag",
+			"description": "Phabricator tag name",
+			"example": "VisualEditor",
+			"type": "string"
+		}
+	},
+	"description": "This template shows a link to a Phabricator tag as a paragraph in the page flow."
+}
+</templatedata>
+}}
+</noinclude>

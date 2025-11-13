@@ -1,3 +1,4 @@
 /dist/
-/expanded/
+/expanded
+/log/
 /.eslintcache

@@ -29,14 +29,14 @@ Pages merged through this special page are logged in a "[[<tvar name=merge>Speci
 | <translate><!--T:10--> Go to <tvar name=1>[[Special:MergeHistory]]</tvar>.</translate>
 <translate><!--T:11--> Enter the titles of the source page and the destination page in the input fields provided.</translate> <translate><!--T:12--> The source page is the page whose revision you want to merge into another page while the destination page is the page that the revision will be merged into.</translate>
 
-<translate><!--T:13--> Click on "<tvar name=1>{{int:Mergehistory-go}}</tvar>".</translate>
+<translate><!--T:13--> Click on "<tvar name=1>{{int|Mergehistory-go}}</tvar>".</translate>
 | [[File:Special merge history.png|thumb|500px]]
 |-
 | colspan=2 | <hr/>
 |-
 | <translate><!--T:14--> You will be shown a list of revisions from the source page which can be merged into the destination page.</translate> <translate><!--T:15--> These are revisions starting from latest version of the source page which is older than the oldest version of the target page.</translate> <translate><!--T:16--> It is not possible to merge later revisions of the source page into the destination page.</translate>
 <translate><!--T:17--> Click on the radio button next to a revision to select it.</translate>
-<translate><!--T:18--> Click on "<tvar name=1>{{int:Mergehistory-submit}}</tvar>".</translate> <translate><!--T:19--> This will merge the selected revision and all before it.</translate>
+<translate><!--T:18--> Click on "<tvar name=1>{{int|Mergehistory-submit}}</tvar>".</translate> <translate><!--T:19--> This will merge the selected revision and all before it.</translate>
 <translate><!--T:30--> If the radio button is not selected and all revisions of the source page are older than the oldest version of the target page, then all revisions of the source page will be merged.</translate>
 | [[File:Choose merge history.png|thumb|500px]]
 |-
@@ -66,7 +66,7 @@ Pages merged through this special page are logged in a "[[<tvar name=merge>Speci
 == Undoing a merge == <!--T:28-->
 
 <!--T:29-->
-Go to <tvar name=1>[[Special:Log/merge]]</tvar> then click "<tvar name=2>{{int:revertmerge}}</tvar>".
+Go to <tvar name=1>[[Special:Log/merge]]</tvar> then click "<tvar name=2>{{int|revertmerge}}</tvar>".
 
 == See also == <!--T:4-->
 </translate>

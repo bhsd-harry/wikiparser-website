@@ -1,0 +1,3 @@
+<onlyinclude>{{<includeonly>safesubst:</includeonly>Int:{{{1}}}}}</onlyinclude>
+{{Documentation}}
+<!-- Add categories to the /doc subpage and interwikis in Wikidata, not here! -->

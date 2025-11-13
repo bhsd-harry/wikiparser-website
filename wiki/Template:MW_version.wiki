@@ -1,0 +1,87 @@
+<noinclude>
+<languages />
+</noinclude>{{MW version/layout
+|msg-mw-version={{#if:{{{version2|}}}
+  |<translate><!--T:1--> MediaWiki versions:</translate>
+  |<translate><!--T:9--> MediaWiki version:</translate>
+  }}
+|msg-latest-tooltip=<translate nowrap><!--T:2--> The latest stable version is <tvar name=1>{{MW stable branch number}}</tvar></translate>
+|version={{{version|}}}
+|version2={{{version2|}}}
+|comment={{{comment|}}}
+|r={{{r|}}}
+|gerrit change={{{gerrit change|{{{gerrit|{{{change|}}}}}}}}}
+|compact={{{compact|}}}
+}}<noinclude>
+{{Documentation|content=
+{{Uses TemplateStyles|Template:MW version/styles.css}}
+<translate>
+== Purpose == <!--T:3-->
+</translate>
+<translate><!--T:4--> This template shows the valid '''MediaWiki''' version for the paragraph.</translate>
+<translate><!--T:5--> It appears on the right side of the window in a bordered text field.</translate>
+
+<translate>
+== Usage == <!--T:6-->
+</translate>
+ <nowiki>{{</nowiki>MW version{{!}}version= [{{!}}version2=] [{{!}}comment=] [{{!}}gerrit change=]/[{{!}}gerrit=] <nowiki>}}</nowiki>
+
+{{MW version/doc}}
+
+<translate>
+== Example == <!--T:7-->
+</translate>
+<!-- version -->
+{{clear}}
+{{MW version|version={{#expr: {{MW stable branch number}} + 0.01}} }}
+{{tlx|MW version|version{{=}}{{#expr: {{MW stable branch number}} + 0.01}}}}
+{{clear}}
+{{MW version|version={{MW stable branch number}}}}
+{{tlx|MW version|version{{=}}{{MW stable branch number}}}}
+{{clear}}
+{{MW version|version={{MW legacy branch number}}}}
+{{tlx|MW version|version{{=}}{{MW legacy branch number}}}}
+{{clear}}
+{{MW version|version=1.15}}
+{{tlx|MW version|version{{=}}1.15}}
+{{clear}}
+<!-- version2 -->
+{{MW version|version={{MW legacy branch number}}|version2={{#expr: {{MW stable branch number}} + 0.01}}}}
+{{tlx|MW version|version{{=}}{{MW legacy branch number}}|version2{{=}}{{#expr: {{MW stable branch number}} + 0.01}}}}
+{{clear}}
+{{MW version|version={{MW legacy branch number}}|version2={{MW stable branch number}}}}
+{{tlx|MW version|version{{=}}{{MW legacy branch number}}|version2{{=}}{{MW stable branch number}}}}
+<!-- comment -->
+{{clear}}
+{{MW version|version={{MW legacy branch number}}|comment=and before}}
+{{tlx|MW version|version{{=}}{{MW legacy branch number}}|comment{{=}}and before}}
+{{clear}}
+{{MW version|version=1.15|comment=and after}}
+{{tlx|MW version|version{{=}}1.15|comment{{=}}and after}}
+{{clear}}
+{{MW 1.15|and after}}
+{{tlx|MW 1.15|and after}}
+{{clear}}
+{{MW version|version={{MW legacy branch number}}|comment=text here}}
+{{tlx|MW version|version{{=}}{{MW legacy branch number}}|comment{{=}}text here}}
+{{clear}}
+<!-- gerrit change -->
+{{MW version|version={{MW stable branch number}}|gerrit change=12345}}
+{{tlx|MW version|version{{=}}{{MW stable branch number}}|gerrit change{{=}}12345}}
+{{clear}}
+<!-- rev -->
+{{MW version|version={{MW stable branch number}}|r=123}}
+{{tlx|MW version|version{{=}}{{MW stable branch number}}|r{{=}}123}}
+{{clear}}
+
+<translate>
+== See also == <!--T:8-->
+</translate>
+* {{tl|MW version-inline}}
+* {{tl|MW {{MW stable branch number}}}}
+* {{tl|MW {{MW legacy branch number}}}}
+}}
+
+[[Category:MediaWiki version information templates{{#translation:}}]]
+[[Category:MediaWiki version templates‎{{#translation:}}|*]]
+</noinclude>
