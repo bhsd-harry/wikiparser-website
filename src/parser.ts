@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import {execSync} from 'child_process';
 import esbuild from 'esbuild';
 import Parser from 'wikiparser-node';
-import type {Title, Token, LinkToken as LinkTokenBase} from 'wikiparser-node';
+import type {Title, Token, LinkToken as LinkTokenBase, TranscludeToken} from 'wikiparser-node';
 
 declare global {
 	interface RegExpConstructor {
@@ -21,14 +22,6 @@ const getFile = (title: string | Title): string => {
 	const isTitle = typeof title !== 'string';
 	return path.join('wiki', (isTitle ? title.title : title) + (isTitle ? '.wiki' : ''));
 };
-
-const dict = {'<': '&lt;', '>': '&gt;', '&': '&amp;', '\n': '&#10;'};
-
-/**
- * Escape HTML special characters.
- * @param s string to escape
- */
-const escapeHTML = (s: string): string => s.replace(/[<>&\n]/gu, m => dict[m as keyof typeof dict]);
 
 // Configure the parser for MediaWiki.org
 Parser.config = 'mediawikiwiki';
@@ -86,19 +79,6 @@ Parser.setHook('templatestyles', token => {
 	}
 });
 
-// Hook to render <syntaxhighlight>
-Parser.setHook('syntaxhighlight', token => {
-	if (token.selfClosing) {
-		return '';
-	}
-	const lang = token.getAttr('lang'),
-		attr = `class="mw-highlight${lang && lang !== true ? ` mw-highlight-lang-${lang.toLowerCase()}` : ''}"`,
-		innerText = escapeHTML(token.innerText!.trim());
-	return token.getAttr('inline')
-		? `<code ${attr}>${innerText}</code>`
-		: `<div ${attr}><pre>${innerText}</pre></div>`;
-});
-
 // Hook to render `{{#ifexist:}}`
 Parser.setFunctionHook('ifexist', token => {
 	const page = token.getValue(1)!,
@@ -117,55 +97,83 @@ Parser.setFunctionHook('formatnum', token => {
 	return !value || Number.isNaN(num) ? value : num.toLocaleString();
 });
 
+/**
+ * Convert string to Lua string.
+ * @param s string to convert
+ * @param num whether to treat as a number
+ */
+const toLuaString = (s: string, num?: boolean): string =>
+	num && Number.isInteger(Number(s)) ? s : JSON.stringify(s).replaceAll(String.raw`\u0000`, String.raw`\u{0000}`);
+
+/**
+ * Convert frame to Lua table string.
+ * @param frame Scribunto frame
+ */
+const frameToLuaTable = (frame: ReturnType<TranscludeToken['getFrame']>, indent = ''): string => {
+	let table = `
+	${indent}title = ${JSON.stringify(frame.title)},
+	${indent}args = {`;
+	for (const [k, v] of Object.entries(frame.args)) {
+		table += `
+		${indent}[${toLuaString(k, true)}] = ${toLuaString(v)},`;
+	}
+	table += `
+	${indent}}`;
+	if (frame.parent) {
+		table += `,
+	_parent = {${frameToLuaTable(frame.parent, '\t')}
+	}`;
+	}
+	return table;
+};
+
 // Hook to render `{{#invoke:}}`
 Parser.setFunctionHook('invoke', (token, context) => {
-	if (token.module === 'Module:String' && token.function === 'rep') {
-		return (token.getValue(1) ?? '').repeat(Number(token.getValue(2) ?? 0));
-	} else if (token.module === 'Module:Tmpl' && token.function === 'renderTmpl') {
-		const {args} = token.getFrame(context).parent!;
-		let output = args[0] ?? '';
-		if (/\$\d/u.test(output)) {
-			for (const [key, value] of Object.entries(args)) {
-				const num = Number(key);
-				if (num === 0 || !Number.isInteger(num)) {
-					continue;
-				}
-				output = output.replace(new RegExp(String.raw`\$${num}(?!\d)`, 'gu'), value);
-			}
-		}
-		return output;
+	const {module: m, function: f} = token;
+	if (fs.existsSync(`${m}.lua`)) {
+		fs.writeFileSync(
+			'frame.lua',
+			`return {${frameToLuaTable(token.getFrame(context))}
+}`,
+		);
+		return execSync(`lua Scribunto.lua "${m}" "${f}"`, {encoding: 'utf8'})
+			.replace(/\n$/u, '');
 	}
-	return '';
+	return `<strong class="error">Script error: No such module "${m}`;
 });
 
 // Render red links with "new" class
 // @ts-expect-error private method
-const {LinkToken}: {LinkToken: typeof PrivateToken} = Parser.require('./src/link');
-const LinkBaseToken: typeof PrivateToken = Object.getPrototypeOf(LinkToken);
-LinkToken.prototype.toHtmlInternal = function(): string {
-	let html = LinkBaseToken.prototype.toHtmlInternal.call(this);
-	const abs = ` href="${articlePath}`;
-	if (html.includes(abs)) {
-		html = html.replace(abs, ' href="/wikiparser-website/');
+const {LinkBaseToken}: {LinkBaseToken: typeof PrivateToken} = Parser.require('./src/link/base');
+const linkTypes = new Set(['link', 'category', 'redirect-target']),
+	f1 = LinkBaseToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
+LinkBaseToken.prototype.toHtmlInternal = function(): string {
+	if (linkTypes.has(this.type)) {
+		let html = f1.call(this);
+		const abs = ` href="${articlePath}`;
+		if (html.includes(abs)) {
+			html = html.replace(abs, ' href="/wikiparser-website/');
+		}
+		if (this.selfLink || fs.existsSync(getFile(this.link))) {
+			return html;
+		}
+		return html.replace(
+			/<a [^>]+/u,
+			m => m.includes(' class="')
+				? m.replace(' class="', ' class="new ')
+				: `${m} class="new"`,
+		);
 	}
-	if (this.selfLink || fs.existsSync(getFile(this.link))) {
-		return html;
-	}
-	return html.replace(
-		/<a [^>]+/u,
-		m => m.includes(' class="')
-			? m.replace(' class="', ' class="new ')
-			: `${m} class="new"`,
-	);
+	return '';
 };
 
 // Render local images
 // @ts-expect-error private method
 const {FileToken}: {FileToken: typeof PrivateToken} = Parser.require('./src/link/file');
-const {toHtmlInternal} = FileToken.prototype, // eslint-disable-line @typescript-eslint/unbound-method
-	re = new RegExp(` (href|src)="${RegExp.escape(articlePath)}`, 'gu');
+const re = new RegExp(` (href|src)="${RegExp.escape(articlePath)}`, 'gu'),
+	f2 = FileToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
 FileToken.prototype.toHtmlInternal = function(): string {
-	return toHtmlInternal.call(this).replace(re, ' $1="/wikiparser-website/');
+	return f2.call(this).replace(re, ' $1="/wikiparser-website/');
 };
 
 export default Parser;

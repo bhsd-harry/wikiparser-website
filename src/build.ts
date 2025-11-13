@@ -38,7 +38,12 @@ const render = (page: string, title: string, root: Token): void => {
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width">
 	<link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
-	<link rel="stylesheet" href="./css/page.css">
+	<link rel="stylesheet" href="./css/page.css">${
+		/["\s]mw-highlight mw-highlight-lang-/u.test(content)
+			? `
+	<link rel="stylesheet" href="https://testingcf.jsdelivr.net/npm/prismjs/themes/prism.min.css">`
+			: ''
+	}
 </head>
 <body>
 	<main>
@@ -55,7 +60,10 @@ const allPages: string[] = [];
 (async () => {
 	await profile(() => {
 		// Render regular pages
-		for (const file of args) {
+		for (let file of args) {
+			if (file.endsWith('.html')) {
+				file = `${file.slice(0, -5)}.wiki`;
+			}
 			if (!file.endsWith('.wiki') || /^(?:Template|MediaWiki):/u.test(file)) {
 				continue;
 			}

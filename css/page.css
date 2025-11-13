@@ -411,6 +411,62 @@ li.gallerybox div.thumb img {
 	unicode-bidi: embed;
 	background: #f8f8f8;
 }
+div.mw-highlight {
+	position: relative;
+	display: flow-root;
+	margin: 1em 0;
+}
+.mw-content-ltr.mw-highlight-lines pre {
+	padding-left: 3.5em;
+	box-shadow: inset 2.75em 0 0 var(--background-color-neutral, #eaecf0);
+}
+span.linenos {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.mw-highlight .linenos {
+	position: absolute;
+	box-sizing: border-box;
+	width: 2.75em;
+	background: none;
+	color: var(--color-placeholder, #72777d);
+	white-space: pre;
+}
+.mw-highlight .linenos::before {
+	content: attr(data-line);
+}
+.mw-content-ltr.mw-highlight .linenos {
+	left: 0;
+	text-align: right;
+	margin-right: 4px;
+}
+#catlinks {
+	text-align: left;
+}
+.catlinks {
+	background-color: var(--background-color-neutral-subtle, #f8f9fa);
+	margin-top: 1em;
+	border: 1px solid var(--border-color-base, #a2a9b1);
+	padding: 5px;
+	clear: both;
+}
+.catlinks ul {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.catlinks li {
+	display: inline-block;
+	line-height: 1.25em;
+	margin: .125em 0;
+	border-left: 1px solid var(--border-color-base, #a2a9b1);
+	padding: 0 .5em;
+}
+.catlinks li:first-child {
+	border-left: 0;
+	padding-left: .25em;
+}
 
 @media screen and (max-width: 720px) {
 	main {

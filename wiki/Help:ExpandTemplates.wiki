@@ -109,7 +109,7 @@ Full substitution, and ExpandTemplates with "Remove comments" off:
 
 <translate><!--T:31--> gives</translate>
 
-<syntaxhighlight lang="html">
+<syntaxhighlight lang="html" line>
 <root>a [[b|c]]
 <template lineStart="1"><title>CURRENTYEAR</title></template>
 <template lineStart="1"><title><tplarg><title>a</title></tplarg></title></template>
@@ -159,7 +159,7 @@ URL:
 <translate><!--T:46--> By default the width of the input and result box is only 11 characters.</translate>
 <translate><!--T:47--> You may want to change this to full width by adding something like the following to your CSS:</translate>
 
-<syntaxhighlight lang=css>
+<syntaxhighlight lang=css line>
 textarea {
     border: 1px solid #2f6fab;
     color: Black;
