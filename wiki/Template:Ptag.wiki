@@ -1,0 +1,39 @@
+<noinclude>
+<languages/>
+</noinclude><includeonly><!--
+-->{{#tag:indicator|{{Badge|content=<translate><!--T:1--> [[<tvar name=1>Special:MyLanguage/Phabricator</tvar>|Issue tracker]]:</translate> [[phab:tag/{{lc:{{{1}}}}}/|'''#{{{1}}}''']]
+}}|name=phabricator-project}}<!--
+--></includeonly><noinclude>
+{{Documentation|content=
+
+<translate>
+<!--T:2-->
+This template adds a {{<tvar name=1>ll|Help:Page status indicators</tvar>|page status indicator}} linking to the project's issue tracker (for example, a Phabricator workboard).
+
+<!--T:3-->
+Example "<tvar name=1>Foo</tvar>" used on this page.
+</translate>
+:<nowiki>{{ptag|foo}}</nowiki>
+{{ptag|foo}}
+
+<templatedata>
+{
+	"params": {
+		"1": {}
+	},
+	"description": "Add page status indicator with a badge linking to a Phabricator project.",
+	"format": "inline"
+}
+</templatedata>
+
+<translate>
+== See also == <!--T:4-->
+</translate>
+* {{ll|Template:Tracked}} - <translate><!--T:5--> right-floating box for specific tasks</translate>
+* {{ll|Template:Phabricator}} - <translate><!--T:6--> similar to <tvar name=1><code><nowiki>[[phab:T</nowiki>''nnn''<nowiki>]]</nowiki></code></tvar></translate>
+* {{ll|Template:Ptag2}} - <translate><!--T:8--> similar to <tvar name=1>Ptag</tvar> but displays a badge instead of a page-level badge</translate>
+* {{ll|Template:Phabricator inline tag}} - <translate><!--T:9--> similar to <tvar name=1>Ptag2</tvar> but displays the link inline</translate>
+
+}}
+[[Category:External link templates{{#translation:}}]]
+</noinclude>

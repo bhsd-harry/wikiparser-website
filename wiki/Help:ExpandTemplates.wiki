@@ -109,7 +109,7 @@ Full substitution, and ExpandTemplates with "Remove comments" off:
 
 <translate><!--T:31--> gives</translate>
 
-<syntaxhighlight lang="html" line>
+<syntaxhighlight lang="html" line highlight="2-6,8,9">
 <root>a [[b|c]]
 <template lineStart="1"><title>CURRENTYEAR</title></template>
 <template lineStart="1"><title><tplarg><title>a</title></tplarg></title></template>

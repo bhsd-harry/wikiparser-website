@@ -1,0 +1,72 @@
+<languages/>
+{{Special page}}
+[[Image:Vector Sidebar.png|framed|{{dir|{{pagelang}}|left|right}}|<translate><!--T:1--> The default sidebar on the left, see the fifth link from top</translate>]]
+<translate>
+<!--T:13-->
+'''Randomrootpage''' (<tvar name=1>[[Special:Randomrootpage]]</tvar>) allows the display of a random root page a wiki.
+</translate>
+
+<translate><!--T:14--> The regular random link generator (<tvar name=1>[[Special:Random]]</tvar>) is not suitable for some wikis or namespaces where utilising subpage hierarchies (such as Wikibooks).</translate>
+<translate><!--T:2--> So this function can be used as a substitute.</translate>
+<translate><!--T:12--> For example, it can be used to show "random books" in Wikibooks, instead of random pages.</translate>
+<translate><!--T:15--> In a namespace where there are no subpages then the functionality is the same as <tvar name=1>[[Special:Randompage]]</tvar>.</translate>
+
+<translate><!--T:16--> By default, selection will be limited to pages from namespaces in <tvar name=1><code>{{ll|Manual:$wgContentNamespaces|$wgContentNamespaces}}</code></tvar>.</translate>
+<translate><!--T:3--> The user can choose which namespace to look in.</translate>
+<translate><!--T:17--> For example, if they wanted to view a random file they could go to <tvar name=1>[[Special:Random/file]]</tvar>.</translate>
+<translate><!--T:18--> If they wanted to view a random mainspace page they could go to <tvar name=1>[[Special:Random/main]]</tvar>, etc.</translate>
+
+<translate>
+===Usage=== <!--T:4-->
+</translate>
+<syntaxhighlight lang="html">[[Special:Randomrootpage]]
+[[Special:Randomrootpage/{Namespace}]]</syntaxhighlight>
+
+{| class=wikitable
+! !! <code><nowiki>[[Special:Randomrootpage]]</nowiki></code> !! <code><nowiki>[[Special:Random]]</nowiki></code>
+|-
+| <translate><!--T:5--> content namespaces</translate>
+| <translate><!--T:19--> Random rootpage on wiki</translate>
+:[[Special:Randomrootpage]]
+| <translate><!--T:20--> Random page on wiki</translate>
+: [[Special:Random]]
+|-
+| <translate><!--T:6--> main namespace</translate>
+| <translate><!--T:21--> Random rootpage on wiki</translate>
+: [[Special:Randomrootpage/Main]]
+| <translate><!--T:22--> Random page on wiki</translate>
+: [[Special:Random/Main]]
+|-
+| <translate><!--T:7--> help namespace</translate>
+| <translate><!--T:23--> Random rootpage in Help: namespace</translate>
+: [[Special:Randomrootpage/Help]]
+| <translate><!--T:24--> Random page in Help: namespace</translate>
+: [[Special:Random/Help]]
+|-
+| <translate><!--T:8--> extension namespace</translate>
+| <translate><!--T:25--> Random rootpage in Extension: namespace</translate>
+: [[Special:Randomrootpage/Extension]]
+| <translate><!--T:26--> Random page in Extension: namespace</translate>
+: [[Special:Random/Extension]]
+|}
+
+<translate>
+<!--T:9-->
+There is currently no functionality that provides the random display of a subpage.
+</translate>
+
+<translate><!--T:27--> Some wikis utilise this in the configuration of their <tvar name=1>{{ll|sidebar}}</tvar>.</translate>
+([[MediaWiki:Sidebar]])
+
+<translate>
+==History== <!--T:10-->
+
+<!--T:28-->
+This functionality used to be in <tvar name=1>{{ll|Extension:Randomrootpage}}</tvar> though was merged into core in <tvar name=2>{{ll|MediaWiki 1.27}}</tvar>.
+
+==See also== <!--T:11-->
+</translate>
+* {{ll|Manual:SpecialRandomrootpage.php}}
+* {{ll|Help:Random page}}
+* {{ll|Manual:Random page}}<!-- {ll|Manual:Random rootpage}} doesn't exist-->
+* {{ll|API:Random}}<!-- API uses this and parses root page only-->

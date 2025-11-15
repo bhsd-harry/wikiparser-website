@@ -1,0 +1,3 @@
+<onlyinclude><code><includeonly>{{ll|iw=mw|Manual:$wg{{{1}}}|</includeonly>$wg{{{1}}}<includeonly>}}</includeonly></code></onlyinclude>
+{{Documentation}}
+<!-- Add categories to the /doc subpage and interwikis in Wikidata, not here! -->

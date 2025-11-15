@@ -1,0 +1,20 @@
+<languages/>
+{{PD Help Page}}
+{{Special page}}
+<translate>
+<!--T:1-->
+'''New files''' is a [[<tvar name=specialpg>Help:special page</tvar>|special page]] that lists recently added files as a [[<tvar name=gallery>Help:gallery</tvar>|gallery]] in reverse order, with creation date and time, current size, user who [[<tvar name=upload>Help:upload</tvar>|uploaded]] the file, and name of the uploaded file.
+
+<!--T:2-->
+This feature is accessible at [[Special:NewFiles]]. The page results are '''not''' adjustable using settings in [[<tvar name=prefs>Help:Preferences</tvar>|Preferences]].
+
+<!--T:3-->
+This special page can be [[<tvar name=transc>Help:transclusion</tvar>|transcluded]], with the first unnamed parameter specifying how many files should be displayed.
+</translate>
+
+; <translate><!--T:5--> Syntax</translate>
+: <code><nowiki>{{Special:NewFiles/5}}</nowiki></code>
+; <translate><!--T:6--> Example</translate>
+{{Special:NewFiles/5}}
+
+[[Category:Help{{#translation:}}|{{PAGENAME}}]]

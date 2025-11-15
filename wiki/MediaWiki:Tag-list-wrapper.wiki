@@ -1,0 +1,1 @@
+[[Special:Tags|{{PLURAL:$1|Tag|Tags}}]]: $2

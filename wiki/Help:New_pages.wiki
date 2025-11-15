@@ -1,0 +1,52 @@
+<languages/>
+{{PD Help Page}}
+{{Special page}}
+<translate><!--T:1--> '''New pages''' is a [[<tvar name=1>Help:special page</tvar>|special page]] that lists recently created pages in reverse order of creation, with creation date and time, current size, user who created the page, and first [[<tvar name=2>Help:edit summary</tvar>|edit summary]].</translate>
+<translate><!--T:19--> It also provides links to [[<tvar name=1>Help:patrolled edits</tvar>|patrol]] these new pages when that feature is enabled.</translate>
+
+<translate>
+<!--T:2-->
+This feature is accessible at <tvar name=spec-np>[[Special:NewPages]]</tvar>. The page results are not adjustable in the [[<tvar name=prefs>Help:Preferences</tvar>|Preferences]].
+
+<!--T:3-->
+The ability to filter by user was added in <tvar name=bug>{{task|T8448}}</tvar>.
+
+== Transclusion == <!--T:4-->
+
+<!--T:5-->
+This special page can be [[<tvar name=1>Help:transclusion</tvar>|transcluded]], with the first unnamed parameter specifying how many entries should be displayed.
+</translate>
+
+:<nowiki>{{Special:NewPages/50}}</nowiki>
+
+<translate>
+<!--T:6-->
+Additional parameters may be used in a comma separated list such as:
+</translate>
+
+:<nowiki>{{Special:NewPages/limit=5,shownav,offset=20081210,namespace=Template}}</nowiki>
+
+{|class="sortable wikitable"
+!<translate><!--T:7--> parameter</translate>!!<translate><!--T:8--> value type</translate>!!<translate><!--T:9--> description</translate>
+|-
+|limit||integer||<translate><!--T:10--> Number of entries to display</translate>
+|-
+|offset||date||<translate><!--T:11--> Date to begin the list of entries</translate>
+|-
+|namespace||string|| <translate><!--T:12--> Restrict the results to the named [[<tvar name=help>Help:Namespaces</tvar>|namespace]]</translate>
+|-
+|hideliu|| || <translate><!--T:13--> Hide logged in users (LIU)</translate>
+|-
+|hidepatrolled|| ||<translate><!--T:14--> Only show pages which have not been [[<tvar name=patrolled-edits>Help:patrolled edits</tvar>|patrolled]].</translate>
+|-
+|hidebots|| || <translate><!--T:15--> Hide [[<tvar name=bots>Help:Bots</tvar>|Bots]]</translate>
+|-
+|showredirs|| || <translate><!--T:16--> Show [[<tvar name=redirects>Help:Redirect</tvar>|Redirect]]s</translate>
+|-
+|shownav|| ||<translate><!--T:17--> Display result navigation links above and beneath the results, i.e.:</translate><br />
+"({{int|histlast}} {{!}} {{int|histfirst}}) {{int:viewprevnext|{{int:pager-newer-n|50}}|{{int:pager-older-n|50}}|<nowiki>20 | 50 | 100 | 250 | 500</nowiki>}}"
+|-
+|username|| || <translate><!--T:18--> Restrict the results to the named user. (From version 1.14) <tvar name=rev>{{rev|45468}}</tvar></translate>
+|}
+
+[[Category:Help{{#translation:}}|{{PAGENAME}}]]

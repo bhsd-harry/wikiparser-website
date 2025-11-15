@@ -1,0 +1,238 @@
+{{ptag|MediaWiki-Recent-changes}}
+<languages />
+{{PD Help Page}}
+{{Special page}}
+<translate>
+<!--T:1-->
+'''Recent changes''' is a [[<tvar name=special-pages>Help:Special page</tvar>|special page]] that lists recent changes in reverse order, with change date and time, change in the page size, user who created the page, and [[<tvar name=edit-summary>Help:Edit summary</tvar>|edit summary]]. It also provides links to [[<tvar name=patrolled-edits>Help:Patrolled edits</tvar>|patrol]] these new edits when that feature is enabled.
+
+<!--T:2-->
+This feature is accessible at <tvar name=spec-rc>[[Special:RecentChanges]]</tvar>. The page results are adjustable using settings in the [[<tvar name=prefs-rc>Help:Preferences#Recent_changes</tvar>|Preferences section "Recent changes"]].
+
+<!--T:38-->
+You can choose which Recent Changes you want to display. [[<tvar name=filters>Help:New_filters_for_edit_review</tvar>|You can combine different kinds of filters]] to display the results you want.
+
+== Transclusions == <!--T:40-->
+
+<!--T:3-->
+This special page can be [[<tvar name=transclusion>Help:transclusion</tvar>|transcluded]], with usage similar to normal templates.
+</translate>
+
+<syntaxhighlight lang="mediawiki" line linelinks=L>
+{{Special:RecentChanges|days=5}}
+</syntaxhighlight >
+
+<translate>
+<!--T:21-->
+A wiki can be configured with aliases for the namespace "Special" and the title "Recent changes", and those localized versions can be used instead of the canonical ones.
+
+<!--T:4-->
+Additional parameters may be used in the same way they would in templates:
+</translate>
+
+<syntaxhighlight lang="mediawiki">
+{{Special:RecentChanges|days=5|limit=40|hidebots=1|hideminor=1}}
+</syntaxhighlight>
+
+<translate>
+<!--T:22-->
+Even if a wiki is configured with aliases for the namespace and title, it is not possible to use localized parameters.
+</translate>
+
+{|class="sortable wikitable"
+!<translate><!--T:5--> parameter</translate>
+!<translate><!--T:6--> value type</translate>
+!class="unsortable"|<translate><!--T:7--> description</translate>
+|-
+| days
+| <translate><!--T:24--> integer</translate> ||<translate><!--T:8--> Maximum number of days to display</translate>
+|-
+| limit
+| <translate><!--T:25--> integer</translate>
+| <translate><!--T:9--> Maximum number of entries to display</translate>
+|-
+| namespace
+| <translate><!--T:26--> integer</translate>
+| <translate><!--T:23--> Limit results to the specified namespace, or multiple namespaces separated by semicolons</translate>
+|-
+| hidebots
+| <translate><!--T:27--> boolean</translate>
+| <translate><!--T:10--> Hide [[<tvar name=bots>Help:Bots</tvar>|bots]]</translate>
+|-
+| bots
+| <translate><!--T:28--> boolean</translate>
+| <translate><!--T:11--> Show bots</translate>
+|-
+| hideminor
+| <translate><!--T:29--> boolean</translate>
+| <translate><!--T:12--> Hide [[<tvar name=1>Help:minor edit</tvar>|minor edits]]</translate>
+|-
+| minor
+| <translate><!--T:30--> boolean</translate>
+| <translate><!--T:13--> Show minor edits</translate>
+|-
+| hideliu
+| <translate><!--T:31--> boolean</translate>
+| <translate><!--T:14--> Hide logged in users (LIU)</translate>
+|-
+| hidepatrolled
+| <translate><!--T:32--> boolean</translate>
+| <translate><!--T:15--> Only show pages which have not been [[<tvar name=patrolled-edits>Help:patrolled edits</tvar>|patrolled]].</translate>
+|-
+| hideanons
+| <translate><!--T:33--> boolean</translate>
+| <translate><!--T:16--> Hide [[<tvar name=anonymous>Help:Logging in</tvar>|anonymous users]]</translate>
+|-
+| hidemyself
+| <translate><!--T:34--> boolean</translate>
+| <translate><!--T:17--> Hide the logged in user's own changes</translate>
+|-
+| hidecategorization
+| <translate><!--T:35--> boolean</translate>
+| <translate><!--T:20--> Hide page categorization</translate>
+|-
+| hidelog
+| <translate><!--T:99--> boolean</translate>
+| <translate><!--T:100--> Hide logged actions, showing only page edits</translate>
+|-
+| tagfilter
+| <translate><!--T:41--> string</translate>
+| <translate><!--T:37--> Only get entries for that [[<tvar name=help>Help:Tags</tvar>|tag]]</translate> ([[:phab:T142878|T142878]])
+|-
+| subpageof
+| <translate><!--T:101--> string</translate>
+| <translate><!--T:102--> Show only changes to [[<tvar name=1>Help:Subpages</tvar>|subpages]] of the given page</translate> {{MW version-inline|MW 1.45+}}
+|}
+<translate>
+== Interface == <!--T:43-->
+</translate>
+[[{{lm|Help-RecentChanges|png}}|800px|thumb|none|]]
+<translate>
+<!--T:44-->
+The interface consists of two main parts: 
+</translate>
+* <translate><!--T:45--> At the top are the {{<tvar name="1">ll|Help:New filters for edit review</tvar>|filters}}, which help you sort through edits.</translate>
+* <translate><!--T:46--> Below that is the list of recent changes.</translate>
+<translate>
+=== The filters === <!--T:47-->
+</translate>
+[[{{lm|Help-RecentChanges-2|png}}|400px|thumb|none|]]
+
+{{#section:Help:New filters for edit review{{#translation:}}|main}}
+<translate>
+=== The list of recent changes === <!--T:48-->
+
+<!--T:49-->
+When using the default {{<tvar name="1">ll|Help:Preferences</tvar>|preferences}} configuration, most of the page displays 50 lines, each representing an edit, arranged for left-to-right language wikis.
+
+<!--T:50-->
+Below are examples of recent changes.
+</translate>
+
+<div style="border:1px solid #CCC; padding: 10px;">
+    <li>
+   ([[Special:PermanentLink/6502864|{{int|diff}}]])
+        ([[Special:History/Manual:$wgContentNamespaces|{{int|hist}}]]) . .
+        <span style="font-weight: bold; text-decoration: underline;">m</span>
+        [[Manual:$wgContentNamespaces]]; 07:07 . .
+        <span class='mw-plusminus-pos' style='color: darkred;'>(-35)</span> . .
+       [[Special:Contributions/User:Shirayuki| Shirayuki]] ([[User talk: Shirayuki |{{int|talkpagelinktext}}]] | [[Special:Contributions/Shirayuki|contribs]]) ({{int:revertpage|94rain|Trangbe1992|||||1}}) ({{int:tag-list-wrapper|1|{{int|tag-mw-rollback}}}}) (<span style="color: #002bb8;">{{int:thanks-thank|Example|Shirayuki}}</span>)
+    </li>
+    <li>
+        ([[Special:PermanentLink/6502863|{{int|diff}}]])
+        ([[Special:History/Reporting_security_bugs/pt-br|{{int|hist}}]]) . .
+        [[Reporting_security_bugs/pt-br]]; 06:53 . .
+        <span class='mw-plusminus-pos' style='color: darkred;'>(-40)</span> . .
+       [[Special:Contributions/187.73.25.7|187.73.25.7]] ([[User talk:187.73.25.7|{{int|talkpagelinktext}}]]) ({{int:tag-list-wrapper|1|{{int|tag-mw-manual-revert}}}})
+    </li>
+</div>
+
+<translate>
+==== Understand the list ==== <!--T:51-->
+
+<!--T:52-->
+This shows 2 edits: the first by an administrator who is logged in, to the <tvar name=1>{{ll|Manual:$wgContentNamespaces}}</tvar> page; the second by an un-registered user to the <tvar name=2>[[Reporting security bugs/pt-br]]</tvar> page.
+
+<!--T:53-->
+From left to right:
+</translate>
+
+* <translate><!--T:54--> The "<tvar name="1">[[Help:Diff|diff]]</tvar>" link takes you to the changes made in that edit; it's not available for new pages or page moves.</translate>
+* <translate><!--T:55--> The "<tvar name="1">{{int|hist}}</tvar>" link leads to the page's history, showing all edits, including older and newer ones.</translate> <translate><!--T:56--> For page moves, it shows the history of the new page title.</translate>
+* <translate><!--T:57--> A bold '''<tvar name="1">{{int|minoreditletter}}</tvar>''' indicates the user considered the edit "minor".</translate> <translate><!--T:58--> Only users with the <tvar name="1"><code>minoredit</code></tvar> right (usually logged-in users) can mark edits as minor to prevent misuse.</translate>
+* <translate><!--T:59--> A bold '''<tvar name="1">{{int|newpageletter}}</tvar>''' shows the page is "new," meaning it didn't exist before.</translate>
+* <translate><!--T:60--> The use of a bold '''<tvar name="1">{{int|boteditletter}}</tvar>''' indicates edits made by a bot or hidden by an admin.</translate>
+* <translate><!--T:61--> Bold '''<tvar name="1">!</tvar>''' indicates unpatrolled pages.</translate> <translate><!--T:62--> See <tvar name="1">{{ll|Help:Patrolled edits}}</tvar>.</translate>
+* <translate><!--T:63--> <tvar name=2>{{ll|ORES}}</tvar> is a tool used on some wikis to flag potentially harmful edits, showing them with a red "<tvar name="1">{{int|ores-damaging-letter}}</tvar>" and a light yellow background.</translate>
+* <translate><!--T:64--> A link to the current version of the page.</translate> <translate><!--T:65--> '''Bold''' indicates it's on your watchlist.</translate>
+* <translate><!--T:66--> "<tvar name="1">07:07</tvar>" refers to UTC time.</translate> <translate><!--T:67--> You can adjust it to your time zone in {{<tvar name="1">ll|Help:Preferences</tvar>|preferences}}.</translate>
+* <translate><!--T:68--> (-35) Changes in bytes are shown as a green plus (<tvar name="1">+</tvar>) sign for additions and a red minus (<tvar name="2">-</tvar>) sign for removals.</translate>
+* <translate><!--T:69--> Bold numbers highlight changes of more than 500 bytes.</translate>
+* <translate><!--T:70--> For logged-in users, a link to their userpage is provided.</translate> <translate><!--T:71--> For others, it's their User Contributions.</translate>
+* <translate><!--T:72--> A link to the user's talk page is included.</translate>
+* <translate><!--T:73--> For page moves, both the old and new titles are linked.</translate>
+
+<translate><!--T:74--> Recent changes can display up to 500 edits, or <tvar name=1>{{formatnum:5000}}</tvar> if the URL is modified.</translate> 
+<translate><!--T:75--> Regardless of what filters are used, it cannot display edits older than <tvar name="1">{{wg|RCMaxAge}}</tvar> (90 days by default, 30 days in Wikimedia wikis).</translate>
+
+<translate>
+== Page moves and deletions == <!--T:76-->
+
+<!--T:77-->
+Once a page has been renamed (moved), previous edits and the initial creation of the page appear in recent changes under the new name.
+
+<!--T:78-->
+Once a page is deleted, previous edits and the initial creation of the page are no longer visible in recent changes or similar logs.
+
+== Edits made by bots == <!--T:79-->
+</translate>
+<translate><!--T:80--> Bots can appear in recent changes if you include <tvar name="1"><code>&hidebots=0"</code></tvar> in the URL.</translate>
+<translate><!--T:81--> Sysops can label certain edits as bot edits, so they won't appear in the usual recent changes.</translate>
+<translate><!--T:82--> See <tvar name="1">{{ll|Help:Reverting}}</tvar> for more details.</translate>
+
+<translate>
+== Advanced features == <!--T:83-->
+
+=== Hide the filters === <!--T:84-->
+</translate>
+<translate><!--T:85--> Users can choose not to use the filters by clicking "<tvar name="1">{{int|hide}}</tvar>" on the filters panel.</translate>
+<translate><!--T:86--> Users can opt out of the new filters by going to the "<tvar name="1">{{int|prefs-advancedrc}}</tvar>" section at the bottom of <tvar name=3>[[Special:Preferences#mw-prefsection-rc|Special:Preferences]]</tvar> on the wikis they are active on and selecting "<tvar name="2">{{int|rcfilters-preference-label}}</tvar>".</translate>
+
+<translate><!--T:98--> The {{<tvar name=1>ll|Help:Recent changes/Configuration without October 2017 filters</tvar>|old configuration documentation}} is available for users.</translate>
+
+<translate>
+=== Web feed === <!--T:87-->
+</translate>
+<translate><!--T:88--> To get [[w:web feeds|web feeds]] ([[w:RSS|RSS]] and [[w:Atom_(web_standard)|Atom]]) for a wiki's recent changes, add "<tvar name="1">[https://mediawiki.org/w/index.php?title=Special:RecentChanges&feed=rss &feed=rss]</tvar>" or "<tvar name="2">[http://mediawiki.org/w/index.php?title=Special:RecentChanges&feed=atom &feed=atom]</tvar>" to the URL of the recent changes page.</translate>
+<translate><!--T:89--> This shows the {{<tvar name="1">ll|Help:Diff</tvar>|differences}} for several edits, each with a link to the current page.</translate>
+<translate><!--T:90--> Some browsers may offer options like sorting by author.</translate>
+<translate><!--T:91--> See also [[w:Wikipedia:Syndication|Syndication]] for more details.</translate>
+
+<translate>
+== Differences from page history == <!--T:92-->
+
+<!--T:93-->
+Each line in the {{<tvar name="1">ll|Help:Page history</tvar>|page history}} represents a single change made to the page and the version that resulted from it.
+</translate>
+
+* <translate><!--T:94--> "<tvar name="1">{{int|last}}</tvar>" is similar to "<tvar name="2">{{int|diff}}</tvar>" mentioned earlier.</translate>
+* <translate><!--T:95--> "<tvar name="1">{{int|cur}}</tvar>" shows the changes between this version and the latest one, including all edits made afterward, even those not listed in this revision history because they happened after loading this page.</translate>
+
+<translate>
+<!--T:96-->
+The "<tvar name="1">{{int|cur}}</tvar>" and "<tvar name="2">{{int|last}}</tvar>" features resemble those in the {{<tvar name="3">ll|Help:New filters for edit review</tvar>|improved recent changes}}, except for the "<tvar name="4">{{int|cur}}</tvar>" in the initial line: it isn't linked in the revision history, unlike in the improved recent changes where it shows the changes from the last edit.
+
+<!--T:97-->
+See  [[<tvar name="1">Help:Edit summary#Places_where_the_edit_summary_appears</tvar>|Places where the edit summary appears]].
+
+==See also== <!--T:18-->
+</translate>
+* {{ll|Manual:Configuration settings#Recent changes}}
+* {{ll|Manual:Recent changes}}
+* {{ll|Manual:RCFeed}}
+* {{ll|API:RecentChanges}}
+* {{ll|Help:Patrolled edits}}
+
+[[Category:Help{{#translation:}}|{{PAGENAME}}]]
+[[Category:Recent changes{{#translation:}}|{{PAGENAME}}]]
+[[Category:Special Pages{{#translation:}}|{{PAGENAME}}]]

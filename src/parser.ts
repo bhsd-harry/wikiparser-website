@@ -82,9 +82,15 @@ Parser.setHook('templatestyles', token => {
 // Hook to render `{{#ifexist:}}`
 Parser.setFunctionHook('ifexist', token => {
 	const page = token.getValue(1)!,
-		no = token.getValue(3) ?? '',
-		result = Parser.callParserFunction('ifexist', page, 'y');
-	if (!result) {
+		no = token.getValue(3) ?? '';
+	try {
+		const result = Parser.callParserFunction('ifexist', page, 'y');
+		if (!result) {
+			return no;
+		}
+	} catch {
+		// @ts-expect-error private method
+		Parser.error(`Error checking existence of page: ${page}`);
 		return no;
 	}
 	return fs.existsSync(getFile(Parser.normalizeTitle(page))) ? token.getValue(2) ?? '' : no;

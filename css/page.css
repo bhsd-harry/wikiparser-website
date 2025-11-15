@@ -440,6 +440,14 @@ span.linenos {
 	text-align: right;
 	margin-right: 4px;
 }
+.mw-highlight .hll {
+	display: block;
+	background-color: #ffc;
+}
+.mw-content-ltr.mw-highlight-lines pre .hll {
+	margin-left: -3.5em;
+	padding-left: 3.5em;
+}
 #catlinks {
 	text-align: left;
 }

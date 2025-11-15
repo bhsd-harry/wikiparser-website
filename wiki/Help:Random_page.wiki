@@ -1,0 +1,29 @@
+<languages />
+{{PD Help Page}}
+{{Special page}}
+[[Image:Vector Sidebar.png|framed|{{dir|{{pagelang}}|left|right}}|<translate><!--T:10--> The default sidebar on the left, see the fifth link from top</translate>]]
+<translate>
+<!--T:2-->
+The '''random page''' feature allows users to view a wiki page at random. The default, and most convenient use is to show a random page in the main namespace, and is accessed through the <tvar name=random>[[Special:Random]]</tvar> page. Users will be redirected to the selection.
+
+<!--T:3-->
+<tvar name=randompg>[[Special:Randompage]]</tvar> is an alias for the feature and works in the same manner.
+
+==Namespace selection== <!--T:4-->
+</translate>
+<translate><!--T:5--> Users can also opt to view a random page in a namespace of their choice. This is achieved by specifying a namespace as a parameter to the page, i.e. <tvar name=help>[[Special:Random/Help]]</tvar> will select a random page in the Help namespace; <tvar name=1>[[Special:Random/Category]]</tvar> will show the contents of a random category, etc.</translate>
+<translate><!--T:11--> Starting with MediaWiki 1.41 you can separate multiple namespaces with a comma, e.g., <tvar name=category>[[Special:Random/Help,Project]]</tvar> will show the contents of a random page either in the Help or Project namespace.</translate>
+
+<translate>
+==Settings== <!--T:6-->
+</translate>
+* {{ll|Manual:$wgContentNamespaces}} - <translate><!--T:7--> this will set what namespaces should be counted as article content and included in <tvar name=random>[[Special:Random]]</tvar> function</translate>
+
+<translate>
+==See also== <!--T:8-->
+</translate>
+* {{ll|Help:RandomInCategory}}
+* {{ll|Manual:Random page}}
+* {{ll|API:Random}}
+
+[[Category:Help{{#translation:}}|{{PAGENAME}}]]

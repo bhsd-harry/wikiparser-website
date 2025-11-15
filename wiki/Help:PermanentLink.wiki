@@ -1,0 +1,24 @@
+<languages />
+{{PD Help Page}}
+{{Special page}}
+
+<translate>
+<!--T:1-->
+'''PermanentLink''' is a [[<tvar name=1>Help:Special pages</tvar>|special page]] that allows users to create internal links to a specific revision. Revision numbers can be found in each page's edit history.
+
+<!--T:2-->
+Such links are a little slower to load compared to external links but easier to type and they work in some places where external links do not, e.g. edit summaries. 
+
+<!--T:3-->
+Note that it is very common to see links to specific revisions implemented as external links because it is easy to cut-and-paste an entire URL to form an external link rather than creating an internal link using this special page.
+
+== Usage == <!--T:4-->
+</translate>
+* <code><nowiki>[[Special:PermanentLink/1242287]]</nowiki></code> → [[Special:PermanentLink/1242287]] - <translate><!--T:5--> Shows the link to a specific revision of the page where the revision number occurred in its edit history.</translate>
+
+<translate>
+<!--T:6-->
+These links may be used in the edit summary as well as adapted like any other internal links, e.g. {{<tvar name=1>tmpl|0=<code><nowiki>[[</nowiki>Special:PermanentLink/2700992{{!}}$1<nowiki>]]</nowiki></code></tvar>|see this revision}} → [[<tvar name=2>Special:PermanentLink/2700992</tvar>|see this revision]].
+</translate>
+
+[[Category:Help{{#translation:}}|{{PAGENAME}}]]

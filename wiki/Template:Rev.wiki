@@ -1,0 +1,25 @@
+<noinclude>
+<languages />
+</noinclude>{{#ifeq: {{#if:{{{1|}}}|{{{1}}}|<includeonly>?</includeonly>}} | ?
+| <span class="plainlinks" title="<translate nowrap><!--T:1--> A revision number is wanted.</translate> <translate nowrap><!--T:2--> Click here to edit and add it!</translate>">[{{fullurl:{{FULLPAGENAME}}|action=edit}} r<sup>'''?'''</sup>]</span> {{#if: {{{cat|}}} || [[Category:Pages with a wanted revision number{{#translation:}}|{{PAGENAME}}]]}}
+| <span class="plainlinks">[https://static-codereview.wikimedia.org/MediaWiki/{{{1}}}.html {{trim| {{#if:{{{2|}}} | {{{2}}} | r{{trim|{{{1}}}}} }} }}]</span>
+}}<noinclude>
+{{documentation|content=
+{{Rev/doc}}
+
+<translate>
+== Usage == <!--T:3-->
+</translate>
+<pre>{{Rev}} / {{Rev|?}}</pre>
+
+{{Rev|cat=no}} <translate><!--T:4--> (''categorises the page into <tvar name=1>{{ll|Category:Pages with a wanted revision number}}</tvar>'')</translate>
+<pre>
+* {{Rev|1}}
+* {{Rev|54321|<translate nowrap><!--T:5--> woops</translate>}}
+</pre>
+* {{Rev|1}}
+* {{Rev|54321|2=<translate><!--T:6--> woops</translate>}}
+}}
+
+[[Category:External link templates{{#translation:}}]]
+</noinclude>
