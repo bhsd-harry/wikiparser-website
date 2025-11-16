@@ -1,0 +1,3 @@
+<templatestyles src="Hatnote/styles.css"/><div role="note" class="hatnote {{{extraclasses|{{{class|}}}}}}{{#if:{{{noborder|}}}|hatnote.noborder}}">{{{1|{{{text}}}}}}</div><noinclude>
+{{documentation}}
+</noinclude>

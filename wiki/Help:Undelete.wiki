@@ -1,0 +1,24 @@
+<languages />
+{{PD Help Page}}
+{{Special page}}
+<translate>
+<!--T:1-->
+The [[<tvar name=1>Help:Special pages</tvar>|special page]] <tvar name=2>[[Special:Undelete]]</tvar> is for wiki administrators to browse the revisions associated with deleted pages (so called deleted revisions).
+</translate>
+
+<translate><!--T:2--> To view this page you will need the '''deletedhistory''' [[<tvar name=1>Manual:User rights</tvar>|permission]].</translate>
+<translate><!--T:6--> If you also have the '''browsearchive''' permission, you will additionally be able to search for deleted pages.</translate>
+<translate><!--T:7--> ''Note, '''browsearchive''' does '''not''' imply '''deletedhistory'''''.</translate>
+
+<translate>
+<!--T:3-->
+The text of the deleted revisions will only be viewable with the '''deletedtext''' permission.
+</translate>
+
+<translate><!--T:4--> Finally, you can restore deleted revisions with the '''undelete''' permission.</translate>
+<translate><!--T:8--> ''Note, '''undelete''' implies '''deletedtext''' (as you wouldn't want to restore text you couldn't see''.)</translate>
+
+<translate><!--T:5--> For completeness, it is perhaps worth mentioning that the '''undelete''' permission alone isn't sufficient to restore a deleted page, you additionally need the '''deletedhistory''' permission, which, unlike '''deletedtext''', isn't implied by '''undelete'''.</translate>
+<translate><!--T:9--> This is [[<tvar name="1">phab:T23076</tvar>|probably a bug]], however.</translate>
+
+[[Category:Help{{#translation:}}|{{PAGENAME}}]]

@@ -1,0 +1,9 @@
+.hatnote {
+	font-style: italic;
+	padding-bottom: .4em;
+	margin-bottom: .4em;
+	border-bottom: 1px solid var(--border-color-subtle, #c8ccd1);
+}
+.hatnote.no-border {
+	border-bottom: none;
+}

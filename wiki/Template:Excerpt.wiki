@@ -1,0 +1,185 @@
+<noinclude>
+<languages />
+</noinclude><includeonly>{{#invoke:Excerpt|main}}</includeonly><noinclude>
+{{Documentation|content=
+
+{{Lua|Module:Excerpt}}
+<translate><!--T:111--> This template is used for reusing parts of pages in other pages.</translate>
+<translate><!--T:112--> This practice has several advantages:</translate>
+
+<translate>
+<!--T:113-->
+* '''Reduces maintenance''' by avoiding duplicate content that must be updated multiple times</translate>
+<translate>
+<!--T:114-->
+* '''Improves content quality''' by encouraging editors to merge related content, rather than having multiple versions in various stages of development</translate>
+<translate>
+<!--T:115-->
+* '''Fosters collaboration''' by channeling contributors into one place, rather than working in parallel
+
+<!--T:116-->
+This template extends the capabilities of the built-in [[<tvar name=1>Special:MyLanguage/Transclusion</tvar>|normal transclusion]].
+
+== Usage == <!--T:2-->
+
+=== Basic usage === <!--T:3-->
+</translate>
+* <code><nowiki>{{Excerpt|Page title}}</nowiki></code> — <translate><!--T:4--> Transclude the lead section ([[<tvar name=1>#Lead section</tvar>|example]])</translate>
+* <code><nowiki>{{Excerpt|Page title|Section title}}</nowiki></code> — <translate><!--T:5--> Transclude a specific section, excluding any subsections ([[<tvar name=1>#Specific section</tvar>|example]])</translate>
+
+<translate>
+=== Parameters === <!--T:6-->
+</translate>
+* <code>1</code> — <translate><!--T:7--> Title of the page to transclude.</translate> <translate><!--T:8--> '''Only required parameter.'''</translate> <translate><!--T:9--> By default the lead section will be transcluded ([[<tvar name=1>#Lead section</tvar>|example]]).</translate>
+* <code>2</code> — <translate><!--T:10--> Title of the section to transclude ([[<tvar name=1>#Specific section</tvar>|example]]) or name of the [[<tvar name=2>Special:MyLanguage/Extension:Labeled Section Transclusion#How it works</tvar>|<tvar name=3>{{tag|section|open}}</tvar> tag]] to transclude.</translate> <translate><!--T:119--> Notice that this template provides other ways of targeting specific elements of a page without having to resort to section tags.</translate>
+* <code>only</code> — <translate><!--T:11--> Elements to transclude ([[<tvar name=1>#Files only</tvar>|example]]).</translate> <translate><!--T:86--> By default all elements are transcluded.</translate>
+** <code>only=file</code> <translate><!--T:106--> or</translate> <code>only=files</code> — <translate><!--T:12--> Transclude only files</translate>
+** <code>only=list</code> <translate><!--T:107--> or</translate> <code>only=lists</code> — <translate><!--T:13--> Transclude only lists</translate>
+** <code>only=table</code> <translate><!--T:108--> or</translate> <code>only=tables</code> — <translate><!--T:14--> Transclude only tables</translate>
+** <code>only=template</code> <translate><!--T:109--> or</translate> <code>only=templates</code> — <translate><!--T:16--> Transclude only templates</translate>
+** <code>only=paragraph</code> <translate><!--T:110--> or</translate> <code>only=paragraphs</code> — <translate><!--T:18--> Transclude only paragraphs</translate>
+* <code>paragraphs</code> — <translate><!--T:21--> Paragraphs to transclude.</translate> <translate><!--T:22--> By default all paragraphs are transcluded.</translate>
+** <code>paragraphs=0</code> — <translate><!--T:24--> Transclude no paragraphs</translate>
+** <code>paragraphs=1</code> — <translate><!--T:25--> Transclude the first paragraph</translate>
+** <code>paragraphs=2</code> — <translate><!--T:26--> Transclude the second paragraph</translate>
+** <code>paragraphs=1,3</code> — <translate><!--T:27--> Transclude the first and third paragraphs</translate>
+** <code>paragraphs=1-3</code> — <translate><!--T:28--> Transclude the first, second and third paragraphs</translate>
+** <code>paragraphs=1-3,5</code> — <translate><!--T:29--> Transclude the first, second, third and fifth paragraphs</translate>
+** <code>paragraphs=-1</code> — <translate><!--T:30--> Transclude all paragraphs except the first</translate>
+** <code>paragraphs=-2</code> — <translate><!--T:31--> Transclude all paragraphs except the second</translate>
+** <code>paragraphs=-1,3</code> — <translate><!--T:32--> Transclude all paragraphs except the first and third</translate>
+** <code>paragraphs=-1-3</code> — <translate><!--T:33--> Transclude all paragraphs except the first, second and third</translate>
+** <code>paragraphs=-1-3,5</code> — <translate><!--T:34--> Transclude all paragraphs except the first, second, third and fifth</translate>
+* <code>lists</code> — <translate><!--T:87--> Lists to transclude.</translate> <translate><!--T:88--> By default all lists are transcluded.</translate> <translate><!--T:89--> Same syntax as when transcluding paragraphs.</translate>
+* <code>files</code> — <translate><!--T:35--> Files to transclude.</translate> <translate><!--T:36--> By default all files are transcluded.</translate> <translate><!--T:60--> Same syntax as when transcluding paragraphs, but also:</translate>
+** <code>files=A.jpg</code> — <translate><!--T:38--> Transclude the file named '<tvar name=1>A.jpg</tvar>'</translate>
+** <code>files=A.jpg, B.png, C.gif</code> — <translate><!--T:39--> Transclude the files named '<tvar name=1>A.jpg</tvar>', '<tvar name=2>B.png</tvar>' and '<tvar name=3>C.gif</tvar>'</translate>
+** <code>files=.+%.png</code> — <translate><!--T:40--> Transclude all PNG files</translate>
+** <code>files=-A.jpg</code> — <translate><!--T:41--> Transclude all files except the one named '<tvar name=1>A.jpg</tvar>'</translate>
+** <code>files=-A.jpg, B.png, C.gif</code> — <translate><!--T:42--> Transclude all files except the ones named '<tvar name=1>A.jpg</tvar>', '<tvar name=2>B.png</tvar>' and '<tvar name=3>C.gif</tvar>'</translate>
+** <code>files=-.+%.png</code> — <translate><!--T:43--> Transclude all non-PNG files</translate>
+* <code>tables</code> — <translate><!--T:44--> Tables to transclude.</translate> <translate><!--T:45--> By default all tables are transcluded.</translate> <translate><!--T:46--> Same syntax as when transcluding paragraphs, but also:</translate>
+** <code>tables=Stats2020</code> — <translate><!--T:47--> Transclude the table with id '<tvar name=1>Stats2020</tvar>'</translate>
+** <code>tables=Stats2020, Stats2019, Stats2018</code> — <translate><!--T:48--> Transclude the tables with ids '<tvar name=1>Stats2020</tvar>', '<tvar name=2>Stats2019</tvar>' and '<tvar name=3>Stats2018</tvar>'</translate>
+** <code>tables=-Stats2020</code> — <translate><!--T:49--> Transclude all tables except the one with id '<tvar name=1>Stats2020</tvar>'</translate>
+** <code>tables=-Stats2020, Stats2019, Stats2018</code> — <translate><!--T:50--> Transclude all tables except the ones with ids '<tvar name=1>Stats2020</tvar>', '<tvar name=2>Stats2019</tvar>' and '<tvar name=3>Stats2018</tvar>'</translate>
+* <code>templates</code> — <translate><!--T:90--> Templates to transclude.</translate> <translate><!--T:91--> By default all templates are transcluded.</translate> <translate><!--T:92--> Same syntax as when transcluding paragraphs, but also:</translate>
+** <code>templates=Infobox</code> — <translate><!--T:93--> Transclude the template '<tvar name=1>Infobox</tvar>'</translate>
+** <code>templates=Infobox, Navbox, Chart</code> — <translate><!--T:94--> Transclude the template '<tvar name=1>Infobox</tvar>', '<tvar name=2>Navbox</tvar>' and '<tvar name=3>Chart</tvar>'</translate>
+** <code>templates=-Infobox</code> — <translate><!--T:95--> Transclude all templates except '<tvar name=1>Infobox</tvar>'</translate>
+** <code>templates=-Infobox, Navbox, Chart</code> — <translate><!--T:96--> Transclude all templates except '<tvar name=1>Infobox</tvar>', '<tvar name=2>Navbox</tvar>' and '<tvar name=3>Chart</tvar>'</translate>
+* <code>this</code> — <translate><!--T:100--> Change the initial text of the hatnote. For example, if the transcluded content is a gallery, you can set <tvar name=1><code>this=This gallery is</code></tvar> so that the hatnote reads "This gallery is an excerpt from..."</translate>
+* <code>displaytitle</code> — <translate><!--T:121--> Change the text of the link in the hatnote. For example to add italics, subscripts, etc.</translate>
+* <code>hat=no</code> — <translate><!--T:101--> Hide the hatnote "This section is an excerpt from..."</translate>
+* <code>more=yes</code> — <translate><!--T:120--> Show a "Read more..." link at the end</translate>
+* <code>bold=yes</code> — <translate><!--T:117--> Keep bold text.</translate>
+* <code>quote=yes</code> — <translate><!--T:102--> Wrap the excerpt with <tvar name=1>{{tag|blockquote|open}}</tvar> tags.</translate>
+* <code>inline=yes</code> — <translate><!--T:103--> Remove the hatnote and <tvar name=1>{{tag|div|open}}</tvar> tags around the excerpt, to use it inside other text.</translate>
+* <code>references=no</code> — <translate><!--T:104--> Remove all references.</translate>
+* <code>subsections=yes</code> — <translate><!--T:105--> Include subsections of the transcluded section. Notice that if the transclusion is done from a section level 3, and the transcluded subsections are level 3 too, then the transcluded subsections will show with the same hierarchy as the transcluding section, which is probably not desirable, so use with caution.</translate>
+
+<translate>
+=== Replacing a section with an excerpt === <!--T:65-->
+</translate>
+[[File:How to excerpt.webm|thumb|<translate><!--T:66--> How to replace a section with an excerpt.</translate>]]
+
+<translate><!--T:67--> A section is often a summary of a more precise page dealing with a subtopic.</translate>
+<translate><!--T:68--> Sometimes it's convenient to replace the content of such a section with an excerpt of the page about the subtopic, after merging the original content of the section (if any) into the page about the subtopic.</translate>
+<translate><!--T:69--> This improves both the page about the subtopic and the section, reduces maintenance, drives contributors to collaborate, etc.</translate>
+
+<translate><!--T:70--> An efficient way to proceed is:</translate>
+
+<translate>
+<!--T:71-->
+# Open the section for editing in one tab, and the page about the subtopic in another.</translate>
+<translate>
+<!--T:73-->
+# Copy the text of the section and append it to the lead of the page about the subtopic.</translate>
+<translate>
+<!--T:74-->
+# Consolidate and adjust the combined lead using common sense.</translate>
+<translate>
+<!--T:75-->
+# Save the changes in the child article with an edit summary like: Copied content from <tvar name=1><nowiki>[[Page]]</nowiki></tvar>; see that article's history for attribution.</translate>
+<translate>
+<!--T:76-->
+# Back in the section, delete all content and replace it with an excerpt of the page about the subtopic.</translate>
+<translate>
+<!--T:77-->
+# Save the changes in the section with an edit summary like: Move content to <tvar name=1><nowiki>[[page about the subtopic]]</nowiki></tvar> and leave an excerpt.
+
+== Excerpt trees == <!--T:122-->
+</translate>
+[[File:Excerpt tree.png|thumb|<translate><!--T:123--> Visual representation of an imaginary excerpt tree.</translate>]]
+
+<translate>
+<!--T:124-->
+When a very general article uses excerpts from more specific articles, which in turn use excerpts from even more specific articles, then a [[w:Tree structure|tree structure]] emerges, called an "Excerpt tree".
+</translate>
+
+<translate><!--T:125--> Below you can navigate the main excerpt trees on this wiki.</translate>
+<translate><!--T:126--> It's useful for editors interested in expanding or improving them.</translate>
+
+{{Excerpt tree|
+* [[Architecture Repository]]
+* [[Platform Engineering Team]]
+}}
+
+<translate>
+== Examples == <!--T:78-->
+
+=== Lead section === <!--T:79-->
+</translate>
+<pre>{{Excerpt|Lorem ipsum}}</pre>
+{{Excerpt|Lorem ipsum}}
+{{Reflist}}
+{{Clear}}
+
+<translate>
+=== Specific section === <!--T:84-->
+</translate>
+<pre>{{Excerpt|Lorem ipsum|Section}}</pre>
+{{Excerpt|Lorem ipsum|Section}}
+
+<translate>
+=== Files only === <!--T:81-->
+</translate>
+<pre>{{Excerpt|Lorem ipsum|only=files|hat=no}}</pre>
+{{Excerpt|Lorem ipsum|only=files|hat=no}}
+{{Clear}}
+
+<translate>
+=== Infobox only === <!--T:97-->
+</translate>
+<pre>{{Excerpt|Extension:CategoryLockdown|only=templates|templates=Extension|this=This infobox is}}</pre>
+{{Excerpt|Extension:CategoryLockdown|only=templates|templates=Extension|this=This infobox is}}
+{{Clear}}
+
+<translate>
+=== No infobox === <!--T:98-->
+</translate>
+<pre>{{Excerpt|Extension:CategoryLockdown|templates=-Extension}}</pre>
+{{Excerpt|Extension:CategoryLockdown|templates=-Extension}}
+
+<translate>
+=== Portal === <!--T:85-->
+</translate>
+<pre>{{Excerpt|Lorem ipsum|files=1|references=no|hat=no|more=yes}}</pre>
+{{Excerpt|Lorem ipsum|files=1|references=no|hat=no|more=yes}}
+{{Clear}}
+
+<translate>
+== See also == <!--T:82-->
+</translate>
+* [[Module:Transcluder]] <sup>{{ll|Module:Transcluder/doc|[doc]}}</sup>
+* [[Module:Excerpt]]
+* [[Module:Excerpt/config]]
+* [[c:Data:I18n/Module:Excerpt.tab]]
+
+<translate>
+== Template data == <!--T:83-->
+</translate>
+{{#invoke:TNT|doc|Excerpt}}
+
+}}
+</noinclude>

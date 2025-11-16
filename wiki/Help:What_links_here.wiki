@@ -1,0 +1,254 @@
+<languages/>
+{{PD Help Page|imported=yes}}
+{{Special page}}
+<translate><!--T:1--> In the toolbox of every page there is a link labeled "<tvar name=whatlinkshere>'''{{int|whatlinkshere}}'''</tvar>" (or, more generally, labeled with the text in <tvar name=msg>[[MediaWiki:Whatlinkshere]]</tvar>), also called '''backlink'''.</translate>
+
+<translate>
+==Overview== <!--T:2-->
+</translate>
+<translate><!--T:3--> The <tvar name=whatlinkshere>'''{{int|whatlinkshere}}'''</tvar> facility lists the pages on the same site which link to a given page, either the pages in all namespaces, or in a specified one.</translate>
+<translate><!--T:4--> To see this information, choose the <tvar name=whatlinkshere>''{{int|whatlinkshere}}''</tvar> link  while looking at any page.</translate>
+<translate><!--T:5--> The pages linking to and/or embedding the given page are listed.</translate>
+<translate><!--T:6--> The list is sorted by namespace then page ID (i.e., by date of creation of the page).</translate><ref name="order">
+<translate><!--T:115--> Before <tvar name=1>[[phab:T297754]]</tvar> it was sorted by page ID.</translate>
+</ref>
+
+<translate><!--T:7--> This info comes from the <tvar name=pagelinks>{{ll|Manual:pagelinks table|pagelinks}}</tvar> table and the <tvar name=templatelinks>{{ll|Manual:templatelinks table|templatelinks}}</tvar> table.</translate>
+<translate><!--T:8--> The pages embedding the given page are marked with the content of <tvar name=msg>[[MediaWiki:Istemplate]]</tvar> ("transclusion" or "inclusion"); for these pages it is not shown whether they also ''link'' to the given page.</translate>
+<translate><!--T:9--> This can be seen with [[<tvar name=meta>m:Query#backlinks</tvar>|m:Query#backlinks]].</translate>
+
+<translate>
+<!--T:10-->
+The list of links to an article is useful in a number of ways:
+
+<!--T:11-->
+* It gives a very rough indication of how popular a page is.</translate> <translate><!--T:12--> Pages with many links are likely to be viewed often and should therefore be of the very best quality.</translate> <translate><!--T:13--> Pages with few or no links may not be very popular.</translate>
+<translate>
+<!--T:14-->
+* Where the subject material of an article is unclear, the list of articles linking to it might provide useful context.</translate> <translate><!--T:15--> For instance when presented with a stub about ''John Smith'' that gives only his date of birth and death, viewing the list of links to the article might reveal that he won a gold medal in the Olympics.</translate>
+<translate>
+<!--T:16-->
+* Facilitates proper [[w:Wikipedia:Disambiguation|disambiguation]].
+</translate>
+
+<translate><!--T:17--> This facility works also for a page that does not exist (there may be links to it, which makes it extra useful to create it).</translate>
+<translate><!--T:18--> The <tvar name=whatlinkshere>''{{int|whatlinkshere}}''</tvar> button is also on the edit page on which one arrives when following a broken link.</translate>
+<translate><!--T:19--> Thus, for example, if film articles are linked to the actors, one can find the films an actor has played in even if there is no article about the actor.</translate>
+
+<translate>
+<!--T:20-->
+To invoke a <tvar name=whatlinkshere>''{{int|whatlinkshere}}''</tvar> list directly, use e.g.
+</translate>
+
+ <nowiki>[[w:Special:Whatlinkshere/John Smith|w:Special:Whatlinkshere/John Smith]]</nowiki>
+
+<translate>
+<!--T:21-->
+resulting in <tvar name=1>[[w:Special:Whatlinkshere/John_Smith|w:Special:Whatlinkshere/John_Smith]]</tvar>.
+
+==Limitations and workarounds== <!--T:22-->
+
+<!--T:23-->
+Not listed are:
+
+<!--T:24-->
+* [[<tvar name=link>Help:Link#Subpage feature</tvar>|subpages]] that just have an ''automatic'' link to a page</translate>
+<translate>
+<!--T:25-->
+* [[<tvar name=summary>Help:Edit summary</tvar>|links in edit summaries]]
+
+<!--T:26-->
+Also listed are:
+
+<!--T:27-->
+* pages with #ifexist applied to the given page (see <tvar name=bug>{{bug|12019}}</tvar>)
+</translate>
+
+<translate><!--T:28--> In the case of links to sections or other anchors, the precise target is not shown.</translate>
+<translate><!--T:29--> Also, "<tvar name=whatlinkshere>{{int|whatlinkshere}}</tvar>" cannot list the backlinks of a specific section/anchor only.</translate><ref>
+BZ#8955: [[phab:T10955|<translate><!--T:110--> Special page listing broken section anchors</translate>]]
+</ref>
+<translate><!--T:31--> These features are provided by [[<tvar name=linksearch>Help:Linksearch</tvar>|Linksearch]] after adding a "hidden external link".</translate>
+
+<translate>
+<!--T:105-->
+Alternatives:
+</translate>
+
+<translate><!--T:32--> If this is desired, the section can be split off.</translate>
+<translate><!--T:33--> The content can still be shown on the original page, by transcluding the new page.</translate>
+<translate><!--T:34--> Alternatively, or in preparation for splitting off, instead of creating a link to a section one can create a link to a page redirecting to the section.</translate>
+<translate><!--T:35--> The list of backlinks of the full page is now sorted by exact target, though not listing the names of the target sections but the names of the redirect pages.</translate>
+<translate><!--T:36--> This also makes it easier to keep the links working when changing the name of a section: only the target of the  redirect page has to changed, not the source pages of the links.</translate>
+<translate><!--T:37--> Note that the redirect message is at the top of the whole page, so typically not visible at the target position.</translate>
+<translate><!--T:38--> This may be an advantage (the disadvantage of the redirect message cluttering the target is minimal) or a disadvantage.</translate>
+<translate><!--T:39--> To see the name of the page without scrolling up, note that the browser usually shows it in the window title at the very top, while the address bar shows the name of the redirect page with the name of the section on the target page.</translate>
+<translate><!--T:40--> See also <tvar name=1>{{ll|Help:Linking sections and redirects}}</tvar> (this link itself is also an example of what has been described).</translate>
+
+<translate>
+<!--T:41-->
+Also note that if a page's links change due to a change in the template, the backlinks for that page are [[<tvar name=meta>Help:Job queue#Updating links tables when a template changes</tvar>|not updated immediately, but via the job queue]].
+
+==Redirects== <!--T:42-->
+
+<!--T:43-->
+The backlinks feature shows which backlinks are redirects.
+
+<!--T:44-->
+The backlinks of the redirect are also shown indented under the redirect, and if they include a redirect, the backlinks of that also (not more).
+
+<!--T:45-->
+This makes it a useful tool for finding double redirects, which do not work, and, except in special applications (see below) can better be replaced by redirects to the final target.
+
+<!--T:46-->
+For listing just the redirects to e.g. [[w:Wikipedia:Be bold|w:Wikipedia:Be bold]], use  <tvar name=wikipedia>https://en.wikipedia.org/w/api.php?action=query&list=backlinks&bltitle=Wikipedia:Be%20bold&blfilterredir=redirects&bllimit=500</tvar> or <tvar name=tools>https://tools.wmflabs.org/redirectviews/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-20&sort=views&direction=1&view=list&page=Wikipedia:Be_bold</tvar>
+
+==Cases of inclusion== <!--T:47-->
+</translate>
+<translate><!--T:48--> Whether there is a link from A to C is relevant for backlinks as well as Related changes.</translate>
+<translate><!--T:49--> If C does not exist, only backlinks are applicable.</translate>
+
+<translate>
+<!--T:50-->
+*Inclusion is listed as such.</translate>
+<translate>
+<!--T:51-->
+*A link from A to C counts as such even if the link is not explicit in the wikitext of A, but due to the inclusion of B, which links to C.</translate>
+<translate>
+<!--T:52-->
+*If A calls B and there is a link in B to C within noinclude tags then B links to C, but A does not.</translate>
+<translate>
+<!--T:53-->
+*If A calls B and there is a link in B to C within includeonly tags then A links to C, but B does not.</translate>
+<translate>
+<!--T:54-->
+*If A calls B and B links to a page C that depends on a variable or parameter, then:</translate>
+<translate>
+<!--T:55-->
+**The question whether A links to C depends on the value of the variable on page A, or the parameter with which A calls B.</translate>
+<translate>
+<!--T:56-->
+**The question whether B links to C depends on the value of the variable on page B; in the case of a parameter, considered from page B, the page may e.g. not call a valid page name (because it calls one with a name with braces), so B does not link to any valid C, or a name depending on the default value of the parameter.
+</translate>
+
+<translate><!--T:57--> Thus a link from A to C may be due to the inclusion of B, even when B, considered by itself, does not link to C.</translate>
+<translate><!--T:58--> Thus, to find out what templates cause pages to link to C, it is not sufficient to check for templates in the backlinks of C.</translate>
+
+<translate><!--T:59--> If some pages link to C due to the inclusion of B, it is more convenient if B is in the list of backlinks of C.</translate>
+<translate><!--T:60--> One can assure this by putting an appropriate example of usage of B on page B, inside noinclude tags (B includes B, but without recursion).</translate>
+
+<translate>
+<!--T:61-->
+Otherwise a page like B, which causes pages which include B to link to C, can only be found by looking for pages which directly or indirectly are  included in these backlink pages of C.
+
+<!--T:62-->
+Examples:
+
+<!--T:63-->
+*<tvar name=1>[[m:Template:H:f|Template:H:f]]</tvar> calls <tvar name=2>Template:h:f <nowiki>{{</nowiki>NAMESPACE}}</tvar>.</translate> <translate><!--T:64--> Considered by itself that is <tvar name=1>[[m:Template:H:f_Template|Template:H:f Template]]</tvar></translate> [https://meta.wikimedia.org/w/index.php?title=Special:Recentchangeslinked&target=Template:H:f&days=3000&limit=500 <translate><!--T:111--> Related changes of <tvar name=1>Template:H:f</tvar></translate>], [https://meta.wikimedia.org/w/index.php?title=Special:Whatlinkshere&target=Template:H:f_Template <translate><!--T:112--> What links to <tvar name=1>Template:H:f Template</tvar></translate>]
+<translate>
+<!--T:65-->
+*This page '''Help:What links here''' links through <tvar name=1>[[m:Template:H:f|Template:H:f]]</tvar> to <tvar name=2>[[m:Template:H:f Help|Template:H:f Help]]</tvar></translate> [https://meta.wikimedia.org/w/index.php?title=Special:Recentchangeslinked&target=Help:What%20links%20here&days=3000&limit=500 <translate><!--T:113--> Related changes of <tvar name=1>Help:What links here</tvar></translate>], [https://meta.wikimedia.org/w/index.php?title=Special:Whatlinkshere&target=Template%3AH%3Af_Help <translate><!--T:114--> What links to <tvar name=1>Template:H:f Help</tvar></translate>] <translate><!--T:66--> This page is therefore a backlink of the latter, but <tvar name=1>Template:H:f</tvar> is not listed.</translate>
+
+<translate>
+<!--T:67-->
+Even without a template name depending on a variable or parameter, if page A links to page C due to the inclusion of template B1 which redirects to B2, which links to C, A is in the list of backlinks of C but B1 is not.
+
+<!--T:68-->
+Summarizing, for the purpose of backlinks and Related changes, A links to C if there is, in that order, a chain of template calls, a single redirect, template calls, a single redirect, etc., template calls, and a chain of redirects.
+
+<!--T:69-->
+If a page is conditionally embedded through #if, #ifeq, #ifexist, #ifexpr, or #switch, it is counted as embedded, even if the condition is not fulfilled
+
+<!--T:70-->
+If on page A the name of an embedded page is time-dependent, e.g. <nowiki>{{abc{{CURRENTDOW}}}}</nowiki>, currently giving {{abc{{CURRENTDOW}}}}, the "<tvar name=whatlinkshere>{{int|whatlinkshere}}</tvar>" list of one of the possibly embedded pages shows page A: the current one, or, depending on caching issues, perhaps an older one.
+
+<!--T:71-->
+Thus, although the same functionality is obtained with <nowiki>{{#switch:{{CURRENTDOW}}|0={{abc0}}|1={{abc1}}|..}}</nowiki>, these methods differ in whether the seven templates all count as embedded, or just one.
+
+<!--T:72-->
+In the case of an image, using it in a page is listed in the third section of the image description page, but not in "<tvar name=whatlinkshere>{{int|whatlinkshere}}</tvar>" of that page
+
+==User styles== <!--T:73-->
+
+<!--T:74-->
+The page body has selector <tvar name=1>body.mw-special-Whatlinkshere</tvar>, so we can e.g. use the CSS <tvar name=code><syntaxhighlight lang="css">body.mw-special-Whatlinkshere ul { list-style: decimal }</syntaxhighlight></tvar> to number the backlinks.
+
+==Order; query== <!--T:75-->
+
+<!--T:76-->
+"<tvar name=whatlinkshere>{{int|whatlinkshere}}</tvar>" sorts by page namespace then id,<tvar name=1><ref name="order"/></tvar> i.e., by date of creation of the page.
+
+<!--T:77-->
+Comparison with [[<tvar name=back>m:Query#backlinks</tvar>|m:Query#backlinks]] and [[<tvar name=embed>m:Query#embeddedin</tvar>|m:Query#embeddedin]]:
+
+<!--T:78-->
+Compare <tvar name=1>[[Special:Whatlinkshere/Template:T]]</tvar> with 
+<tvar name=2>https://meta.wikimedia.org/w/api.php?what=backlinks%7Cembeddedin&titles=template:t&bllimit=500&eilimit=500&blfilter=all&eifilter=all</tvar>
+
+<!--T:79-->
+Differences demonstrated:
+
+<!--T:80-->
+*Query sorts by function first (backlinks and inclusions), then by [[<tvar name=1>page table</tvar>|page id]], "what links here" sorts by page id.</translate>
+<translate>
+<!--T:81-->
+*Query distinguishes between B being only included in A, and B also being linked from A.</translate>
+<translate>
+<!--T:82-->
+*Query does not indicate which backlinks are redirects, and does not include ''their'' backlinks.</translate>
+<translate>
+<!--T:106-->
+*Query provides page ids.
+
+<!--T:83-->
+Another difference:
+
+<!--T:84-->
+*Query allows restriction to a specified namespace.
+</translate>
+{{#dpl:linksto  = ''pagename''}}
+<translate><!--T:85--> using <tvar name=1>{{ll|Extension:DynamicPageList3}}</tvar>, produces backlinks sorted in alphabetic order.</translate>
+<translate><!--T:86--> Other sorting  options are also available.</translate>
+
+<translate>
+==In-page list of backlinks== <!--T:87-->
+
+<!--T:107-->
+You can display all the links to a page directly within a page by embedding the page "Special:Whatlinkshere"; see <tvar name=1>{{ll|Help:Transclusion}}</tvar>.
+
+<!--T:108-->
+This can also be done using any of the <tvar name=dpl>{{ll|Extension:DynamicPageList (disambiguation)}}</tvar> extensions.
+
+<!--T:109-->
+Two extensions, <tvar name=1>{{ll|Extension:Semantic MediaWiki}}</tvar> and <tvar name=2>{{ll|Extension:Cargo}}</tvar>, can be used to make more detailed lists of incoming links, grouped by the specific relationship between the two pages, but only for relationships that are encoded via those extensions.
+
+==Finding external links to a page== <!--T:94-->
+</translate>
+<translate><!--T:95--> For a given source wiki we can find the external links to any URL with [[Special:Linksearch|Special:Linksearch]] (if installed).</translate>
+<translate><!--T:96--> Thus, in particular, we can find e.g. pages on the English Wikipedia having an external link to this page or even to an old version, an edit or history page, etc. (provided that the parameter "title" comes first):</translate>
+[https://en.wikipedia.org/w/index.php?title=Special%3ALinksearch&target=meta.wikimedia.org%2Fwiki%2FHelp%3AWhat_links_here]
+[https://en.wikipedia.org/w/index.php?title=Special%3ALinksearch&target=meta.wikimedia.org/w/index.php?title=Help:What_links_here]
+
+<translate><!--T:97--> There is no such feature for interwiki links.</translate>
+<translate><!--T:98--> This may be a reason to prefer external link style.</translate>
+
+<translate>
+==Limitations== <!--T:116-->
+</translate>
+# <translate><!--T:117--> The special page doesn't account for {{<tvar name=1>ll|Help:Links#External links</tvar>|External links}} within the same wiki.</translate>
+# <translate><!--T:118--> The special page doesn't account for {{<tvar name=1>ll|Help:Links#Interwiki links</tvar>|Interwiki_links}}.</translate>
+
+<translate>
+==Notes== <!--T:99-->
+</translate>
+<references />
+
+<translate>
+==See also== <!--T:100-->
+</translate>
+* [[Special:Mostlinked]] - <translate><!--T:102--> shows the number of links</translate>
+* [[Special:Mostlinkedtemplates]] - <translate><!--T:103--> shows the number of pages in which each template is transcluded, not counting transclusions through redirects</translate>
+* {{ll|API:Query - Lists#backlinks / bl|2=<translate><!--T:104--> API:Query - Lists#backlinks / bl</translate>}}
+
+[[Category:Help{{#translation:}}]]

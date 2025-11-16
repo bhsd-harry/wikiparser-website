@@ -1,0 +1,149 @@
+<languages />
+{{PD Help Page}}
+{{Special page}}
+
+<translate><!--T:1--> Clicking on the [[<tvar name=preferences>Special:preferences</tvar>|Preferences]] link in the upper right while logged in allows you to change your preferences.</translate>
+<translate><!--T:97--> You will be presented with the User profile section, as well as a bar of tabs across the top for changing other types of settings.</translate>
+
+<translate><!--T:107--> Note that some of the preferences discussed here are added by extensions and are not a part of MediaWiki core.</translate>
+
+== {{int|prefs-personal}} ==
+
+=== {{int|prefs-info}} ===
+
+{| class="wikitable"
+| {{int|username}} || <translate><!--T:4--> Your user name. Only trusted users can change your username.</translate>
+|-
+| {{int|prefs-memberingroups}} || <translate><!--T:93--> A list of the {{<tvar name=2>ll|Help:User groups</tvar>|user groups}} you are in.</translate>
+|-
+| {{int|mwoauth-prefs-managegrants}} || <translate><!--T:39--> On Wikimedia wikis, this link allows you to manage external applications that are permitted to access your account.</translate> <translate><!--T:40--> See <tvar name=1>{{ll|Help:OAuth}}</tvar> for more information.</translate>
+|-
+| {{int|prefs-edits}} || <translate><!--T:5--> How many edits you have made. Not all wikis will have this.</translate> <translate><!--T:114--> See [[<tvar name=1>Help:User contributions#Number of edits</tvar>|Help:User contributions#Number of edits]]</translate>
+|-
+| {{int|prefs-registration}} || <translate><!--T:94--> The time your account was registered.</translate>
+|-
+| {{int|prefs-resetpass}} || [[#Change password|<translate><!--T:43--> see below</translate>]]
+|-
+| {{int|centralauth-prefs-status}} || [[#Global account|<translate><!--T:45--> see below</translate>]]
+|-
+| {{int|centralauth-prefs-status}} || <translate><!--T:120--> Provides a link to <tvar name="1">[[Special:CentralAuth]]</tvar>, displaying statistics about your user account across all Wikimedia wikis.</translate>
+|-
+| {{int|oathauth-prefs-label}} || <translate><!--T:95--> Manage two factor authentication.</translate>
+|-
+| {{int|globalprefs-info-label}} || <translate><!--T:96--> Manage global preferences.</translate>
+|}
+
+{{anchor|Change password}}
+==== {{int|prefs-resetpass}} ====
+<translate><!--T:8--> To change your password, enter your old password in the first box and your new password in the last two.</translate>
+<translate><!--T:98--> If you want this site to remember your login, check ''Remember my login on this computer''.</translate>
+<translate><!--T:99--> Note that this function requires you to have cookies enabled in your browser, and if your cookie is cleared or expires you will no longer be remembered.</translate>
+
+{{anchor|Global account}}
+<translate>
+==== Global account ==== <!--T:46-->
+</translate>
+
+=== {{int|prefs-i18n}} ===
+<translate><!--T:12--> From your preferences you can select what language you would like the interface to be in.</translate>
+<translate><!--T:100--> Only the buttons like 'edit' and 'talk', in addition to a few pages in the sidebar, will be affected.</translate>
+<translate><!--T:101--> The main text of the pages will not be changed by this for the vast majority of pages, although there are a few pages where it will, like some in the Wikimedia Meta Wiki.</translate>
+
+<translate>
+<!--T:48-->
+* Languages</translate>
+<translate>
+<!--T:49-->
+* How do you prefer to be described?
+</translate>
+*: <translate><!--T:121--> Specifies the [[w:grammatical gender|grammatical gender]] that the interface should use to refer to you. Also controls the output of the [[<tvar name="1">Help:Magic words#GENDER</tvar>|GENDER parser function]], and hence any templates that support it. This setting is public.</translate>
+<translate>
+<!--T:50-->
+* More language settings
+</translate>
+*: <translate><!--T:108--> Opens up the <tvar name="1">{{ll|Universal Language Selector}}</tvar> pop-up.</translate>
+
+=== {{int|prefs-signature}} ===
+{{main|Help:Signatures}}
+{{excerpt|{{TNTN|Help:Signatures}}|customized|hat=no}}
+
+=== {{int|prefs-email}} ===
+<translate>
+<!--T:10-->
+If you have supplied an email address, you will need to click the ''verify address'' button in order to use these functions. You will receive an email; simply open it and follow the link to enable the following functions.
+</translate>
+
+{| class="wikitable"
+| <translate><!--T:55--> Email confirmation</translate> || <translate><!--T:171--> This shows the date and time your email address was confirmed. </translate>
+|-
+| ''{{int|allowemail}}''
+| <translate><!--T:90--> This allows other registered users to send you an email using "<tvar name=1>{{int|emailuser}}</tvar>" link on the sidebar of your user page. Emails are sent using a web interface, and your email address is not revealed to a sender until you reply by email.</translate>
+|-
+| ''{{int|email-allow-new-users-label}}'' || <translate><!--T:92--> This allows users without the autoconfirmed permissions to send you emails.</translate>
+|-
+| ''{{int|tog-ccmeonemails}}'' || <translate><!--T:172--> This option will have all of your emails you send to others be copied into your inbox. </translate>
+|-
+| ''{{int|email-mutelist-label}}''
+| <translate><!--T:91--> This option allows you to specify which users will not be able to send you direct emails. They will not see the "Email this user" link on the sidebar of your user page.</translate> 
+|-
+| ''{{int|tog-enotifwatchlistpages}}''
+| <translate><!--T:109--> Causes you to be automatically sent an email when a pages on your watchlist is edited.</translate> <translate><!--T:110--> May not be available on some large wikis.</translate>
+|-
+| ''{{int|tog-enotifminoredits}}'' || <translate><!--T:122--> Same thing except for {{<tvar name="1">ll|Help:Minor edit</tvar>|minor edits}}. May not be available on some large wikis.</translate>
+|-
+| ''{{int|lqt-preference-notify-talk}}'' || <translate><!--T:123--> Same thing except for {{<tvar name="1">ll|Extension:LiquidThreads</tvar>|Liquid Threads}} discussions, Only available if that extension is installed.</translate>
+|}
+
+== {{int|prefs-rendering}} ==
+
+=== {{int|prefs-skin}} ===
+<translate><!--T:14--> Here you can choose the skin you want to use. You can preview the available skins before choosing them, by clicking on the "<tvar name=1>{{int|skin-preview}}</tvar>" link next to each skin.</translate>
+<translate><!--T:169--> Please refer to <tvar name=1>{{ll|Help:Skins}}</tvar> for more details.</translate>
+<translate><!--T:111--> Also includes a link to your [[<tvar name="1">Manual:Interface/Stylesheets</tvar>|skin-specific CSS and JavaScript]] for that skin.</translate>
+
+{{anchor|Date and time}}
+<translate>
+=== Date format and time offset === <!--T:20-->
+</translate>
+<translate><!--T:124--> Determines the date format and timezone that the interface of pages such as [[<tvar name="1">Help:Recent changes</tvar>|recent changes]] or [[<tvar name="2">Help:Watchlist</tvar>|your watchlist]] display.</translate>
+<translate><!--T:125--> Any dates that appear in Wikitext will not be automatically reformatted.</translate>
+<translate><!--T:126--> In particular, this includes [[<tvar name="1">Help:Signature</tvar>|signatures]], so if you set a timezone other than the wiki default times shown in the interface won't match those in signatures.</translate>
+
+=== {{int|prefs-files}} ===
+<translate>
+<!--T:18-->
+Here you can determine how images will be displayed. Images displayed by direct pasting of a URL (if the wiki has it enabled) will not be affected by this setting.
+</translate>
+
+* ''{{int|imagemaxsize}}'' - <translate><!--T:19--> This setting lets you choose how big image previews will be on the <tvar name=1><code>{{ns:File}}:</code></tvar> pages.</translate> <translate><!--T:174--> If you know what your current screen resolution is you may like to set this to one or two sizes smaller than your own screen.</translate> <translate><!--T:175--> If you have a slow connection (such as dial-up) you may want to limit them to 320×240.</translate> <translate><!--T:176--> Defaults to:</translate> <code>800×600px</code>
+* ''{{int|thumbsize}}'' - <translate><!--T:87--> Define how big you want thumbnails to appear. This setting will not affect thumbnails with dimensions determined by an editor, nor can it increase images beyond their original dimensions.</translate> <translate><!--T:177--> Defaults to:</translate> <code>220px</code>
+<translate>
+<!--T:57-->
+* Use Media Viewer: On Wikimedia wikis, this setting (on by default) determines whether the <tvar name=1>{{ll|Extension:Media Viewer/About|Media Viewer}}</tvar> should be used to provide a smoother image viewing experience.
+</translate>
+
+=== {{int|prefs-diffs}} ===
+
+{{#section:Help:Diff|prefs}}
+=== {{int|prefs-advancedrendering}} ===
+
+* {{int|tog-underline}}
+*: <translate><!--T:112--> Determines whether links are <u>underlined</u> automatically.</translate> <translate><!--T:113--> This may make it easier to distinguish links from other content, but may also cause confusion if a link includes an underscore.</translate>
+* {{int|tog-showhiddencats}}
+*: <translate><!--T:127--> Determines whether [[<tvar name="1">Help:Categories#Hidden categories</tvar>|hidden categories]] are displayed at the bottom of the page.</translate>
+* {{int|tog-showrollbackconfirmation}}
+
+{{anchor|Rendering_math}}
+=== {{int|prefs-math}} ===
+<translate><!--T:16--> Here you can control how mathematical equations described using the <tvar name=math>{{tag|math|open}}</tvar> tag will be displayed.</translate>
+<translate><!--T:102--> Mathematical formulae uploaded as images or written outside the math tag will not be affected by this setting.</translate>
+<translate><!--T:103--> Note the math preferences will only be visible if <tvar name=ext>{{ll|Extension:Math}}</tvar> is installed.</translate>
+
+<translate>
+== See also == <!--T:33-->
+</translate>
+* {{ll|Manual:User preferences}}
+* {{ll|Manual:$wgDefaultUserOptions}}
+* {{ll|Help:Skins}}
+
+[[Category:Help{{#translation:}}|{{PAGENAME}}]]

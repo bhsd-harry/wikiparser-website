@@ -1,0 +1,21 @@
+<noinclude>
+<languages/>
+</noinclude><!--
+-->{{#switch:{{{2}}}
+|RESO=<span style="color:#666; opacity:.5;font-size:smaller;">
+|<span>}}[[phabricator:{{#ifeq:{{padleft:|1|{{uc:{{{1}}}}}}}|T|{{uc:{{{1}}}}}|T{{#expr:{{{1<noinclude>|4000</noinclude>}}}+2000}}}}|<translate><!--T:1--> bug <tvar name=1>{{uc:{{{1<noinclude>|4000</noinclude>}}}}}</tvar></translate>]]{{#if:{{{2|}}}|&#32;[{{{2}}}]}}</span><!--
+--><noinclude>
+{{documentation|content=
+
+example: <code>{{tlx|bug|40000}}</code> produces
+: {{bug|4000}}
+
+[[Phabricator]] replaced [[Bugzilla]] in 2014, instead use <code>{{tlx|phabricator|T''NXNNN''}}</code> or a <code><nowiki>[[</nowiki>phab:T''NXNNN'']]</code> interwiki link. Note the task number in Phabricator equals (''old bugzilla number'' + 2000), e.g. <nowiki>{{bug|40000}}</nowiki> became {{phab|42000}}.
+; Subpages
+{{Special:PrefixIndex/{{translatable}}/}}
+
+{{Bugzilla/doc}}
+
+}}
+[[Category:External link templates{{#translation:}}|{{PAGENAME}}]]
+</noinclude>

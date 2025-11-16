@@ -475,6 +475,10 @@ span.linenos {
 	border-left: 0;
 	padding-left: .25em;
 }
+.plainlinks a.external {
+	background: none;
+	padding: 0 !important;
+}
 
 @media screen and (max-width: 720px) {
 	main {

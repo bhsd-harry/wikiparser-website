@@ -1,0 +1,76 @@
+<noinclude>
+<languages/>
+</noinclude>{{Navbox
+|bodyclass  = hlist
+|name       = Watchlists navigation
+|title      = <translate><!--T:9--> Watchlists</translate>
+
+|group1     = <translate><!--T:1--> API modules</translate>
+|list1      = 
+* {{ll|API:Watch|nsp=0}}
+* {{ll|API:Watchlist|nsp=0}}
+* {{ll|API:Watchlistraw|nsp=0}}
+* {{ll|API:Watchlist feed|nsp=0}}
+
+|group2     = <translate><!--T:2--> Configuration settings</translate>
+|list2      = 
+* {{ll|Manual:$wgEnotifWatchlist|$wgEnotifWatchlist}}
+* {{ll|Manual:$wgRCShowWatchingUsers|$wgRCShowWatchingUsers}}
+* {{ll|Manual:$wgRCWatchCategoryMembership|$wgRCWatchCategoryMembership}}
+* {{ll|Manual:$wgReadOnlyWatchedItemStore|$wgReadOnlyWatchedItemStore}}
+* {{ll|Manual:$wgShowUpdatedMarker|$wgShowUpdatedMarker}}
+* {{ll|Manual:$wgStructuredChangeFiltersLiveUpdatePollingRate|$wgStructuredChangeFiltersLiveUpdatePollingRate}}
+* {{ll|Manual:$wgUnwatchedPageSecret|$wgUnwatchedPageSecret}}
+* {{ll|Manual:$wgUnwatchedPageThreshold|$wgUnwatchedPageThreshold}}
+* {{ll|Manual:$wgWatchersMaxAge|$wgWatchersMaxAge}}
+* {{ll|Manual:$wgWatchlistExpiry|$wgWatchlistExpiry}}
+* {{ll|Manual:$wgWatchlistExpiryMaxDuration|$wgWatchlistExpiryMaxDuration}}
+* {{ll|Manual:$wgWatchlistPurgeRate|$wgWatchlistPurgeRate}}
+
+|group3     = <translate><!--T:3--> Database tables</translate>
+|list3      = 
+* {{db table|watchlist}}
+* {{db table|watchlist_expiry}}
+
+|group4     = <translate><!--T:4--> Help pages</translate>
+|list4      = 
+* {{ll|Help:Watchlist|nsp=0}}
+* {{ll|Help:Watchlist expiry|nsp=0}}
+* {{ll|Help:Watching pages|nsp=0}}
+
+|group5     = <translate><!--T:5--> Hooks</translate>
+|list5      = 
+* {{ll|Manual:Hooks/ApiQueryWatchlistExtractOutputData|ApiQueryWatchlistExtractOutputData}}
+* {{ll|Manual:Hooks/ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions|ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions}}
+* {{ll|Manual:Hooks/ChangesListSpecialPageQuery|ChangesListSpecialPageQuery}}
+* {{ll|Manual:Hooks/ChangesListSpecialPageStructuredFilters|ChangesListSpecialPageStructuredFilters}}
+* {{ll|Manual:Hooks/SendWatchlistEmailNotification|SendWatchlistEmailNotification}}
+* {{ll|Manual:Hooks/SpecialWatchlistGetNonRevisionTypes|SpecialWatchlistGetNonRevisionTypes}}
+* {{ll|Manual:Hooks/WatchArticle|WatchArticle}}
+* {{ll|Manual:Hooks/WatchArticleComplete|WatchArticleComplete}}
+* {{ll|Manual:Hooks/WatchlistEditorBeforeFormRender|WatchlistEditorBeforeFormRender}}
+* {{ll|Manual:Hooks/WatchlistEditorBuildRemoveLine|WatchlistEditorBuildRemoveLine}}
+* {{ll|Manual:Hooks/WatchedItemQueryServiceExtensions|WatchedItemQueryServiceExtensions}}
+* {{ll|Manual:Hooks/UnwatchArticle|UnwatchArticle}}
+* {{ll|Manual:Hooks/UnwatchArticleComplete|UnwatchArticleComplete}}
+
+|group6    = <translate><!--T:6--> Jobs</translate>
+|list6     =
+* {{ll|Manual:ClearUserWatchlistJob.php|ClearUserWatchlistJob}}
+* {{ll|Manual:ClearWatchlistNotificationsJob.php|ClearWatchlistNotificationsJob}}
+* {{ll|Manual:WatchlistExpiryJob.php|WatchlistExpiryJob}} 
+
+|group7    = <translate><!--T:7--> Maintenance scripts</translate>
+|list7     =
+* {{ll|Manual:cleanupWatchlist.php|cleanupWatchlist.php}}
+* {{ll|Manual:purgeExpiredWatchlistItems.php|purgeExpiredWatchlistItems.php}}
+
+|group8    = <translate><!--T:8--> Special pages</translate>
+|list8     =
+* [[Special:Watchlist]]
+* [[Special:EditWatchlist]]
+
+}}<noinclude>
+
+[[Category:Navigation templates{{#translation:}}]]
+</noinclude>

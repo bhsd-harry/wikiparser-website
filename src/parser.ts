@@ -3,7 +3,7 @@ import path from 'path';
 import {execSync} from 'child_process';
 import esbuild from 'esbuild';
 import Parser from 'wikiparser-node';
-import type {Title, Token, LinkToken as LinkTokenBase, TranscludeToken} from 'wikiparser-node';
+import type {Title as TitleBase, Token, LinkToken as LinkTokenBase, TranscludeToken} from 'wikiparser-node';
 
 declare global {
 	interface RegExpConstructor {
@@ -18,7 +18,7 @@ declare abstract class PrivateToken extends LinkTokenBase { // eslint-disable-li
  * Get the file path for a given page.
  * @param title page title
  */
-const getFile = (title: string | Title): string => {
+const getFile = (title: string | TitleBase): string => {
 	const isTitle = typeof title !== 'string';
 	return path.join('wiki', (isTitle ? title.title : title) + (isTitle ? '.wiki' : ''));
 };
@@ -145,8 +145,15 @@ Parser.setFunctionHook('invoke', (token, context) => {
 		return execSync(`lua Scribunto.lua "${m}" "${f}"`, {encoding: 'utf8'})
 			.replace(/\n$/u, '');
 	}
-	return `<strong class="error">Script error: No such module "${m}`;
+	return `<strong class="error">Script error: No such module "${m}".</strong>`;
 });
+
+// Override file URLs
+// @ts-expect-error private method
+const {Title}: {Title: typeof TitleBase} = Parser.require('./lib/title');
+Title.prototype.getFileUrl = function(): string {
+	return this.getUrl();
+};
 
 // Render red links with "new" class
 // @ts-expect-error private method

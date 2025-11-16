@@ -1,0 +1,97 @@
+<languages />
+{{PD Help Page}}
+{{Special page}}
+<translate><!--T:1--> Your '''watchlist''' is a display for [[<tvar name=1>Help:Tracking changes</tvar>|tracking changes]], similar to the <tvar name=rc>{{ll|Help:Recent changes|{{int|recentchanges}}}}</tvar> display, but limited to showing changes only across your set of "watched" pages.</translate>
+<translate><!--T:26--> You can see your watchlist by following the "<tvar name=watchlist>''{{int|mywatchlist}}''</tvar>" link in your account menu (on the top right).</translate>
+<translate><!--T:27--> This feature is only available to users who have registered and logged in.</translate>
+
+<translate>
+== Add pages to watchlist == <!--T:12-->
+</translate>
+<translate><!--T:2--> Before you see anything interesting here, you have to actually add some pages to your watchlist.</translate>
+<translate><!--T:28--> Do so by navigating to a page that interests you, and click the star icon <tvar name=star>[[File:OOjs_UI_icon_star.svg|16px|link=|class=skin-invert|{{int|Tooltip-ca-watch}}]]</tvar> (or the "<tvar name=watch>{{int|watch}}</tvar>" tab).</translate>
+
+<translate>
+<!--T:13-->
+A page already in your watchlist will be marked with a star <tvar name=star>[[File:OOjs_UI_icon_unStar.svg|16px|link=|class=skin-invert|{{int|Tooltip-ca-unwatch}}]]</tvar> (or an "<tvar name=watch>{{int|unwatch}}</tvar>" tab).
+
+<!--T:14-->
+If you want to remove pages from your watchlist, click on the star icon <tvar name=star>[[File:OOjs_UI_icon_unStar.svg|16px|link=|class=skin-invert|{{int|Tooltip-ca-unwatch}}]]</tvar> (or the "<tvar name=watch>{{int|unwatch}}</tvar>" tab).
+
+=== Watchlist expiry === <!--T:29-->
+</translate>
+<translate><!--T:31--> You can optionally select to watch a page for a temporary period of time.</translate>
+<translate><!--T:32--> Once the watch period has expired, the page will be automatically removed from your watchlist.</translate>
+<translate><!--T:33--> You can update the watch period at any time, including switching from temporary to permanent status.</translate>
+<translate><!--T:34--> Temporarily watched pages are usually represented by a half star (as opposed to a full star, which represents permanently watched pages).</translate>
+<translate><!--T:36--> For documentation on how to use the feature, please visit <tvar name=1>{{ll|Help:Watchlist expiry}}</tvar>.</translate>
+
+<translate>
+
+== Why a watchlist == <!--T:15-->
+</translate>
+<translate><!--T:3--> The watchlist feature is mainly useful on a very busy wiki where the "<tvar name=rc>{{int|recentchanges}}</tvar>" display becomes too overwhelming with many changes you don't want to follow.</translate>
+<translate><!--T:37--> On a typical low traffic wiki, you can normally see all of the editing activity across the whole wiki without feeling overwhelmed.</translate>
+<translate><!--T:38--> On a more busy wiki you will find that many edits are taking place on pages which you personally find less interesting.</translate>
+<translate><!--T:39--> To help track changes which are more interesting, start watching pages!</translate>
+
+<translate><!--T:4--> Typically you would watch pages related to your interest areas, and also pages where you care most about the content.</translate>
+<translate><!--T:40--> If you make a significant edit to a page, you might want to watch the page (so you know when there are any follow-up edits).</translate>
+<translate><!--T:41--> Note that there is a also a checkbox on the edit screen ("<tvar name=watch>''{{int|watchthis}}''</tvar>") for this purpose.</translate>
+
+<translate><!--T:16--> Your watchlist is personal.</translate>
+<translate><!--T:42--> You can watch any page you want.</translate>
+<translate><!--T:43--> That choice will remain private.</translate>
+
+<translate>
+== Use your watchlist == <!--T:17-->
+</translate>
+<translate><!--T:5--> On the watchlist display, some page names appear in bold.</translate>
+<translate><!--T:44--> This indicates whether or not you have visited the page to see the change.</translate>
+<translate><!--T:45--> It's a bit like read/unread emails in an email inbox.</translate>
+<translate><!--T:46--> The "<tvar name=rc>{{int|recentchanges}}</tvar>" display will also have some new bold highlighting, but for a different reason.</translate>
+<translate><!--T:47--> Here bold is just indicating edits to pages on your watchlist.</translate>
+
+<translate>
+<!--T:18-->
+[[<tvar name=1>Help:New_filters_for_edit_review</tvar>|You can combine different kinds of filters]] to display the results you want.
+
+== Email notifications == <!--T:8-->
+</translate>
+<translate><!--T:9--> According to the relevant <tvar name=1>{{ll|Help:Preferences|nsp=0}}</tvar>, changes to pages you watch may also be notified to you by email.</translate>
+<translate><!--T:10--> The main preference for this is "<tvar name=1>{{int|tog-enotifwatchlistpages}}</tvar>".</translate>
+
+<translate>
+<!--T:11-->
+After receiving an email notification for a page, you have to visit the page while logged in if you want to be notified of further changes to the same page.
+</translate>
+
+<!-- copied from https://en.wikipedia.org/wiki/Wikipedia:Syndication, 7 Nov 2018 -->
+<translate>
+==Watchlist feed with token== <!--T:19-->
+
+<!--T:20-->
+You can set up an RSS or Atom feed of your watchlist that is accessible even when logged out:</translate>
+
+<translate>
+<!--T:22-->
+* Get your watchlist token from <tvar name=2>[[Special:Preferences#mw-prefsection-watchlist-tokenwatchlist]]</tvar></translate>
+<translate>
+<!--T:23-->
+* Your watchlist RSS feed can be found at <tvar name=url><span class="plainlinks">https:{{SERVER}}{{SCRIPTPATH}}/api.php?action=feedwatchlist&wlowner=USERNAME&wltoken=TOKEN</span></tvar>, where USERNAME is your username without the ''User:'' prefix and TOKEN is the watchlist token.</translate>
+<translate>
+<!--T:24-->
+* If you would prefer an Atom feed rather than an RSS one, add "<tvar name=1><code>&feedformat=atom</code></tvar>" to the URL of your feed.</translate>
+<translate>
+<!--T:25-->
+* To further customise your watchlist feed add different parameters to the URL, see <tvar name=1>{{ll|API:Watchlist_feed}}</tvar>.
+
+== See also == <!--T:6-->
+</translate>
+* {{ll|Help:Tracking changes}}
+* <translate><!--T:48--> [[w:Wikipedia:Syndication|Wikipedia:Syndication]] - about RSS and Atom feeds</translate>
+
+{{watchlists navigation}}
+
+[[Category:Help{{#translation:}}|Watchlist]]
+[[Category:Everything to do with watchlists{{#translation:}}]]
