@@ -194,7 +194,6 @@ p + ul, p + ol, p + table, p + dl, p + blockquote {
 img {
 	vertical-align: middle;
 	max-width: 100%;
-	background: url("/wikiparser-node/assets/bad-image.svg") center/contain no-repeat;
 }
 .mw-image-border .mw-file-element {
 	border: 1px solid #eaecf0;
