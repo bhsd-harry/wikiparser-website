@@ -23,6 +23,9 @@ const getFile = (title: string | TitleBase): string => {
 	return path.join('wiki', (isTitle ? title.title : title) + (isTitle ? '.wiki' : ''));
 };
 
+Object.assign(Parser, {internal: true});
+Parser.now = new Date('2024-11-26T12:00:00Z');
+
 // Configure the parser for MediaWiki.org
 Parser.config = 'mediawikiwiki';
 
@@ -49,7 +52,7 @@ Parser.setHook('templatestyles', token => {
 		return '<strong class="error">Invalid title for TemplateStyles\' <code>src</code> attribute.</strong>';
 	}
 	const contentmodel = Parser.callParserFunction(
-		'contentmodel',
+		'#contentmodel',
 		'canonical',
 		(ns === 10 ? '' : 'Template:') + title,
 	);
@@ -84,7 +87,7 @@ Parser.setFunctionHook('ifexist', token => {
 	const page = token.getValue(1)!,
 		no = token.getValue(3) ?? '';
 	try {
-		const result = Parser.callParserFunction('ifexist', page, 'y');
+		const result = Parser.callParserFunction('#ifexist', page, 'y');
 		if (!result) {
 			return no;
 		}
