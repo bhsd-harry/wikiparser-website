@@ -41,7 +41,7 @@ const render = (page: string, title: string, root: Token): void => {
 	<link rel="stylesheet" href="./css/page.css">${
 		/["\s]mw-highlight mw-highlight-lang-/u.test(content)
 			? `
-	<link rel="stylesheet" href="https://testingcf.jsdelivr.net/npm/prismjs/themes/prism.min.css">`
+	<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prismjs/themes/prism.min.css">`
 			: ''
 	}
 </head>
