@@ -3,7 +3,7 @@ import path from 'path';
 import {execSync} from 'child_process';
 import esbuild from 'esbuild';
 import Parser from 'wikiparser-node';
-import type {Title as TitleBase, Token, LinkToken as LinkTokenBase, TranscludeToken} from 'wikiparser-node';
+import type {Title as TitleBase, Token, LinkToken as LinkTokenBase, TranscludeToken, ConfigData} from 'wikiparser-node';
 
 declare global {
 	interface RegExpConstructor {
@@ -27,7 +27,7 @@ Object.assign(Parser, {internal: true});
 Parser.now = new Date('2024-11-26T12:00:00Z');
 
 // Configure the parser for MediaWiki.org
-Parser.config = 'mediawikiwiki';
+Parser.config = 'mediawikiwiki' as string | ConfigData;
 
 // Set custom article path
 Parser.getConfig();
@@ -83,18 +83,26 @@ Parser.setHook('templatestyles', token => {
 });
 
 // Hook to render `{{#ifexist:}}`
-Parser.setFunctionHook('ifexist', token => {
+(Parser.config as ConfigData).functionHook.push('my_ifexist');
+(Parser.config as ConfigData).parserFunction[0]['#ifexist'] = 'my_ifexist';
+Parser.setFunctionHook('my_ifexist', token => {
 	const page = token.getValue(1)!,
 		no = token.getValue(3) ?? '';
 	try {
-		const result = Parser.callParserFunction('#ifexist', page, 'y');
+		const result = Parser.callParserFunction('ifexist', page, 'y');
 		if (!result) {
 			return no;
 		}
-	} catch {
-		// @ts-expect-error private method
-		Parser.error(`Error checking existence of page: ${page}`);
-		return no;
+	} catch (e) {
+		if (
+			e instanceof Error
+			&& e.message.startsWith('Unable to resolve built-in parser function: ifexist')
+		) {
+			// @ts-expect-error private method
+			Parser.error(`Error checking existence of page: ${page}`);
+			return no;
+		}
+		throw e;
 	}
 	return fs.existsSync(getFile(Parser.normalizeTitle(page))) ? token.getValue(2) ?? '' : no;
 });
