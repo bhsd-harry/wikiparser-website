@@ -3,3 +3,4 @@
 /log/
 /.eslintcache
 /frame.lua
+/package-lock.json

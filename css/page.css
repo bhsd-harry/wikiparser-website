@@ -78,7 +78,7 @@ a.external, a.extiw {
 	color: #36b;
 }
 a.external {
-	background: url("/wikiparser-node/assets/external-link.svg") center right/12px no-repeat;
+	background: url(/wikiparser-node/assets/external-link.svg) center right/12px no-repeat;
 	padding-right: 1em;
 }
 a.external.free {
@@ -125,7 +125,7 @@ p:empty, p:-moz-only-whitespace {
 }
 .redirectText > li {
 	padding-left: 47px;
-	background: url("/wikiparser-node/assets/redirect-ltr.svg") bottom left no-repeat;
+	background: url(/wikiparser-node/assets/redirect-ltr.svg) bottom left no-repeat;
 	margin: 0;
 }
 dl {

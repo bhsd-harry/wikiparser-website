@@ -27,6 +27,7 @@ Object.assign(Parser, {internal: true});
 Parser.now = new Date('2024-11-26T12:00:00Z');
 
 // Configure the parser for MediaWiki.org
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
 Parser.config = 'mediawikiwiki' as string | ConfigData;
 
 // Set custom article path
@@ -130,9 +131,9 @@ const frameToLuaTable = (frame: ReturnType<TranscludeToken['getFrame']>, indent 
 	let table = `
 	${indent}title = ${JSON.stringify(frame.title)},
 	${indent}args = {`;
-	for (const [k, v] of Object.entries(frame.args)) {
+	for (const k in frame.args) {
 		table += `
-		${indent}[${toLuaString(k, true)}] = ${toLuaString(v)},`;
+		${indent}[${toLuaString(k, true)}] = ${toLuaString(frame.args[k]!)},`;
 	}
 	table += `
 	${indent}}`;

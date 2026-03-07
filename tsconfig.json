@@ -3,9 +3,13 @@
 		"src/**/*"
 	],
 	"compilerOptions": {
+		"types": [
+			"node"
+		],
 		"target": "es2024",
 		"module": "NodeNext",
 		"declaration": false,
+		"rootDir": "src",
 		"outDir": "dist",
 		"alwaysStrict": true,
 		"exactOptionalPropertyTypes": true,

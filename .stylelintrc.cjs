@@ -8,5 +8,14 @@ module.exports = {
 		...config.rules,
 		'no-descending-specificity': null,
 		'number-max-precision': null,
+		'selector-no-deprecated': [
+			true,
+			{
+				ignoreSelectors: [
+					'center',
+					'tt',
+				],
+			},
+		],
 	},
 };
