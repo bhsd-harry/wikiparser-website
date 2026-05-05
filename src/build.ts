@@ -21,7 +21,7 @@ const render = (page: string, title: string, root: Token): void => {
 			try {
 				return root.toHtml();
 			} catch (e) {
-				if (e instanceof Error) {
+				if (Error.isError(e)) {
 					const {message} = e;
 					e.message = `${page}: ${message}`;
 					console.error(e);

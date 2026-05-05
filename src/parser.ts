@@ -62,11 +62,7 @@ Parser.setHook('templatestyles', token => {
 			title
 		}]] must have content model "sanitized-css" for TemplateStyles (current model is "${contentmodel}").</strong>`;
 	}
-	const root = token.getRootNode();
-	if (!templatestyles.has(root)) {
-		templatestyles.set(root, new Set());
-	}
-	const styles = templatestyles.get(root)!;
+	const styles = templatestyles.getOrInsert(token.getRootNode(), new Set());
 	if (styles.has(src)) {
 		return '';
 	}
@@ -96,7 +92,7 @@ Parser.setFunctionHook('my_ifexist', token => {
 		}
 	} catch (e) {
 		if (
-			e instanceof Error
+			Error.isError(e)
 			&& e.message.startsWith('Unable to resolve built-in parser function: ifexist')
 		) {
 			// @ts-expect-error private method
