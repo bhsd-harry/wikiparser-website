@@ -32,8 +32,8 @@ Parser.config = 'mediawikiwiki' as string | ConfigData;
 
 // Set custom article path
 Parser.getConfig();
-const articlePath = '//bhsd-harry.github.io/wikiparser-website/';
-Object.assign(Parser.config, {articlePath});
+const articlePath = '//bhsd-harry.github.io/wikiparser-website/MediaWiki/';
+(Parser.config as ConfigData).articlePath = articlePath;
 
 // Set wiki template directory
 Parser.templateDir = path.resolve('wiki');
@@ -143,14 +143,15 @@ const frameToLuaTable = (frame: ReturnType<TranscludeToken['getFrame']>, indent 
 
 // Hook to render `{{#invoke:}}`
 Parser.setFunctionHook('invoke', (token, context) => {
-	const {module: m, function: f} = token;
-	if (fs.existsSync(`${m}.lua`)) {
+	const {module: m, function: f} = token,
+		p = path.join('wiki', `${m}.lua`);
+	if (fs.existsSync(p)) {
 		fs.writeFileSync(
 			'frame.lua',
 			`return {${frameToLuaTable(token.getFrame(context))}
 }`,
 		);
-		return execSync(`lua Scribunto.lua "${m}" "${f}"`, {encoding: 'utf8'})
+		return execSync(`lua Scribunto.lua "${p.slice(0, -4)}" "${f}"`, {encoding: 'utf8'})
 			.replace(/\n$/u, '');
 	}
 	return `<strong class="error">Script error: No such module "${m}".</strong>`;
@@ -171,9 +172,9 @@ const linkTypes = new Set(['link', 'category', 'redirect-target']),
 LinkBaseToken.prototype.toHtmlInternal = function(): string {
 	if (linkTypes.has(this.type)) {
 		let html = f1.call(this);
-		const abs = ` href="${articlePath}`;
+		const abs = ' href="//bhsd-harry.github.io/';
 		if (html.includes(abs)) {
-			html = html.replace(abs, ' href="/wikiparser-website/');
+			html = html.replace(abs, ' href="/');
 		}
 		if (this.selfLink || fs.existsSync(getFile(this.link))) {
 			return html;
@@ -191,10 +192,10 @@ LinkBaseToken.prototype.toHtmlInternal = function(): string {
 // Render local images
 // @ts-expect-error private method
 const {FileToken}: {FileToken: typeof PrivateToken} = Parser.require('./src/link/file');
-const re = new RegExp(` (href|src)="${RegExp.escape(articlePath)}`, 'gu'),
+const re = / (href|src)="\/\/bhsd-harry\.github\.io\//gu,
 	f2 = FileToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
 FileToken.prototype.toHtmlInternal = function(): string {
-	return f2.call(this).replace(re, ' $1="/wikiparser-website/');
+	return f2.call(this).replaceAll(re, ' $1="/');
 };
 
 export default Parser;

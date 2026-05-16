@@ -1,7 +1,7 @@
 <languages/>
 {{PD Help Page|imported=yes}}
 {{Special page}}
-[[File:2015-03-16_ApiSandbox_screenshot.png|thumb]]
+[[File:2015-03-16_ApiSandbox_screenshot.png|thumb|250px]]
 <translate><!--T:1--> '''ApiSandbox''' lets developers experiment with the {{<tvar name=1>ll|API:Main page</tvar>|MediaWiki API}} in a browser form.</translate>
 <translate><!--T:6--> It was inspired by a <tvar name=1>{{ll|Google Summer of Code}}</tvar> proposal by <tvar name=2>[[User:Salil|Salil P. A.]]</tvar>.</translate>
 

@@ -74,7 +74,7 @@ a {
 a.new {
 	color: #ba0000;
 }
-a.external, a.extiw {
+a.external, a.extiw, .mw-allpages-body a {
 	color: #36b;
 }
 a.external {

@@ -38,7 +38,7 @@ const render = (page: string, title: string, root: Token): void => {
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width">
 	<link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
-	<link rel="stylesheet" href="./css/page.css">${
+	<link rel="stylesheet" href="/wikiparser-website/css/page.css">${
 		/["\s]mw-highlight mw-highlight-lang-/u.test(content)
 			? `
 	<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prismjs/themes/prism.min.css">`
@@ -85,7 +85,7 @@ ${fs.readFileSync(path.join('wiki', file), 'utf8')}`,
 				// eslint-disable-next-line @typescript-eslint/no-base-to-string
 				fs.writeFileSync(path.join('expanded', file), String(token));
 			});
-			render(page, title, root);
+			render(path.join('MediaWiki', page), title, root);
 			allPages.push(title);
 		}
 
