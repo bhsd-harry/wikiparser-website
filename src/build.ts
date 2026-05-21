@@ -1,11 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 import {profile} from '@bhsd/nodejs';
-import Parser from './parser';
+import getParser from './parser';
 import type {Token} from 'wikiparser-node';
 
-let [,, ...args] = process.argv;
-const hasArg = args.length > 0;
+const {argv} = process;
+let [,,,, ...args] = argv;
+const hasArg = args.length > 0,
+	[,, dir = 'MediaWiki', cfg = 'mediawikiwiki'] = argv,
+	Parser = getParser(dir, cfg);
 args = hasArg ? args.map(file => path.basename(file)) : fs.readdirSync(Parser.templateDir!);
 
 /**
@@ -56,7 +59,6 @@ const render = (page: string, title: string, root: Token): void => {
 	console.timeEnd(label);
 };
 
-const allPages: string[] = [];
 (async () => {
 	await profile(() => {
 		// Render regular pages
@@ -68,34 +70,45 @@ const allPages: string[] = [];
 				continue;
 			}
 			const page = file.slice(0, -5),
-				title = page.replaceAll('_', ' '),
+				title = page.replaceAll('_', ' ');
+			let front = '';
+			switch (dir) {
 				/* eslint-disable @stylistic/max-len */
-				wiki = `<div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the [https://www.mediawiki.org/wiki/${
-					page
-				} ${title}] article at [https://www.mediawiki.org/ MediaWiki.org] ${
-					title.startsWith('Help:')
-						? 'as Public Domain ([https://creativecommons.org/publicdomain/zero/1.0/ CC0])'
-						: 'under the [https://creativecommons.org/licenses/by-sa/4.0/ Creative Commons Attribution/Share-Alike License (CC BY-SA)]'
-				}.</div>
-${fs.readFileSync(path.join('wiki', 'MediaWiki', file), 'utf8')}`,
+				case 'MediaWiki':
+					front = `<div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the [https://www.mediawiki.org/wiki/${
+						page
+					} ${title}] article at [https://www.mediawiki.org/ MediaWiki.org] ${
+						title.startsWith('Help:')
+							? 'as Public Domain ([https://creativecommons.org/publicdomain/zero/1.0/ CC0])'
+							: 'under the [https://creativecommons.org/licenses/by-sa/4.0/ Creative Commons Attribution/Share-Alike License (CC BY-SA)]'
+					}.</div>
+`;
+					break;
 				/* eslint-enable @stylistic/max-len */
+				// no default
+			}
+			const wiki = front + fs.readFileSync(path.join('wiki', dir, file), 'utf8'),
 				root = Parser.parse(wiki);
 			root.pageName = page;
 			root.addEventListener('expand', (_, {token}: {token: Token}) => {
 				// eslint-disable-next-line @typescript-eslint/no-base-to-string
-				fs.writeFileSync(path.join('expanded', 'MediaWiki', file), String(token));
+				fs.writeFileSync(path.join('expanded', dir, file), String(token));
 			});
-			render(path.join('MediaWiki', page), title, root);
-			allPages.push(title);
+			render(path.join(dir, page), title, root);
 		}
 
-		if (!hasArg) {
-			// Render Special:AllPages
+		// Render Special:AllPages
+		let wiki = '';
+		for (const site of fs.readdirSync('wiki')) {
+			const allPages = fs.globSync(`${site}/**/*.html`)
+				.map(file => file.slice(site.length + 1, -5).replaceAll('_', ' '));
 			allPages.sort((a, b) => a.localeCompare(b));
-			const wiki = `<div class="mw-allpages-body">
+			wiki += `==${site}==
+<div class="mw-allpages-body">
 ${allPages.map(s => `*[[:${s}]]`).join('\n')}
-</div>`;
-			render('index', 'Special:All pages', Parser.parse(wiki));
+</div>
+`;
 		}
+		render('index', 'Special:All pages', Parser.parse(wiki));
 	}, 'log');
 })();

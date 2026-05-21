@@ -16,186 +16,190 @@ declare abstract class PrivateToken extends LinkTokenBase { // eslint-disable-li
 
 /**
  * Get the file path for a given page.
+ * @param dir wiki directory
  * @param title page title
  */
-const getFile = (title: string | TitleBase): string => {
+const getFile = (dir: string, title: string | TitleBase): string => {
 	const isTitle = typeof title !== 'string';
-	return path.join('wiki', 'MediaWiki', (isTitle ? title.title : title) + (isTitle ? '.wiki' : ''));
+	return path.join('wiki', dir, (isTitle ? title.title : title) + (isTitle ? '.wiki' : ''));
 };
 
 Object.assign(Parser, {internal: true});
 Parser.now = new Date('2024-11-26T12:00:00Z');
 
-// Configure the parser for MediaWiki.org
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
-Parser.config = 'mediawikiwiki' as string | ConfigData;
+export default (dir: string, cfg: string): typeof Parser => {
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+	Parser.config = cfg as string | ConfigData;
 
-// Set custom article path
-Parser.getConfig();
-const articlePath = '//bhsd-harry.github.io/wikiparser-website/MediaWiki/';
-(Parser.config as ConfigData).articlePath = articlePath;
+	// Set custom article path
+	Parser.getConfig();
+	const articlePath = `//bhsd-harry.github.io/wikiparser-website/${dir}/`;
+	(Parser.config as ConfigData).articlePath = articlePath;
 
-// Set wiki template directory
-Parser.templateDir = path.resolve('wiki', 'MediaWiki');
-// @ts-expect-error private method
-Parser.info(`Using wiki directory: ${Parser.templateDir}`);
+	// Set wiki template directory
+	Parser.templateDir = path.resolve('wiki', dir);
+	// @ts-expect-error private method
+	Parser.info(`Using wiki directory: ${Parser.templateDir}`);
 
-// Hook to render <templatestyles>
-const templatestyles = new WeakMap<Token, Set<string>>();
-Parser.setHook('templatestyles', token => {
-	const src = token.getAttr('src');
-	if (!src || src === true) {
-		return '<strong class="error">TemplateStyles\' <code>src</code> attribute must not be empty.</strong>';
-	}
-	const page = Parser.normalizeTitle(src, 10),
-		{valid, title, ns} = page;
-	if (!valid) {
-		return '<strong class="error">Invalid title for TemplateStyles\' <code>src</code> attribute.</strong>';
-	}
-	const contentmodel = Parser.callParserFunction(
-		'#contentmodel',
-		'canonical',
-		(ns === 10 ? '' : 'Template:') + title,
-	);
-	if (contentmodel !== 'sanitized-css') {
-		return `<strong class="error">Page [[:${
-			title
-		}]] must have content model "sanitized-css" for TemplateStyles (current model is "${contentmodel}").</strong>`;
-	}
-	const styles = templatestyles.getOrInsert(token.getRootNode(), new Set());
-	if (styles.has(src)) {
-		return '';
-	}
-	styles.add(src);
-	try {
-		return `<style>${
-			esbuild.transformSync(
-				fs.readFileSync(getFile(title), 'utf8'),
-				{loader: 'css', minify: true, legalComments: 'none'},
-			).code.trim()
-		}</style>`;
-	} catch {
-		return `<strong class="error">Page [[:${title}]] has no content.</strong>`;
-	}
-});
-
-// Hook to render `{{#ifexist:}}`
-(Parser.config as ConfigData).functionHook.push('my_ifexist');
-(Parser.config as ConfigData).parserFunction[0]['#ifexist'] = 'my_ifexist';
-Parser.setFunctionHook('my_ifexist', token => {
-	const page = token.getValue(1)!,
-		no = token.getValue(3) ?? '';
-	try {
-		const result = Parser.callParserFunction('ifexist', page, 'y');
-		if (!result) {
-			return no;
+	// Hook to render <templatestyles>
+	const templatestyles = new WeakMap<Token, Set<string>>();
+	Parser.setHook('templatestyles', token => {
+		const src = token.getAttr('src');
+		if (!src || src === true) {
+			return '<strong class="error">TemplateStyles\' <code>src</code> attribute must not be empty.</strong>';
 		}
-	} catch (e) {
-		if (
-			Error.isError(e)
-			&& e.message.startsWith('Unable to resolve built-in parser function: ifexist')
-		) {
-			// @ts-expect-error private method
-			Parser.error(`Error checking existence of page: ${page}`);
-			return no;
+		const page = Parser.normalizeTitle(src, 10),
+			{valid, title, ns} = page;
+		if (!valid) {
+			return '<strong class="error">Invalid title for TemplateStyles\' <code>src</code> attribute.</strong>';
 		}
-		throw e;
-	}
-	return fs.existsSync(getFile(Parser.normalizeTitle(page))) ? token.getValue(2) ?? '' : no;
-});
+		const contentmodel = Parser.callParserFunction(
+			'#contentmodel',
+			'canonical',
+			(ns === 10 ? '' : 'Template:') + title,
+		);
+		if (contentmodel !== 'sanitized-css') {
+			return `<strong class="error">Page [[:${
+				title
+			}]] must have content model "sanitized-css" for TemplateStyles (current model is "${
+				contentmodel
+			}").</strong>`;
+		}
+		const styles = templatestyles.getOrInsert(token.getRootNode(), new Set());
+		if (styles.has(src)) {
+			return '';
+		}
+		styles.add(src);
+		try {
+			return `<style>${
+				esbuild.transformSync(
+					fs.readFileSync(getFile(dir, title), 'utf8'),
+					{loader: 'css', minify: true, legalComments: 'none'},
+				).code.trim()
+			}</style>`;
+		} catch {
+			return `<strong class="error">Page [[:${title}]] has no content.</strong>`;
+		}
+	});
 
-// Hook to render `{{formatnum:}}`
-Parser.setFunctionHook('formatnum', token => {
-	const value = token.getValue(1)!,
-		num = Number(value);
-	return !value || Number.isNaN(num) ? value : num.toLocaleString();
-});
+	// Hook to render `{{#ifexist:}}`
+	(Parser.config as ConfigData).functionHook.push('my_ifexist');
+	(Parser.config as ConfigData).parserFunction[0]['#ifexist'] = 'my_ifexist';
+	Parser.setFunctionHook('my_ifexist', token => {
+		const page = token.getValue(1)!,
+			no = token.getValue(3) ?? '';
+		try {
+			const result = Parser.callParserFunction('ifexist', page, 'y');
+			if (!result) {
+				return no;
+			}
+		} catch (e) {
+			if (
+				Error.isError(e)
+				&& e.message.startsWith('Unable to resolve built-in parser function: ifexist')
+			) {
+				// @ts-expect-error private method
+				Parser.error(`Error checking existence of page: ${page}`);
+				return no;
+			}
+			throw e;
+		}
+		return fs.existsSync(getFile(dir, Parser.normalizeTitle(page))) ? token.getValue(2) ?? '' : no;
+	});
 
-/**
- * Convert string to Lua string.
- * @param s string to convert
- * @param num whether to treat as a number
- */
-const toLuaString = (s: string, num?: boolean): string =>
-	num && Number.isInteger(Number(s)) ? s : JSON.stringify(s).replaceAll(String.raw`\u0000`, String.raw`\u{0000}`);
+	// Hook to render `{{formatnum:}}`
+	Parser.setFunctionHook('formatnum', token => {
+		const value = token.getValue(1)!,
+			num = Number(value);
+		return !value || Number.isNaN(num) ? value : num.toLocaleString();
+	});
 
-/**
- * Convert frame to Lua table string.
- * @param frame Scribunto frame
- */
-const frameToLuaTable = (frame: ReturnType<TranscludeToken['getFrame']>, indent = ''): string => {
-	let table = `
-	${indent}title = ${JSON.stringify(frame.title)},
-	${indent}args = {`;
-	for (const k in frame.args) {
+	/**
+	 * Convert string to Lua string.
+	 * @param s string to convert
+	 * @param num whether to treat as a number
+	 */
+	const toLuaString = (s: string, num?: boolean): string =>
+		num && Number.isInteger(Number(s)) ? s : JSON.stringify(s).replaceAll(String.raw`\u0000`, String.raw`\u{0000}`);
+
+	/**
+	 * Convert frame to Lua table string.
+	 * @param frame Scribunto frame
+	 */
+	const frameToLuaTable = (frame: ReturnType<TranscludeToken['getFrame']>, indent = ''): string => {
+		let table = `
+		${indent}title = ${JSON.stringify(frame.title)},
+		${indent}args = {`;
+		for (const k in frame.args) {
+			table += `
+			${indent}[${toLuaString(k, true)}] = ${toLuaString(frame.args[k]!)},`;
+		}
 		table += `
-		${indent}[${toLuaString(k, true)}] = ${toLuaString(frame.args[k]!)},`;
-	}
-	table += `
-	${indent}}`;
-	if (frame.parent) {
-		table += `,
-	_parent = {${frameToLuaTable(frame.parent, '\t')}
-	}`;
-	}
-	return table;
-};
-
-// Hook to render `{{#invoke:}}`
-Parser.setFunctionHook('invoke', (token, context) => {
-	const {module: m, function: f} = token,
-		p = path.join('wiki', 'MediaWiki', `${m}.lua`);
-	if (fs.existsSync(p)) {
-		fs.writeFileSync(
-			'frame.lua',
-			`return {${frameToLuaTable(token.getFrame(context))}
-}`,
-		);
-		return execSync(`lua Scribunto.lua "${p.slice(0, -4)}" "${f}"`, {encoding: 'utf8'})
-			.replace(/\n$/u, '');
-	}
-	return `<strong class="error">Script error: No such module "${m}".</strong>`;
-});
-
-// Override file URLs
-// @ts-expect-error private method
-const {Title}: {Title: typeof TitleBase} = Parser.require('./lib/title');
-Title.prototype.getFileUrl = function(): string {
-	return this.getUrl();
-};
-
-// Render red links with "new" class
-// @ts-expect-error private method
-const {LinkBaseToken}: {LinkBaseToken: typeof PrivateToken} = Parser.require('./src/link/base');
-const linkTypes = new Set(['link', 'category', 'redirect-target']),
-	f1 = LinkBaseToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
-LinkBaseToken.prototype.toHtmlInternal = function(): string {
-	if (linkTypes.has(this.type)) {
-		let html = f1.call(this);
-		const abs = ' href="//bhsd-harry.github.io/';
-		if (html.includes(abs)) {
-			html = html.replace(abs, ' href="/');
+		${indent}}`;
+		if (frame.parent) {
+			table += `,
+		_parent = {${frameToLuaTable(frame.parent, '\t')}
+		}`;
 		}
-		if (this.selfLink || fs.existsSync(getFile(this.link))) {
-			return html;
+		return table;
+	};
+
+	// Hook to render `{{#invoke:}}`
+	Parser.setFunctionHook('invoke', (token, context) => {
+		const {module: m, function: f} = token,
+			p = path.join('wiki', dir, `${m}.lua`);
+		if (fs.existsSync(p)) {
+			fs.writeFileSync(
+				'frame.lua',
+				`return {${frameToLuaTable(token.getFrame(context))}
+	}`,
+			);
+			return execSync(`lua Scribunto.lua "${p.slice(0, -4)}" "${f}"`, {encoding: 'utf8'})
+				.replace(/\n$/u, '');
 		}
-		return html.replace(
-			/<a [^>]+/u,
-			m => m.includes(' class="')
-				? m.replace(' class="', ' class="new ')
-				: `${m} class="new"`,
-		);
-	}
-	return '';
-};
+		return `<strong class="error">Script error: No such module "${m}".</strong>`;
+	});
 
-// Render local images
-// @ts-expect-error private method
-const {FileToken}: {FileToken: typeof PrivateToken} = Parser.require('./src/link/file');
-const re = / (href|src)="\/\/bhsd-harry\.github\.io\//gu,
-	f2 = FileToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
-FileToken.prototype.toHtmlInternal = function(): string {
-	return f2.call(this).replaceAll(re, ' $1="/');
-};
+	// Override file URLs
+	// @ts-expect-error private method
+	const {Title}: {Title: typeof TitleBase} = Parser.require('./lib/title');
+	Title.prototype.getFileUrl = function(): string {
+		return this.getUrl();
+	};
 
-export default Parser;
+	// Render red links with "new" class
+	// @ts-expect-error private method
+	const {LinkBaseToken}: {LinkBaseToken: typeof PrivateToken} = Parser.require('./src/link/base');
+	const linkTypes = new Set(['link', 'category', 'redirect-target']),
+		f1 = LinkBaseToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
+	LinkBaseToken.prototype.toHtmlInternal = function(): string {
+		if (linkTypes.has(this.type)) {
+			let html = f1.call(this);
+			const abs = ' href="//bhsd-harry.github.io/';
+			if (html.includes(abs)) {
+				html = html.replace(abs, ' href="/');
+			}
+			if (this.selfLink || fs.existsSync(getFile(dir, this.link))) {
+				return html;
+			}
+			return html.replace(
+				/<a [^>]+/u,
+				m => m.includes(' class="')
+					? m.replace(' class="', ' class="new ')
+					: `${m} class="new"`,
+			);
+		}
+		return '';
+	};
+
+	// Render local images
+	// @ts-expect-error private method
+	const {FileToken}: {FileToken: typeof PrivateToken} = Parser.require('./src/link/file');
+	const re = / (href|src)="\/\/bhsd-harry\.github\.io\//gu,
+		f2 = FileToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
+	FileToken.prototype.toHtmlInternal = function(): string {
+		return f2.call(this).replaceAll(re, ' $1="/');
+	};
+
+	return Parser;
+};
