@@ -77,13 +77,13 @@ const allPages: string[] = [];
 						? 'as Public Domain ([https://creativecommons.org/publicdomain/zero/1.0/ CC0])'
 						: 'under the [https://creativecommons.org/licenses/by-sa/4.0/ Creative Commons Attribution/Share-Alike License (CC BY-SA)]'
 				}.</div>
-${fs.readFileSync(path.join('wiki', file), 'utf8')}`,
+${fs.readFileSync(path.join('wiki', 'MediaWiki', file), 'utf8')}`,
 				/* eslint-enable @stylistic/max-len */
 				root = Parser.parse(wiki);
 			root.pageName = page;
 			root.addEventListener('expand', (_, {token}: {token: Token}) => {
 				// eslint-disable-next-line @typescript-eslint/no-base-to-string
-				fs.writeFileSync(path.join('expanded', file), String(token));
+				fs.writeFileSync(path.join('expanded', 'MediaWiki', file), String(token));
 			});
 			render(path.join('MediaWiki', page), title, root);
 			allPages.push(title);

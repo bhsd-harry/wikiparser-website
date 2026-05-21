@@ -20,7 +20,7 @@ declare abstract class PrivateToken extends LinkTokenBase { // eslint-disable-li
  */
 const getFile = (title: string | TitleBase): string => {
 	const isTitle = typeof title !== 'string';
-	return path.join('wiki', (isTitle ? title.title : title) + (isTitle ? '.wiki' : ''));
+	return path.join('wiki', 'MediaWiki', (isTitle ? title.title : title) + (isTitle ? '.wiki' : ''));
 };
 
 Object.assign(Parser, {internal: true});
@@ -36,7 +36,7 @@ const articlePath = '//bhsd-harry.github.io/wikiparser-website/MediaWiki/';
 (Parser.config as ConfigData).articlePath = articlePath;
 
 // Set wiki template directory
-Parser.templateDir = path.resolve('wiki');
+Parser.templateDir = path.resolve('wiki', 'MediaWiki');
 // @ts-expect-error private method
 Parser.info(`Using wiki directory: ${Parser.templateDir}`);
 
@@ -144,7 +144,7 @@ const frameToLuaTable = (frame: ReturnType<TranscludeToken['getFrame']>, indent 
 // Hook to render `{{#invoke:}}`
 Parser.setFunctionHook('invoke', (token, context) => {
 	const {module: m, function: f} = token,
-		p = path.join('wiki', `${m}.lua`);
+		p = path.join('wiki', 'MediaWiki', `${m}.lua`);
 	if (fs.existsSync(p)) {
 		fs.writeFileSync(
 			'frame.lua',
