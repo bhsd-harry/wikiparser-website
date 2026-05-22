@@ -9,6 +9,7 @@
 		"lint:ts": "eslint --cache .",
 		"lint:css": "stylelint '**/*.css'",
 		"lint:md": "markdownlint-cli2 '**/*.md'",
+		"lint:wiki": "wikilint -q -c github --lc=wiki/bips/.wikilintrc.json -r -e wiki wiki/bips/",
 		"lint": "npm run lint:ts && npm run lint:css",
 		"build:core": "tsc",
 		"build:html": "node dist/build.js",
@@ -32,6 +33,7 @@
 		"stylelint-config-recommended": "^18.0.0",
 		"stylelint-plugin-use-baseline": "^1.4.2",
 		"typescript": "^6.0.3",
+		"wikilint": "^2.40.0",
 		"wikiparser-node": "^1.40.0"
 	},
 	"engines": {

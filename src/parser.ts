@@ -3,14 +3,25 @@ import path from 'path';
 import {execSync} from 'child_process';
 import esbuild from 'esbuild';
 import Parser from 'wikiparser-node';
-import type {Title as TitleBase, Token, LinkToken as LinkTokenBase, TranscludeToken, ConfigData} from 'wikiparser-node';
+import type {
+	Title as TitleBase,
+	Token,
+	LinkToken as LinkTokenBase,
+	TranscludeToken,
+	HeadingToken,
+	ConfigData,
+} from 'wikiparser-node';
 
 declare global {
 	interface RegExpConstructor {
 		escape(str: string): string;
 	}
 }
-declare abstract class PrivateToken extends LinkTokenBase { // eslint-disable-line @typescript-eslint/no-unused-vars
+declare abstract class PrivateLinkToken extends LinkTokenBase { // eslint-disable-line @typescript-eslint/no-unused-vars
+	toHtmlInternal(): string;
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+declare abstract class PrivateHeadingToken extends HeadingToken {
 	toHtmlInternal(): string;
 }
 
@@ -171,13 +182,26 @@ export default (dir: string, cfg: string): typeof Parser => {
 
 	// Render red links with "new" class
 	// @ts-expect-error private method
-	const {LinkBaseToken}: {LinkBaseToken: typeof PrivateToken} = Parser.require('./src/link/base');
+	const {LinkBaseToken}: {LinkBaseToken: typeof PrivateLinkToken} = Parser.require('./src/link/base');
 	const linkTypes = new Set(['link', 'category', 'redirect-target']),
 		f1 = LinkBaseToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
 	LinkBaseToken.prototype.toHtmlInternal = function(): string {
-		if (linkTypes.has(this.type)) {
-			const html = f1.call(this);
-			if (this.selfLink || fs.existsSync(getFile(dir, this.link))) {
+		const {type, selfLink, link} = this;
+		if (linkTypes.has(type)) {
+			let html = f1.call(this);
+			if (cfg === 'github') {
+				if (link.title.startsWith('Mailto:')) {
+					return html.replace(/ title=".+?"/u, '').replace(
+						new RegExp(` href="/wikiparser-website/${dir}/Mailto%3A(.+?)"`, 'u'),
+						(_, p1: string) => ` class="external" rel="nofollow" href="mailto:${decodeURIComponent(p1)}"`,
+					);
+				}
+				html = html.replace(
+					new RegExp(` href="/wikiparser-website/${dir}/(.+?)(?=")`, 'u'),
+					'$&.html',
+				);
+			}
+			if (selfLink || fs.existsSync(getFile(dir, link))) {
 				return html;
 			}
 			return html.replace(
@@ -189,6 +213,22 @@ export default (dir: string, cfg: string): typeof Parser => {
 		}
 		return '';
 	};
+
+	// Override section anchors
+	if (cfg === 'github') {
+		// @ts-expect-error private method
+		const {HeadingToken}: {HeadingToken: typeof PrivateHeadingToken} = Parser.require('./src/heading');
+		const f2 = HeadingToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
+		HeadingToken.prototype.toHtmlInternal = function(): string {
+			const html = f2.call(this);
+			return html.replace(
+				/(?<= id=")[^"]+/u,
+				m => m.replaceAll(/&amp;|\W/gu, '')
+					.replaceAll('_', '-')
+					.toLowerCase(),
+			);
+		};
+	}
 
 	return Parser;
 };

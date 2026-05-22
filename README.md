@@ -10,8 +10,8 @@
 
 # Introduction
 
-[WikiParser-Node](https://github.com/bhsd-harry/wikiparser-node) is an offline [Wikitext](https://www.mediawiki.org/wiki/Wikitext) parser developed by Bhsd for the [Node.js](https://nodejs.org/) environment. It can parse almost all wiki syntax and generate an [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) ([Try it online](https://bhsd-harry.github.io/wikiparser-node/#editor)). It also allows for easy querying and modification of the AST, and returns the modified wikitext.
+[WikiParser-Node](https://www.npmjs.com/package/wikiparser-node) is an offline [Wikitext](https://www.mediawiki.org/wiki/Wikitext) parser developed by Bhsd for the [Node.js](https://nodejs.org/) environment. It can parse almost all [wiki syntax](https://www.mediawiki.org/wiki/Help:Advanced_editing) and generate an [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) ([Try it online](https://bhsd-harry.github.io/wikiparser-node/#editor)). It also allows for easy querying and modification of the AST, and returns the modified wikitext.
 
-Although WikiParser-Node is not originally designed to convert Wikitext to HTML, it provides a limited capability to do so. [This repository](https://bhsd-harry.github.io/wikiparser-website/) contains a list of example HTML pages rendered using WikiParser-Node.
+Although WikiParser-Node is not primarily designed to convert Wikitext to HTML, it provides pragmatic HTML rendering for many situations. [This repository](https://bhsd-harry.github.io/wikiparser-website/) contains a list of example HTML pages rendered using WikiParser-Node.
 
 Parser customization is done in [`src/parser.ts`](./src/parser.ts).

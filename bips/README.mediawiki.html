@@ -1,0 +1,2801 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+	<title>README.mediawiki</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width">
+	<link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
+	<link rel="stylesheet" href="/wikiparser-website/css/page.css">
+</head>
+<body>
+	<main>
+		<article><p>People wishing to submit a BIP should first describe their idea to the <a rel="nofollow" class="external" href="https://groups.google.com/g/bitcoindev">bitcoindev@googlegroups.com</a>
+mailing list to gather feedback on viability and community interest before working on a
+formal description. Please open a pull request to this repository only when substantial progress on the draft has been
+made, preferably when the draft is nearing completion. Authors do <em>not</em> assign a number to their own proposal.
+After a proposal meets the editorial criteria, a BIP Editor will assign a number to it and publish the proposal by
+merging the pull request to the repository. Please see <a href="/wikiparser-website/bips/Bip-0003.md.html" title="Bip-0003.md" class="new">BIP 3: Updated BIP Process</a> for the full process.
+</p><p>The BIPs repository serves as a publication medium and archive. Having a BIP published here indicates that the proposal
+is in scope and has met other formal criteria for this repository, but does not indicate that it is a good idea, has
+community consensus, or that it is about to be adopted. The BIP Editors are expected to be liberal with publishing BIPs
+and to try not to be too involved in decision-making on behalf of the community. Beyond the formal criteria, evaluation of
+the proposals is left to the audience of the repository. When a proposal is controversial and it cannot be agreed upon
+whether it should be published, the conservative option will always be preferred: the proposal will be closed.
+</p><p>Those proposing and opposing changes should consider that ultimately acceptance and adoption rests with the Bitcoin
+users (see also: <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/Economic_majority">economic majority</a>).
+</p>
+<table class="wikitable sortable" style="width: auto; text-align: center; font-size: smaller; table-layout: fixed;">
+<tbody><tr>
+<th>Number
+</th>
+<th>Layer
+</th>
+<th>Title
+</th>
+<th>Owner
+</th>
+<th>Type
+</th>
+<th>Status
+</th></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0001.mediawiki.html" title="Bip-0001.mediawiki">1</a>
+</td>
+<td>
+</td>
+<td>BIP Purpose and Guidelines
+</td>
+<td>Amir Taaki
+</td>
+<td>Process
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0002.mediawiki.html" title="Bip-0002.mediawiki">2</a>
+</td>
+<td>
+</td>
+<td>BIP process, revised
+</td>
+<td>Luke Dashjr
+</td>
+<td>Process
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0003.md.html" title="Bip-0003.md" class="new">3</a>
+</td>
+<td>
+</td>
+<td>Updated BIP Process
+</td>
+<td>Murch
+</td>
+<td>Process
+</td>
+<td>Deployed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0008.mediawiki.html" title="Bip-0008.mediawiki">8</a>
+</td>
+<td>
+</td>
+<td>Version bits with lock-in by height
+</td>
+<td>Shaolin Fry, Luke Dashjr
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0009.mediawiki.html" title="Bip-0009.mediawiki">9</a>
+</td>
+<td>
+</td>
+<td>Version bits with timeout and delay
+</td>
+<td>Pieter Wuille, Peter Todd, Greg Maxwell, Rusty Russell
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0010.mediawiki.html" title="Bip-0010.mediawiki">10</a>
+</td>
+<td>Applications
+</td>
+<td>Multi-Sig Transaction Distribution
+</td>
+<td>Alan Reiner
+</td>
+<td>Informational
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0011.mediawiki.html" title="Bip-0011.mediawiki">11</a>
+</td>
+<td>Applications
+</td>
+<td>M-of-N Standard Transactions
+</td>
+<td>Gavin Andresen
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0012.mediawiki.html" title="Bip-0012.mediawiki">12</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_EVAL
+</td>
+<td>Gavin Andresen
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0013.mediawiki.html" title="Bip-0013.mediawiki">13</a>
+</td>
+<td>Applications
+</td>
+<td>Address Format for pay-to-script-hash
+</td>
+<td>Gavin Andresen
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0014.mediawiki.html" title="Bip-0014.mediawiki">14</a>
+</td>
+<td>Peer Services
+</td>
+<td>Protocol Version and User Agent
+</td>
+<td>Amir Taaki, Patrick Strateman
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0015.mediawiki.html" title="Bip-0015.mediawiki">15</a>
+</td>
+<td>Applications
+</td>
+<td>Aliases
+</td>
+<td>Amir Taaki
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0016.mediawiki.html" title="Bip-0016.mediawiki">16</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Pay to Script Hash
+</td>
+<td>Gavin Andresen
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0017.mediawiki.html" title="Bip-0017.mediawiki">17</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_CHECKHASHVERIFY (CHV)
+</td>
+<td>Luke Dashjr
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0018.mediawiki.html" title="Bip-0018.mediawiki">18</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>hashScriptCheck
+</td>
+<td>Luke Dashjr
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0019.mediawiki.html" title="Bip-0019.mediawiki">19</a>
+</td>
+<td>Applications
+</td>
+<td>M-of-N Standard Transactions (Low SigOp)
+</td>
+<td>Luke Dashjr
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0020.mediawiki.html" title="Bip-0020.mediawiki">20</a>
+</td>
+<td>Applications
+</td>
+<td>URI Scheme
+</td>
+<td>Luke Dashjr
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0021.mediawiki.html" title="Bip-0021.mediawiki" class="new">21</a>
+</td>
+<td>Applications
+</td>
+<td>URI Scheme
+</td>
+<td>Nils Schneider, Matt Corallo
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0022.mediawiki.html" title="Bip-0022.mediawiki" class="new">22</a>
+</td>
+<td>API/RPC
+</td>
+<td>getblocktemplate - Fundamentals
+</td>
+<td>Luke Dashjr
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0023.mediawiki.html" title="Bip-0023.mediawiki" class="new">23</a>
+</td>
+<td>API/RPC
+</td>
+<td>getblocktemplate - Pooled Mining
+</td>
+<td>Luke Dashjr
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0030.mediawiki.html" title="Bip-0030.mediawiki" class="new">30</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Duplicate transactions
+</td>
+<td>Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0031.mediawiki.html" title="Bip-0031.mediawiki" class="new">31</a>
+</td>
+<td>Peer Services
+</td>
+<td>Pong message
+</td>
+<td>Mike Hearn
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0032.mediawiki.html" title="Bip-0032.mediawiki" class="new">32</a>
+</td>
+<td>Applications
+</td>
+<td>Hierarchical Deterministic Wallets
+</td>
+<td>Pieter Wuille
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0033.mediawiki.html" title="Bip-0033.mediawiki" class="new">33</a>
+</td>
+<td>Peer Services
+</td>
+<td>Stratized Nodes
+</td>
+<td>Amir Taaki
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0034.mediawiki.html" title="Bip-0034.mediawiki" class="new">34</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Block v2, Height in Coinbase
+</td>
+<td>Gavin Andresen
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0035.mediawiki.html" title="Bip-0035.mediawiki" class="new">35</a>
+</td>
+<td>Peer Services
+</td>
+<td>mempool message
+</td>
+<td>Jeff Garzik
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0036.mediawiki.html" title="Bip-0036.mediawiki" class="new">36</a>
+</td>
+<td>Peer Services
+</td>
+<td>Custom Services
+</td>
+<td>Stefan Thomas
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0037.mediawiki.html" title="Bip-0037.mediawiki" class="new">37</a>
+</td>
+<td>Peer Services
+</td>
+<td>Connection Bloom filtering
+</td>
+<td>Mike Hearn, Matt Corallo
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0038.mediawiki.html" title="Bip-0038.mediawiki" class="new">38</a>
+</td>
+<td>Applications
+</td>
+<td>Passphrase-protected private key
+</td>
+<td>Mike Caldwell, Aaron Voisine
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0039.mediawiki.html" title="Bip-0039.mediawiki" class="new">39</a>
+</td>
+<td>Applications
+</td>
+<td>Mnemonic code for generating deterministic keys
+</td>
+<td>Marek Palatinus, Pavol Rusnak, Aaron Voisine, Sean Bowe
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr>
+<td>40
+</td>
+<td>API/RPC
+</td>
+<td>Stratum wire protocol
+</td>
+<td>Marek Palatinus
+</td>
+<td>Standard
+</td>
+<td>BIP number allocated
+</td></tr>
+<tr>
+<td>41
+</td>
+<td>API/RPC
+</td>
+<td>Stratum mining protocol
+</td>
+<td>Marek Palatinus
+</td>
+<td>Standard
+</td>
+<td>BIP number allocated
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0042.mediawiki.html" title="Bip-0042.mediawiki" class="new">42</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>A finite monetary supply for Bitcoin
+</td>
+<td>Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0043.mediawiki.html" title="Bip-0043.mediawiki" class="new">43</a>
+</td>
+<td>Applications
+</td>
+<td>Purpose Field for Deterministic Wallets
+</td>
+<td>Marek Palatinus, Pavol Rusnak
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0044.mediawiki.html" title="Bip-0044.mediawiki" class="new">44</a>
+</td>
+<td>Applications
+</td>
+<td>Multi-Account Hierarchy for Deterministic Wallets
+</td>
+<td>Marek Palatinus, Pavol Rusnak
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0045.mediawiki.html" title="Bip-0045.mediawiki" class="new">45</a>
+</td>
+<td>Applications
+</td>
+<td>Structure for Deterministic P2SH Multisignature Wallets
+</td>
+<td>Manuel Araoz, Ryan X. Charles, Matias Alejo Garcia
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0046.mediawiki.html" title="Bip-0046.mediawiki" class="new">46</a>
+</td>
+<td>Applications
+</td>
+<td>Address Scheme for Timelocked Fidelity Bonds
+</td>
+<td>Chris Belcher, Thebora Kompanioni
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0047.mediawiki.html" title="Bip-0047.mediawiki" class="new">47</a>
+</td>
+<td>Applications
+</td>
+<td>Reusable Payment Codes for Hierarchical Deterministic Wallets
+</td>
+<td>Justus Ranvier
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0048.mediawiki.html" title="Bip-0048.mediawiki" class="new">48</a>
+</td>
+<td>Applications
+</td>
+<td>Multi-Script Hierarchy for Multi-Sig Wallets
+</td>
+<td>Fontaine
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0049.mediawiki.html" title="Bip-0049.mediawiki" class="new">49</a>
+</td>
+<td>Applications
+</td>
+<td>Derivation scheme for P2WPKH-nested-in-P2SH based accounts
+</td>
+<td>Daniel Weigl
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0050.mediawiki.html" title="Bip-0050.mediawiki" class="new">50</a>
+</td>
+<td>
+</td>
+<td>March 2013 Chain Fork Post-Mortem
+</td>
+<td>Gavin Andresen
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0052.mediawiki.html" title="Bip-0052.mediawiki" class="new">52</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>Durable, Low Energy Bitcoin PoW
+</td>
+<td>Michael Dubrovsky, Bogdan Penkovsky
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0053.mediawiki.html" title="Bip-0053.mediawiki" class="new">53</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Disallow 64-byte transactions
+</td>
+<td>Chris Stewart
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0054.md.html" title="Bip-0054.md" class="new">54</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Consensus Cleanup
+</td>
+<td>Antoine Poinsot, Matt Corallo
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0060.mediawiki.html" title="Bip-0060.mediawiki" class="new">60</a>
+</td>
+<td>Peer Services
+</td>
+<td>Fixed Length "version" Message (Relay-Transactions Field)
+</td>
+<td>Amir Taaki
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0061.mediawiki.html" title="Bip-0061.mediawiki" class="new">61</a>
+</td>
+<td>Peer Services
+</td>
+<td>Reject P2P message
+</td>
+<td>Gavin Andresen
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0062.mediawiki.html" title="Bip-0062.mediawiki" class="new">62</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Dealing with malleability
+</td>
+<td>Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr>
+<td>63
+</td>
+<td>Applications
+</td>
+<td>Stealth Addresses
+</td>
+<td>Peter Todd
+</td>
+<td>Standard
+</td>
+<td>BIP number allocated
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0064.mediawiki.html" title="Bip-0064.mediawiki" class="new">64</a>
+</td>
+<td>Peer Services
+</td>
+<td>getutxo message
+</td>
+<td>Mike Hearn
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0065.mediawiki.html" title="Bip-0065.mediawiki" class="new">65</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_CHECKLOCKTIMEVERIFY
+</td>
+<td>Peter Todd
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0066.mediawiki.html" title="Bip-0066.mediawiki" class="new">66</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Strict DER signatures
+</td>
+<td>Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0067.mediawiki.html" title="Bip-0067.mediawiki" class="new">67</a>
+</td>
+<td>Applications
+</td>
+<td>Deterministic Pay-to-script-hash multi-signature addresses through public key sorting
+</td>
+<td>Thomas Kerin, Jean-Pierre Rupp, Ruben de Vries
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0068.mediawiki.html" title="Bip-0068.mediawiki" class="new">68</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Relative lock-time using consensus-enforced sequence numbers
+</td>
+<td>Mark Friedenbach, BtcDrak, Nicolas Dorier, kinoshitajona
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0069.mediawiki.html" title="Bip-0069.mediawiki" class="new">69</a>
+</td>
+<td>Applications
+</td>
+<td>Lexicographical Indexing of Transaction Inputs and Outputs
+</td>
+<td>Kristov Atlas
+</td>
+<td>Informational
+</td>
+<td>Complete
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0070.mediawiki.html" title="Bip-0070.mediawiki" class="new">70</a>
+</td>
+<td>Applications
+</td>
+<td>Payment Protocol
+</td>
+<td>Gavin Andresen, Mike Hearn
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0071.mediawiki.html" title="Bip-0071.mediawiki" class="new">71</a>
+</td>
+<td>Applications
+</td>
+<td>Payment Protocol MIME types
+</td>
+<td>Gavin Andresen
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0072.mediawiki.html" title="Bip-0072.mediawiki" class="new">72</a>
+</td>
+<td>Applications
+</td>
+<td>bitcoin: uri extensions for Payment Protocol
+</td>
+<td>Gavin Andresen
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0073.mediawiki.html" title="Bip-0073.mediawiki" class="new">73</a>
+</td>
+<td>Applications
+</td>
+<td>Use "Accept" header for response type negotiation with Payment Request URLs
+</td>
+<td>Stephen Pair
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0074.mediawiki.html" title="Bip-0074.mediawiki" class="new">74</a>
+</td>
+<td>Applications
+</td>
+<td>Allow zero value OP_RETURN in Payment Protocol
+</td>
+<td>Toby Padilla
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0075.mediawiki.html" title="Bip-0075.mediawiki" class="new">75</a>
+</td>
+<td>Applications
+</td>
+<td>Out of Band Address Exchange using Payment Protocol Encryption
+</td>
+<td>Justin Newton, Matt David, Aaron Voisine, James MacWhyte
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0077.md.html" title="Bip-0077.md" class="new">77</a>
+</td>
+<td>Applications
+</td>
+<td>Async Payjoin
+</td>
+<td>Dan Gould, Yuval Kogman
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0078.mediawiki.html" title="Bip-0078.mediawiki" class="new">78</a>
+</td>
+<td>Applications
+</td>
+<td>A Simple Payjoin Proposal
+</td>
+<td>Nicolas Dorier
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0079.mediawiki.html" title="Bip-0079.mediawiki" class="new">79</a>
+</td>
+<td>Applications
+</td>
+<td>Bustapay :: a practical coinjoin protocol
+</td>
+<td>Ryan Havar
+</td>
+<td>Informational
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0080.mediawiki.html" title="Bip-0080.mediawiki" class="new">80</a>
+</td>
+<td>
+</td>
+<td>Hierarchy for Non-Colored Voting Pool Deterministic Multisig Wallets
+</td>
+<td>Justus Ranvier, Jimmy Song
+</td>
+<td>Informational
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0081.mediawiki.html" title="Bip-0081.mediawiki" class="new">81</a>
+</td>
+<td>
+</td>
+<td>Hierarchy for Colored Voting Pool Deterministic Multisig Wallets
+</td>
+<td>Justus Ranvier, Jimmy Song
+</td>
+<td>Informational
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0083.mediawiki.html" title="Bip-0083.mediawiki" class="new">83</a>
+</td>
+<td>Applications
+</td>
+<td>Dynamic Hierarchical Deterministic Key Trees
+</td>
+<td>Eric Lombrozo
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0084.mediawiki.html" title="Bip-0084.mediawiki" class="new">84</a>
+</td>
+<td>Applications
+</td>
+<td>Derivation scheme for P2WPKH based accounts
+</td>
+<td>Pavol Rusnak
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0085.mediawiki.html" title="Bip-0085.mediawiki" class="new">85</a>
+</td>
+<td>Applications
+</td>
+<td>Deterministic Entropy From BIP32 Keychains
+</td>
+<td>Ethan Kosakovsky, Aneesh Karve
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0086.mediawiki.html" title="Bip-0086.mediawiki" class="new">86</a>
+</td>
+<td>Applications
+</td>
+<td>Key Derivation for Single Key P2TR Outputs
+</td>
+<td>Ava Chow
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0087.mediawiki.html" title="Bip-0087.mediawiki" class="new">87</a>
+</td>
+<td>Applications
+</td>
+<td>Hierarchy for Deterministic Multisig Wallets
+</td>
+<td>Robert Spigler
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0088.mediawiki.html" title="Bip-0088.mediawiki" class="new">88</a>
+</td>
+<td>Applications
+</td>
+<td>Hierarchical Deterministic Path Templates
+</td>
+<td>Dmitry Petukhov
+</td>
+<td>Informational
+</td>
+<td>Complete
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0089.mediawiki.html" title="Bip-0089.mediawiki" class="new">89</a>
+</td>
+<td>Applications
+</td>
+<td>Chain Code Delegation
+</td>
+<td>Jesse Posner, Jurvis Tan
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0090.mediawiki.html" title="Bip-0090.mediawiki" class="new">90</a>
+</td>
+<td>
+</td>
+<td>Buried Deployments
+</td>
+<td>Suhas Daftuar
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0091.mediawiki.html" title="Bip-0091.mediawiki" class="new">91</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Reduced threshold Segwit MASF
+</td>
+<td>James Hilliard
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0093.mediawiki.html" title="Bip-0093.mediawiki" class="new">93</a>
+</td>
+<td>Applications
+</td>
+<td>codex32: Checksummed SSSS-aware BIP32 seeds
+</td>
+<td>Leon Olsson Curr, Pearlwort Sneed, Andrew Poelstra
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0094.mediawiki.html" title="Bip-0094.mediawiki" class="new">94</a>
+</td>
+<td>Applications
+</td>
+<td>Testnet 4
+</td>
+<td>Fabian Jahr
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0098.mediawiki.html" title="Bip-0098.mediawiki" class="new">98</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Fast Merkle Trees
+</td>
+<td>Mark Friedenbach, Kalle Alm, BtcDrak
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0099.mediawiki.html" title="Bip-0099.mediawiki" class="new">99</a>
+</td>
+<td>
+</td>
+<td>Motivation and deployment of consensus rule changes ([soft/hard]forks)
+</td>
+<td>Jorge Timón
+</td>
+<td>Informational
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0100.mediawiki.html" title="Bip-0100.mediawiki" class="new">100</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>Dynamic maximum block size by miner vote
+</td>
+<td>Jeff Garzik, Tom Harding, Dagur Valberg Johannsson
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0101.mediawiki.html" title="Bip-0101.mediawiki" class="new">101</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>Increase maximum block size
+</td>
+<td>Gavin Andresen
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0102.mediawiki.html" title="Bip-0102.mediawiki" class="new">102</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>Block size increase to 2MB
+</td>
+<td>Jeff Garzik
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0103.mediawiki.html" title="Bip-0103.mediawiki" class="new">103</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>Block size following technological growth
+</td>
+<td>Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0104.mediawiki.html" title="Bip-0104.mediawiki" class="new">104</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>'Block75' - Max block size like difficulty
+</td>
+<td>t.khan
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0105.mediawiki.html" title="Bip-0105.mediawiki" class="new">105</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>Consensus based block size retargeting algorithm
+</td>
+<td>BtcDrak
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0106.mediawiki.html" title="Bip-0106.mediawiki" class="new">106</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>Dynamically Controlled Bitcoin Block Size Max Cap
+</td>
+<td>Upal Chakraborty
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0107.mediawiki.html" title="Bip-0107.mediawiki" class="new">107</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>Dynamic limit on the block size
+</td>
+<td>Washington Y. Sanchez
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0109.mediawiki.html" title="Bip-0109.mediawiki" class="new">109</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>Two million byte size limit with sigop and sighash limits
+</td>
+<td>Gavin Andresen
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0110.mediawiki.html" title="Bip-0110.mediawiki" class="new">110</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Reduced Data Temporary Softfork
+</td>
+<td>Dathon Ohm
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0111.mediawiki.html" title="Bip-0111.mediawiki" class="new">111</a>
+</td>
+<td>Peer Services
+</td>
+<td>NODE_BLOOM service bit
+</td>
+<td>Matt Corallo, Peter Todd
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0112.mediawiki.html" title="Bip-0112.mediawiki" class="new">112</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>CHECKSEQUENCEVERIFY
+</td>
+<td>BtcDrak, Mark Friedenbach, Eric Lombrozo
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0113.mediawiki.html" title="Bip-0113.mediawiki" class="new">113</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Median time-past as endpoint for lock-time calculations
+</td>
+<td>Thomas Kerin, Mark Friedenbach
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0114.mediawiki.html" title="Bip-0114.mediawiki" class="new">114</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Merkelized Abstract Syntax Tree
+</td>
+<td>Johnson Lau
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0115.mediawiki.html" title="Bip-0115.mediawiki" class="new">115</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Generic anti-replay protection using Script
+</td>
+<td>Luke Dashjr
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0116.mediawiki.html" title="Bip-0116.mediawiki" class="new">116</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>MERKLEBRANCHVERIFY
+</td>
+<td>Mark Friedenbach, Kalle Alm, BtcDrak
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0117.mediawiki.html" title="Bip-0117.mediawiki" class="new">117</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Tail Call Execution Semantics
+</td>
+<td>Mark Friedenbach, Kalle Alm, BtcDrak
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0118.mediawiki.html" title="Bip-0118.mediawiki" class="new">118</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>SIGHASH_ANYPREVOUT for Taproot Scripts
+</td>
+<td>Christian Decker, Anthony Towns
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0119.mediawiki.html" title="Bip-0119.mediawiki" class="new">119</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>CHECKTEMPLATEVERIFY
+</td>
+<td>Jeremy Rubin
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0120.mediawiki.html" title="Bip-0120.mediawiki" class="new">120</a>
+</td>
+<td>Applications
+</td>
+<td>Proof of Payment
+</td>
+<td>Kalle Rosenbaum
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0121.mediawiki.html" title="Bip-0121.mediawiki" class="new">121</a>
+</td>
+<td>Applications
+</td>
+<td>Proof of Payment URI scheme
+</td>
+<td>Kalle Rosenbaum
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0122.mediawiki.html" title="Bip-0122.mediawiki" class="new">122</a>
+</td>
+<td>Applications
+</td>
+<td>URI scheme for Blockchain references / exploration
+</td>
+<td>Marco Pontello
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0123.mediawiki.html" title="Bip-0123.mediawiki" class="new">123</a>
+</td>
+<td>
+</td>
+<td>BIP Classification
+</td>
+<td>Eric Lombrozo
+</td>
+<td>Process
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0124.mediawiki.html" title="Bip-0124.mediawiki" class="new">124</a>
+</td>
+<td>Applications
+</td>
+<td>Hierarchical Deterministic Script Templates
+</td>
+<td>Eric Lombrozo, William Swanson
+</td>
+<td>Informational
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0125.mediawiki.html" title="Bip-0125.mediawiki" class="new">125</a>
+</td>
+<td>Applications
+</td>
+<td>Opt-in Full Replace-by-Fee Signaling
+</td>
+<td>David A. Harding, Peter Todd
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0126.mediawiki.html" title="Bip-0126.mediawiki" class="new">126</a>
+</td>
+<td>
+</td>
+<td>Best Practices for Heterogeneous Input Script Transactions
+</td>
+<td>Kristov Atlas
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0127.mediawiki.html" title="Bip-0127.mediawiki" class="new">127</a>
+</td>
+<td>Applications
+</td>
+<td>Simple Proof-of-Reserves Transactions
+</td>
+<td>Steven Roose
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0128.mediawiki.html" title="Bip-0128.mediawiki" class="new">128</a>
+</td>
+<td>Applications
+</td>
+<td>Timelock-Recovery Storage Format
+</td>
+<td>Oren Z
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0129.mediawiki.html" title="Bip-0129.mediawiki" class="new">129</a>
+</td>
+<td>Applications
+</td>
+<td>Bitcoin Secure Multisig Setup (BSMS)
+</td>
+<td>Hugo Nguyen, Peter Gray, Marko Bencun, Aaron Chen, Rodolfo Novak
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0130.mediawiki.html" title="Bip-0130.mediawiki" class="new">130</a>
+</td>
+<td>Peer Services
+</td>
+<td>sendheaders message
+</td>
+<td>Suhas Daftuar
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0131.mediawiki.html" title="Bip-0131.mediawiki" class="new">131</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>"Coalescing Transaction" Specification (wildcard inputs)
+</td>
+<td>Chris Priest
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0132.mediawiki.html" title="Bip-0132.mediawiki" class="new">132</a>
+</td>
+<td>
+</td>
+<td>Committee-based BIP Acceptance Process
+</td>
+<td>Andy Chase
+</td>
+<td>Process
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0133.mediawiki.html" title="Bip-0133.mediawiki" class="new">133</a>
+</td>
+<td>Peer Services
+</td>
+<td>feefilter message
+</td>
+<td>Alex Morcos
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0134.mediawiki.html" title="Bip-0134.mediawiki" class="new">134</a>
+</td>
+<td>Consensus (hard fork)
+</td>
+<td>Flexible Transactions
+</td>
+<td>Tom Zander
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0135.mediawiki.html" title="Bip-0135.mediawiki" class="new">135</a>
+</td>
+<td>
+</td>
+<td>Generalized version bits voting
+</td>
+<td>Sancho Panza
+</td>
+<td>Informational
+</td>
+<td>Closed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0136.mediawiki.html" title="Bip-0136.mediawiki" class="new">136</a>
+</td>
+<td>Applications
+</td>
+<td>Bech32 Encoded Tx Position References
+</td>
+<td>Велеслав, Jonas Schnelli, Daniel Pape
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0137.mediawiki.html" title="Bip-0137.mediawiki" class="new">137</a>
+</td>
+<td>Applications
+</td>
+<td>Signatures of Messages using Private Keys
+</td>
+<td>Christopher Gilliard
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0140.mediawiki.html" title="Bip-0140.mediawiki" class="new">140</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Normalized TXID
+</td>
+<td>Christian Decker
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0141.mediawiki.html" title="Bip-0141.mediawiki" class="new">141</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Segregated Witness (Consensus layer)
+</td>
+<td>Eric Lombrozo, Johnson Lau, Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0142.mediawiki.html" title="Bip-0142.mediawiki" class="new">142</a>
+</td>
+<td>Applications
+</td>
+<td>Address Format for Segregated Witness
+</td>
+<td>Johnson Lau
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0143.mediawiki.html" title="Bip-0143.mediawiki" class="new">143</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Transaction Signature Verification for Version 0 Witness Program
+</td>
+<td>Johnson Lau, Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0144.mediawiki.html" title="Bip-0144.mediawiki" class="new">144</a>
+</td>
+<td>Peer Services
+</td>
+<td>Segregated Witness (Peer Services)
+</td>
+<td>Eric Lombrozo, Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0145.mediawiki.html" title="Bip-0145.mediawiki" class="new">145</a>
+</td>
+<td>API/RPC
+</td>
+<td>getblocktemplate Updates for Segregated Witness
+</td>
+<td>Luke Dashjr
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0146.mediawiki.html" title="Bip-0146.mediawiki" class="new">146</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Dealing with signature encoding malleability
+</td>
+<td>Johnson Lau, Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0147.mediawiki.html" title="Bip-0147.mediawiki" class="new">147</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Dealing with dummy stack element malleability
+</td>
+<td>Johnson Lau
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0148.mediawiki.html" title="Bip-0148.mediawiki" class="new">148</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Mandatory activation of segwit deployment
+</td>
+<td>Shaolin Fry
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0149.mediawiki.html" title="Bip-0149.mediawiki" class="new">149</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Segregated Witness (second deployment)
+</td>
+<td>Shaolin Fry
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0150.mediawiki.html" title="Bip-0150.mediawiki" class="new">150</a>
+</td>
+<td>Peer Services
+</td>
+<td>Peer Authentication
+</td>
+<td>Jonas Schnelli
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0151.mediawiki.html" title="Bip-0151.mediawiki" class="new">151</a>
+</td>
+<td>Peer Services
+</td>
+<td>Peer-to-Peer Communication Encryption
+</td>
+<td>Jonas Schnelli
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0152.mediawiki.html" title="Bip-0152.mediawiki" class="new">152</a>
+</td>
+<td>Peer Services
+</td>
+<td>Compact Block Relay
+</td>
+<td>Matt Corallo
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0154.mediawiki.html" title="Bip-0154.mediawiki" class="new">154</a>
+</td>
+<td>Peer Services
+</td>
+<td>Rate Limiting via peer specified challenges
+</td>
+<td>Karl-Johan Alm
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0155.mediawiki.html" title="Bip-0155.mediawiki" class="new">155</a>
+</td>
+<td>Peer Services
+</td>
+<td>addrv2 message
+</td>
+<td>Wladimir J. van der Laan
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0156.mediawiki.html" title="Bip-0156.mediawiki" class="new">156</a>
+</td>
+<td>Peer Services
+</td>
+<td>Dandelion - Privacy Enhancing Routing
+</td>
+<td>Brad Denby, Andrew Miller, Giulia Fanti, Surya Bakshi, Shaileshh Bojja Venkatakrishnan, Pramod Viswanath
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0157.mediawiki.html" title="Bip-0157.mediawiki" class="new">157</a>
+</td>
+<td>Peer Services
+</td>
+<td>Client Side Block Filtering
+</td>
+<td>Olaoluwa Osuntokun, Alex Akselrod, Jim Posen
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0158.mediawiki.html" title="Bip-0158.mediawiki" class="new">158</a>
+</td>
+<td>Peer Services
+</td>
+<td>Compact Block Filters for Light Clients
+</td>
+<td>Olaoluwa Osuntokun, Alex Akselrod
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0159.mediawiki.html" title="Bip-0159.mediawiki" class="new">159</a>
+</td>
+<td>Peer Services
+</td>
+<td>NODE_NETWORK_LIMITED service bit
+</td>
+<td>Jonas Schnelli
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0171.mediawiki.html" title="Bip-0171.mediawiki" class="new">171</a>
+</td>
+<td>Applications
+</td>
+<td>Currency/exchange rate information API
+</td>
+<td>Luke Dashjr
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0172.mediawiki.html" title="Bip-0172.mediawiki" class="new">172</a>
+</td>
+<td>Applications
+</td>
+<td>Define Bitcoin Subunits as Satoshis
+</td>
+<td>OceanSlim
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0173.mediawiki.html" title="Bip-0173.mediawiki" class="new">173</a>
+</td>
+<td>Applications
+</td>
+<td>Base32 address format for native v0-16 witness outputs
+</td>
+<td>Pieter Wuille, Greg Maxwell
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0174.mediawiki.html" title="Bip-0174.mediawiki" class="new">174</a>
+</td>
+<td>Applications
+</td>
+<td>Partially Signed Bitcoin Transaction Format
+</td>
+<td>Ava Chow
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0175.mediawiki.html" title="Bip-0175.mediawiki" class="new">175</a>
+</td>
+<td>Applications
+</td>
+<td>Pay to Contract Protocol
+</td>
+<td>Omar Shibli, Nicholas Gregory
+</td>
+<td>Informational
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0176.mediawiki.html" title="Bip-0176.mediawiki" class="new">176</a>
+</td>
+<td>
+</td>
+<td>Bits Denomination
+</td>
+<td>Jimmy Song
+</td>
+<td>Informational
+</td>
+<td>Complete
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0177.mediawiki.html" title="Bip-0177.mediawiki" class="new">177</a>
+</td>
+<td>
+</td>
+<td>Redefine Bitcoin's Base Unit
+</td>
+<td>John Carvalho
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0178.mediawiki.html" title="Bip-0178.mediawiki" class="new">178</a>
+</td>
+<td>Applications
+</td>
+<td>Version Extended WIF
+</td>
+<td>Karl-Johan Alm
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0179.mediawiki.html" title="Bip-0179.mediawiki" class="new">179</a>
+</td>
+<td>
+</td>
+<td>Name for payment recipient identifiers
+</td>
+<td>Emil Engler, Luke Dashjr
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0180.mediawiki.html" title="Bip-0180.mediawiki" class="new">180</a>
+</td>
+<td>Peer Services
+</td>
+<td>Block size/weight fraud proof
+</td>
+<td>Luke Dashjr
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0197.mediawiki.html" title="Bip-0197.mediawiki" class="new">197</a>
+</td>
+<td>Applications
+</td>
+<td>Hashed Time-Locked Collateral Contract
+</td>
+<td>Matthew Black, Tony Cai
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0199.mediawiki.html" title="Bip-0199.mediawiki" class="new">199</a>
+</td>
+<td>Applications
+</td>
+<td>Hashed Time-Locked Contract transactions
+</td>
+<td>Sean Bowe, Daira Hopwood
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0300.mediawiki.html" title="Bip-0300.mediawiki" class="new">300</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Hashrate Escrows (Consensus layer)
+</td>
+<td>Paul Sztorc, CryptAxe
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0301.mediawiki.html" title="Bip-0301.mediawiki" class="new">301</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Blind Merged Mining (Consensus layer)
+</td>
+<td>Paul Sztorc, CryptAxe
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0310.mediawiki.html" title="Bip-0310.mediawiki" class="new">310</a>
+</td>
+<td>Applications
+</td>
+<td>Stratum protocol extensions
+</td>
+<td>Pavel Moravec, Jan Čapek
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0320.mediawiki.html" title="Bip-0320.mediawiki" class="new">320</a>
+</td>
+<td>
+</td>
+<td>nVersion bits for general purpose use
+</td>
+<td>BtcDrak
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0321.mediawiki.html" title="Bip-0321.mediawiki" class="new">321</a>
+</td>
+<td>Applications
+</td>
+<td>URI Scheme
+</td>
+<td>Matt Corallo
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0322.mediawiki.html" title="Bip-0322.mediawiki" class="new">322</a>
+</td>
+<td>Applications
+</td>
+<td>Generic Signed Message Format
+</td>
+<td>Karl-Johan Alm, Oliver Gugger
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0323.mediawiki.html" title="Bip-0323.mediawiki" class="new">323</a>
+</td>
+<td>
+</td>
+<td>24 nVersion bits for general purpose use
+</td>
+<td>Matt Corallo
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0324.mediawiki.html" title="Bip-0324.mediawiki" class="new">324</a>
+</td>
+<td>Peer Services
+</td>
+<td>Version 2 P2P Encrypted Transport Protocol
+</td>
+<td>Dhruv Mehta, Tim Ruffing, Jonas Schnelli, Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0325.mediawiki.html" title="Bip-0325.mediawiki" class="new">325</a>
+</td>
+<td>Applications
+</td>
+<td>Signet
+</td>
+<td>Karl-Johan Alm, Anthony Towns
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0326.mediawiki.html" title="Bip-0326.mediawiki" class="new">326</a>
+</td>
+<td>Applications
+</td>
+<td>Anti-fee-sniping in taproot transactions
+</td>
+<td>Chris Belcher
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0327.mediawiki.html" title="Bip-0327.mediawiki" class="new">327</a>
+</td>
+<td>
+</td>
+<td>MuSig2 for BIP340-compatible Multi-Signatures
+</td>
+<td>Jonas Nick, Tim Ruffing, Elliott Jin
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0328.mediawiki.html" title="Bip-0328.mediawiki" class="new">328</a>
+</td>
+<td>Applications
+</td>
+<td>Derivation Scheme for MuSig2 Aggregate Keys
+</td>
+<td>Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Complete
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0329.mediawiki.html" title="Bip-0329.mediawiki" class="new">329</a>
+</td>
+<td>Applications
+</td>
+<td>Wallet Labels Export Format
+</td>
+<td>Craig Raw
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0330.mediawiki.html" title="Bip-0330.mediawiki" class="new">330</a>
+</td>
+<td>Peer Services
+</td>
+<td>Transaction announcements reconciliation
+</td>
+<td>Gleb Naumenko, Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0331.mediawiki.html" title="Bip-0331.mediawiki" class="new">331</a>
+</td>
+<td>Peer Services
+</td>
+<td>Ancestor Package Relay
+</td>
+<td>Gloria Zhao
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0337.mediawiki.html" title="Bip-0337.mediawiki" class="new">337</a>
+</td>
+<td>API/RPC
+</td>
+<td>Compressed Transactions
+</td>
+<td>Tom Briar
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0338.mediawiki.html" title="Bip-0338.mediawiki" class="new">338</a>
+</td>
+<td>Peer Services
+</td>
+<td>Disable transaction relay message
+</td>
+<td>Suhas Daftuar
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0339.mediawiki.html" title="Bip-0339.mediawiki" class="new">339</a>
+</td>
+<td>Peer Services
+</td>
+<td>WTXID-based transaction relay
+</td>
+<td>Suhas Daftuar
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0340.mediawiki.html" title="Bip-0340.mediawiki" class="new">340</a>
+</td>
+<td>
+</td>
+<td>Schnorr Signatures for secp256k1
+</td>
+<td>Pieter Wuille, Jonas Nick, Tim Ruffing
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0341.mediawiki.html" title="Bip-0341.mediawiki" class="new">341</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Taproot: SegWit version 1 spending rules
+</td>
+<td>Pieter Wuille, Jonas Nick, Anthony Towns
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0342.mediawiki.html" title="Bip-0342.mediawiki" class="new">342</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Validation of Taproot Scripts
+</td>
+<td>Pieter Wuille, Jonas Nick, Anthony Towns
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0343.mediawiki.html" title="Bip-0343.mediawiki" class="new">343</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Mandatory activation of taproot deployment
+</td>
+<td>Shinobius, Michael Folkson
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0345.mediawiki.html" title="Bip-0345.mediawiki" class="new">345</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_VAULT
+</td>
+<td>James O'Beirne, Greg Sanders
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0346.md.html" title="Bip-0346.md" class="new">346</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_TXHASH
+</td>
+<td>Steven Roose, Brandon Black
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0347.mediawiki.html" title="Bip-0347.mediawiki" class="new">347</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_CAT in Tapscript
+</td>
+<td>Ethan Heilman, Armin Sabouri
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0348.md.html" title="Bip-0348.md" class="new">348</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>CHECKSIGFROMSTACK
+</td>
+<td>Brandon Black, Jeremy Rubin
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0349.md.html" title="Bip-0349.md" class="new">349</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_INTERNALKEY
+</td>
+<td>Brandon Black, Jeremy Rubin
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0350.mediawiki.html" title="Bip-0350.mediawiki" class="new">350</a>
+</td>
+<td>Applications
+</td>
+<td>Bech32m format for v1+ witness addresses
+</td>
+<td>Pieter Wuille
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0351.mediawiki.html" title="Bip-0351.mediawiki" class="new">351</a>
+</td>
+<td>Applications
+</td>
+<td>Private Payments
+</td>
+<td>Alfred Hodler, Clark Moody
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0352.mediawiki.html" title="Bip-0352.mediawiki" class="new">352</a>
+</td>
+<td>Applications
+</td>
+<td>Silent Payments
+</td>
+<td>josibake, Ruben Somsen, Sebastian Falbesoner
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0353.mediawiki.html" title="Bip-0353.mediawiki" class="new">353</a>
+</td>
+<td>Applications
+</td>
+<td>DNS Payment Instructions
+</td>
+<td>Matt Corallo, Bastien Teinturier
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0360.mediawiki.html" title="Bip-0360.mediawiki" class="new">360</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Pay-to-Merkle-Root (P2MR)
+</td>
+<td>Hunter Beast, Ethan Heilman, Isabel Foxen Duke
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0361.mediawiki.html" title="Bip-0361.mediawiki" class="new">361</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Post Quantum Migration and Legacy Signature Sunset
+</td>
+<td>Jameson Lopp, Christian Papathanasiou, Ian Smith, Joe Ross, Steve Vaile, Pierre-Luc Dallaire-Demers
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0370.mediawiki.html" title="Bip-0370.mediawiki" class="new">370</a>
+</td>
+<td>Applications
+</td>
+<td>PSBT Version 2
+</td>
+<td>Ava Chow
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0371.mediawiki.html" title="Bip-0371.mediawiki" class="new">371</a>
+</td>
+<td>Applications
+</td>
+<td>Taproot Fields for PSBT
+</td>
+<td>Ava Chow
+</td>
+<td>Specification
+</td>
+<td>Deployed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0372.mediawiki.html" title="Bip-0372.mediawiki" class="new">372</a>
+</td>
+<td>Applications
+</td>
+<td>Pay-to-contract tweak fields for PSBT
+</td>
+<td>Maxim Orlovsky
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0373.mediawiki.html" title="Bip-0373.mediawiki" class="new">373</a>
+</td>
+<td>Applications
+</td>
+<td>MuSig2 PSBT Fields
+</td>
+<td>Ava Chow
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0374.mediawiki.html" title="Bip-0374.mediawiki" class="new">374</a>
+</td>
+<td>Applications
+</td>
+<td>Discrete Log Equality Proofs
+</td>
+<td>Andrew Toth, Ruben Somsen, Sebastian Falbesoner
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0375.mediawiki.html" title="Bip-0375.mediawiki" class="new">375</a>
+</td>
+<td>Applications
+</td>
+<td>Sending Silent Payments with PSBTs
+</td>
+<td>Andrew Toth, Ava Chow, josibake
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0376.mediawiki.html" title="Bip-0376.mediawiki" class="new">376</a>
+</td>
+<td>Applications
+</td>
+<td>Spending Silent Payment outputs with PSBTs
+</td>
+<td>nymius
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0379.md.html" title="Bip-0379.md" class="new">379</a>
+</td>
+<td>Applications
+</td>
+<td>Miniscript
+</td>
+<td>Pieter Wuille, Andrew Poelstra, Sanket Kanjalkar, Antoine Poinsot, Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0380.mediawiki.html" title="Bip-0380.mediawiki" class="new">380</a>
+</td>
+<td>Applications
+</td>
+<td>Output Script Descriptors General Operation
+</td>
+<td>Pieter Wuille, Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0381.mediawiki.html" title="Bip-0381.mediawiki" class="new">381</a>
+</td>
+<td>Applications
+</td>
+<td>Non-Segwit Output Script Descriptors
+</td>
+<td>Pieter Wuille, Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0382.mediawiki.html" title="Bip-0382.mediawiki" class="new">382</a>
+</td>
+<td>Applications
+</td>
+<td>Segwit Output Script Descriptors
+</td>
+<td>Pieter Wuille, Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0383.mediawiki.html" title="Bip-0383.mediawiki" class="new">383</a>
+</td>
+<td>Applications
+</td>
+<td>Multisig Output Script Descriptors
+</td>
+<td>Pieter Wuille, Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0384.mediawiki.html" title="Bip-0384.mediawiki" class="new">384</a>
+</td>
+<td>Applications
+</td>
+<td>combo() Output Script Descriptors
+</td>
+<td>Pieter Wuille, Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0385.mediawiki.html" title="Bip-0385.mediawiki" class="new">385</a>
+</td>
+<td>Applications
+</td>
+<td>raw() and addr() Output Script Descriptors
+</td>
+<td>Pieter Wuille, Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0386.mediawiki.html" title="Bip-0386.mediawiki" class="new">386</a>
+</td>
+<td>Applications
+</td>
+<td>tr() Output Script Descriptors
+</td>
+<td>Pieter Wuille, Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #cfffcf">
+<td><a href="/wikiparser-website/bips/Bip-0387.mediawiki.html" title="Bip-0387.mediawiki" class="new">387</a>
+</td>
+<td>Applications
+</td>
+<td>Tapscript Multisig Output Script Descriptors
+</td>
+<td>Pieter Wuille, Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Deployed
+</td></tr>
+<tr style="background-color: #ffffcf">
+<td><a href="/wikiparser-website/bips/Bip-0388.mediawiki.html" title="Bip-0388.mediawiki" class="new">388</a>
+</td>
+<td>Applications
+</td>
+<td>Wallet Policies for Descriptor Wallets
+</td>
+<td>Salvatore Ingala
+</td>
+<td>Specification
+</td>
+<td>Complete
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0389.mediawiki.html" title="Bip-0389.mediawiki" class="new">389</a>
+</td>
+<td>Applications
+</td>
+<td>Multipath Descriptor Key Expressions
+</td>
+<td>Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0390.mediawiki.html" title="Bip-0390.mediawiki" class="new">390</a>
+</td>
+<td>Applications
+</td>
+<td>musig() Descriptor Key Expression
+</td>
+<td>Ava Chow
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr style="background-color: #ffcfcf">
+<td><a href="/wikiparser-website/bips/Bip-0391.mediawiki.html" title="Bip-0391.mediawiki" class="new">391</a>
+</td>
+<td>Applications
+</td>
+<td>Binary Output Descriptors
+</td>
+<td>SeedHammer
+</td>
+<td>Specification
+</td>
+<td>Closed
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0392.mediawiki.html" title="Bip-0392.mediawiki" class="new">392</a>
+</td>
+<td>Applications
+</td>
+<td>Silent Payment Output Script Descriptors
+</td>
+<td>Craig Raw
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0393.mediawiki.html" title="Bip-0393.mediawiki" class="new">393</a>
+</td>
+<td>Applications
+</td>
+<td>Output Script Descriptor Annotations
+</td>
+<td>Craig Raw
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0431.mediawiki.html" title="Bip-0431.mediawiki" class="new">431</a>
+</td>
+<td>Applications
+</td>
+<td>Topology Restrictions for Pinning
+</td>
+<td>Gloria Zhao
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0433.mediawiki.html" title="Bip-0433.mediawiki" class="new">433</a>
+</td>
+<td>Applications
+</td>
+<td>Pay to Anchor (P2A)
+</td>
+<td>Gregory Sanders
+</td>
+<td>Informational
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0434.md.html" title="Bip-0434.md" class="new">434</a>
+</td>
+<td>Peer Services
+</td>
+<td>Peer Feature Negotiation
+</td>
+<td>Anthony Towns
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0440.mediawiki.html" title="Bip-0440.mediawiki" class="new">440</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Varops Budget For Script Runtime Constraint
+</td>
+<td>Rusty Russell, Julian Moik
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0441.mediawiki.html" title="Bip-0441.mediawiki" class="new">441</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Restoration of disabled script (Tapleaf 0xC2)
+</td>
+<td>Rusty Russell, Julian Moik
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0442.md.html" title="Bip-0442.md" class="new">442</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_PAIRCOMMIT
+</td>
+<td>moonsettler, Brandon Black
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0443.mediawiki.html" title="Bip-0443.mediawiki" class="new">443</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_CHECKCONTRACTVERIFY
+</td>
+<td>Salvatore Ingala
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0446.md.html" title="Bip-0446.md" class="new">446</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_TEMPLATEHASH
+</td>
+<td>Gregory Sanders, Antoine Poinsot, Steven Roose
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0448.md.html" title="Bip-0448.md" class="new">448</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>Taproot-native (Re)bindable Transactions
+</td>
+<td>Gregory Sanders, Antoine Poinsot, Steven Roose
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0449.md.html" title="Bip-0449.md" class="new">449</a>
+</td>
+<td>Consensus (soft fork)
+</td>
+<td>OP_TWEAKADD - x-only key tweak addition
+</td>
+<td>Jeremy Rubin
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0450.mediawiki.html" title="Bip-0450.mediawiki" class="new">450</a>
+</td>
+<td>Applications
+</td>
+<td>Formosa—Seed encoding by themed mnemonic stories
+</td>
+<td>Yuri S Villas Boas, André Fidencio Gonçalves
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr>
+<tr>
+<td><a href="/wikiparser-website/bips/Bip-0451.md.html" title="Bip-0451.md" class="new">451</a>
+</td>
+<td>Applications
+</td>
+<td>Dust UTXO Disposal Protocol
+</td>
+<td>bubb1es, haris
+</td>
+<td>Specification
+</td>
+<td>Draft
+</td></tr></tbody></table>
+<p><br>
+</p></article>
+	</main>
+</body>
+</html>

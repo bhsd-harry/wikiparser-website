@@ -84,6 +84,19 @@ const render = (page: string, title: string, root: Token): void => {
 					}.</div>
 `;
 					break;
+				case 'bips': {
+					const article = page.slice(0, -10).replace('-', '_')
+						.toUpperCase();
+					front = article === 'README'
+						? ''
+						: `<div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the [https://en.bitcoin.it/wiki/${
+							article
+						} ${
+							article.replace('_', ' ')
+						}] article at [https://en.bitcoin.it/ Bitcoin Wiki] under the [https://creativecommons.org/licenses/by/3.0/ Creative Commons Attribution 3.0 (CC BY 3.0)].</div>
+`;
+					break;
+				}
 				/* eslint-enable @stylistic/max-len */
 				// no default
 			}
@@ -98,17 +111,15 @@ const render = (page: string, title: string, root: Token): void => {
 		}
 
 		// Render Special:AllPages
-		let wiki = '';
-		for (const site of fs.readdirSync('wiki')) {
-			const allPages = fs.globSync(`${site}/**/*.html`)
-				.map(file => file.slice(site.length + 1, -5).replaceAll('_', ' '));
-			allPages.sort((a, b) => a.localeCompare(b));
-			wiki += `==${site}==
+		const allPages = fs.globSync(`${dir}/**/*.html`)
+			.filter(file => file !== `${dir}/index.html`)
+			.map(file => file.slice(dir.length + 1, -5).replaceAll('_', ' '));
+		allPages.sort((a, b) => a.localeCompare(b));
+		const wiki = `==${dir}==
 <div class="mw-allpages-body">
 ${allPages.map(s => `*[[:${s}]]`).join('\n')}
 </div>
 `;
-		}
-		render('index', 'Special:All pages', Parser.parse(wiki));
+		render(dir === 'MediaWiki' ? 'index' : `${dir}/index`, 'Special:All pages', Parser.parse(wiki));
 	}, 'log');
 })();

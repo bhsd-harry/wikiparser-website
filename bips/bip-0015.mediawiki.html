@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+	<title>bip-0015.mediawiki</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width">
+	<link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
+	<link rel="stylesheet" href="/wikiparser-website/css/page.css">
+</head>
+<body>
+	<main>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0015">BIP 0015</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+<pre>&#10;  BIP: 15&#10;  Layer: Applications&#10;  Title: Aliases&#10;  Authors: Amir Taaki &lt;genjix@riseup.net&gt;&#10;  Status: Closed&#10;  Type: Specification&#10;  Assigned: 2011-12-10&#10;</pre>
+<p><a href="/wikiparser-website/bips/Bip-0070.mediawiki.html" title="Bip-0070.mediawiki" class="new">BIP 0070</a> (payment protocol) may be seen as the alternative to Aliases.
+</p><p>Using vanilla bitcoin, to send funds to a destination, an address in the form 1Hd44nkJfNAcPJeZyrGC5sKJS1TzgmCTjjZ is needed. The problem with using addresses is that they are not easy to remember. An analogy can be thought if one were required to enter the IP address of their favourite websites if domain names did not exist.
+</p><p>This document aims to layout through careful argument, a bitcoin alias system. This is a big modification to the protocol that is not easily changed in the future and has big ramifications. There is impetus in getting it correct the first time. Aliases have to be robust and secure.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="schemes">Schemes</h2></div>
+<p>Here are a few different proposals and the properties of each system.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="firstbits">FirstBits</h3></div>
+<p>FirstBits is a proposal for using the blockchain as an address book.
+</p><p>When bitcoins are sent to an address, that address becomes recorded in the blockchain. It is therefore known that this address exists or did exist by simply seeing that there was a payment to that address. FirstBits is a method to have a memorable alias. One first converts the address to lower-case, then takes the first few unique characters. This is your FirstBits alias.
+</p><p>As an example, brmlab hackerspace in Prague has an address for purchasing food or drink, or making donations:
+</p>
+<pre> 1BRMLAB7nryYgFGrG8x9SYaokb8r2ZwAsX
+</pre>
+<p>Their FirstBits alias becomes:
+</p>
+<pre> 1brmlab
+</pre>
+<p>It is enough information to be given the FirstBits alias <i>1brmlab</i>. When someone wishes to make a purchase, without FirstBits, they either have to type out their address laboriously by hand, scan their QR code (which requires a mobile handset that this author does not own) or find their address on the internet to copy and paste into the client to send bitcoins. FirstBits alleviates this impracticality by providing an easy method to make payments.
+</p><p>Together with Vanitygen (vanity generator), it becomes possible to create memorable unique named addresses. Addresses that are meaningful, rather than an odd assemblage of letters and numbers but add context to the destination.
+</p><p>However FirstBits has its own problems. One is that the possible aliases one is able to generate is limited by the available computing power available. It may not be feasible to generate a complete or precise alias that is wanted- only approximates may be possible. It is also computationally resource intensive which means a large expenditure of power for generating unique aliases in the future, and may not scale up to the level of individuals at home or participants with hand-held devices in an environment of ubiquitous computing.
+</p><p>FirstBits scales extremely poorly as the network grows. Each indexer or lookup node needs to keep track of every bitcoin address ever in existence and provide a fast lookup from the aliases to those addresses. As the network grows linearly, the number of addresses should grow exponentially (assuming a networked effect of (n-1)*(n-2)/2) rapidly making this scheme unfeasible.
+</p><p>Light clients of the partial merkle root types become dependent on a trusted third party for their alias lookups. The cost of storing every bitcoin address is too high considering their typical use-case on low-resource devices. This factor more than the others, means this scheme is sub-optimal and must be rejected.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="dns-txt-records">DNS TXT Records</h3></div>
+<p>DNS allows TXT records to be created containing arbitrary data. In a bitcoin alias system, a custom format mutually agreed upon by a BIP standard would be used to store mappings to bitcoin addresses from domain names. How such a format would look is out of the scope of this document.
+</p><p>An issue is that it requires people who wish to create such mappings to be familiar with configuring DNS records, and be able to run the necessary toolsets to insert the correct data. Although not a huge concern, it is a usability issue.
+</p><p>Security wise, DNS is unsafe and insecure by design. It is possible to spoof records by being on the same network as another host. A number of revisions to mitigate the issue under the guise of DNSSEC have been in the works since the 1990s and are still being rolled out.
+</p><p>As of Dec 2011, DNSSEC is still not yet a defacto standard on the internet. Should a participant in the bitcoin network wish to use DNS TXT records, they would in addition to having to configure DNS, be able to setup DNSSEC. This may not be feasible, especially where some registrars provide access to DNS through a web interface only.
+</p><p>The disadvantage of DNS TXT records is that updating a record takes time. This encourages people to not use new addresses per transaction which has certain security issues.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="server-service">Server Service</h3></div>
+<p>Aside from using DNS TXT records, another possibility is using the domain name system to lookup hosts and then contact a service running on a predefined port to get the bitcoin address.
+</p>
+<ol><li>User wishes to send to foo@bar.net</li>
+<li>Client uses DNS to find the IP address of bar.net: 123.123.123.123</li>
+<li>Client connects to port 123.123.123.123:4567 and requests the bitcoin address for the user <i>foo</i></li>
+<li>Server responds with the address or error code and terminates the connection.</li>
+<li>Client sends the funds to the address</li></ol>
+<p>The service would be responsible for providing the mechanisms for changing and storing the mappings on their service. A front-end web interface could be provided to users wishing to use the service and customise their accounts on the server.
+</p><p>This approach has the positive aspect of providing the best flexibility for the implementer to store the records however they wish in a database or plaintext file, and then serve them up quickly using a small server side daemon typically written in C. This approach is highly scalable.
+</p><p>However this approach also suffers the problem of being reliant on DNS and hence also being vulnerable to spoofing. Hence DNSSEC is also required. This approach is slightly better than the DNS TXT records though since it makes inserting new users and modifying aliases very easy which allows people to run these server services more cheaply.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="https-web-service">HTTPS Web Service</h3></div>
+<p>HTTPS provides an additional layer of security by encrypting the connection, providing much needed privacy for users. Together with using Certificate Authorities, it fixes the issue with using DNSSEC since an error would be thrown up were someone to try to spoof a domain name on the local network.
+</p><p>When trying to send to:
+</p>
+<pre> genjix@foo.org
+</pre>
+<p>The request is broken into the handle (genjix) and domain (foo.org) at the last occurrence of the @. The client then constructs a request that will query for the address.
+</p>
+<pre> <a rel="nofollow" class="external free" href="https://foo.org/bitcoin-alias/?handle=genjix">https://foo.org/bitcoin-alias/?handle=genjix</a>
+</pre>
+<p>bitcoin-alias has been chosen as the query suffix because it allows this system to co-exist easily within another web root without the fear of name clashes.
+</p><p>The query will then return an address which is used to make the payment.
+</p>
+<pre> 1Hd44nkJfNAcPJeZyrGC5sKJS1TzgmCTjjZ
+</pre>
+<p>The details of whether a unique address is returned per query, whether an address is fetched from a pre-existing pool of addresses, and so on is an implementation detail unique to every server. How alias to address mappings are setup is dependent on the site which could have a web-interface and be providing a free service to users or be a private customised service serving pre-existing addresses. This is left up to sysop policy, and deliberately not defined here.
+</p><p>A web service is trivial to setup and the cost is low. There are many free out of the box providers on the net that allows anyone with the most basic knowledge of web technologies to create their own website. By providing users with a package, anybody can quickly set themselves up with a bitcoin alias. It could be something as simple as a PHP script that the user edits with their custom settings and uploads themselves to their website.
+</p><p>It also scales reasonably- anybody wishing to run a naming service can attach a backend with a variety of database technologies then provide a web frontend for users to customise and create their own aliases.
+</p><p>A naive implementation is provided below as an example.
+</p>
+<pre>&#10;// resolv.h&#10;#ifndef NOMRESOLV_H__&#10;#define NOMRESOLV_H__&#10;&#10;#include &lt;string&gt;&#10;#include "curl/curl.h"&#10;&#10;using std::string;&#10;&#10;/*&#10;&#10;This class resolves against a server to lookup addresses.&#10;To not conflict with the bitcoin addresses, we refer here to people's handles.&#10;A handle is of the form:&#10;&#10;   genjix@foo.org&#10;&#10;Most characters are valid for the username + password (and handled accordingly), but the domain follows usual web standards. It is possible to affix a path if needed,&#10;&#10;   genjix@bar.com/path/to/&#10;&#10;*/&#10;&#10;class NameResolutionService&#10;{&#10;public:&#10;    NameResolutionService();&#10;    ~NameResolutionService();&#10;&#10;    // Three main methods map to RPC actions.&#10;    string FetchAddress(const string& strHandle, string& strAddy);&#10;&#10;private:&#10;    // A POST block&#10;    class PostVariables&#10;    {&#10;    public:&#10;        PostVariables();&#10;        ~PostVariables();&#10;        // Add a new key, value pair&#10;        bool Add(const string& strKey, const string& strVal);&#10;        curl_httppost* operator()() const;&#10;    private:&#10;        // CURL stores POST blocks as linked lists.&#10;        curl_httppost *pBegin, *pEnd;&#10;    };&#10;&#10;    // Explodes user@domain =&gt; user, domain&#10;    static void ExplodeHandle(const string& strHandle, string& strNickname, string& strDomain);&#10;    // Perform the HTTP request. Returns true on success.&#10;    bool Perform();&#10;&#10;    // CURL error message&#10;    char pErrorBuffer[CURL_ERROR_SIZE];&#10;    // CURL response&#10;    string strBuffer;&#10;    // CURL handle&#10;    CURL *curl;&#10;};&#10;&#10;#endif&#10;</pre>
+<pre>&#10;// resolv.cpp&#10;#include "resolv.h"&#10;&#10;#include &lt;boost/lexical_cast.hpp&gt;&#10;&#10;#include "access.h"&#10;&#10;// callback used to write response from the server&#10;static int writer(char *pData, size_t nSize, size_t nNmemb, std::string *pBuffer)&#10;{&#10;  int nResult = 0;&#10;  if (pBuffer != NULL)&#10;  {&#10;    pBuffer-&gt;append(pData, nSize * nNmemb);&#10;    // How much did we write?&#10;    nResult = nSize * nNmemb;&#10;  }&#10;  return nResult;&#10;}&#10;&#10;NameResolutionService::NameResolutionService()&#10;{&#10;    // Initialise CURL with our various options.&#10;    curl = curl_easy_init();&#10;    // This goes first in case of any problems below. We get an error message.&#10;    curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, pErrorBuffer);&#10;    // fail when server sends &gt;= 404&#10;    curl_easy_setopt(curl, CURLOPT_FAILONERROR, 1);&#10;    curl_easy_setopt(curl, CURLOPT_HEADER, 0);&#10;    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1);&#10;    curl_easy_setopt(curl, CURLOPT_POSTREDIR, CURL_REDIR_POST_302);&#10;    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writer);&#10;    curl_easy_setopt(curl, CURLOPT_USE_SSL, CURLUSESSL_TRY);&#10;    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1);&#10;    // server response goes in strBuffer&#10;    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &strBuffer);&#10;    pErrorBuffer[0] = '\0';&#10;}&#10;NameResolutionService::~NameResolutionService()&#10;{&#10;    curl_easy_cleanup(curl);&#10;}&#10;&#10;void NameResolutionService::ExplodeHandle(const string& strHandle, string& strNickname, string& strDomain)&#10;{&#10;    // split address at @ furthest to the right&#10;    size_t nPosAtsym = strHandle.rfind('@');&#10;    strNickname = strHandle.substr(0, nPosAtsym);&#10;    strDomain = strHandle.substr(nPosAtsym + 1, strHandle.size());&#10;}&#10;bool NameResolutionService::Perform()&#10;{&#10;    // Called after everything has been setup. This actually does the request.&#10;    CURLcode result = curl_easy_perform(curl);&#10;    return (result == CURLE_OK);&#10;}&#10;&#10;string NameResolutionService::FetchAddress(const string& strHandle, string& strAddy)&#10;{&#10;    // GET is defined for 'getting' data, so we use GET for the low risk fetching of people's addresses&#10;    if (!curl)&#10;        // For some reason CURL didn't start...&#10;        return pErrorBuffer;&#10;    // Expand the handle&#10;    string strNickname, strDomain;&#10;    ExplodeHandle(strHandle, strNickname, strDomain);&#10;    // url encode the nickname for get request&#10;    const char* pszEncodedNick = curl_easy_escape(curl, strNickname.c_str(), strNickname.size());&#10;    if (!pszEncodedNick)&#10;        return "Unable to encode nickname.";&#10;    // construct url for GET request&#10;    string strRequestUrl = strDomain + "/bitcoin-alias/?handle=" + pszEncodedNick;&#10;    // Pass URL to CURL&#10;    curl_easy_setopt(curl, CURLOPT_URL, strRequestUrl.c_str());&#10;    if (!Perform())&#10;        return pErrorBuffer;&#10;    // Server should respond with a JSON that has the address in.&#10;    strAddy = strBuffer;&#10;    return "";  // no error&#10;}&#10;&#10;NameResolutionService::PostVariables::PostVariables()&#10;{&#10;    // pBegin/pEnd *must* be null before calling curl_formadd&#10;    pBegin = NULL;&#10;    pEnd = NULL;&#10;}&#10;NameResolutionService::PostVariables::~PostVariables()&#10;{&#10;    curl_formfree(pBegin);&#10;}&#10;bool NameResolutionService::PostVariables::Add(const string& strKey, const string& strVal)&#10;{&#10;    // Copy strings to this block. Return true on success.&#10;    return curl_formadd(&pBegin, &pEnd, CURLFORM_COPYNAME, strKey.c_str(), CURLFORM_COPYCONTENTS, strVal.c_str(), CURLFORM_END) == CURL_FORMADD_OK;&#10;}&#10;&#10;curl_httppost* NameResolutionService::PostVariables::operator()() const&#10;{&#10;    return pBegin;&#10;}&#10;&lt;/source&gt;&#10;&#10;&lt;source lang="cpp"&gt;&#10;// rpc.cpp&#10;...&#10;&#10;const Object CheckMaybeThrow(const string& strJsonIn)&#10;{&#10;    // Parse input JSON&#10;    Value valRequest;&#10;    if (!read_string(strJsonIn, valRequest) || valRequest.type() != obj_type)&#10;        throw JSONRPCError(-32700, "Parse error");&#10;    const Object& request = valRequest.get_obj();&#10;    // Now check for a key called "error"&#10;    const Value& error  = find_value(request, "error");&#10;    // It's an error JSON! so propagate the error.&#10;    if (error.type() != null_type)&#10;        throw JSONRPCError(-4, error.get_str());&#10;    // Return JSON object&#10;    return request;&#10;}&#10;&#10;const string CollectAddress(const string& strIn)&#10;{&#10;    // If the handle does not have an @ in it, then it's a normal base58 bitcoin address&#10;    if (strIn.find('@') == (size_t)-1)&#10;        return strIn;&#10;&#10;    // Open the lookup service&#10;    NameResolutionService ns;&#10;    // We established that the input string is not a BTC address, so we use it as a handle now.&#10;    string strHandle = strIn, strAddy;&#10;    string strError = ns.FetchAddress(strHandle, strAddy);&#10;    if (!strError.empty())&#10;        throw JSONRPCError(-4, strError);&#10;&#10;    const Object& request(CheckMaybeThrow(strAddy));&#10;    // Get the BTC address from the JSON&#10;    const Value& address = find_value(request, "address");&#10;    if (address.type() != str_type)&#10;        throw JSONRPCError(-32600, "Server responded with malformed reply.");&#10;    return address.get_str();&#10;}&#10;&#10;// Named this way to prevent possible conflicts.&#10;Value rpc_send(const Array& params, bool fHelp)&#10;{&#10;    if (fHelp || params.size() != 2)&#10;        throw runtime_error(&#10;            "send &lt;name@domain or address&gt; &lt;amount&gt;\n"&#10;            "&lt;amount&gt; is a real and is rounded to the nearest 0.01");&#10;&#10;    // Intelligent function which looks up address given handle, or returns address&#10;    string strAddy = CollectAddress(params[0].get_str());&#10;    int64 nAmount = AmountFromValue(params[1]);&#10;    // Do the send&#10;    CWalletTx wtx;&#10;    string strError = SendMoneyToBitcoinAddress(strAddy, nAmount, wtx);&#10;    if (!strError.empty())&#10;        throw JSONRPCError(-4, strError);&#10;    return wtx.GetHash().GetHex();&#10;}&#10;&#10;...&#10;</pre>
+<div class="mw-heading mw-heading3"><h3 id="ip-transactions">IP Transactions</h3></div>
+<p>An IP transaction is an old transaction format in bitcoin that is disabled and possibly could be deprecated. It involves being given an IP address to make payment to. Upon connecting to the node and requesting their public key using "checkorder", they will respond with a script in the form:
+</p>
+<pre> &lt;public key&gt; OP_CHECKSIG
+</pre>
+<p>Similar to coinbase output transactions. IP transactions have the advantage of being able to contain additional metadata which can be useful in many transactions. Currently no authentication is done making the scheme insecure against man in the middle (MITM) attacks.
+</p><p>This proposal seeks to enable DNS lookups for IP transactions.
+</p><p>The "checkorder" message would contain a destination account, which could map to different isolated sets of keypairs/wallets running under the same host. The exact mapping from the checkorder reference info to the local system is implementation defined.
+</p><p>By using DNS lookups, the MITM problem with IP transactions could be mitigated by storing a public key in a DNS TXT record. This public key would be used for all future "reply" messages originating from that host. First time use would require a confirmation for acceptance of that public key; like with SSH. Should the "reply" message not match the accepted public key, then the host will be given an error.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="namecoin-id">Namecoin ID</h3></div>
+<p>This proposal uses the Namecoin blockchain to associate an alias with a bitcoin address. Bitcoin queries a namecoin node. This retrieves the structured data containing the bitcoin address(es) associated with this alias.
+</p><p>Using a decentralised domain name system like Namecoin, means no external server or entity needs to be trusted unlike the other proposals listed here. This indicates a system with the advantage of having a high availability and ease of entry (no restrictions for users to create aliases).
+</p><p>Two examples are presented below. The first shows a simpler format, while the second shows several Bitcoin addresses in a structured format.
+</p>
+<pre>$ namecoind name_show id/khal
+{
+  "bitcoin" : "1KHAL8bUjnkMRMg9yd2dNrYnJgZGH8Nj6T"
+}
+</pre>
+<pre>$ namecoind name_show id/khal
+{
+  "bitcoin" :
+  {
+    "default" : "1KHAL8bUjnkMRMg9yd2dNrYnJgZGH8Nj6T",
+    "donation": "1J3EKMfboca3SESWGrQKESsG1MA9yK6vN4"
+  }
+}
+</pre>
+<p><b>More possibilities :</b>
+</p>
+<ul><li>Allow to securely use <b>unsecured channels</b></li></ul>
+<p>You can put an url and a bitcoin address that will be used to sign the result. It means that a query to this url will return a bitcoin address and a signature. Bitcoin can then check (with the verify_message function) that the returned address has not been replaced by another one.
+</p>
+<pre>$ namecoind name_show id/khal
+{
+  "bitcoin" :
+  {
+    "url" : "<a rel="nofollow" class="external free" href="http://merchant.com/bitcoin/getnewaddres/">http://merchant.com/bitcoin/getnewaddres/</a>",
+    "signedWith" : "1KHAL8bUjnkMRMg9yd2dNrYnJgZGH8Nj6T"
+  }
+}
+</pre>
+<ul><li>Allow to get a different address each time, or per user, per order, etc</li></ul>
+<pre>$ namecoind name_show id/khal
+{
+  "bitcoin" :
+  {
+    "url" : "<a rel="nofollow" class="external free" href="http://merchant.com/bitcoin/getaddres/%7BYour">http://merchant.com/bitcoin/getaddres/{Your</a> customer id}",
+    "signedWith" : "1KHAL8bUjnkMRMg9yd2dNrYnJgZGH8Nj6T",
+    "useOnce": false
+  }
+}
+</pre>
+<p>In the above example, bitcoin will ask the user for "Your customer id" and replace that value in the url before making the http request. The merchant will receive the request and give the user a payment address associated with that customer.
+</p><p>Any text can be put into the brackets, allowing merchants to adapt it to all their needs.
+</p><p><br>
+</p>
+<ul><li>Specification is extensible</li></ul>
+<p>New features can be added later to support uncovered cases.
+</p><p><br>
+See the specification of <a rel="nofollow" class="external" href="http://dot-bit.org/Namespace:Identity">Namecoin ID</a> for more information.
+</p>
+<div id="catlinks" class="catlinks"><div><a href="/wikiparser-website/bips/Special%3ACategories" title="Special:Categories">Categories</a>: <ul><li><a href="/wikiparser-website/bips/Category%3ABIP.html" title="Category:BIP" class="new">BIP</a></li></div></div></article>
+	</main>
+</body>
+</html>
