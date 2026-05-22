@@ -33,8 +33,10 @@ export default (dir: string, cfg: string): typeof Parser => {
 
 	// Set custom article path
 	Parser.getConfig();
-	const articlePath = `//bhsd-harry.github.io/wikiparser-website/${dir}/`;
-	(Parser.config as ConfigData).articlePath = articlePath;
+	Object.assign(Parser.config, {
+		articlePath: `/wikiparser-website/${dir}/`,
+		server: '//bhsd-harry.github.io',
+	});
 
 	// Set wiki template directory
 	Parser.templateDir = path.resolve('wiki', dir);
@@ -174,11 +176,7 @@ export default (dir: string, cfg: string): typeof Parser => {
 		f1 = LinkBaseToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
 	LinkBaseToken.prototype.toHtmlInternal = function(): string {
 		if (linkTypes.has(this.type)) {
-			let html = f1.call(this);
-			const abs = ' href="//bhsd-harry.github.io/';
-			if (html.includes(abs)) {
-				html = html.replace(abs, ' href="/');
-			}
+			const html = f1.call(this);
 			if (this.selfLink || fs.existsSync(getFile(dir, this.link))) {
 				return html;
 			}
@@ -190,15 +188,6 @@ export default (dir: string, cfg: string): typeof Parser => {
 			);
 		}
 		return '';
-	};
-
-	// Render local images
-	// @ts-expect-error private method
-	const {FileToken}: {FileToken: typeof PrivateToken} = Parser.require('./src/link/file');
-	const re = / (href|src)="\/\/bhsd-harry\.github\.io\//gu,
-		f2 = FileToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
-	FileToken.prototype.toHtmlInternal = function(): string {
-		return f2.call(this).replaceAll(re, ' $1="/');
 	};
 
 	return Parser;
