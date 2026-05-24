@@ -90,7 +90,7 @@ During the MUST_SIGNAL phase, if '''(2016 - threshold)''' blocks in the retarget
 
 ===State transitions===
 
-<img src="bip-0008/states.png" align="middle"></img>
+<img src="bip-0008/states.png"></img>
 
 Note that when '''lockinontimeout''' is true, the LOCKED_IN state will be reached no later than at a height of '''timeoutheight'''.
 Regardless of the value of '''lockinontimeout''', if LOCKED_IN is reached, ACTIVE will be reached either one retarget period later, or at '''minimum_activation_height''', whichever comes later.

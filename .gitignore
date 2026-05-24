@@ -1,6 +1,9 @@
 /dist/
 /expanded
 /log/
+/.vscode/
 /.eslintcache
+/.stylelintcache
+/.wikilintcache
 /frame.lua
 /package-lock.json

@@ -8,8 +8,16 @@ const {argv} = process;
 let [,,,, ...args] = argv;
 const hasArg = args.length > 0,
 	[,, dir = 'MediaWiki', cfg = 'mediawikiwiki'] = argv,
+	expandedDir = path.join('expanded', dir),
 	Parser = getParser(dir, cfg);
 args = hasArg ? args.map(file => path.basename(file)) : fs.readdirSync(Parser.templateDir!);
+
+if (!fs.existsSync(dir)) {
+	fs.mkdirSync(dir);
+}
+if (!fs.existsSync(expandedDir)) {
+	fs.mkdirSync(expandedDir);
+}
 
 /**
  * Render a page to an HTML file.
@@ -105,7 +113,7 @@ const render = (page: string, title: string, root: Token): void => {
 			root.pageName = page;
 			root.addEventListener('expand', (_, {token}: {token: Token}) => {
 				// eslint-disable-next-line @typescript-eslint/no-base-to-string
-				fs.writeFileSync(path.join('expanded', dir, file), String(token));
+				fs.writeFileSync(path.join(expandedDir, file), String(token));
 			});
 			render(path.join(dir, page), title, root);
 		}

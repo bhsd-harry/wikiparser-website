@@ -39,8 +39,7 @@ Object.assign(Parser, {internal: true});
 Parser.now = new Date('2024-11-26T12:00:00Z');
 
 export default (dir: string, cfg: string): typeof Parser => {
-	// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
-	Parser.config = cfg as string | ConfigData;
+	Parser.config = cfg;
 
 	// Set custom article path
 	Parser.getConfig();
@@ -96,8 +95,9 @@ export default (dir: string, cfg: string): typeof Parser => {
 	});
 
 	// Hook to render `{{#ifexist:}}`
-	(Parser.config as ConfigData).functionHook.push('my_ifexist');
-	(Parser.config as ConfigData).parserFunction[0]['#ifexist'] = 'my_ifexist';
+	const {functionHook, parserFunction} = Parser.config as unknown as ConfigData;
+	functionHook.push('my_ifexist');
+	parserFunction[0]['#ifexist'] = 'my_ifexist';
 	Parser.setFunctionHook('my_ifexist', token => {
 		const page = token.getValue(1)!,
 			no = token.getValue(3) ?? '';
@@ -198,7 +198,7 @@ export default (dir: string, cfg: string): typeof Parser => {
 				}
 				html = html.replace(
 					new RegExp(` href="/wikiparser-website/${dir}/(.+?)(?=")`, 'u'),
-					'$&.html',
+					m => m.replace(/(?=$|#)/u, '.html'),
 				);
 			}
 			if (selfLink || fs.existsSync(getFile(dir, link))) {
