@@ -77,7 +77,7 @@ const render = (page: string, title: string, root: Token): void => {
 			if (!file.endsWith('.wiki') || /^(?:Template|MediaWiki):/u.test(file)) {
 				continue;
 			}
-			const page = file.slice(0, -5),
+			const page = file.slice(0, 1).toUpperCase() + file.slice(1, -5),
 				title = page.replaceAll('_', ' ');
 			let front = '';
 			switch (dir) {
