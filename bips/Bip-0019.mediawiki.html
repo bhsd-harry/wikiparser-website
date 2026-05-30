@@ -9,8 +9,22 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0019">BIP 0019</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0019">BIP 0019</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
 <pre>&#10;  BIP: 19&#10;  Layer: Applications&#10;  Title: M-of-N Standard Transactions (Low SigOp)&#10;  Authors: Luke Dashjr &lt;luke+bip17@dashjr.org&gt;&#10;  Status: Closed&#10;  Type: Specification&#10;  Assigned: 2012-01-30&#10;  License: BSD-2-Clause&#10;</pre>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#abstract"><span class="tocnumber">1</span> <span class="toctext">Abstract</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#copyright"><span class="tocnumber">2</span> <span class="toctext">Copyright</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#motivation"><span class="tocnumber">3</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#specification"><span class="tocnumber">4</span> <span class="toctext">Specification</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#templates"><span class="tocnumber">4.1</span> <span class="toctext">Templates</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#rationale"><span class="tocnumber">5</span> <span class="toctext">Rationale</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#implementation"><span class="tocnumber">6</span> <span class="toctext">Implementation</span></a></li>
+</ul>
+</div>
 <div class="mw-heading mw-heading2"><h2 id="abstract">Abstract</h2></div>
 <p>This BIP proposes M-of-N-signatures required transactions as a new 'standard' transaction type using the existing scripting system without significant modifications.
 </p>

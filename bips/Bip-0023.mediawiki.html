@@ -9,8 +9,32 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0023">BIP 0023</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0023">BIP 0023</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
 <pre>&#10;  BIP: 23&#10;  Layer: API/RPC&#10;  Title: getblocktemplate - Pooled Mining&#10;  Authors: Luke Dashjr &lt;luke+bip22@dashjr.org&gt;&#10;  Status: Deployed&#10;  Type: Specification&#10;  Assigned: 2012-02-28&#10;  License: BSD-2-Clause&#10;</pre>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#abstract"><span class="tocnumber">1</span> <span class="toctext">Abstract</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#copyright"><span class="tocnumber">2</span> <span class="toctext">Copyright</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#specification"><span class="tocnumber">3</span> <span class="toctext">Specification</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#summary-support-levels"><span class="tocnumber">3.1</span> <span class="toctext">Summary Support Levels</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#basic-pool-extensions"><span class="tocnumber">3.2</span> <span class="toctext">Basic Pool Extensions</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#block-proposal"><span class="tocnumber">3.3</span> <span class="toctext">Block Proposal</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#mutations"><span class="tocnumber">3.4</span> <span class="toctext">Mutations</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#submission-abbreviation"><span class="tocnumber">3.5</span> <span class="toctext">Submission Abbreviation</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#format-of-data-for-merkleonly-shares"><span class="tocnumber">3.5.1</span> <span class="toctext">Format of Data for Merkle-Only Shares</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#logical-services"><span class="tocnumber">3.6</span> <span class="toctext">Logical Services</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#motivation"><span class="tocnumber">4</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#rationale"><span class="tocnumber">5</span> <span class="toctext">Rationale</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#reference-implementation"><span class="tocnumber">6</span> <span class="toctext">Reference Implementation</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#see-also"><span class="tocnumber">7</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
 <div class="mw-heading mw-heading2"><h2 id="abstract">Abstract</h2></div>
 <p>This BIP describes extensions to the getblocktemplate JSON-RPC call to enhance pooled mining.
 </p>
@@ -23,8 +47,8 @@
 <div class="mw-heading mw-heading3"><h3 id="summary-support-levels">Summary Support Levels</h3></div>
 <p>Something can be said to have BIP 23 Level 1 support if it implements at least:
 </p>
-<ul><li><a rel="nofollow" class="external" href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></li>
-<li><a rel="nofollow" class="external" href="http://json-rpc.org/wiki/specification">JSON-RPC 1.0</a></li>
+<ul><li><a rel="nofollow" class="external text" href="http://www.ietf.org/rfc/rfc1945.txt">RFC 1945</a></li>
+<li><a rel="nofollow" class="external text" href="http://json-rpc.org/wiki/specification">JSON-RPC 1.0</a></li>
 <li><a href="/wikiparser-website/bips/Bip-0022.mediawiki.html" title="Bip-0022.mediawiki">BIP 22 (non-optional sections)</a></li>
 <li><a href="/wikiparser-website/bips/Bip-0022.mediawiki.html#optional-long-polling" title="Bip-0022.mediawiki">BIP 22 Long Polling</a></li>
 <li><a href="#basic-pool-extensions">BIP 23 Basic Pool Extensions</a></li>
@@ -383,7 +407,7 @@ Servers SHOULD NOT break this assumption without good cause.
 Where the priority of URIs is the same, they should be chosen from in random order, weighed by their "weight" key.
 Work proposals and submissions MUST be made to the same server that issued the job.
 Clients MAY attempt to submit to other servers if, and only if, the original server cannot be reached.
-If cross-server share submissions are desired, services SHOULD instead use the equivalent domain name system (DNS) features (RFCs <a rel="nofollow" class="external" href="http://tools.ietf.org/html/rfc1794">1794</a> and <a rel="nofollow" class="external" href="http://tools.ietf.org/html/rfc2782">2782</a>).
+If cross-server share submissions are desired, services SHOULD instead use the equivalent domain name system (DNS) features (RFCs <a rel="nofollow" class="external text" href="http://tools.ietf.org/html/rfc1794">1794</a> and <a rel="nofollow" class="external text" href="http://tools.ietf.org/html/rfc2782">2782</a>).
 </p><p>Updates to the Logical Service server list may only be made by the original server, or servers listed with the "update" key missing or true.
 Clients MAY choose to advertise serverlist capability to servers with a false "update" key, but if so, MUST treat the server list provided as a subset of the current one, only considered in the context of this server.
 At least one server with "update" privilege MUST be attempted at least once daily.
@@ -426,9 +450,9 @@ By exposing the details of the block proposals to the miners, they are enabled t
 <ul><li>Non-mining tools may wish to simply get a list of memory pool transactions.</li>
 <li>Humans may wish to view their current memory pool.</li></ul>
 <div class="mw-heading mw-heading2"><h2 id="reference-implementation">Reference Implementation</h2></div>
-<ul><li><a rel="nofollow" class="external" href="http://gitorious.org/bitcoin/libblkmaker">libblkmaker</a></li>
-<li><a rel="nofollow" class="external" href="https://gitorious.org/bitcoin/eloipool">Eloipool</a></li>
-<li><a rel="nofollow" class="external" href="https://github.com/bitcoin/bitcoin/pull/936/files">bitcoind</a></li></ul>
+<ul><li><a rel="nofollow" class="external text" href="http://gitorious.org/bitcoin/libblkmaker">libblkmaker</a></li>
+<li><a rel="nofollow" class="external text" href="https://gitorious.org/bitcoin/eloipool">Eloipool</a></li>
+<li><a rel="nofollow" class="external text" href="https://github.com/bitcoin/bitcoin/pull/936/files">bitcoind</a></li></ul>
 <div class="mw-heading mw-heading2"><h2 id="see-also">See Also</h2></div>
 <ul><li><a href="/wikiparser-website/bips/Bip-0022.mediawiki.html" title="Bip-0022.mediawiki">BIP 22: getblocktemplate - Fundamentals</a></li></ul></article>
 	</main>

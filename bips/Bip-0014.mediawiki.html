@@ -9,10 +9,19 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0014">BIP 0014</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0014">BIP 0014</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
 <pre>&#10;  BIP: 14&#10;  Layer: Peer Services&#10;  Title: Protocol Version and User Agent&#10;  Authors: Amir Taaki &lt;genjix@riseup.net&gt;&#10;           Patrick Strateman &lt;bitcoin-bips@covertinferno.org&gt;&#10;  Status: Deployed&#10;  Type: Specification&#10;  Assigned: 2011-11-10&#10;  Discussion: 2011-11-02: https://gnusha.org/pi/bitcoindev/1320268981.72296.YahooMailNeo@web121003.mail.ne1.yahoo.com/&#10;              2011-11-10: https://gnusha.org/pi/bitcoindev/1320959761.36702.YahooMailNeo@web121014.mail.ne1.yahoo.com/&#10;</pre>
 <p>In this document, bitcoin will be used to refer to the protocol while Satoshi will refer to the current client in order to prevent confusion.
 </p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#past-situation"><span class="tocnumber">1</span> <span class="toctext">Past Situation</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#rationale"><span class="tocnumber">2</span> <span class="toctext">Rationale</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#browser-useragents"><span class="tocnumber">3</span> <span class="toctext">Browser User-Agents</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#proposal"><span class="tocnumber">4</span> <span class="toctext">Proposal</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#timeline"><span class="tocnumber">5</span> <span class="toctext">Timeline</span></a></li>
+</ul>
+</div>
 <div class="mw-heading mw-heading2"><h2 id="past-situation">Past Situation</h2></div>
 <p>Bitcoin as a protocol began life with the Satoshi client. Now that the community is diversifying, a number of alternative clients with their own codebases written in a variety of languages (Java, Python, Javascript, C++) are rapidly developing their own feature-sets.
 </p><p>Embedded in the protocol is a version number. Primarily this version number is in the "version" and "getblocks" messages, but is also in the "block" message to indicate the software version that created that block. Currently this version number is the same version number as that of the client. This document is a proposal to separate the protocol version from the client version, together with a proposed method to do so.
@@ -28,7 +37,7 @@
 <ul><li>Protocol version: way to distinguish between nodes and behave different accordingly.</li>
 <li>User agent: simple informational tool. Protocol should not be modified depending on user agent.</li></ul>
 <div class="mw-heading mw-heading2"><h2 id="browser-useragents">Browser User-Agents</h2></div>
-<p><a rel="nofollow" class="external" href="http://tools.ietf.org/html/rfc1945">RFC 1945</a> vaguely specifies a user agent to be a string of the product with optional comments.
+<p><a rel="nofollow" class="external text" href="http://tools.ietf.org/html/rfc1945">RFC 1945</a> vaguely specifies a user agent to be a string of the product with optional comments.
 </p>
 <pre> Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1.6) Gecko/20100127 Gentoo Shiretoko/3.5.6
 </pre>

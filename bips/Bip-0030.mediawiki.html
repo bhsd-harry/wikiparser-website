@@ -9,8 +9,20 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0030">BIP 0030</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0030">BIP 0030</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
 <pre>&#10;  BIP: 30&#10;  Layer: Consensus (soft fork)&#10;  Title: Duplicate transactions&#10;  Authors: Pieter Wuille &lt;pieter.wuille@gmail.com&gt;&#10;  Status: Deployed&#10;  Type: Specification&#10;  Assigned: 2012-02-22&#10;  License: BSD-2-Clause&#10;</pre>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#abstract"><span class="tocnumber">1</span> <span class="toctext">Abstract</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#copyright"><span class="tocnumber">2</span> <span class="toctext">Copyright</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#motivation"><span class="tocnumber">3</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#specification"><span class="tocnumber">4</span> <span class="toctext">Specification</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#rationale"><span class="tocnumber">5</span> <span class="toctext">Rationale</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#backward-compatibility"><span class="tocnumber">6</span> <span class="toctext">Backward compatibility</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#implementation"><span class="tocnumber">7</span> <span class="toctext">Implementation</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#acknowledgements"><span class="tocnumber">8</span> <span class="toctext">Acknowledgements</span></a></li>
+</ul>
+</div>
 <div class="mw-heading mw-heading2"><h2 id="abstract">Abstract</h2></div>
 <p>This document gives a specification for dealing with duplicate transactions in the block chain, in an attempt to solve certain problems the reference implementation has with them.
 </p>
@@ -24,7 +36,7 @@
 <p>To counter this problem, the following network rule is introduced:
 </p>
 <ul><li>Blocks are not allowed to contain a transaction whose identifier matches that of an earlier, not-fully-spent transaction in the same chain.</li></ul>
-<p>This rule initially applied to all blocks whose timestamp is after March 15, 2012, 00:00 UTC (testnet: February 20, 2012 00:00 UTC). It was later extended by Commit <a rel="nofollow" class="external" href="https://github.com/bitcoin/bitcoin/commit/ab91bf39b7c11e9c86bb2043c24f0f377f1cf514">Apply BIP30 checks to all blocks except the two historic violations.</a> to apply to all blocks except the two historic blocks at heights 91842 and 91880 on the main chain that had to be grandfathered in.
+<p>This rule initially applied to all blocks whose timestamp is after March 15, 2012, 00:00 UTC (testnet: February 20, 2012 00:00 UTC). It was later extended by Commit <a rel="nofollow" class="external text" href="https://github.com/bitcoin/bitcoin/commit/ab91bf39b7c11e9c86bb2043c24f0f377f1cf514">Apply BIP30 checks to all blocks except the two historic violations.</a> to apply to all blocks except the two historic blocks at heights 91842 and 91880 on the main chain that had to be grandfathered in.
 </p>
 <div class="mw-heading mw-heading2"><h2 id="rationale">Rationale</h2></div>
 <p>Whatever solution is used, the following law must be obeyed to guarantee sane behaviour: the set of usable
@@ -44,7 +56,7 @@ added blocks contain a duplicate transaction.
 </p>
 <div class="mw-heading mw-heading2"><h2 id="implementation">Implementation</h2></div>
 <p>A patch for the reference client can be found on <a rel="nofollow" class="external free" href="https://github.com/sipa/bitcoin/tree/nooverwritetx">https://github.com/sipa/bitcoin/tree/nooverwritetx</a>
-</p><p>This BIP was implemented in Commit <a rel="nofollow" class="external" href="https://github.com/bitcoin/bitcoin/commit/a206b0ea12eb4606b93323268fc81a4f1f952531">Do not allow overwriting unspent transactions (BIP 30)</a>
+</p><p>This BIP was implemented in Commit <a rel="nofollow" class="external text" href="https://github.com/bitcoin/bitcoin/commit/a206b0ea12eb4606b93323268fc81a4f1f952531">Do not allow overwriting unspent transactions (BIP 30)</a>
 There have been additional commits to refine the implementation of this BIP.
 </p>
 <div class="mw-heading mw-heading2"><h2 id="acknowledgements">Acknowledgements</h2></div>

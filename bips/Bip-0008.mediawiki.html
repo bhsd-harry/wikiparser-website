@@ -9,13 +9,38 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0008">BIP 0008</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0008">BIP 0008</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
 <pre>&#10;  BIP: 8&#10;  Title: Version bits with lock-in by height&#10;  Authors: Shaolin Fry &lt;shaolinfry@protonmail.ch&gt;&#10;           Luke Dashjr &lt;luke+bip@dashjr.org&gt;&#10;  Status: Draft&#10;  Type: Informational&#10;  Assigned: 2017-02-01&#10;  License: BSD-3-Clause OR CC0-1.0&#10;</pre>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#abstract"><span class="tocnumber">1</span> <span class="toctext">Abstract</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#motivation"><span class="tocnumber">2</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#specification"><span class="tocnumber">3</span> <span class="toctext">Specification</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#parameters"><span class="tocnumber">3.1</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#selection-guidelines"><span class="tocnumber">3.2</span> <span class="toctext">Selection guidelines</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#states"><span class="tocnumber">3.3</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#bit-flags"><span class="tocnumber">3.4</span> <span class="toctext">Bit flags</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#new-consensus-rules"><span class="tocnumber">3.5</span> <span class="toctext">New consensus rules</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#state-transitions"><span class="tocnumber">3.6</span> <span class="toctext">State transitions</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#mandatory-signalling"><span class="tocnumber">3.7</span> <span class="toctext">Mandatory signalling</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#warning-mechanism"><span class="tocnumber">3.8</span> <span class="toctext">Warning mechanism</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#getblocktemplate-changes"><span class="tocnumber">3.9</span> <span class="toctext">getblocktemplate changes</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#reference-implementation"><span class="tocnumber">3.10</span> <span class="toctext">Reference implementation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#contrasted-with-bip-9"><span class="tocnumber">4</span> <span class="toctext">Contrasted with BIP 9</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#backwards-compatibility"><span class="tocnumber">5</span> <span class="toctext">Backwards compatibility</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#deployments"><span class="tocnumber">6</span> <span class="toctext">Deployments</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#references"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#copyright"><span class="tocnumber">8</span> <span class="toctext">Copyright</span></a></li>
+</ul>
+</div>
 <div class="mw-heading mw-heading2"><h2 id="abstract">Abstract</h2></div>
 <p>This document specifies an alternative to <a href="/wikiparser-website/bips/Bip-0009.mediawiki.html" title="Bip-0009.mediawiki">BIP9</a> that corrects for a number of perceived mistakes.
 Block heights are used for start and timeout rather than POSIX timestamps.
 It additionally introduces an activation parameter that can guarantee activation of backward-compatible changes (further called "soft forks").
-</p><p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a class="external" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.
+</p><p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a class="external mw-magiclink-rfc" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.
 </p>
 <div class="mw-heading mw-heading2"><h2 id="motivation">Motivation</h2></div>
 <p>BIP9 introduced a mechanism for doing parallel soft forking deployments based on repurposing the block nVersion field. Activation is dependent on near unanimous hashrate signalling which may be impractical and result in veto by a small minority of non-signalling hashrate. Super majority hashrate based activation triggers allow for accelerated activation where the majority hash power enforces the new rules in lieu of full nodes upgrading. Since all consensus rules are ultimately enforced by full nodes, eventually any new soft fork will be enforced by the economy. This proposal combines these two aspects to provide optional flag day activation after a reasonable time, as well as for accelerated activation by majority of hash rate before the flag date.
@@ -259,7 +284,7 @@ A client that does not understand a rule prefixed by '!' must not attempt to pro
 </p>
 <div class="mw-heading mw-heading2"><h2 id="references">References</h2></div>
 <p><a href="/wikiparser-website/bips/Bip-0009.mediawiki.html" title="Bip-0009.mediawiki">BIP9</a>
-</p><p><a rel="nofollow" class="external" href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2017-February/013643.html">Mailing list discussion</a>
+</p><p><a rel="nofollow" class="external text" href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2017-February/013643.html">Mailing list discussion</a>
 </p>
 <div class="mw-heading mw-heading2"><h2 id="copyright">Copyright</h2></div>
 <p>This document is dual licensed as BSD 3-clause, and Creative Commons CC0 1.0 Universal.

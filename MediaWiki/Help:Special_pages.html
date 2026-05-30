@@ -9,10 +9,10 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://www.mediawiki.org/wiki/Help:Special_pages">Help:Special pages</a> article at <a rel="nofollow" class="external" href="https://www.mediawiki.org/">MediaWiki.org</a> as Public Domain (<a rel="nofollow" class="external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>).</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://www.mediawiki.org/wiki/Help:Special_pages">Help:Special pages</a> article at <a rel="nofollow" class="external text" href="https://www.mediawiki.org/">MediaWiki.org</a> as Public Domain (<a rel="nofollow" class="external text" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>).</div>
 <style>.template-pd-help-page{color:var(--color-emphasized, #101418);border:solid 1px var(--border-color-base, #a2a9b1);padding:.5em;margin:.5em 0;background-color:var(--background-color-base, #fff);font-size:95%;vertical-align:middle;width:100%;box-sizing:border-box}.template-pd-help-page .icon-cell{padding:0 1em;width:30px}</style><table class="template-pd-help-page"><tr>
 <td class="icon-cell"><span><span><img alt="PD" src="/wikiparser-website/MediaWiki/File%3APD-icon.svg" decoding="async" class="mw-file-element" width="30"></span></span></td>
-<td><b>Note:</b> When you edit this page, you agree to release your contribution under the <a rel="nofollow" class="external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>. See <a href="/wikiparser-website/MediaWiki/Project%3APD_help" title="Project:PD help">Public Domain Help Pages</a> for more info. 
+<td><b>Note:</b> When you edit this page, you agree to release your contribution under the <a rel="nofollow" class="external text" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>. See <a href="/wikiparser-website/MediaWiki/Project%3APD_help" title="Project:PD help">Public Domain Help Pages</a> for more info. 
 </td>
 <td class="icon-cell"><span><span><img alt="PD" src="/wikiparser-website/MediaWiki/File%3APD-icon.svg" decoding="async" class="mw-file-element" width="30"></span></span></td>
 </tr></table>
@@ -43,6 +43,60 @@
 </p><p>Special pages also take parameters, e.g., <a href="/wikiparser-website/MediaWiki/Special%3ALog%2Fblock" title="Special:Log/block" class="new">Special:Log/block</a> takes you to the log of block users.
 </p><p>To view a directory of all special pages, use <a href="/wikiparser-website/MediaWiki/Special%3ASpecialPages" title="Special:SpecialPages" class="new">Special:SpecialPages</a>. 
 </p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Editing_Special_namespace_pages"><span class="tocnumber">1</span> <span class="toctext">Editing Special namespace pages</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Linking,_transcluding,_or_redirecting_to_a_special_page"><span class="tocnumber">2</span> <span class="toctext">Linking, transcluding, or redirecting to a special page</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Links_containing_URL_query_strings"><span class="tocnumber">2.1</span> <span class="toctext">Links containing URL query strings</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Page_name_alias_and_localization"><span class="tocnumber">3</span> <span class="toctext">Page name alias and localization</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#List_of_special_pages"><span class="tocnumber">4</span> <span class="toctext">List of special pages</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#By_role"><span class="tocnumber">4.1</span> <span class="toctext">By role</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#General_information"><span class="tocnumber">4.1.1</span> <span class="toctext">General information</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Lists_of_pages"><span class="tocnumber">4.1.2</span> <span class="toctext">Lists of pages</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Special_Tools"><span class="tocnumber">4.1.3</span> <span class="toctext">Special Tools</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Latest_changes_made"><span class="tocnumber">4.1.4</span> <span class="toctext">Latest changes made</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Users"><span class="tocnumber">4.1.5</span> <span class="toctext">Users</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Personal"><span class="tocnumber">4.1.6</span> <span class="toctext">Personal</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Maintenance"><span class="tocnumber">4.1.7</span> <span class="toctext">Maintenance</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#Miscellaneous"><span class="tocnumber">4.1.8</span> <span class="toctext">Miscellaneous</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#Restricted"><span class="tocnumber">4.1.9</span> <span class="toctext">Restricted</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-16"><a href="#By_alphabetical_order"><span class="tocnumber">4.2</span> <span class="toctext">By alphabetical order</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#A"><span class="tocnumber">4.2.1</span> <span class="toctext">A</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="#B"><span class="tocnumber">4.2.2</span> <span class="toctext">B</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#C"><span class="tocnumber">4.2.3</span> <span class="toctext">C</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#D"><span class="tocnumber">4.2.4</span> <span class="toctext">D</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="#E"><span class="tocnumber">4.2.5</span> <span class="toctext">E</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="#F"><span class="tocnumber">4.2.6</span> <span class="toctext">F</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="#G"><span class="tocnumber">4.2.7</span> <span class="toctext">G</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="#H"><span class="tocnumber">4.2.8</span> <span class="toctext">H</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="#I"><span class="tocnumber">4.2.9</span> <span class="toctext">I</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="#L"><span class="tocnumber">4.2.10</span> <span class="toctext">L</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="#M"><span class="tocnumber">4.2.11</span> <span class="toctext">M</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="#N"><span class="tocnumber">4.2.12</span> <span class="toctext">N</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="#O"><span class="tocnumber">4.2.13</span> <span class="toctext">O</span></a></li>
+<li class="toclevel-3 tocsection-30"><a href="#P"><span class="tocnumber">4.2.14</span> <span class="toctext">P</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="#Q"><span class="tocnumber">4.2.15</span> <span class="toctext">Q</span></a></li>
+<li class="toclevel-3 tocsection-32"><a href="#R"><span class="tocnumber">4.2.16</span> <span class="toctext">R</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="#S"><span class="tocnumber">4.2.17</span> <span class="toctext">S</span></a></li>
+<li class="toclevel-3 tocsection-34"><a href="#T"><span class="tocnumber">4.2.18</span> <span class="toctext">T</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="#U"><span class="tocnumber">4.2.19</span> <span class="toctext">U</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="#V"><span class="tocnumber">4.2.20</span> <span class="toctext">V</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="#W"><span class="tocnumber">4.2.21</span> <span class="toctext">W</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-38"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
 <div class="mw-heading mw-heading2"><h2 id="Editing_Special_namespace_pages">Editing Special namespace pages</h2></div>
 <p>The <code>Special:</code> namespace stands for special pages generated by MediaWiki. There is no matching talk space. The special pages are not made up of wikitext and are therefore not editable like other pages might be.
 </p><p>They usually contain <a href="/wikiparser-website/MediaWiki/Help%3ASystem_message#Finding_messages_and_documentation" title="Help:System message" class="new">system messages</a> from MediaWiki namespace, which are editable by <a href="/wikiparser-website/MediaWiki/Interface_administrators" title="Interface administrators" class="new">interface administrators</a>.
@@ -70,7 +124,7 @@
 <li>Dutch: <code>Speciaal:Statistieken</code></li></ul>
 <div class="mw-heading mw-heading2"><h2 id="List_of_special_pages">List of special pages</h2></div>
 <p><i><a href="/wikiparser-website/MediaWiki/Special%3ASpecialPages" title="Special:SpecialPages" class="new">Special:SpecialPages</a></i> shows a list of almost all special pages on a wiki. It is often linked in the <a href="/wikiparser-website/MediaWiki/Help%3ANavigation#Toolbox" title="Help:Navigation" class="new">toolbox</a> on the side panel.
-</p><p><style>.navbar{display:inline;font-size:88%;font-weight:400;color:var(--color-base, #202122)!important}.navbar ul{display:inline;white-space:nowrap}.navbar li{word-spacing:-.125em}.navbox .navbar{display:block;font-size:100%}.navbox-title .navbar{float:left;text-align:left;margin-right:.5em;width:6em}</style><span class="noprint plainlinks navbar" style="float:right"><small><span style="">This list: </span><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wikiparser-website/MediaWiki/Help%3ASpecial_pages%2Flist" title="Help:Special pages/list"><span style="" title="View this template">view</span></a><span style="">&#32;<b>&middot;</b>&#32;</span><a rel="nofollow" class="external" href="https://bhsd-harry.github.io/wikiparser-website/MediaWiki/Help_talk%3ASpecial_pages%2Flist"><span style="" title="Discuss this template">talk</span></a><span style="">&#32;<b>&middot;</b>&#32;</span><a rel="nofollow" class="external" href="https://bhsd-harry.github.io/wikiparser-website/MediaWiki/Help%3ASpecial_pages%2Flist?action=edit"><span style="" title="Edit this template">edit</span></a></span></small></span>
+</p><p><style>.navbar{display:inline;font-size:88%;font-weight:400;color:var(--color-base, #202122)!important}.navbar ul{display:inline;white-space:nowrap}.navbar li{word-spacing:-.125em}.navbox .navbar{display:block;font-size:100%}.navbox-title .navbar{float:left;text-align:left;margin-right:.5em;width:6em}</style><span class="noprint plainlinks navbar" style="float:right"><small><span style="">This list: </span><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wikiparser-website/MediaWiki/Help%3ASpecial_pages%2Flist" title="Help:Special pages/list"><span style="" title="View this template">view</span></a><span style="">&#32;<b>&middot;</b>&#32;</span><a rel="nofollow" class="external text" href="https://bhsd-harry.github.io/wikiparser-website/MediaWiki/Help_talk%3ASpecial_pages%2Flist"><span style="" title="Discuss this template">talk</span></a><span style="">&#32;<b>&middot;</b>&#32;</span><a rel="nofollow" class="external text" href="https://bhsd-harry.github.io/wikiparser-website/MediaWiki/Help%3ASpecial_pages%2Flist?action=edit"><span style="" title="Edit this template">edit</span></a></span></small></span>
 </p><p>This list only includes special pages provided by MediaWiki core itself. Special pages provided by extensions are documented on the extension page.
 </p>
 <div class="mw-heading mw-heading3"><h3 id="By_role">By role</h3></div>

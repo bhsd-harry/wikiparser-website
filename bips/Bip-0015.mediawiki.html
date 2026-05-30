@@ -9,12 +9,26 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0015">BIP 0015</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0015">BIP 0015</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
 <pre>&#10;  BIP: 15&#10;  Layer: Applications&#10;  Title: Aliases&#10;  Authors: Amir Taaki &lt;genjix@riseup.net&gt;&#10;  Status: Closed&#10;  Type: Specification&#10;  Assigned: 2011-12-10&#10;</pre>
 <p><a href="/wikiparser-website/bips/Bip-0070.mediawiki.html" title="Bip-0070.mediawiki" class="new">BIP 0070</a> (payment protocol) may be seen as the alternative to Aliases.
 </p><p>Using vanilla bitcoin, to send funds to a destination, an address in the form 1Hd44nkJfNAcPJeZyrGC5sKJS1TzgmCTjjZ is needed. The problem with using addresses is that they are not easy to remember. An analogy can be thought if one were required to enter the IP address of their favourite websites if domain names did not exist.
 </p><p>This document aims to layout through careful argument, a bitcoin alias system. This is a big modification to the protocol that is not easily changed in the future and has big ramifications. There is impetus in getting it correct the first time. Aliases have to be robust and secure.
 </p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#schemes"><span class="tocnumber">1</span> <span class="toctext">Schemes</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#firstbits"><span class="tocnumber">1.1</span> <span class="toctext">FirstBits</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#dns-txt-records"><span class="tocnumber">1.2</span> <span class="toctext">DNS TXT Records</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#server-service"><span class="tocnumber">1.3</span> <span class="toctext">Server Service</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#https-web-service"><span class="tocnumber">1.4</span> <span class="toctext">HTTPS Web Service</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#ip-transactions"><span class="tocnumber">1.5</span> <span class="toctext">IP Transactions</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#namecoin-id"><span class="tocnumber">1.6</span> <span class="toctext">Namecoin ID</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="mw-heading mw-heading2"><h2 id="schemes">Schemes</h2></div>
 <p>Here are a few different proposals and the properties of each system.
 </p>
@@ -137,7 +151,7 @@
 <ul><li>Specification is extensible</li></ul>
 <p>New features can be added later to support uncovered cases.
 </p><p><br>
-See the specification of <a rel="nofollow" class="external" href="http://dot-bit.org/Namespace:Identity">Namecoin ID</a> for more information.
+See the specification of <a rel="nofollow" class="external text" href="http://dot-bit.org/Namespace:Identity">Namecoin ID</a> for more information.
 </p>
 <div id="catlinks" class="catlinks"><div><a href="/wikiparser-website/bips/Special%3ACategories" title="Special:Categories">Categories</a>: <ul><li><a href="/wikiparser-website/bips/Category%3ABIP.html" title="Category:BIP" class="new">BIP</a></li></div></div></article>
 	</main>

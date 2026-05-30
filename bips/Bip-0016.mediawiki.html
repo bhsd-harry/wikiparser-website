@@ -9,8 +9,24 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0016">BIP 0016</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0016">BIP 0016</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
 <pre>&#10;  BIP: 16&#10;  Layer: Consensus (soft fork)&#10;  Title: Pay to Script Hash&#10;  Authors: Gavin Andresen &lt;gavinandresen@gmail.com&gt;&#10;  Status: Deployed&#10;  Type: Specification&#10;  Assigned: 2012-01-03&#10;</pre>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#abstract"><span class="tocnumber">1</span> <span class="toctext">Abstract</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#motivation"><span class="tocnumber">2</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#specification"><span class="tocnumber">3</span> <span class="toctext">Specification</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#rationale"><span class="tocnumber">4</span> <span class="toctext">Rationale</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#backwards-compatibility"><span class="tocnumber">5</span> <span class="toctext">Backwards Compatibility</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#520byte-limitation-on-serialized-script-size"><span class="tocnumber">5.1</span> <span class="toctext">520-byte limitation on serialized script size</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#reference-implementation"><span class="tocnumber">6</span> <span class="toctext">Reference Implementation</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#see-also"><span class="tocnumber">7</span> <span class="toctext">See Also</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#references"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
 <div class="mw-heading mw-heading2"><h2 id="abstract">Abstract</h2></div>
 <p>This BIP describes a new "standard" transaction type for the Bitcoin scripting system, and defines additional validation rules that apply only to the new transactions.
 </p>
@@ -34,7 +50,7 @@
 <ol><li>Validation fails if there are any operations other than "push data" operations in the scriptSig.</li>
 <li>Normal validation is done: an initial stack is created from the signatures and {serialized script}, and the hash of the script is computed and validation fails immediately if it does not match the hash in the outpoint.</li>
 <li>{serialized script} is popped off the initial stack, and the transaction is validated again using the popped stack and the deserialized script as the scriptPubKey.</li></ol>
-<p>These new rules should only be applied when validating transactions in blocks with timestamps &gt;= 1333238400 (Apr 1 2012) . There are transactions earlier than 1333238400 in the block chain that fail these new validation rules. . Older transactions must be validated under the old rules. (see the Backwards Compatibility section for details).
+<p>These new rules should only be applied when validating transactions in blocks with timestamps &gt;= 1333238400 (Apr 1 2012) <sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup>. There are transactions earlier than 1333238400 in the block chain that fail these new validation rules. <sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></a></sup>. Older transactions must be validated under the old rules. (see the Backwards Compatibility section for details).
 </p><p>For example, the scriptPubKey and corresponding scriptSig for a one-signature-required transaction is:
 </p>
 <pre>   scriptSig: [signature] {[pubkey] OP_CHECKSIG}
@@ -91,8 +107,12 @@
 <li>M-of-N Multisignature Transactions <a href="/wikiparser-website/bips/Bip-0011.mediawiki.html" title="Bip-0011.mediawiki">BIP 11</a></li>
 <li><a href="/wikiparser-website/bips/Bip-0016%2Fqa.mediawiki.html" title="Bip-0016/qa.mediawiki" class="new">Quality Assurance test checklist</a></li></ul>
 <div class="mw-heading mw-heading2"><h2 id="references">References</h2></div>
-<p><br>
-</p></article>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external text" href="https://github.com/bitcoin/bitcoin/commit/8f188ece3c82c4cf5d52a3363e7643c23169c0ff">Remove -bip16 and -paytoscripthashtime command-line arguments</a></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20141122040355/http://blockexplorer.com/tx/6a26d2ecb67f27d1fa5524763b49029d7106e91e3cc05743073461a719776192">Transaction 6a26d2ecb67f27d1fa5524763b49029d7106e91e3cc05743073461a719776192</a></span>
+</li>
+</ol></div></article>
 	</main>
 </body>
 </html>

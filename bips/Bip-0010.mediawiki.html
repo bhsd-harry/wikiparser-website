@@ -9,12 +9,20 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0010">BIP 0010</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0010">BIP 0010</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
 <pre>&#10;  BIP: 10&#10;  Layer: Applications&#10;  Title: Multi-Sig Transaction Distribution&#10;  Authors: Alan Reiner &lt;etotheipi@gmail.com&gt;&#10;  Status: Closed&#10;  Type: Informational&#10;  Assigned: 2011-10-28&#10;</pre>
 <p>A multi-signature transaction is one where a certain number of Bitcoins are "encumbered" with more than one recipient address.  The subsequent transaction that spends these coins will require each party involved (or some subset, depending on the script), to see the proposed transaction and sign it with their private key.  This necessarily requires collaboration between all parties -- to propose a distribution of encumbered funds, collect signatures from all necessary participants, and then broadcast the completed transaction.
 </p><p>This BIP describes a way standardize the encoding of proposal transactions, to assist with signature collection and broadcast (which includes regular, 1-of-1 transactions requiring signatures from an offline computer).  The goal is to encourage a standard that guarantees interoperability of all programs that implement it.
 </p><p><br>
 </p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#motivation"><span class="tocnumber">1</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#specification"><span class="tocnumber">2</span> <span class="toctext">Specification</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#changelog"><span class="tocnumber">3</span> <span class="toctext">Changelog</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#reference-implementation"><span class="tocnumber">4</span> <span class="toctext">Reference Implementation</span></a></li>
+</ul>
+</div>
 <div class="mw-heading mw-heading2"><h2 id="motivation">Motivation</h2></div>
 <p>The enabling of multi-signature transactions in Bitcoin will introduce a great deal of extra functionality to the users of the network, but also a great deal of extra complexity.  Executing a multi-signature tx will be a multi-step process, and will potentially get worse with multiple clients, each implementing this process differently.  By providing an efficient, standardized technique, we can improve the chance that developers will adopt compatible protocols and not bifurcate the user-base based on client selection.
 </p><p>In addition to providing a general encoding scheme for transaction signing/collection, it does not require the signing device to hold any blockchain information (all information needed for verification and signing is part of the encoding).  This enables the existence of very lightweight devices that can be used for signing since they do not need the blockchain -- only a minimal set of Bitcoin tools and an ECDSA module.  Therefore, BIP 0010 has benefit beyond just multi-signature transactions.
@@ -75,7 +83,7 @@ _SIG_mzvaN8JUhHLz3Gdec1zBRxs5rNaYLQnbD1_01_008c
 </p>
 <div class="mw-heading mw-heading2"><h2 id="changelog">Changelog</h2></div>
 <ul><li>2014-11-26:
-<ul><li>Withdrawn after Armory stopped using BIP10 and no other projects were known to implement support (see <a rel="nofollow" class="external" href="https://github.com/bitcoin/bips/pull/125">bips#125</a>).</li></ul></li>
+<ul><li>Withdrawn after Armory stopped using BIP10 and no other projects were known to implement support (see <a rel="nofollow" class="external text" href="https://github.com/bitcoin/bips/pull/125">bips#125</a>).</li></ul></li>
 <li>2011-10-28:
 <ul><li>Original Draft published.</li></ul></li></ul>
 <div class="mw-heading mw-heading2"><h2 id="reference-implementation">Reference Implementation</h2></div>

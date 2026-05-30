@@ -9,8 +9,25 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0018">BIP 0018</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0018">BIP 0018</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
 <pre>&#10;  BIP: 18&#10;  Layer: Consensus (soft fork)&#10;  Title: hashScriptCheck&#10;  Authors: Luke Dashjr &lt;luke+bip17@dashjr.org&gt;&#10;  Status: Complete&#10;  Type: Specification&#10;  Assigned: 2012-01-27&#10;  License: BSD-2-Clause&#10;</pre>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#abstract"><span class="tocnumber">1</span> <span class="toctext">Abstract</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#copyright"><span class="tocnumber">2</span> <span class="toctext">Copyright</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#motivation"><span class="tocnumber">3</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#specification"><span class="tocnumber">4</span> <span class="toctext">Specification</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#signature-operation-limits-for-scriptcheck"><span class="tocnumber">4.1</span> <span class="toctext">Signature operation limits for scriptCheck</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#rationale"><span class="tocnumber">5</span> <span class="toctext">Rationale</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#backwards-compatibility"><span class="tocnumber">6</span> <span class="toctext">Backwards Compatibility</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#forwards-compatibility"><span class="tocnumber">7</span> <span class="toctext">Forwards Compatibility</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#reference-implementation"><span class="tocnumber">8</span> <span class="toctext">Reference Implementation</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#see-also"><span class="tocnumber">9</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
 <div class="mw-heading mw-heading2"><h2 id="abstract">Abstract</h2></div>
 <p>This BIP modifies the basic format of transaction inputs and outputs, replacing the current scriptSig and scriptPubKey (scripts executed to validate a transaction) with new contents: dataSig, scriptCheck, and hashScriptCheck.
 </p>

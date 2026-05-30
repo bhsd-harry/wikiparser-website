@@ -9,8 +9,47 @@
 </head>
 <body>
 	<main>
-		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external" href="https://en.bitcoin.it/wiki/BIP_0021">BIP 0021</a> article at <a rel="nofollow" class="external" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
+		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0021">BIP 0021</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
 <pre>&#10;  BIP: 21&#10;  Layer: Applications&#10;  Title: URI Scheme&#10;  Authors: Nils Schneider &lt;nils.schneider@gmail.com&gt;&#10;           Matt Corallo &lt;bip21@bluematt.me&gt;&#10;  Status: Closed&#10;  Type: Specification&#10;  Assigned: 2012-01-29&#10;  Replaces: 20&#10;  Proposed-Replacement: 321&#10;</pre>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#superseded-by-bip-321"><span class="tocnumber">1</span> <span class="toctext">Superseded by BIP 321</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#original-bip"><span class="tocnumber">2</span> <span class="toctext">Original BIP</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#abstract"><span class="tocnumber">2.1</span> <span class="toctext">Abstract</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#motivation"><span class="tocnumber">2.2</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#specification"><span class="tocnumber">2.3</span> <span class="toctext">Specification</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#general-rules-for-handling-important"><span class="tocnumber">2.3.1</span> <span class="toctext">General rules for handling (important!)</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#operating-system-integration"><span class="tocnumber">2.3.2</span> <span class="toctext">Operating system integration</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#general-format"><span class="tocnumber">2.3.3</span> <span class="toctext">General Format</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#abnf-grammar"><span class="tocnumber">2.3.4</span> <span class="toctext">ABNF grammar</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#query-keys"><span class="tocnumber">2.3.5</span> <span class="toctext">Query Keys</span></a>
+<ul>
+<li class="toclevel-4 tocsection-11"><a href="#transfer-amount"><span class="tocnumber">2.3.5.1</span> <span class="toctext">Transfer amount</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#rationale"><span class="tocnumber">2.4</span> <span class="toctext">Rationale</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="#payment-identifiers-not-person-identifiers"><span class="tocnumber">2.4.1</span> <span class="toctext">Payment identifiers, not person identifiers</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#accessibility-uri-scheme-name"><span class="tocnumber">2.4.2</span> <span class="toctext">Accessibility (URI scheme name)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-15"><a href="#forward-compatibility"><span class="tocnumber">2.5</span> <span class="toctext">Forward compatibility</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#backward-compatibility"><span class="tocnumber">2.6</span> <span class="toctext">Backward compatibility</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#appendix"><span class="tocnumber">2.7</span> <span class="toctext">Appendix</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="#simpler-syntax"><span class="tocnumber">2.7.1</span> <span class="toctext">Simpler syntax</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#examples"><span class="tocnumber">2.7.2</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="#reference-implementation"><span class="tocnumber">2.8</span> <span class="toctext">Reference Implementation</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="mw-heading mw-heading1"><h1 id="superseded-by-bip-321">Superseded by BIP 321</h1></div>
 <p>This BIP has been superseded and replaced with BIP 321. Please see <a href="/wikiparser-website/bips/Bip-0321.mediawiki.html" title="Bip-0321.mediawiki" class="new">BIP 321</a> instead.
 </p>
@@ -32,8 +71,8 @@ They SHOULD require the user to manually approve each payment individually, thou
 <p>Graphical bitcoin clients SHOULD register themselves as the handler for the "bitcoin:" URI scheme by default, if no other handler is already registered. If there is already a registered handler, they MAY prompt the user to change it once when they first run the client.
 </p>
 <div class="mw-heading mw-heading3"><h3 id="general-format">General Format</h3></div>
-<p>Bitcoin URIs follow the general format for URIs as set forth in <a class="external" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc3986">RFC 3986</a>. The path component consists of a bitcoin address, and the query component provides additional payment options.
-</p><p>Elements of the query component may contain characters outside the valid range. These must first be encoded according to UTF-8, and then each octet of the corresponding UTF-8 sequence must be percent-encoded as described in <a class="external" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc3986">RFC 3986</a>.
+<p>Bitcoin URIs follow the general format for URIs as set forth in <a class="external mw-magiclink-rfc" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc3986">RFC 3986</a>. The path component consists of a bitcoin address, and the query component provides additional payment options.
+</p><p>Elements of the query component may contain characters outside the valid range. These must first be encoded according to UTF-8, and then each octet of the corresponding UTF-8 sequence must be percent-encoded as described in <a class="external mw-magiclink-rfc" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc3986">RFC 3986</a>.
 </p>
 <div class="mw-heading mw-heading3"><h3 id="abnf-grammar">ABNF grammar</h3></div>
 <p>(See also <a href="#simpler-syntax">a simpler representation of syntax</a>)
@@ -48,7 +87,7 @@ messageparam   = "message=" *qchar
 otherparam     = qchar *qchar [ "=" *qchar ]
 reqparam       = "req-" qchar *qchar [ "=" *qchar ]
 </pre>
-<p>Here, "qchar" corresponds to valid characters of an <a class="external" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc3986">RFC 3986</a> URI query component, excluding the "=" and "&" characters, which this BIP takes as separators.
+<p>Here, "qchar" corresponds to valid characters of an <a class="external mw-magiclink-rfc" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc3986">RFC 3986</a> URI query component, excluding the "=" and "&" characters, which this BIP takes as separators.
 </p><p>The scheme component ("bitcoin:") is case-insensitive, and implementations must accept any combination of uppercase and lowercase letters. The rest of the URI is case-sensitive, including the query parameter keys.
 </p>
 <div class="mw-heading mw-heading3"><h3 id="query-keys">Query Keys</h3></div>

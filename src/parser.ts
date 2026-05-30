@@ -22,7 +22,7 @@ declare abstract class PrivateLinkToken extends LinkTokenBase { // eslint-disabl
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare abstract class PrivateHeadingToken extends HeadingToken {
-	toHtmlInternal(): string;
+	getRenderedId(): string;
 }
 
 /**
@@ -57,7 +57,7 @@ export default (dir: string, cfg: string): typeof Parser => {
 	const templatestyles = new WeakMap<Token, Set<string>>();
 	Parser.setHook('templatestyles', token => {
 		const src = token.getAttr('src');
-		if (!src || src === true) {
+		if (!src) {
 			return '<strong class="error">TemplateStyles\' <code>src</code> attribute must not be empty.</strong>';
 		}
 		const page = Parser.normalizeTitle(src, 10),
@@ -218,15 +218,11 @@ export default (dir: string, cfg: string): typeof Parser => {
 	if (cfg === 'github') {
 		// @ts-expect-error private method
 		const {HeadingToken}: {HeadingToken: typeof PrivateHeadingToken} = Parser.require('./src/heading');
-		const f2 = HeadingToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
-		HeadingToken.prototype.toHtmlInternal = function(): string {
-			const html = f2.call(this);
-			return html.replace(
-				/(?<= id=")[^"]+/u,
-				m => m.replaceAll(/&amp;|\W/gu, '')
-					.replaceAll('_', '-')
-					.toLowerCase(),
-			);
+		const f2 = HeadingToken.prototype.getRenderedId; // eslint-disable-line @typescript-eslint/unbound-method
+		HeadingToken.prototype.getRenderedId = function(): string {
+			return f2.call(this).replaceAll(/&amp;|\W/gu, '')
+				.replaceAll('_', '-')
+				.toLowerCase();
 		};
 	}
 

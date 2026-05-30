@@ -179,6 +179,58 @@ blockquote {
 p + ul, p + ol, p + table, p + dl, p + blockquote {
 	margin-top: -.5em;
 }
+.toc {
+	display: table;
+	padding: 7px;
+	background-color: #f8f9fa;
+	border: 1px solid #a2a9b1;
+	font-size: 95%;
+}
+.toctitle {
+	text-align: center;
+}
+.toc h2 {
+	display: inline;
+	border: 0;
+	font-size: 100%;
+	font-weight: bold;
+}
+.toctogglespan {
+	font-size: 94%;
+}
+.toctogglespan::before {
+	content: " [";
+}
+.toctogglespan::after {
+	content: "]";
+}
+.toctogglelabel {
+	color: #0645ad;
+	cursor: pointer;
+}
+.toctogglelabel:hover {
+	text-decoration: underline;
+}
+.toctogglelabel::after {
+	content: "hide";
+}
+.toctogglecheckbox:checked + .toctitle .toctogglelabel::after {
+	content: "show";
+}
+.toc ul {
+	list-style: none;
+	margin: .3em 0;
+}
+.toctogglecheckbox:checked ~ ul {
+	display: none;
+}
+.tocnumber {
+	padding-right: .5em;
+	color: #202122;
+}
+.tocnumber, .toctext {
+	display: table-cell;
+}
 .wikitable {
 	background-color: #f8f9fa;
 	color: #202122;
@@ -313,45 +365,6 @@ figure[typeof~="mw:File/Frame"] > figcaption {
 	overflow-wrap: anywhere;
 	padding: 0 6px 6px;
 }
-.toc {
-	display: table;
-	padding: 7px;
-	background-color: #f8f9fa;
-	border: 1px solid #a2a9b1;
-	font-size: 95%;
-}
-.toctitle {
-	text-align: center;
-}
-.toc h2 {
-	display: inline;
-	border: 0;
-	font-size: 100%;
-	font-weight: bold;
-}
-.toctogglespan {
-	font-size: 94%;
-}
-.toctogglespan::before {
-	content: " [";
-}
-.toctogglespan::after {
-	content: "]";
-}
-.toctogglelabel::after {
-	content: "隐藏";
-}
-.toc ul {
-	list-style: none;
-	margin: .3em 0;
-}
-.tocnumber {
-	padding-right: .5em;
-	color: #202122;
-}
-.tocnumber, .toctext {
-	display: table-cell;
-}
 ul.gallery {
 	margin: 2px;
 	padding: 2px;
@@ -451,6 +464,45 @@ span.linenos {
 	margin-left: -3.5em;
 	padding-left: 3.5em;
 }
+
+sup.reference {
+	unicode-bidi: isolate;
+	white-space: nowrap;
+	font-weight: normal;
+	font-style: normal;
+}
+.mw-references-columns {
+	column-width: 27em;
+	margin-top: .3em;
+}
+ol.references {
+	counter-reset: mw-references list-item; /* stylelint-disable-line plugin/use-baseline */
+}
+.mw-references-columns .references {
+	margin-top: 0;
+}
+.mw-references-columns li {
+	break-inside: avoid-column;
+}
+ol.references > li {
+	counter-increment: mw-references;
+}
+ol.references li:target, sup.reference:target {
+	background-color: #e8eeff;
+}
+.mw-cite-backlink {
+	-webkit-user-select: none;
+	user-select: none;
+}
+.mw-cite-dir-ltr .reference-text {
+	direction: ltr;
+	unicode-bidi: embed;
+}
+.mw-cite-dir-rtl .reference-text {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
 #catlinks {
 	text-align: left;
 }
