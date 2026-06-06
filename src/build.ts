@@ -1,5 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import assert from 'assert';
+import {JSDOM} from 'jsdom';
+import createDOMPurify from 'dompurify';
 import {profile} from '@bhsd/nodejs';
 import getParser from './parser';
 import type {Token} from 'wikiparser-node';
@@ -11,6 +14,41 @@ const hasArg = args.length > 0,
 	expandedDir = path.join('expanded', dir),
 	Parser = getParser(dir, cfg);
 args = hasArg ? args.map(file => path.basename(file)) : fs.readdirSync(Parser.templateDir!);
+
+// 使用DOMPurify检查渲染结果的安全性，防止XSS攻击
+const {window} = new JSDOM(''),
+	DOMPurify = createDOMPurify(window);
+
+/**
+ * 检查HTML字符串是否安全
+ * @param render HTML字符串
+ * @param page 页面名称（用于错误信息）
+ */
+const purify = (render: string, page: string): void => {
+	DOMPurify.sanitize(new JSDOM(render).window.document.body.innerHTML, {
+		ALLOWED_URI_REGEXP:
+			/^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp|bitcoin):|[^a-z]|[a-z+.-]+(?:[^a-z+.\-:]|$))/iu,
+	});
+	assert.deepStrictEqual(
+		DOMPurify.removed.map(item => {
+			if ('element' in item) {
+				const ele = item.element as Element;
+				return ele.outerHTML;
+			}
+			const {attribute, from} = item;
+			if (!attribute) {
+				return item;
+			}
+			const {name, value} = attribute;
+			return !(
+				name === 'typeof' && /^mw:File(?:\/\w+)?$/u.test(value)
+				|| name === 'id' && /^H[1-6]$/u.test((from as Element).tagName)
+			) && {[name]: value};
+		}).filter(Boolean),
+		[],
+		`Unsafe HTML detected in ${page}`,
+	);
+};
 
 if (!fs.existsSync(dir)) {
 	fs.mkdirSync(dir);
@@ -63,6 +101,7 @@ const render = (page: string, title: string, root: Token): void => {
 </body>
 </html>`;
 	/* eslint-enable @stylistic/max-len */
+	purify(html, page);
 	fs.writeFileSync(`${page}.html`, html);
 	console.timeEnd(label);
 };
