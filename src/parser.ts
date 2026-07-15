@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-top-level-side-effects */
 import fs from 'fs';
 import path from 'path';
 import {execSync} from 'child_process';
@@ -132,8 +133,9 @@ export default (dir: string, cfg: string): typeof Parser => {
 	 * @param s string to convert
 	 * @param num whether to treat as a number
 	 */
-	const toLuaString = (s: string, num?: boolean): string =>
-		num && Number.isInteger(Number(s)) ? s : JSON.stringify(s).replaceAll(String.raw`\u0000`, String.raw`\u{0000}`);
+	const toLuaString = (s: string, num?: boolean): string => num && Number.isSafeInteger(Number(s))
+		? s
+		: JSON.stringify(s).replaceAll(String.raw`\u0000`, String.raw`\u{0000}`);
 
 	/**
 	 * Convert frame to Lua table string.
@@ -175,6 +177,7 @@ export default (dir: string, cfg: string): typeof Parser => {
 
 	// Override file URLs
 	// @ts-expect-error private method
+	// eslint-disable-next-line unicorn/no-unused-properties
 	const {Title}: {Title: typeof TitleBase} = Parser.require('./lib/title');
 	Title.prototype.getFileUrl = function(): string {
 		return this.getUrl();
@@ -182,6 +185,7 @@ export default (dir: string, cfg: string): typeof Parser => {
 
 	// Render red links with "new" class
 	// @ts-expect-error private method
+	// eslint-disable-next-line unicorn/no-unused-properties
 	const {LinkBaseToken}: {LinkBaseToken: typeof PrivateLinkToken} = Parser.require('./src/link/base');
 	const linkTypes = new Set(['link', 'category', 'redirect-target']),
 		f1 = LinkBaseToken.prototype.toHtmlInternal; // eslint-disable-line @typescript-eslint/unbound-method
@@ -217,6 +221,7 @@ export default (dir: string, cfg: string): typeof Parser => {
 	// Override section anchors
 	if (cfg === 'github') {
 		// @ts-expect-error private method
+		// eslint-disable-next-line unicorn/no-unused-properties
 		const {HeadingToken}: {HeadingToken: typeof PrivateHeadingToken} = Parser.require('./src/heading');
 		const f2 = HeadingToken.prototype.getRenderedId; // eslint-disable-line @typescript-eslint/unbound-method
 		HeadingToken.prototype.getRenderedId = function(): string {
