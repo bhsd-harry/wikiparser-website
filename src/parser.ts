@@ -205,15 +205,14 @@ export default (dir: string, cfg: string): typeof Parser => {
 					m => m.replace(/(?=$|#)/u, '.html'),
 				);
 			}
-			if (selfLink || fs.existsSync(getFile(dir, link))) {
-				return html;
-			}
-			return html.replace(
-				/<a [^>]+/u,
-				m => m.includes(' class="')
-					? m.replace(' class="', ' class="new ')
-					: `${m} class="new"`,
-			);
+			return selfLink || fs.existsSync(getFile(dir, link))
+				? html
+				: html.replace(
+					/<a [^>]+/u,
+					m => m.includes(' class="')
+						? m.replace(' class="', ' class="new ')
+						: `${m} class="new"`,
+				);
 		}
 		return '';
 	};
