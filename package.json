@@ -14,24 +14,25 @@
 		"build:html": "node dist/build.js && node dist/build.js bips github",
 		"build": "npm run build:core && npm run build:html",
 		"server": "npm run test:end; http-server .. -c-1 --cors -s &",
-		"test:end": "pkill -x http-server"
+		"test:end": "pkill -x http-server",
+		"test": "echo 'This package has no tests.'"
 	},
 	"devDependencies": {
-		"@bhsd/code-standard": "^4.2.0",
+		"@bhsd/code-standard": "^4.3.0",
 		"@bhsd/nodejs": "^1.2.1",
 		"@types/jsdom": "^30.0.0",
-		"dompurify": "^3.4.15",
+		"dompurify": "^3.4.16",
 		"esbuild": "^0.28.2",
-		"eslint": "^10.11.0",
+		"eslint": "^10.12.0",
 		"http-server": "^14.1.1",
-		"jsdom": "^30.1.0",
+		"jsdom": "^30.1.1",
 		"katex": "^0.18.7",
 		"markdownlint-cli2": "^0.23.3",
 		"prism-wiki": "^2.3.1",
 		"prismjs": "^1.30.0",
-		"stylelint": "^17.15.0",
+		"stylelint": "^17.16.0",
 		"typescript": "^6.0.3",
-		"wikiparser-node": "^1.47.0"
+		"wikiparser-node": "^1.48.0"
 	},
 	"engines": {
 		"node": "^26.0.0"
