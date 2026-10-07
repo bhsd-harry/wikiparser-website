@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/no-top-level-side-effects */
 import fs from 'fs';
 import path from 'path';
-import {execSync} from 'child_process';
+import {execFileSync} from 'child_process';
 import esbuild from 'esbuild';
 import Parser from 'wikiparser-node';
 import type {
@@ -161,15 +161,18 @@ export default (dir: string, cfg: string): typeof Parser => {
 
 	// Hook to render `{{#invoke:}}`
 	Parser.setFunctionHook('invoke', (token, context) => {
-		const {module: m, function: f} = token,
-			p = path.join('wiki', dir, `${m}.lua`);
+		const {module: m, function: f} = token;
+		if (!f) {
+			return '<strong class="error">Script error: You must specify a function to call.</strong>';
+		}
+		const p = path.join('wiki', dir, `${m}.lua`);
 		if (fs.existsSync(p)) {
 			fs.writeFileSync(
 				'frame.lua',
 				`return {${frameToLuaTable(token.getFrame(context))}
 	}`,
 			);
-			return execSync(`lua Scribunto.lua "${p.slice(0, -4)}" "${f}"`, {encoding: 'utf8'})
+			return execFileSync('lua', ['Scribunto.lua', p.slice(0, -4), f], {encoding: 'utf8'})
 				.replace(/\n$/u, '');
 		}
 		return `<strong class="error">Script error: No such module "${m}".</strong>`;
