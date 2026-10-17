@@ -1,5 +1,7 @@
 import {node, extend} from '@bhsd/code-standard';
 
-export default extend(
+const config = extend(
 	...node,
 );
+
+export default config;
