@@ -78,7 +78,7 @@ export default (dir: string, cfg: string): typeof Parser => {
 				contentmodel
 			}").</strong>`;
 		}
-		const styles = templatestyles.getOrInsert(token.getRootNode(), new Set());
+		const styles = templatestyles.getOrInsertComputed(token.getRootNode(), () => new Set());
 		if (styles.has(src)) {
 			return '';
 		}
