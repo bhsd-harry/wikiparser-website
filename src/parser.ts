@@ -18,10 +18,9 @@ declare global {
 		escape(str: string): string;
 	}
 }
-declare abstract class PrivateLinkToken extends LinkTokenBase { // eslint-disable-line @typescript-eslint/no-unused-vars
+declare abstract class PrivateLinkToken extends LinkTokenBase {
 	toHtmlInternal(): string;
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare abstract class PrivateHeadingToken extends HeadingToken {
 	getRenderedId(): string;
 }

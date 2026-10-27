@@ -1,7 +1,7 @@
-import {node, extend} from '@bhsd/code-standard';
+import {node, extend, getOxlintConfig} from '@bhsd/code-standard';
 
-const config = extend(
+const config = getOxlintConfig(extend(
 	...node,
-);
+));
 
 export default config;
