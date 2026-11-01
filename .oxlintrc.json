@@ -586,6 +586,7 @@
 		}
 	],
 	"options": {
+		"denyWarnings": true,
 		"reportUnusedDisableDirectives": "warn",
 		"respectEslintDisableDirectives": false
 	}

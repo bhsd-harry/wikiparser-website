@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-top-level-side-effects */
 import fs from 'fs';
 import path from 'path';
 import {execFileSync} from 'child_process';

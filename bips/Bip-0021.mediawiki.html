@@ -10,8 +10,18 @@
 <body>
 	<main>
 		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0021">BIP 0021</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
-<pre>&#10;  BIP: 21&#10;  Layer: Applications&#10;  Title: URI Scheme&#10;  Authors: Nils Schneider &lt;nils.schneider@gmail.com&gt;&#10;           Matt Corallo &lt;bip21@bluematt.me&gt;&#10;  Status: Closed&#10;  Type: Specification&#10;  Assigned: 2012-01-29&#10;  Replaces: 20&#10;  Proposed-Replacement: 321&#10;</pre>
-<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<pre>  BIP: 21
+  Layer: Applications
+  Title: URI Scheme
+  Authors: Nils Schneider &lt;nils.schneider@gmail.com&gt;
+           Matt Corallo &lt;bip21@bluematt.me&gt;
+  Status: Closed
+  Type: Specification
+  Assigned: 2012-01-29
+  Replaces: 20
+  Proposed-Replacement: 321
+</pre>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
 <ul>
 <li class="toclevel-1 tocsection-1"><a href="#superseded-by-bip-321"><span class="tocnumber">1</span> <span class="toctext">Superseded by BIP 321</span></a></li>
 <li class="toclevel-1 tocsection-2"><a href="#original-bip"><span class="tocnumber">2</span> <span class="toctext">Original BIP</span></a>
@@ -79,7 +89,7 @@ They SHOULD require the user to manually approve each payment individually, thou
 </p>
 <pre>bitcoinurn     = "bitcoin:" bitcoinaddress [ "?" bitcoinparams ]
 bitcoinaddress = *base58
-bitcoinparams  = bitcoinparam [ "&" bitcoinparams ]
+bitcoinparams  = bitcoinparam [ "&amp;" bitcoinparams ]
 bitcoinparam   = [ amountparam / labelparam / messageparam / otherparam / reqparam ]
 amountparam    = "amount=" *digit [ "." *digit ]
 labelparam     = "label=" *qchar
@@ -87,7 +97,7 @@ messageparam   = "message=" *qchar
 otherparam     = qchar *qchar [ "=" *qchar ]
 reqparam       = "req-" qchar *qchar [ "=" *qchar ]
 </pre>
-<p>Here, "qchar" corresponds to valid characters of an <a class="external mw-magiclink-rfc" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc3986">RFC 3986</a> URI query component, excluding the "=" and "&" characters, which this BIP takes as separators.
+<p>Here, "qchar" corresponds to valid characters of an <a class="external mw-magiclink-rfc" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc3986">RFC 3986</a> URI query component, excluding the "=" and "&amp;" characters, which this BIP takes as separators.
 </p><p>The scheme component ("bitcoin:") is case-insensitive, and implementations must accept any combination of uppercase and lowercase letters. The rest of the URI is case-sensitive, including the query parameter keys.
 </p>
 <div class="mw-heading mw-heading3"><h3 id="query-keys">Query Keys</h3></div>
@@ -140,19 +150,19 @@ Please see the BNF grammar above for the normative syntax.
 </pre>
 <p>Request 20.30 BTC to "Luke-Jr":
 </p>
-<pre><a rel="nofollow" class="external free" href="bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&label=Luke-Jr">bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&label=Luke-Jr</a>
+<pre><a rel="nofollow" class="external free" href="bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&amp;label=Luke-Jr">bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&amp;label=Luke-Jr</a>
 </pre>
 <p>Request 50 BTC with message:
 </p>
-<pre><a rel="nofollow" class="external free" href="bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=50&label=Luke-Jr&message=Donation%20for%20project%20xyz">bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=50&label=Luke-Jr&message=Donation%20for%20project%20xyz</a>
+<pre><a rel="nofollow" class="external free" href="bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=50&amp;label=Luke-Jr&amp;message=Donation%20for%20project%20xyz">bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=50&amp;label=Luke-Jr&amp;message=Donation%20for%20project%20xyz</a>
 </pre>
 <p>Some future version that has variables which are (currently) not understood and required and thus invalid:
 </p>
-<pre><a rel="nofollow" class="external free" href="bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?req-somethingyoudontunderstand=50&req-somethingelseyoudontget=999">bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?req-somethingyoudontunderstand=50&req-somethingelseyoudontget=999</a>
+<pre><a rel="nofollow" class="external free" href="bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?req-somethingyoudontunderstand=50&amp;req-somethingelseyoudontget=999">bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?req-somethingyoudontunderstand=50&amp;req-somethingelseyoudontget=999</a>
 </pre>
 <p>Some future version that has variables which are (currently) not understood but not required and thus valid:
 </p>
-<pre><a rel="nofollow" class="external free" href="bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?somethingyoudontunderstand=50&somethingelseyoudontget=999">bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?somethingyoudontunderstand=50&somethingelseyoudontget=999</a>
+<pre><a rel="nofollow" class="external free" href="bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?somethingyoudontunderstand=50&amp;somethingelseyoudontget=999">bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?somethingyoudontunderstand=50&amp;somethingelseyoudontget=999</a>
 </pre>
 <p>Characters must be URI encoded properly.
 </p>

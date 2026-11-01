@@ -10,8 +10,18 @@
 <body>
 	<main>
 		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0009">BIP 0009</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
-<pre>&#10;  BIP: 9&#10;  Title: Version bits with timeout and delay&#10;  Authors: Pieter Wuille &lt;pieter.wuille@gmail.com&gt;&#10;           Peter Todd &lt;pete@petertodd.org&gt;&#10;           Greg Maxwell &lt;greg@xiph.org&gt;&#10;           Rusty Russell &lt;rusty@rustcorp.com.au&gt;&#10;  Status: Deployed&#10;  Type: Informational&#10;  Assigned: 2015-10-04&#10;  License: PD&#10;</pre>
-<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<pre>  BIP: 9
+  Title: Version bits with timeout and delay
+  Authors: Pieter Wuille &lt;pieter.wuille@gmail.com&gt;
+           Peter Todd &lt;pete@petertodd.org&gt;
+           Greg Maxwell &lt;greg@xiph.org&gt;
+           Rusty Russell &lt;rusty@rustcorp.com.au&gt;
+  Status: Deployed
+  Type: Informational
+  Assigned: 2015-10-04
+  License: PD
+</pre>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
 <ul>
 <li class="toclevel-1 tocsection-1"><a href="#abstract"><span class="tocnumber">1</span> <span class="toctext">Abstract</span></a></li>
 <li class="toclevel-1 tocsection-2"><a href="#motivation"><span class="tocnumber">2</span> <span class="toctext">Motivation</span></a></li>
@@ -80,7 +90,7 @@ consensus rules.
 <p>The new consensus rules for each soft fork are enforced for each block that has ACTIVE state.
 </p>
 <div class="mw-heading mw-heading3"><h3 id="state-transitions">State transitions</h3></div>
-<p><img src="bip-0009/states.png"></img>
+<p><img src="bip-0009/states.png">
 </p><p>The genesis block has state DEFINED for each deployment, by definition.
 </p>
 <pre>   State GetStateForBlock(block) {
@@ -129,7 +139,7 @@ other one simultaneously transitions to STARTED, which would mean both would dem
            walk = block;
            for (i = 0; i &lt; 2016; i++) {
                walk = walk.parent;
-               if (walk.nVersion & 0xE0000000 == 0x20000000 && (walk.nVersion &gt;&gt; bit) & 1 == 1) {
+               if (walk.nVersion &amp; 0xE0000000 == 0x20000000 &amp;&amp; (walk.nVersion &gt;&gt; bit) &amp; 1 == 1) {
                    count++;
                }
            }
@@ -162,7 +172,7 @@ it is possible to implement the mechanism above efficiently and safely by cachin
 block, indexed by its parent.
 </p>
 <div class="mw-heading mw-heading3"><h3 id="warning-mechanism">Warning mechanism</h3></div>
-<p>To support upgrade warnings, an extra "unknown upgrade" is tracked, using the "implicit bit" mask = (block.nVersion & ~expectedVersion) != 0. Mask will be non-zero whenever an unexpected bit is set in nVersion.  Whenever LOCKED_IN for the unknown upgrade is detected, the software should warn loudly about the upcoming soft fork. It should warn even more loudly after the next retarget period (when the unknown upgrade is in the ACTIVE state).
+<p>To support upgrade warnings, an extra "unknown upgrade" is tracked, using the "implicit bit" mask = (block.nVersion &amp; ~expectedVersion) != 0. Mask will be non-zero whenever an unexpected bit is set in nVersion.  Whenever LOCKED_IN for the unknown upgrade is detected, the software should warn loudly about the upcoming soft fork. It should warn even more loudly after the next retarget period (when the unknown upgrade is in the ACTIVE state).
 </p>
 <div class="mw-heading mw-heading3"><h3 id="getblocktemplate-changes">getblocktemplate changes</h3></div>
 <p>The template request Object is extended to include a new item:
@@ -229,7 +239,7 @@ The 1916 threshold (based on BIP 34's 95%) does not have to be maintained for et
 </p><p><b>Conflicting soft forks</b>
 At some point, two mutually exclusive soft forks may be proposed. The naive way to deal with this is to never create software that implements both, but that is making a bet that at least one side is guaranteed to lose. Better would be to encode "soft fork X cannot be locked-in" as consensus rule for the conflicting soft fork - allowing software that supports both, but can never trigger conflicting changes.
 </p><p><b>Multi-stage soft forks</b>
-Soft forks right now are typically treated as booleans: they go from an inactive to an active state in blocks. Perhaps at some point there is demand for a change that has a larger number of stages, with additional validation rules that get enabled one by one. The above mechanism can be adapted to support this, by interpreting a combination of bits as an integer, rather than as isolated bits. The warning system is compatible with this, as (nVersion & ~nExpectedVersion) will always be non-zero for increasing integers.
+Soft forks right now are typically treated as booleans: they go from an inactive to an active state in blocks. Perhaps at some point there is demand for a change that has a larger number of stages, with additional validation rules that get enabled one by one. The above mechanism can be adapted to support this, by interpreting a combination of bits as an integer, rather than as isolated bits. The warning system is compatible with this, as (nVersion &amp; ~nExpectedVersion) will always be non-zero for increasing integers.
 </p>
 <div class="mw-heading mw-heading2"><h2 id="rationale">Rationale</h2></div>
 <p>The failure timeout allows eventual reuse of bits even if a soft fork was

@@ -50,12 +50,8 @@ const purify = (render: string, page: string): void => {
 	);
 };
 
-if (!fs.existsSync(dir)) {
-	fs.mkdirSync(dir);
-}
-if (!fs.existsSync(expandedDir)) {
-	fs.mkdirSync(expandedDir);
-}
+fs.mkdirSync(dir, {recursive: true});
+fs.mkdirSync(expandedDir, {recursive: true});
 
 /**
  * Render a page to an HTML file.

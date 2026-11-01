@@ -10,10 +10,19 @@
 <body>
 	<main>
 		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0020">BIP 0020</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
-<pre>&#10;  BIP: 20&#10;  Layer: Applications&#10;  Title: URI Scheme&#10;  Authors: Luke Dashjr &lt;luke+bip@dashjr.org&gt;&#10;  Status: Closed&#10;  Type: Specification&#10;  Assigned: 2011-01-10&#10;  License: BSD-2-Clause&#10;  Proposed-Replacement: 21&#10;</pre>
+<pre>  BIP: 20
+  Layer: Applications
+  Title: URI Scheme
+  Authors: Luke Dashjr &lt;luke+bip@dashjr.org&gt;
+  Status: Closed
+  Type: Specification
+  Assigned: 2011-01-10
+  License: BSD-2-Clause
+  Proposed-Replacement: 21
+</pre>
 <p>BIP 0020 is based off an earlier document by Nils Schneider. <b>And has been replaced by BIP 0021</b>
 </p>
-<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
 <ul>
 <li class="toclevel-1 tocsection-1"><a href="#abstract"><span class="tocnumber">1</span> <span class="toctext">Abstract</span></a></li>
 <li class="toclevel-1 tocsection-2"><a href="#copyright"><span class="tocnumber">2</span> <span class="toctext">Copyright</span></a></li>
@@ -135,7 +144,8 @@ Make it possible for later generations to improve our work, to mend our errors, 
 Please see the <a href="#bnf-grammar">BNF grammar</a> above for the normative syntax.
 </p><p>[foo] means optional, &lt;bar&gt; are placeholders
 </p>
-<pre>&#10; bitcoin:&lt;address&gt;[;version=1.0][?amount=&lt;amount&gt;][?label=&lt;label&gt;][?message=&lt;message&gt;][?send=&lt;private key&gt;]&#10;</pre>
+<pre> bitcoin:&lt;address&gt;[;version=1.0][?amount=&lt;amount&gt;][?label=&lt;label&gt;][?message=&lt;message&gt;][?send=&lt;private key&gt;]
+</pre>
 <div class="mw-heading mw-heading3"><h3 id="examples">Examples</h3></div>
 <p>Just the address:
 </p>
@@ -147,7 +157,7 @@ Please see the <a href="#bnf-grammar">BNF grammar</a> above for the normative sy
 </pre>
 <p>Request 20.30 BTC to "Luke-Jr":
 </p>
-<pre><a rel="nofollow" class="external free" href="bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=20.3X8&label=Luke-Jr">bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=20.3X8&label=Luke-Jr</a>
+<pre><a rel="nofollow" class="external free" href="bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=20.3X8&amp;label=Luke-Jr">bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=20.3X8&amp;label=Luke-Jr</a>
 </pre>
 <p>Request 400 TBC:
 </p>
@@ -163,24 +173,27 @@ Please see the <a href="#bnf-grammar">BNF grammar</a> above for the normative sy
 </pre>
 <p>Request 50 BTC with message:
 </p>
-<pre><a rel="nofollow" class="external free" href="bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=50X8&label=Luke-Jr&message=Donation%20for%20project%20xyz">bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=50X8&label=Luke-Jr&message=Donation%20for%20project%20xyz</a>
+<pre><a rel="nofollow" class="external free" href="bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=50X8&amp;label=Luke-Jr&amp;message=Donation%20for%20project%20xyz">bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=50X8&amp;label=Luke-Jr&amp;message=Donation%20for%20project%20xyz</a>
 </pre>
 <p>Send 1 BTC:
 </p>
-<pre><a rel="nofollow" class="external free" href="bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=1X8&send=S4b3N3oGqDqR5jNuxEvDwf">bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=1X8&send=S4b3N3oGqDqR5jNuxEvDwf</a>
+<pre><a rel="nofollow" class="external free" href="bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=1X8&amp;send=S4b3N3oGqDqR5jNuxEvDwf">bitcoin:1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L?amount=1X8&amp;send=S4b3N3oGqDqR5jNuxEvDwf</a>
 </pre>
 <p>Characters must be URI encoded properly.
 </p>
 <div class="mw-heading mw-heading3"><h3 id="sending-money-via-private-key">Sending money via private key</h3></div>
 <p>To send a payment to someone else first construct a new keypair. You may want to use a <a href="/wikiparser-website/bips/Mini_private_key_format.html" title="Mini private key format" class="new">mini private key format</a>, or you may also use a full private key for more security depending on the amount being sent and how long you expect to pass before a claim. Now create and publish a transaction with an output of the amount you wish to send. Use this script in that output:
 </p>
-<pre>&#10; &lt;pubkey&gt; OP_CHECKSIG&#10;</pre>
+<pre> &lt;pubkey&gt; OP_CHECKSIG
+</pre>
 <p>Construct an address from the public key. Encode the URI as below:
 </p>
-<pre>&#10; bitcoin:&lt;address&gt;?send=&lt;base 58 encoded private key&gt;&#10;</pre>
+<pre> bitcoin:&lt;address&gt;?send=&lt;base 58 encoded private key&gt;
+</pre>
 <p>You may optionally include amount or message fields as well. In a wallet to claim money sent this way search for an incoming transaction with the output script form above, where &lt;address&gt; matches the public key in the script. When you find the transaction create a claim transaction with an input script of this form:
 </p>
-<pre>&#10; &lt;sig&gt;&#10;</pre>
+<pre> &lt;sig&gt;
+</pre>
 <p>This claims the money you were sent. Until your claim transaction has confirmed the sender may take their money back.
 </p>
 <div class="mw-heading mw-heading2"><h2 id="reference-implementations">Reference Implementations</h2></div>
@@ -188,11 +201,66 @@ Please see the <a href="#bnf-grammar">BNF grammar</a> above for the normative sy
 <ul><li><a href="/wikiparser-website/bips/Spesmilo.html" title="Spesmilo" class="new">Spesmilo</a> supports all valid Bitcoin URIs, with Windows and KDE integration</li></ul>
 <div class="mw-heading mw-heading3"><h3 id="parsing-amount">Parsing amount</h3></div>
 <div class="mw-heading mw-heading4"><h4 id="ecmascript">ECMAScript</h4></div>
-<pre>&#10; reAmount = /^(([\d.]+)(X(\d+))?|x([\da-f]*)(\.([\da-f]*))?(X([\da-f]+))?)$/i;&#10; function parseAmount(txt) {&#10;    var m = txt.match(reAmount);&#10;    return m[5] ? (&#10;        (&#10;            parseInt(m[5], 16) +&#10;            (m[7] ? (parseInt(m[7], 16) * Math.pow(16, -(m[7].length))) : 0)&#10;        ) * (&#10;            m[9] ? Math.pow(16, parseInt(m[9], 16)) : 0x10000&#10;        )&#10;    ) : (&#10;            m[2]&#10;        *&#10;            (m[4] ? Math.pow(10, m[4]) : 1e8)&#10;    );&#10; }&#10;</pre>
+<pre> reAmount = /^(([\d.]+)(X(\d+))?|x([\da-f]*)(\.([\da-f]*))?(X([\da-f]+))?)$/i;
+ function parseAmount(txt) {
+    var m = txt.match(reAmount);
+    return m[5] ? (
+        (
+            parseInt(m[5], 16) +
+            (m[7] ? (parseInt(m[7], 16) * Math.pow(16, -(m[7].length))) : 0)
+        ) * (
+            m[9] ? Math.pow(16, parseInt(m[9], 16)) : 0x10000
+        )
+    ) : (
+            m[2]
+        *
+            (m[4] ? Math.pow(10, m[4]) : 1e8)
+    );
+ }
+</pre>
 <div class="mw-heading mw-heading4"><h4 id="python">Python</h4></div>
-<pre>&#10; m = re.match(r'^(([\d.]+)(X(\d+))?|x([\da-f]*)(\.([\da-f]*))?(X([\da-f]+))?)$', amount, re.IGNORECASE)&#10; if m.group(5):&#10;     amount = float(int(m.group(5), 16))&#10;     if m.group(7):&#10;         amount += float(int(m.group(7), 16)) * pow(16, -(len(m.group(7))))&#10;     if m.group(9):&#10;         amount *= pow(16, int(m.group(9), 16))&#10;     else:&#10;         amount *= 0x10000&#10; else:&#10;     amount = Decimal(m.group(2))&#10;     if m.group(4):&#10;         amount *= 10 ** int(m.group(4))&#10;     else:&#10;         amount *= 100000000&#10;</pre>
+<pre> m = re.match(r'^(([\d.]+)(X(\d+))?|x([\da-f]*)(\.([\da-f]*))?(X([\da-f]+))?)$', amount, re.IGNORECASE)
+ if m.group(5):
+     amount = float(int(m.group(5), 16))
+     if m.group(7):
+         amount += float(int(m.group(7), 16)) * pow(16, -(len(m.group(7))))
+     if m.group(9):
+         amount *= pow(16, int(m.group(9), 16))
+     else:
+         amount *= 0x10000
+ else:
+     amount = Decimal(m.group(2))
+     if m.group(4):
+         amount *= 10 ** int(m.group(4))
+     else:
+         amount *= 100000000
+</pre>
 <div class="mw-heading mw-heading4"><h4 id="c">C#</h4></div>
-<pre>&#10; Regex amountExpression = new Regex(@"^(([\d.]+)(X(\d+))?|x([\da-f]*)(\.([\da-f]*))?(X([\da-f]+))?)$", RegexOptions.IgnoreCase);&#10; Match match = amountExpression.Match(value);&#10; if (match.Success)&#10; {&#10;     if (match.Groups[5].Success)&#10;     {&#10;         long hexDecimal = 0;&#10;         if (match.Groups[7].Success)&#10;             hexDecimal = Convert.ToInt64(match.Groups[7].Value, 16) * (long)Math.Pow(16, -match.Groups[7].Length);&#10;&#10;         long hexExponent = 0x10000;&#10;         if (match.Groups[9].Success)&#10;             hexExponent = (long)Math.Pow(16, Convert.ToInt32(match.Groups[9].Value, 16));&#10;&#10;         Amount = (Convert.ToInt64(match.Groups[5].Value, 16) + hexDecimal) * hexExponent;&#10;     }&#10;     else&#10;     {&#10;         long decimalExponent = 100000000;&#10;         if (match.Groups[4].Success)&#10;             decimalExponent = (long)Math.Pow(10, int.Parse(match.Groups[4].Value));&#10;         Amount = (long)(decimal.Parse(match.Groups[2].Value) * decimalExponent);&#10;     }&#10; }&#10;</pre></article>
+<pre> Regex amountExpression = new Regex(@"^(([\d.]+)(X(\d+))?|x([\da-f]*)(\.([\da-f]*))?(X([\da-f]+))?)$", RegexOptions.IgnoreCase);
+ Match match = amountExpression.Match(value);
+ if (match.Success)
+ {
+     if (match.Groups[5].Success)
+     {
+         long hexDecimal = 0;
+         if (match.Groups[7].Success)
+             hexDecimal = Convert.ToInt64(match.Groups[7].Value, 16) * (long)Math.Pow(16, -match.Groups[7].Length);
+
+         long hexExponent = 0x10000;
+         if (match.Groups[9].Success)
+             hexExponent = (long)Math.Pow(16, Convert.ToInt32(match.Groups[9].Value, 16));
+
+         Amount = (Convert.ToInt64(match.Groups[5].Value, 16) + hexDecimal) * hexExponent;
+     }
+     else
+     {
+         long decimalExponent = 100000000;
+         if (match.Groups[4].Success)
+             decimalExponent = (long)Math.Pow(10, int.Parse(match.Groups[4].Value));
+         Amount = (long)(decimal.Parse(match.Groups[2].Value) * decimalExponent);
+     }
+ }
+</pre></article>
 	</main>
 </body>
 </html>

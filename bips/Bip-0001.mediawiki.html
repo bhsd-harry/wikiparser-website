@@ -10,8 +10,15 @@
 <body>
 	<main>
 		<article><div style="font-size:small;margin-bottom:.5em">This article incorporates material derived from the <a rel="nofollow" class="external text" href="https://en.bitcoin.it/wiki/BIP_0001">BIP 0001</a> article at <a rel="nofollow" class="external text" href="https://en.bitcoin.it/">Bitcoin Wiki</a> under the <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC BY 3.0)</a>.</div>
-<pre>&#10;  BIP: 1&#10;  Title: BIP Purpose and Guidelines&#10;  Authors: Amir Taaki &lt;genjix@riseup.net&gt;&#10;  Status: Closed&#10;  Type: Process&#10;  Assigned: 2011-09-19&#10;  Proposed-Replacement: 2&#10;</pre>
-<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<pre>  BIP: 1
+  Title: BIP Purpose and Guidelines
+  Authors: Amir Taaki &lt;genjix@riseup.net&gt;
+  Status: Closed
+  Type: Process
+  Assigned: 2011-09-19
+  Proposed-Replacement: 2
+</pre>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
 <ul>
 <li class="toclevel-1 tocsection-1"><a href="#what-is-a-bip"><span class="tocnumber">1</span> <span class="toctext">What is a BIP?</span></a></li>
 <li class="toclevel-1 tocsection-2"><a href="#bip-types"><span class="tocnumber">2</span> <span class="toctext">BIP Types</span></a></li>
@@ -25,7 +32,7 @@
 </li>
 <li class="toclevel-1 tocsection-8"><a href="#transferring-bip-ownership"><span class="tocnumber">6</span> <span class="toctext">Transferring BIP Ownership</span></a></li>
 <li class="toclevel-1 tocsection-9"><a href="#bip-editors"><span class="tocnumber">7</span> <span class="toctext">BIP Editors</span></a></li>
-<li class="toclevel-1 tocsection-10"><a href="#bip-editor-responsibilities--workflow"><span class="tocnumber">8</span> <span class="toctext">BIP Editor Responsibilities & Workflow</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#bip-editor-responsibilities--workflow"><span class="tocnumber">8</span> <span class="toctext">BIP Editor Responsibilities &amp; Workflow</span></a></li>
 <li class="toclevel-1 tocsection-11"><a href="#history"><span class="tocnumber">9</span> <span class="toctext">History</span></a></li>
 <li class="toclevel-1 tocsection-12"><a href="#changelog"><span class="tocnumber">10</span> <span class="toctext">Changelog</span></a></li>
 </ul>
@@ -42,12 +49,12 @@
 <li>An Informational BIP describes a Bitcoin design issue, or provides general guidelines or information to the Bitcoin community, but does not propose a new feature. Informational BIPs do not necessarily represent a Bitcoin community consensus or recommendation, so users and implementers are free to ignore Informational BIPs or follow their advice.</li>
 <li>A Process BIP describes a process surrounding Bitcoin, or proposes a change to (or an event in) a process. Process BIPs are like Standards Track BIPs but apply to areas other than the Bitcoin protocol itself. They may propose an implementation, but not to Bitcoin's codebase; they often require community consensus; unlike Informational BIPs, they are more than recommendations, and users are typically not free to ignore them. Examples include procedures, guidelines, changes to the decision-making process, and changes to the tools or environment used in Bitcoin development. Any meta-BIP is also considered a Process BIP.</li></ul>
 <div class="mw-heading mw-heading2"><h2 id="bip-work-flow">BIP Work Flow</h2></div>
-<p>The BIP process begins with a new idea for Bitcoin. Each potential BIP must have a champion -- someone who writes the BIP using the style and format described below, shepherds the discussions in the appropriate forums, and attempts to build community consensus around the idea. The BIP champion (a.k.a. Author) should first attempt to ascertain whether the idea is BIP-able. Posting to the <a rel="nofollow" class="external text" href="https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev">bitcoin-dev@lists.linuxfoundation.org</a> mailing list (and maybe the <a rel="nofollow" class="external text" href="https://bitcointalk.org/index.php?board=6.0">Development & Technical Discussion</a> forum) is the best way to go about this.
+<p>The BIP process begins with a new idea for Bitcoin. Each potential BIP must have a champion -- someone who writes the BIP using the style and format described below, shepherds the discussions in the appropriate forums, and attempts to build community consensus around the idea. The BIP champion (a.k.a. Author) should first attempt to ascertain whether the idea is BIP-able. Posting to the <a rel="nofollow" class="external text" href="https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev">bitcoin-dev@lists.linuxfoundation.org</a> mailing list (and maybe the <a rel="nofollow" class="external text" href="https://bitcointalk.org/index.php?board=6.0">Development &amp; Technical Discussion</a> forum) is the best way to go about this.
 </p><p>Vetting an idea publicly before going as far as writing a BIP is meant to save both the potential author and the wider community time. Many ideas have been brought forward for changing Bitcoin that have been rejected for various reasons. Asking the Bitcoin community first if an idea is original helps prevent too much time being spent on something that is guaranteed to be rejected based on prior discussions (searching the internet does not always do the trick). It also helps to make sure the idea is applicable to the entire community and not just the author. Just because an idea sounds good to the author does not mean it will work for most people in most areas where Bitcoin is used. Small enhancements or patches often don't need standardisation between multiple projects; these don't need a BIP and should be injected into the relevant Bitcoin development work flow with a patch submission to the applicable Bitcoin issue tracker.
 </p><p>Once the champion has asked the Bitcoin community as to whether an idea has any chance of acceptance, a draft BIP should be presented to the <a rel="nofollow" class="external text" href="https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev">bitcoin-dev</a> mailing list. This gives the author a chance to flesh out the draft BIP to make it properly formatted, of high quality, and to address additional concerns about the proposal. Following a discussion, the proposal should be sent to the bitcoin-dev list and the BIP editor with the draft BIP. This draft must be written in BIP style as described below, else it will be sent back without further regard until proper formatting rules are followed.
 </p><p>BIP authors are responsible for collecting community feedback on both the initial idea and the BIP before submitting it for review. However, wherever possible, long open-ended discussions on public mailing lists should be avoided. Strategies to keep the discussions efficient include: setting up a separate SIG mailing list for the topic, having the BIP author accept private comments in the early design phases, setting up a wiki page or git repository, etc. BIP authors should use their discretion here.
 </p><p>It is highly recommended that a single BIP contain a single key proposal or new idea. The more focused the BIP, the more successful it tends to be. If in doubt, split your BIP into several well-focused ones.
-</p><p>The BIP editors assign BIP numbers and change their status. Please send all BIP-related email to the BIP editor, which is listed under <a href="#bip-editors">BIP Editors</a> below. Also see <a href="#bip-editor-responsibilities--workflow">BIP Editor Responsibilities & Workflow</a>. The BIP editor reserves the right to reject BIP proposals if they appear too unfocused or too broad.
+</p><p>The BIP editors assign BIP numbers and change their status. Please send all BIP-related email to the BIP editor, which is listed under <a href="#bip-editors">BIP Editors</a> below. Also see <a href="#bip-editor-responsibilities--workflow">BIP Editor Responsibilities &amp; Workflow</a>. The BIP editor reserves the right to reject BIP proposals if they appear too unfocused or too broad.
 </p><p>Authors MUST NOT self assign BIP numbers, but should use an alias such as "bip-johndoe-infinitebitcoins" which includes the author's name/nick and the BIP subject.
 </p><p>If the BIP editor approves, he will assign the BIP a number, label it as Standards Track, Informational, or Process, give it status "Draft", and add it to the BIPs git repository. The BIP editor will not unreasonably deny a BIP. Reasons for denying BIP status include duplication of effort, disregard for formatting rules, being too unfocused or too broad, being technically unsound, not providing proper motivation or addressing backwards compatibility, or not in keeping with the Bitcoin philosophy. For a BIP to be accepted it must meet certain minimum criteria. It must be a clear and complete description of the proposed enhancement. The enhancement must represent a net improvement. The proposed implementation, if applicable, must be solid and must not complicate the protocol unduly.
 </p><p>The BIP author may update the Draft as necessary in the git repository. Updates to drafts may also be submitted by the author as pull requests.
@@ -57,7 +64,7 @@
 </p><p>A BIP can also be "Rejected". Perhaps after all is said and done it was not a good idea. It is still important to have a record of this fact.
 </p><p>BIPs can also be superseded by a different BIP, rendering the original obsolete. This is intended for Informational BIPs, where version 2 of an API can replace version 1.
 </p><p>The possible paths of the status of BIPs are as follows:
-</p><p><img src="bip-0001/process.png"></img>
+</p><p><img src="bip-0001/process.png">
 </p><p>Some Informational and Process BIPs may also have a status of "Active" if they are never meant to be completed. E.g. BIP 1 (this BIP).
 </p>
 <div class="mw-heading mw-heading2"><h2 id="what-belongs-in-a-successful-bip">What belongs in a successful BIP?</h2></div>
@@ -79,7 +86,19 @@
 <div class="mw-heading mw-heading3"><h3 id="bip-header-preamble">BIP Header Preamble</h3></div>
 <p>Each BIP must begin with an <a class="external mw-magiclink-rfc" rel="nofollow" href="https://datatracker.ietf.org/doc/html/rfc822">RFC 822</a> style header preamble. The headers must appear in the following order. Headers marked with "*" are optional and are described below. All other headers are required.
 </p>
-<pre>&#10;  BIP: &lt;BIP number&gt;&#10;  Title: &lt;BIP title&gt;&#10;  Author: &lt;list of authors' real names and optionally, email addrs&gt;&#10;* Discussions-To: &lt;email address&gt;&#10;  Status: &lt;Draft | Active | Accepted | Deferred | Rejected |&#10;           Withdrawn | Final | Superseded&gt;&#10;  Type: &lt;Standards Track | Informational | Process&gt;&#10;  Created: &lt;date created on, in ISO 8601 (yyyy-mm-dd) format&gt;&#10;* Post-History: &lt;dates of postings to bitcoin mailing list&gt;&#10;* Replaces: &lt;BIP number&gt;&#10;* Superseded-By: &lt;BIP number&gt;&#10;* Resolution: &lt;url&gt;&#10;</pre>
+<pre>  BIP: &lt;BIP number&gt;
+  Title: &lt;BIP title&gt;
+  Author: &lt;list of authors' real names and optionally, email addrs&gt;
+* Discussions-To: &lt;email address&gt;
+  Status: &lt;Draft | Active | Accepted | Deferred | Rejected |
+           Withdrawn | Final | Superseded&gt;
+  Type: &lt;Standards Track | Informational | Process&gt;
+  Created: &lt;date created on, in ISO 8601 (yyyy-mm-dd) format&gt;
+* Post-History: &lt;dates of postings to bitcoin mailing list&gt;
+* Replaces: &lt;BIP number&gt;
+* Superseded-By: &lt;BIP number&gt;
+* Resolution: &lt;url&gt;
+</pre>
 <p>The Author header lists the names, and optionally the email addresses of all the authors/owners of the BIP. The format of the Author header value must be
 </p>
 <pre> Random J. User &lt;address@dom.ain&gt;
@@ -107,13 +126,13 @@
 <div class="mw-heading mw-heading2"><h2 id="bip-editors">BIP Editors</h2></div>
 <p>The current BIP editor is Luke Dashjr who can be contacted at <a class="external" rel="nofollow" href="mailto:luke_bipeditor@dashjr.org">luke_bipeditor@dashjr.org</a>.
 </p>
-<div class="mw-heading mw-heading2"><h2 id="bip-editor-responsibilities--workflow">BIP Editor Responsibilities & Workflow</h2></div>
+<div class="mw-heading mw-heading2"><h2 id="bip-editor-responsibilities--workflow">BIP Editor Responsibilities &amp; Workflow</h2></div>
 <p>The BIP editor subscribes to the Bitcoin development mailing list. All BIP-related correspondence should be sent (or CC'd) to luke_bipeditor@dashjr.org.
 </p><p>For each new BIP that comes in an editor does the following:
 </p>
 <ul><li>Read the BIP to check if it is ready: sound and complete. The ideas must make technical sense, even if they don't seem likely to be accepted.</li>
 <li>The title should accurately describe the content.</li>
-<li>Edit the BIP for language (spelling, grammar, sentence structure, etc.), markup (for reST BIPs), code style (examples should match BIP 8 & 7).</li></ul>
+<li>Edit the BIP for language (spelling, grammar, sentence structure, etc.), markup (for reST BIPs), code style (examples should match BIP 8 &amp; 7).</li></ul>
 <p>If the BIP isn't ready, the editor will send it back to the author for revision, with specific instructions.
 </p><p>Once the BIP is ready for the repository it should be submitted as a "pull request" to the <a rel="nofollow" class="external text" href="https://github.com/bitcoin/bips">bitcoin/bips</a> repository on GitHub where it may get further feedback.
 </p><p>The BIP editor will:

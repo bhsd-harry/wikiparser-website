@@ -2,6 +2,7 @@ import config from '@bhsd/code-standard/stylelint';
 
 export default {
 	...config,
+	ignoreFiles: ['wiki/**/*.css'],
 	rules: {
 		...config.rules,
 		'no-descending-specificity': null,

@@ -1,5 +1,27 @@
-html, body, main, article, div, select, pre, ol, li, ul, dl, dt, dd,
-p, hr, h1, h2, h3, h4, h5, h6, a, center, img {
+html,
+body,
+main,
+article,
+div,
+select,
+pre,
+ol,
+li,
+ul,
+dl,
+dt,
+dd,
+p,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+center,
+img {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -78,7 +100,7 @@ a.external, a.extiw, .mw-allpages-body a {
 	color: #36b;
 }
 a.external {
-	background: url(/wikiparser-node/assets/external-link.svg) center right/12px no-repeat;
+	background: url(/wikiparser-node/assets/external-link.svg) center right / 12px no-repeat;
 	padding-right: 1em;
 }
 a.external.free {
@@ -114,19 +136,11 @@ li {
 ul > li, ol > li {
 	min-height: 1em;
 }
-li:empty, li:-moz-only-whitespace,
-p:empty, p:-moz-only-whitespace {
+li:empty,
+li:-moz-only-whitespace,
+p:empty,
+p:-moz-only-whitespace {
 	display: none;
-}
-.redirectText {
-	font-size: 140%;
-	list-style: none;
-	margin: 0;
-}
-.redirectText > li {
-	padding-left: 47px;
-	background: url(/wikiparser-node/assets/redirect-ltr.svg) bottom left no-repeat;
-	margin: 0;
 }
 dl {
 	margin: .2em 0 .5em;
@@ -238,6 +252,9 @@ p + ul, p + ol, p + table, p + dl, p + blockquote {
 	border: 1px solid #a2a9b1;
 	border-collapse: collapse;
 }
+.wikitable > caption {
+	font-weight: bold;
+}
 .wikitable > * > tr > th {
 	background-color: #eaecf0;
 	color: #202122;
@@ -345,7 +362,7 @@ figure[typeof~="mw:File/Thumb"] > .mw-file-description {
 figure[typeof~="mw:File/Thumb"] > :not(figcaption) .mw-file-element,
 figure[typeof~="mw:File/Frame"] > :not(figcaption) .mw-file-element {
 	border: 1px solid #c8ccd1;
-	background: #f8f9fa;
+	background-color: #f8f9fa;
 	margin: 3px;
 }
 figure[typeof~="mw:File"] > figcaption,
@@ -364,53 +381,6 @@ figure[typeof~="mw:File/Frame"] > figcaption {
 	line-height: 1.4em;
 	overflow-wrap: anywhere;
 	padding: 0 6px 6px;
-}
-ul.gallery {
-	margin: 2px;
-	padding: 2px;
-	display: block;
-}
-.galleryfilename-truncate {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-.galleryfilename {
-	display: block;
-}
-li.gallerycaption {
-	font-weight: bold;
-	text-align: center;
-	display: block;
-	overflow-wrap: break-word;
-}
-li.gallerybox {
-	vertical-align: top;
-	display: inline-block;
-}
-div.gallerytext {
-	overflow: hidden;
-	font-size: 94%;
-	padding: 9px 4px 17px;
-	overflow-wrap: break-word;
-}
-li.gallerybox div.thumb {
-	background-color: #f8f9fa;
-	border: 1px solid #c8ccd1;
-	text-align: center;
-	margin: 2px;
-}
-ul.mw-gallery-nolines li.gallerybox div.thumb {
-	background-color: transparent;
-	border: 0;
-}
-.mw-gallery-traditional .gallerybox > .thumb > * {
-	vertical-align: middle;
-	display: inline-block;
-}
-li.gallerybox div.thumb img {
-	display: block;
-	margin: 0 auto;
 }
 .mw-allpages-body {
 	columns: 22em 3;
@@ -431,6 +401,10 @@ div.mw-highlight {
 	position: relative;
 	display: flow-root;
 	margin: 1em 0;
+}
+.mw-highlight pre {
+	margin: 0;
+	tab-size: 4;
 }
 .mw-content-ltr.mw-highlight-lines pre {
 	padding-left: 3.5em;
